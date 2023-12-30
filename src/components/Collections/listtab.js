@@ -7,7 +7,7 @@ export default function ListCollections({}) {
     return(
         <Column style={{ marginTop: 12,  backgroundColor: "#262626", borderRadius: 8,}}>
                 <BTIcon><BsCollection/></BTIcon>    
-                {collections.slice(0, 5).map((item, index) => {
+                {collections.slice(0, 4).map((item, index) => {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 const [hovered, setHovered] = useState(false);
                 return(

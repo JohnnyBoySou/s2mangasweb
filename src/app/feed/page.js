@@ -19,6 +19,8 @@ import Fixed from "../../components/Fixed";
 
 export default function Feed () {
   const { color, font } = useContext(ThemeContext)
+
+  const [fixed, setFixed] = useState(true);
   
   return(
     <Row style={{overflowY: 'hidden'}}>
@@ -35,7 +37,7 @@ export default function Feed () {
         </Column>
 
         {/*Home Content */}
-        <Column style={{height: '100vh',  overflow: 'auto'}}>
+        <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}}>
             <Column className="banner" >
                 <Title style={{fontSize: 32, lineHeight: 1}}>Boa tarde, <br/>JohnnyBoy</Title>   
                 <Row>
@@ -85,7 +87,7 @@ export default function Feed () {
                     </Row>
                 </Column> 
                 
-                <Column>
+                <Column onClick={() => setFixed(!fixed)}>
                     <Row className="blur" >
                         <Image 
                             src={'https://i.pinimg.com/564x/37/22/73/3722738f379e4d3be38b8dbd3943e44d.jpg'}
@@ -94,7 +96,7 @@ export default function Feed () {
                             height={64}
                             style={{borderRadius: 6,}}
                         />
-                        <Label style={{width: 120, marginLeft: 12,}}>Mangás Curtidos</Label>
+                        <Label style={{width: 120, marginLeft: 12,}}>Fixado</Label>
                     </Row>
                     <Row className="blur">
                         <Image 
@@ -115,11 +117,9 @@ export default function Feed () {
               <Similar/>
             </Column>
         </Column>
-        
+
         {/*RightBar*/}
-        <Column className="rightbar">
-          <Fixed/>
-        </Column>                    
+        {fixed && <Fixed close={() => setFixed(false)}/>}
     </Row>
     )
 }

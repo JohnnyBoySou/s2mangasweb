@@ -87,7 +87,7 @@
   }
   
   .fadeInRight {
-    animation: fadeInRight 0.5s ease-in-out;
+    animation: fadeInRight 0.2s ease-out;
   }
   
   .fadeInDown {

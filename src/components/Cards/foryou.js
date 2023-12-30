@@ -22,7 +22,7 @@ export default function ForYou({}) {
     return(
         <>
         <Title style={{marginTop: 34, marginLeft: 44,}}>Feito para você</Title>
-        <Draggable>
+        <Draggable style={{width: '100%', overflow: 'hidden'}}>
         <Row style={{marginTop: 10, overflow: 'hidden', paddingLeft: 44,}}>
         {mangas.map((item, index) => (<Card item={item} key={index} /> ))}
         </Row>
