@@ -1,4 +1,5 @@
 module.exports = {
+    //basePath: '/pages',
     compiler: {
       styledComponents: {
         // Enable display of the component name along with the generated className (needed for debugging).
@@ -9,4 +10,12 @@ module.exports = {
         fileName: false,
       },
     },
+    images: {
+      remotePatterns: [
+          {
+              protocol: 'https',
+              hostname: 'i.pinimg.com',
+          },
+      ],
+  },
   }

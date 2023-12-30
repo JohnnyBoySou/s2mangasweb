@@ -24,6 +24,8 @@ export default{
       t3: "#EFFCCE",
       t4: '#FF8360',
       label: "#cccccc",
+
+      poff: '#871429',
       off: "#262626",
       off2: "#404040",
       off3: "#595959",

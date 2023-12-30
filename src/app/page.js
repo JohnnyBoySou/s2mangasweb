@@ -1,15 +1,14 @@
 "use client";
 import React from "react"
 import { ThemeProvider } from "styled-components"
-import dark from "./themes/dark"
-import { GlobalStyle } from "./themes/global"
-import Feed from "./pages/feed";
+import dark from "../themes/dark"
+import { GlobalStyle } from "../themes/global"
 
-export default function App() {
+export default function ThemeClient({children}) {
   return (
    <ThemeProvider theme={dark}>
-      <Feed/>
       <GlobalStyle/>
+      {children}
    </ThemeProvider>
   )
 }

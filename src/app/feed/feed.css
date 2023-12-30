@@ -1,0 +1,44 @@
+.banner{
+    margin: 12px; 
+    margin-left: 6px; 
+    padding: 44px;
+    padding-right: 0px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
+}
+.blur{
+    backdrop-filter: blur(200px);
+    border-radius: 8px;
+    align-items: center; 
+    width: 240px;
+    margin: 15px 20px 0px 0px; 
+    background-color:#262626; 
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+.blur:hover:before{
+    position: absolute;
+    content: '►';
+    font-size: 32px;
+    color: #fff;
+    left: 18px;
+    top: 14px;
+}
+
+.rightbar{
+    margin: 12px; 
+    margin-left: 6px; 
+    padding: 54px;
+    border-radius: 8px;
+    background: linear-gradient(-145deg, #ff7700 -20.91%, #191919 54.92%);
+
+}
+.content{
+    margin: 12px; 
+    margin-left: 6px; 
+    margin-top: 6px;
+    border-radius: 8px;
+    max-width: 850px;
+    background: linear-gradient(145deg, #262626 -20.91%, #191919 54.92%);
+}

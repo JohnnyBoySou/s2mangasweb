@@ -1,4 +1,4 @@
-
+"use client";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle `
@@ -9,21 +9,21 @@ export const GlobalStyle = createGlobalStyle `
   }
   @font-face {
     font-family: 'Bold';
-    src: url('/fonts/Circular_Bold.ttf') format('truetype');
+    src: url('./fonts/Circular_Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: 700;
     font-display: swap;
   }
   @font-face {
     font-family: 'Book';
-    src: url('/fonts/Circular_Book.ttf') format('truetype');
+    src: url('./fonts/Circular_Book.ttf') format('truetype');
     font-style: normal;
     font-weight: 200;
     font-display: swap;
   }
   @font-face {
     font-family: 'Black';
-    src: url('/fonts/Circular_Black.ttf') format('truetype');
+    src: url('./fonts/Circular_Black.ttf') format('truetype');
     font-style: normal;
     font-weight: 900;
     font-display: swap;
@@ -35,6 +35,21 @@ export const GlobalStyle = createGlobalStyle `
   html, body{
     padding: 0;
     margin: 0;
+    font-family: 'Medium';
+    background-color: #171717;
+  }
+  ::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #707070; /* Cor do polegar da barra de rolagem */
+    border-radius: 6px; /* Borda arredondada do polegar */
+    cursor: pointer;
+  }
+  
+ ::-webkit-scrollbar-track {
+    background-color: #404040; /* Cor da trilha da barra de rolagem */
   }
 `;
 
@@ -74,7 +89,6 @@ export const Label = styled.span`
 `;
 
 export const Main = styled.section`
-  margin-top: -10px;
   padding: 12px;
 
 `;
@@ -91,10 +105,13 @@ export const ButtonPrimary = styled.button`
   padding: 8px 20px; 
   border-radius: 100px; 
   background-color: ${props => props.theme.color.primary};
+  color: ${props => props.theme.color.title};
   transition: .2s linear;
+  font-family: 'Medium';
+  font-size: 18px;
   cursor: pointer;
   &:hover {
-  background-color: ${props => props.theme.color.off2};
+  background-color: ${props => props.theme.color.poff};
   color:  ${props => props.theme.color.label};
   }
 `;
@@ -103,19 +120,54 @@ export const ButtonPrimary = styled.button`
 export const ButtonOff = styled.button`
   border: none;
   padding: 8px 20px; 
+  font-family: 'Medium';
+  font-size: 18px;
   border-radius: 100px; 
-  background-color: ${props => props.theme.color.primary};
+  color: ${props => props.theme.color.title};
+  background-color: ${props => props.theme.color.off2};
   transition: .2s linear;
   cursor: pointer;
   &:hover {
-  background-color: ${props => props.theme.color.off2};
-  color:  ${props => props.theme.color.label};
+  background-color: ${props => props.theme.color.off};
+  color: ${props => props.theme.color.label};
+  }
+`;
+
+
+export const BTIcon = styled.button`
+  border: none;
+  padding: 12px 20px 8px 20px; 
+  font-family: 'Medium';
+  font-size: 28px;
+  border-radius: 6px; 
+  color: ${props => props.theme.color.label+98};
+  background-color: #00000000;
+  transition: .2s linear;
+  cursor: pointer;
+  &:hover {
+  color: ${props => props.theme.color.title};
+  }
+`;
+
+export const BTColection = styled.button`
+  font-family: 'Medium';
+  font-size: 24px;
+  border: none;
+  width: 54px;
+  height: 50px;
+  margin: 0px 10px 10px 10px;
+  z-index: 99;
+  border-radius: 6px; 
+  color: ${props => props.theme.color.label};
+  transition: .2s linear;
+  cursor: pointer;
+  &:hover {
   }
 `;
 
 
 export const BTSelect = styled.button`
-  border: 2px solid ${props => props.active ? '#ffffff00' : "#404040"} ;
+  border: 2px solid ${props => props.$active ? '#ffffff00' : "#404040"} ;
   border-radius: 8px;
   margin: 10px 10px 0 0;
   transition: .2s linear;
@@ -124,7 +176,7 @@ export const BTSelect = styled.button`
   height: 100px;
   padding: 10px 20px;
   text-align: left;
-  background-color: ${props => props.active ? props.theme.color.primary : "#ffffff00"};
+  background-color: ${props => props.$active ? props.theme.color.primary : "#ffffff00"};
 `;
 
 

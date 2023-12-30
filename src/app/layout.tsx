@@ -1,4 +1,5 @@
 import React from "react"
+import ThemeClient from "./page"
 export const metadata = {
   title: 'S2Mangás',
   description: 'O melhor jeito de ler mangás',
@@ -6,12 +7,14 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="pt-BR">
+      <body>
+        <ThemeClient>
+          {children}
+        </ThemeClient>
+      </body>
     </html>
   )
 }
