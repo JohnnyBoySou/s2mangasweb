@@ -1,0 +1,12 @@
+.effect-1{border: 0; padding: 7px 0; border-bottom: 2px solid #404040;}
+.focus-border{width: 0; height: 2px; margin-top: -2px; background-color: #ED274A; border-radius: 10px; transition: 0.4s;}
+.effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
+.btrole{
+    transition: 0.4s;
+}
+.btrole:hover{
+    transform: scale(0.9);
+}
+
+
+

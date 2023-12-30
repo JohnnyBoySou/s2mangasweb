@@ -1,0 +1,36 @@
+.card {
+  width: 230px;
+  margin-top: 20px;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid var(--border, #6c6c6c);
+  background: radial-gradient(
+    71.54% 71.54% at 50.26% 100%,
+    #272727 0%,
+    rgba(39, 39, 39, 0) 100%
+  );
+}
+.free{
+    background: linear-gradient(180deg, #FFD3BA 0%, #8E3400 100%);
+    background-clip: text;
+    font-size: 28px;
+    font-family: Bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+.bt_free{
+    align-self: center;
+    width: 139px;
+    padding: 6px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: #FFD3BA;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    font-style: normal;
+    font-family: Medium;
+    font-weight: 450;
+    line-height: normal;
+}
