@@ -5,7 +5,7 @@ import React, {useContext, useState} from "react"
 import { ThemeContext } from 'styled-components'
 import Image from 'next/image'
 
-import { Column, Row, BTIcon, BTColection, Label, Title} from '../../themes/global'
+import { Column, Row, BTIcon, BTColection, Label, Title, Main} from '../../themes/global'
 
 //icones
 import { GoHome, GoSearch } from "react-icons/go";
@@ -17,12 +17,13 @@ import ForYou from "../../components/Cards/foryou";
 import Rate from "../../components/Cards/rate";
 import Similar from "../../components/Cards/similar";
 import ListCollections from "../../components/Collections/listtab";
+import Fixed from "../../components/Fixed";
 
 export default function Feed () {
   const { color, font } = useContext(ThemeContext)
   
   return(
-    <Row>
+    <Row style={{overflowY: 'hidden'}}>
         {/*MainBar */}
         <Column style={{padding: 12, }}>
             <Column style={{backgroundColor: color.off, borderRadius: 8,}}>
@@ -119,7 +120,7 @@ export default function Feed () {
         
         {/*RightBar*/}
         <Column className="rightbar">
-          <Title>Sidebar</Title>
+          <Fixed/>
         </Column>                    
     </Row>
     )

@@ -1,5 +1,4 @@
 "use client";
-import React from "react"
 import { ThemeProvider } from "styled-components"
 import dark from "../themes/dark"
 import { GlobalStyle } from "../themes/global"
