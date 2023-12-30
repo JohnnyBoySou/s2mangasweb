@@ -11,8 +11,7 @@ export default function ListCollections({}) {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 const [hovered, setHovered] = useState(false);
                 return(
-                // eslint-disable-next-line react/jsx-key
-                <Column style={{ alignSelf: 'center', zIndex: 99, position: 'relative'}}>
+                <Column key={index} style={{ alignSelf: 'center', zIndex: 99, position: 'relative'}}>
                     <BTColection key={index} 
                             onMouseEnter={() => setHovered(true)}
                             onMouseLeave={() => setHovered(false)} 

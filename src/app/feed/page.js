@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-key */
 'use client';
 import React, {useContext, useState} from "react"
 import { ThemeContext } from 'styled-components'
