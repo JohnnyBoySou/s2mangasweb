@@ -81,7 +81,9 @@ export const Error = styled.div`
   border-radius: 6px;
   margin-top: 10px;
 `;
-
+export const B = styled.span`
+  font-family: 'Bold';
+`
 export const Label = styled.span`
   font-size: ${props => props.theme.size.label};
   color: ${props => props.theme.color.label};
@@ -184,34 +186,35 @@ export const BTSelect = styled.button`
 
 
 export const BTLike = styled.button`
-font-family: 'Medium';
-font-size: 22px;
-padding: 10px 20px;
+  font-family: 'Medium';
+  font-size: 18px;
+  padding: 6px 20px;
   border: ${props => props.liked ? 'none': '3px solid #f7f7f790'}; 
-  background-color: ${props => props.liked ? props.theme.color.primary : "#00000000"};
-  color: ${props => props.liked ? props.theme.color.title : props.theme.color.label};
+  background:  ${props => props.liked ? '#FFFFFF': 'transparent'};
+  color: ${props => props.liked ? props.theme.color.primary : props.theme.color.label};
   border-radius: 100px; 
   transition: .2s linear;
   cursor: pointer;
   &:hover {
-  color: ${props => props.theme.color.title};
-  background-color: #606060;
+    color: ${props => props.theme.color.title};
+    border: 3px solid #fff;
   }
 `;
 
 
 export const BTFlow = styled.button`
   font-family: 'Medium';
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 100px; 
-  padding: 10px 20px;
+  padding: 6px 20px;
   border: ${props => props.notify ? '2px solid' + props.theme.color.primary : '3px solid #f7f7f790'}; 
   background: none;
   color: ${props => props.notify ? props.theme.color.primary : props.theme.color.label};
   transition: .2s linear;
   cursor: pointer;
   &:hover {
-  color: ${props => props.theme.color.title};
+    color: ${props => props.theme.color.title};
+    border: 3px solid #fff;
   }
 `;
 

@@ -1,0 +1,24 @@
+.card{
+    border-radius: 12px;
+    background-color: #363636;
+    padding: 22px;
+    margin: 6px;
+}
+
+.banner{
+    margin: 12px; 
+    margin-left: 6px; 
+    padding: 44px;
+    padding-right: 0px;
+    border-radius: 8px;
+    width: 100%;
+    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
+}
+.content{
+    margin: 12px; 
+    margin-left: 6px; 
+    margin-top: 6px;
+    border-radius: 8px;
+    padding-bottom: 24px;
+    background: linear-gradient(145deg, #262626 -20.91%, #191919 54.92%);
+}

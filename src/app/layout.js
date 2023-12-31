@@ -1,5 +1,9 @@
 import React from "react"
 import ThemeClient from "./page"
+import { Column, Row } from "../themes/global"
+import Header from '../components/Header'
+import Fixed from '../components/Fixed'
+
 export const metadata = {
   title: 'S2Mangás',
   description: 'O seu leitor de mangás moderno.',
@@ -13,7 +17,13 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <ThemeClient>
       <body>
-          {children}
+      <Row>
+        <Header  style={{width: '10%'}}/>
+        <Column style={{height: '100vh', width: '70%', overflowY: 'auto', overflowX: 'hidden'}}>
+        {children}
+        </Column>
+         <Fixed style={{width: '20%'}}/> 
+      </Row>
       </body>
       </ThemeClient>
     </html>

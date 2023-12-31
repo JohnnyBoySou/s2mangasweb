@@ -6,7 +6,7 @@ import Fixed from '../../components/Fixed';
 
 export default function MangaLayout ({children}){
 
-    const [fixe, setFixe] = useState(false);
+    const [fixe, setFixe] = useState(true);
     return(
     <Row>
         <Header/>

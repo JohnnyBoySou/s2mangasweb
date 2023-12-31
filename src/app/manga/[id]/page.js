@@ -5,7 +5,7 @@ import { Column, Row, Title, Label, BTLike, BTFlow} from '../../../themes/global
 import { mangas } from '../../../requests/mangas';
 
 import { FaPlay } from "react-icons/fa";
-import { GoBell, GoBellSlash } from "react-icons/go";
+import { GoBell, GoBellSlash, GoHeart } from "react-icons/go";
 
 import './manga.css'
 
@@ -31,6 +31,7 @@ export default function DetailsManga({ params }) {
     const preferences = {
         notify: false,
         liked: false,
+        collection: true,
     }
 
     const chaptersLast = [
@@ -60,10 +61,13 @@ export default function DetailsManga({ params }) {
     const Chapter = ({item, index}) => {
         //backgroundColor: index % 2 === 0 ? "#404040" : "#606060",
       return(
-        <Row style={{ padding: 12, width: 400, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
+        <Row style={{ padding: 12, maxWidth: 700, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
             <Label style={{fontSize: 18, marginRight: 20,}}>#{item.number}</Label>
             <Title style={{fontSize: 20, fontFamily: 'Medium',}}>{item.name}</Title>
             <Label style={{fontSize: 18, marginRight: 20,}}>{item.date}</Label>
+            <Title style={{marginTop: 4,}}>
+                <GoHeart />
+            </Title>
         </Row>
       )
     }
@@ -81,7 +85,7 @@ export default function DetailsManga({ params }) {
                         <Label>{item?.type} • {item?.chapters} capítulos • #{item?.id}</Label>
                         <Title style={{fontSize: 42,}}>{item?.name}</Title>
                         <Label> {formatNumber(item?.likes)} curtidas • {item?.date} • {item?.author}</Label>
-                        <Label style={{width: 340, marginTop: 15, lineHeight: 1.2, fontSize: 16,}}>{item?.description.slice(0, 220)}...</Label>
+                        <Label style={{width: 360, marginTop: 15, lineHeight: 1.4, fontSize: 16,}}>{item?.description.slice(0, 240)}...</Label>
                         
                     </Column>
                 </Row>
@@ -92,10 +96,19 @@ export default function DetailsManga({ params }) {
                             <Column className="play"><FaPlay/></Column>
                             <BTLike liked={preferences?.liked} style={{margin: '0px 10px'}}>{preferences?.liked ? 'Curtiu' : 'Curtir'}</BTLike>
                             <BTFlow notify={preferences?.notify}>{preferences?.notify ? 'Seguindo' : 'Seguir'}</BTFlow>
+                            <BTFlow style={{marginLeft: 12,}} notify={preferences?.collection}>{preferences?.collection ? 'Salvo' : 'Salvar'}</BTFlow>
+                      
                         </Row>
                     </Row>
+                    <Column style={{width: '96%', height: 2, marginTop: 15, backgroundColor: "#303030"}}/>
                     <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
-                    {chaptersLast.map((item, index) => <Chapter key={index} index={index} item={item}/>)}
+                    {chaptersLast.slice(0, 3).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
+                </Column>
+
+                <Column>
+                <Column style={{width: '96%', height: 2, marginTop: 30, marginBottom: 20, backgroundColor: "#303030"}}/>
+                    <Title style={{marginBottom: 10, marginTop: 10,}}>Todos ({item?.chapters})</Title>
+                    {chaptersLast.slice(0, 3).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
                 </Column>
             </Column>
 

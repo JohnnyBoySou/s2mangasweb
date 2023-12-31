@@ -22,6 +22,7 @@
 }
 .chapter{
     transition: .2s linear;
+    backdrop-filter: blur(500px);
 }
 .chapter:hover{
     backdrop-filter: blur(100px);
