@@ -4,12 +4,13 @@ import Draggable from "../draggable"
 import { mangas } from "../../requests/mangas"
 
 
-export default function Rate({}) {
-    const Card = ({ item, index }) => {
+export default function Rate({handle}) {
+    const Card = ({ item, index, handle }) => {
         return(
           <Column key={index} >
           <img 
               src={item?.capa}
+              onClick={handle}
               alt={item?.name}
               width={124}
               height={186}
@@ -24,7 +25,7 @@ export default function Rate({}) {
         <Title style={{marginTop: 34, marginLeft: 44,}}>Melhores notas</Title>
         <Draggable>
         <Row style={{marginTop: 10, overflow: 'hidden', paddingLeft: 44,}}>
-        {mangas.map((item, index) => (<Card item={item} key={index} /> ))}
+        {mangas.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
         </Row>
         </Draggable>  
         </Column>

@@ -1,12 +1,14 @@
+'use client';
 import React, { useState} from 'react'
 import { Column, BTIcon, BTColection, Label } from "../../themes/global";
 import { BsCollection } from "react-icons/bs";
 import { collections } from "../../requests/collections/list";
+import Link from 'next/link'
 
 export default function ListCollections({}) {
     return(
         <Column style={{ marginTop: 12,  backgroundColor: "#262626", borderRadius: 8,}}>
-                <BTIcon><BsCollection/></BTIcon>    
+                <Link href="/collections"><BTIcon><BsCollection/></BTIcon></Link>
                 {collections.slice(0, 4).map((item, index) => {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 const [hovered, setHovered] = useState(false);

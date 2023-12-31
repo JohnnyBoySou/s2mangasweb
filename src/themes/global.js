@@ -9,21 +9,21 @@ export const GlobalStyle = createGlobalStyle `
   }
   @font-face {
     font-family: 'Bold';
-    src: url('./fonts/Circular_Bold.ttf') format('truetype');
+    src: url('/fonts/Circular_Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: 700;
     font-display: swap;
   }
   @font-face {
     font-family: 'Book';
-    src: url('./fonts/Circular_Book.ttf') format('truetype');
+    src: url('/fonts/Circular_Book.ttf') format('truetype');
     font-style: normal;
     font-weight: 200;
     font-display: swap;
   }
   @font-face {
     font-family: 'Black';
-    src: url('./fonts/Circular_Black.ttf') format('truetype');
+    src: url('/fonts/Circular_Black.ttf') format('truetype');
     font-style: normal;
     font-weight: 900;
     font-display: swap;
@@ -177,6 +177,42 @@ export const BTSelect = styled.button`
   padding: 10px 20px;
   text-align: left;
   background-color: ${props => props.$active ? props.theme.color.primary : "#ffffff00"};
+`;
+
+
+
+
+
+export const BTLike = styled.button`
+font-family: 'Medium';
+font-size: 22px;
+padding: 10px 20px;
+  border: ${props => props.liked ? 'none': '3px solid #f7f7f790'}; 
+  background-color: ${props => props.liked ? props.theme.color.primary : "#00000000"};
+  color: ${props => props.liked ? props.theme.color.title : props.theme.color.label};
+  border-radius: 100px; 
+  transition: .2s linear;
+  cursor: pointer;
+  &:hover {
+  color: ${props => props.theme.color.title};
+  background-color: #606060;
+  }
+`;
+
+
+export const BTFlow = styled.button`
+  font-family: 'Medium';
+  font-size: 22px;
+  border-radius: 100px; 
+  padding: 10px 20px;
+  border: ${props => props.notify ? '2px solid' + props.theme.color.primary : '3px solid #f7f7f790'}; 
+  background: none;
+  color: ${props => props.notify ? props.theme.color.primary : props.theme.color.label};
+  transition: .2s linear;
+  cursor: pointer;
+  &:hover {
+  color: ${props => props.theme.color.title};
+  }
 `;
 
 

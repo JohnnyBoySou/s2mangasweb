@@ -1,42 +1,24 @@
 'use client';
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import { ThemeContext } from 'styled-components'
 import Image from 'next/image'
 
-import { Column, Row, BTIcon, BTColection, Label, Title, Main} from '../../themes/global'
+import { Column, Row, Label, Title} from '../../themes/global'
 
 //icones
-import { GoHome, GoSearch } from "react-icons/go";
-import { TbCards } from "react-icons/tb";
-import { CgProfile } from "react-icons/cg";
 import './feed.css';
 
 import ForYou from "../../components/Cards/foryou";
 import Rate from "../../components/Cards/rate";
 import Similar from "../../components/Cards/similar";
-import ListCollections from "../../components/Collections/listtab";
-import Fixed from "../../components/Fixed";
 
 export default function Feed () {
   const { color, font } = useContext(ThemeContext)
 
-  const [fixed, setFixed] = useState(true);
-  
+
+
   return(
     <Row style={{overflowY: 'hidden'}}>
-        {/*MainBar */}
-        <Column style={{padding: 12, }}>
-            <Column style={{backgroundColor: color.off, borderRadius: 8,}}>
-                <BTIcon><GoHome/></BTIcon>
-                <BTIcon><GoSearch/></BTIcon>    
-                <BTIcon><TbCards /></BTIcon>    
-                <BTIcon><CgProfile /></BTIcon>    
-            </Column>
-            <ListCollections/>
-                
-        </Column>
-
-        {/*Home Content */}
         <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}}>
             <Column className="banner" >
                 <Title style={{fontSize: 32, lineHeight: 1}}>Boa tarde, <br/>JohnnyBoy</Title>   
@@ -112,14 +94,11 @@ export default function Feed () {
                 </Row>
             </Column>
             <Column className="content">
-              <ForYou/>
+              <ForYou />
               <Rate/>
               <Similar/>
             </Column>
         </Column>
-
-        {/*RightBar*/}
-        {fixed && <Fixed close={() => setFixed(false)}/>}
     </Row>
     )
 }

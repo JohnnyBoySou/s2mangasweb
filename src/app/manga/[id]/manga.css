@@ -1,0 +1,29 @@
+.banner{
+    margin: 12px; 
+    margin-left: 6px; 
+    padding: 44px;
+    padding-right: 0px;
+    border-radius: 8px;
+    width: 100%;
+    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
+}
+.play{
+    width: 64px;
+    height: 64px;
+    border-radius: 100px;
+    justify-content: center;
+    margin: 0px 12px;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    align-self: center;
+    cursor: cell;
+    background: linear-gradient(142deg, #ED274A -7.93%, #FF007A 52.36%, #FF620A 88.53%);
+}
+.chapter{
+    transition: .2s linear;
+}
+.chapter:hover{
+    backdrop-filter: blur(100px);
+    background-color: #262626;
+}

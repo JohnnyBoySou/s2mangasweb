@@ -2,13 +2,19 @@
 import { Column, Label, Title, Row, } from "../../themes/global"
 import Draggable from "../draggable"
 import { mangas } from "../../requests/mangas"
+import { useRouter } from 'next/navigation'
 
-
-export default function ForYou({}) {
-    const Card = ({ item, index }) => {
+export default function ForYou({  }) {
+  const router = useRouter()
+  const handle = (id) => {
+    router.push(`/manga/${id}`)
+  }
+  
+    const Card = ({ item, index, handle }) => {
         return(
           <Column key={index} >
           <img 
+              onClick={handle}
               src={item?.capa}
               alt={item?.name}
               width={124}
@@ -24,7 +30,7 @@ export default function ForYou({}) {
         <Title style={{marginTop: 34, marginLeft: 44,}}>Feito para você</Title>
         <Draggable style={{width: '100%', overflow: 'hidden'}}>
         <Row style={{marginTop: 10, overflow: 'hidden', paddingLeft: 44,}}>
-        {mangas.map((item, index) => (<Card item={item} key={index} /> ))}
+        {mangas.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
         </Row>
         </Draggable>
         </>

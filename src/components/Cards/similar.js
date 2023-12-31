@@ -4,11 +4,12 @@ import Draggable from "../draggable"
 import { mangas } from "../../requests/mangas"
 
 
-export default function Similar({}) {
-    const Card = ({ item, index }) => {
+export default function Similar({handle}) {
+    const Card = ({ item, index, handle }) => {
         return(
           <Column key={index} >
           <img 
+              onClick={handle}
               src={item?.capa}
               alt={item?.name}
               width={124}
@@ -38,7 +39,7 @@ export default function Similar({}) {
         
         <Draggable>
         <Row style={{marginTop: 10, overflow: 'hidden', paddingLeft: 44,}}>
-        {mangas.map((item, index) => (<Card item={item} key={index} /> ))}
+        {mangas.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
         </Row>
         </Draggable>
         </>

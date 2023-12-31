@@ -1,5 +1,7 @@
 export const mangas = [
     {
+        //long details
+        id: 2312,
         name: 'Jujutsu Kaisen',
         capa: 'https://i0.wp.com/animebox.net/wp-content/uploads/2022/11/jujutsu-kaisen-manga-volume-21.webp?resize=640%2C1007&ssl=1',
         score: 7.6,
@@ -8,8 +10,13 @@ export const mangas = [
         date: 2018,
         author: 'AKUTAMI Gege',
         chapters: 247,
+        description: 'No universo de Jujutsu Kaisen, escondido à vista de todos, um conflito milenar continua. Monstros sobrenaturais conhecidos como “Maldições” aterrorizam a humanidade das sombras, e humanos poderosos conhecidos como feiticeiros “Jujutsu” usam artes místicas para exterminá-los. Quando o estudante do ensino médio Yuuji Itadori encontra um dedo seco da lendária Maldição Sukuna Ryoumen, ele de repente se junta a este conflito sangrento.       Atacado por uma maldição atraída pelo poder do dedo, Yuuji toma uma decisão imprudente de se proteger, ganhando o poder de combater as maldições no processo, mas também involuntariamente liberando o malicioso Sukuna no mundo mais uma vez. Embora Yuuji possa controlar e confinar Sukuna em seu próprio corpo, o mundo do Jujutsu classifica Yuuji como uma maldição perigosa de alto nível que deve ser exterminada.',
+        likes: 32000,
+        id_review: 2312_522,
+        categories: ['Ação', 'Drama', 'Escolar', 'Horror', 'Shounen', 'Sobrenatural'  ]    
     },
     {
+        id: 2222,
         name: 'Osananajimi no Ijou Kawaii Imouto-chan',
         capa: 'https://kenmei.b-cdn.net/covers/manga_series/67519/cover/jpeg-thumbnail-large-cbf91a8fd313d12c69e8b7de96dca8b0.jpeg',
         score: 7.2,
@@ -20,6 +27,7 @@ export const mangas = [
         chapters: 3,
     },
     {
+        id: 2020,
         name: 'Ijiranaide, Nagatoro-san',
         capa: 'https://pbs.twimg.com/media/F_6RdXXX0AAml_2?format=jpg&name=large',
         score: 7.4,
@@ -30,6 +38,7 @@ export const mangas = [
         chapters: 141,
     },
     {
+        id: 1111,
         name: 'Hajimete no Gal',
         capa: 'https://img.mangaschan.com/uploads/manga-images/h/hajimete-no-gal/Hajimete%20no%20Gal%20mangaschan.webp',
         score: 7.2,
@@ -40,6 +49,7 @@ export const mangas = [
         chapters: 176,
     },
     {
+        id: 9999,
         name: 'Kono Subarashii Sekai ni Shukufuku wo!',
         capa: 'https://img.mangaschan.com/uploads/manga-images/k/kono-subarashii-sekai-ni-shukufuku-wo/thumbnail.jpg',
         score: 7.2,
@@ -50,6 +60,7 @@ export const mangas = [
         chapters: 84,
     },
     {
+        id: 3232,
         name: 'Ban Sheng Nu Tanpaile – The Saintess Has a Showdown',
         capa: 'https://img.mangaschan.com/uploads/manga-images/b/ban-sheng-nu-tanpaile-the-saintess-has-a-showdown/thumbnail.webp',
         score: 7.0,
