@@ -58,7 +58,6 @@ export const TextInput = styled.input`
   color: ${props => props.theme.color.title};
   font-family: 'Book';
   margin-top: 10px;
-  background-color: #00000000;
 `;
 
 export const SubInput = styled.span`
@@ -159,6 +158,21 @@ export const BTColection = styled.button`
   height: 50px;
   margin: 0px 10px 10px 10px;
   z-index: 99;
+  border-radius: 6px; 
+  color: ${props => props.theme.color.label};
+  transition: .2s linear;
+  cursor: pointer;
+  &:hover {
+  }
+`;
+
+export const BTColectionLarge = styled.button`
+  font-family: 'Medium';
+  font-size: 52px;
+  margin-bottom: 10px;
+  border: none;
+  width: 124px;
+  height: 120px;
   border-radius: 6px; 
   color: ${props => props.theme.color.label};
   transition: .2s linear;

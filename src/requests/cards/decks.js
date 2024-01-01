@@ -379,7 +379,7 @@ const Decks = [
 
     {
         name: 'Jujutso Kaisen',
-        manga_id: 1,
+        manga_id: 2,
         price: 120,
         
         description: 'O Deck feito para fãs do Gojo',
@@ -487,7 +487,7 @@ const Decks = [
 
     {
         name: 'Chainsaw Man',
-        manga_id: 'chainsaw-man',
+        manga_id: 7,
         price: 150,
         description: 'O Deck feito para os randamdam',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Chainsaw_Man_logo.png/799px-Chainsaw_Man_logo.png',
@@ -551,8 +551,8 @@ const Decks = [
 
     {
         name: 'Bleach',
-        manga_id: 'bleach',
-        price: 150,
+        manga_id: 5,
+        price: 130,
         description: 'O Deck feito para os shinigami de plantão',
         logo: 'https://static.wikia.nocookie.net/animeverso/images/c/cb/BleachLogo.png/revision/latest?cb=20230328022920&path-prefix=pt-br',
         capa: 'https://i.pinimg.com/564x/b2/b7/47/b2b747a1460ce328020db94809c1037d.jpg  ',
@@ -597,7 +597,7 @@ const Decks = [
     
     {
         name: 'Mob Psycho 100',
-        manga_id: 'mob-psycho-100',
+        manga_id: 6,
         price: 150,
         description: 'O Deck feito para os psíquicos de plantão',
         logo: 'https://pixel-deep.com/media/5/img_2_md_1.png>',

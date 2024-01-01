@@ -1,3 +1,4 @@
+
 import React from "react"
 import ThemeClient from "./page"
 import { Column, Row } from "../themes/global"
@@ -13,6 +14,8 @@ export const metadata = {
   publisher: 'S2Mangas Team',
 }
 export default function RootLayout({ children }) {
+
+  const fixed = false
   return (
     <html lang="pt-BR">
       <ThemeClient>
@@ -22,7 +25,7 @@ export default function RootLayout({ children }) {
         <Column style={{height: '100vh', width: '70%', overflowY: 'auto', overflowX: 'hidden'}}>
         {children}
         </Column>
-         <Fixed style={{width: '20%'}}/> 
+        {fixed && <Fixed style={{width: '20%'}}/> }
       </Row>
       </body>
       </ThemeClient>

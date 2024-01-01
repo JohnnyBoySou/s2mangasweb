@@ -1,15 +1,92 @@
-.card{
-    border-radius: 12px;
-    background-color: #363636;
-    padding: 22px;
-    margin: 6px;
+.card {
+  border-radius: 12px;
+  background-color: #363636;
+  padding: 22px;
+  margin: 6px;
 }
-.banner{
-    margin: 12px; 
-    margin-left: 6px; 
-    padding: 44px;
-    padding-right: 0px;
-    border-radius: 8px;
-    width: 100%;
-    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
+.banner {
+  margin: 12px;
+  margin-left: 6px;
+  padding: 34px;
+  padding-right: 12px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ed274a -20.91%, #191919 54.92%);
+}
+
+.effect-1 {
+  border-radius: 100px;
+  background-color: #404040;
+  border: 3px solid #404040;
+  transition: .1s linear;
+  z-index: 999;
+  font-family: 'Book';
+  font-size: 24px;
+  padding: 12px 20px;
+  color: #fff;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.effect-1:focus {
+  outline: none;
+  border: 3px solid #f7f7f7;
+}
+.effect-1::placeholder{
+    color: #f7f7f7;
+    opacity: .7;
+}
+.focus-border {
+  background-color: #606060;
+  font-size: 18px;
+  padding: 12px 14px 20px 14px;
+  font-family: 'Book';
+  color: #fff;
+  border-radius: 12px;
+  transition: 0.4s;
+  align-self: center;
+  transform: translateY(-55px);
+}
+.effect-1:focus ~ .focus-border {
+  transition: 0.4s;
+  transform: translateY(-95px);
+}
+.btrole {
+  transition: 0.4s;
+}
+.btrole:hover {
+  transform: scale(0.9);
+}
+.btsearch{
+    display: flex;
+    border-radius: 100px;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-left: 40px;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    border: 8px solid #ffffff00;
+    transition: .2s linear;
+    background-color: #ED274A;
+}
+.btsearch::before{
+    content: '•';
+    color: #ffffff40;
+    position: absolute;
+    top: 10px;
+    left: -46px;
+    font-size: 32px;
+}
+
+.btsearch:hover{
+    border: 8px solid #930f27;
+}
+.image_poster{
+    align-self: flex-end;
+    border-radius: 6px;
+    margin-right: 10px;
+    box-shadow: 5px 20px 40px #000;
 }

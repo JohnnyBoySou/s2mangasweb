@@ -7,15 +7,19 @@ import Decks from '../../requests/cards/decks';
 import Cards from '../../requests/cards/cards';
 import Draggable from '../../components/draggable';
 import Spline from '@splinetool/react-spline';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 export default function CardsDecks(){
+    const router = useRouter()
 
     const ListDecks = ({item}) => {
+
         return(
-            <Column style={{ flexGrow: 1, margin: 6,  alignSelf: 'center', }}>
+            <Column onClick={() => { router.push(`/cards/deck/${item.manga_id}`)}} style={{ flexGrow: 1, margin: 6,  alignSelf: 'center', }}>
             <img src={ item?.capa } alt='' width={162} height={162} style={{ borderRadius: 8, objectFit: 'cover'}}  />
             <Label style={{textAlign: 'center',}}>{item?.name}</Label>
-        </Column>
+            </Column>
         )
     }
     const ListCards = ({item}) => {
@@ -52,7 +56,7 @@ export default function CardsDecks(){
             <Title style={{marginLeft: 28, marginTop: 28,}}>Decks em Alta</Title>
             <Draggable>
             <Row style={{ overflow: 'hidden', paddingLeft: 24,}}>
-            {Decks.map((item, index) => <ListDecks key={index} item={item}/>)}
+            {Decks.map((item, index) => <ListDecks key={index} item={item} handle={() => handle(item.manga_id)}/>)}
             </Row>
             </Draggable>
         </Column>
