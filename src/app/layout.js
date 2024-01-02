@@ -15,7 +15,7 @@ export const metadata = {
 }
 export default function RootLayout({ children }) {
 
-  const fixed = false
+  const fixed = false  
   return (
     <html lang="pt-BR">
       <ThemeClient>

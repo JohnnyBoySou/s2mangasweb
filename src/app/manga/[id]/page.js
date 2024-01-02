@@ -85,7 +85,7 @@ export default function DetailsManga({ params }) {
                         <Label>{item?.type} • {item?.chapters} capítulos • #{item?.id}</Label>
                         <Title style={{fontSize: 42,}}>{item?.name}</Title>
                         <Label> {formatNumber(item?.likes)} curtidas • {item?.date} • {item?.author}</Label>
-                        <Label style={{width: 360, marginTop: 15, lineHeight: 1.4, fontSize: 16,}}>{item?.description.slice(0, 240)}...</Label>
+                        <Label style={{width: 360, marginTop: 15, lineHeight: 1.4, fontSize: 16,}}>{item?.description?.slice(0, 240)}...</Label>
                         
                     </Column>
                 </Row>

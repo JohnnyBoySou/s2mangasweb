@@ -1,14 +1,14 @@
 .banner{
-    margin: 12px; 
-    margin-left: 6px; 
-    padding: 44px;
-    padding-right: 0px;
+    margin-top: 12px; 
+    margin-right: 6px; 
+    overflow: auto;
     border-radius: 8px;
-    width: 100%;
-    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
-}
-.cardlist{
+    position: relative;
     background: linear-gradient(145deg, #404040 -20.91%, #262626 54.92%);
+
+}   
+.cardlist{
+    background: #404040;
     border-radius: 12px;
     padding: 12px;
     width: 400px;
@@ -17,4 +17,10 @@
 }
 .cardlist:hover{
     transform: scale(1.03);
+}
+
+.content{
+    backdrop-filter: blur(500px);
+    margin-top: 10px;
+    justify-content: center;
 }

@@ -1,6 +1,7 @@
 const Decks = [
     {
         name: 'My Hero Academia',
+        date: '22 de Jan, 2024',
         manga_id: 1319,
         price: 100,
         description: 'O Deck feito para amantes de Boku no Hero. (My Hero Academia).',

@@ -1,7 +1,7 @@
 export const mangas = [
     {
         //long details
-        id: 2312,
+        id: 1,
         name: 'Jujutsu Kaisen',
         capa: 'https://i0.wp.com/animebox.net/wp-content/uploads/2022/11/jujutsu-kaisen-manga-volume-21.webp?resize=640%2C1007&ssl=1',
         score: 7.6,
@@ -16,7 +16,7 @@ export const mangas = [
         categories: ['Ação', 'Drama', 'Escolar', 'Horror', 'Shounen', 'Sobrenatural'  ]    
     },
     {
-        id: 2222,
+        id: 6,
         name: 'Osananajimi no Ijou Kawaii Imouto-chan',
         capa: 'https://kenmei.b-cdn.net/covers/manga_series/67519/cover/jpeg-thumbnail-large-cbf91a8fd313d12c69e8b7de96dca8b0.jpeg',
         score: 7.2,
@@ -27,7 +27,7 @@ export const mangas = [
         chapters: 3,
     },
     {
-        id: 2020,
+        id: 2,
         name: 'Ijiranaide, Nagatoro-san',
         capa: 'https://pbs.twimg.com/media/F_6RdXXX0AAml_2?format=jpg&name=large',
         score: 7.4,
@@ -38,7 +38,7 @@ export const mangas = [
         chapters: 141,
     },
     {
-        id: 1111,
+        id: 7,
         name: 'Hajimete no Gal',
         capa: 'https://img.mangaschan.com/uploads/manga-images/h/hajimete-no-gal/Hajimete%20no%20Gal%20mangaschan.webp',
         score: 7.2,
@@ -49,7 +49,7 @@ export const mangas = [
         chapters: 176,
     },
     {
-        id: 9999,
+        id: 3,
         name: 'Kono Subarashii Sekai ni Shukufuku wo!',
         capa: 'https://img.mangaschan.com/uploads/manga-images/k/kono-subarashii-sekai-ni-shukufuku-wo/thumbnail.jpg',
         score: 7.2,
@@ -60,7 +60,7 @@ export const mangas = [
         chapters: 84,
     },
     {
-        id: 3232,
+        id: 4,
         name: 'Ban Sheng Nu Tanpaile – The Saintess Has a Showdown',
         capa: 'https://img.mangaschan.com/uploads/manga-images/b/ban-sheng-nu-tanpaile-the-saintess-has-a-showdown/thumbnail.webp',
         score: 7.0,
@@ -69,6 +69,40 @@ export const mangas = [
         date: 2021,
         author: 'Bunny',
         chapters: 4,
+    },
+    {
+        id: 5,
+        name: 'Boku no Hero Academia',
+        capa: 'https://img.mangaschan.com/uploads/manga-images/b/boku-no-hero-academia/Boku%20no%20Hero%20Academia.webp',
+        score: 8.3,
+        status: 'Em curso',
+        type: 'Manga',
+        date: 2014,
+        author: 'HORIKOSHI Kouhei',
+        chapters: 409,
+    },
+   
+    {
+        id: 8,
+        name: 'Dandadan',
+        capa: 'https://mangaschan.net/wp-content/uploads/Dandadan-Mangaschan.webp',
+        score: 7.8,
+        status: 'Em curso',
+        type: 'Manga',
+        date: 2021,
+        author: 'TATSU Yukinobu',
+        chapters: 135,
+    },
+    {
+        id: 9,
+        name: 'Blue Lock',
+        capa: 'https://img.mangaschan.com/uploads/manga-images/b/blue-lock/thumbnail.jpg',
+        score: 8.5,
+        status: 'Em curso',
+        type: 'Manga',
+        date: 2018,
+        author: 'Kaneshiro Muneyuki',
+        chapters: 245,
     },
 
 ]

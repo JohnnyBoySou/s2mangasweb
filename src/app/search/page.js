@@ -5,6 +5,7 @@ import './search.css'
 import { CiEdit, CiCreditCard1, CiSearch } from "react-icons/ci";
 
 import tags from '../../requests/categories/tags'
+import Link from 'next/link';
 
 export default function Search() {
     const [query, setQuery] = useState();
@@ -15,11 +16,13 @@ export default function Search() {
 
     const CategoryList = ({ item, index }) => {
       return(
+        <Link href={`/search/category/${item.id}`} style={{textDecoration: 'none'}}>
         <Column onClick={() => setCategory(item?.name)} key={index} style={{width: 200, cursor: 'pointer', margin: 8, borderRadius: 12, height: 130, backgroundColor: item?.color, overflow: 'hidden', 
                 border: category === item.name ? '6px solid #fff' : '6px solid #ffffff00'}}>
                 <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
                   <img className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
               </Column>
+        </Link>
       )
     }
     
@@ -51,7 +54,7 @@ export default function Search() {
             <Title style={{marginLeft: 10,}}>Categorias: {category}</Title>
             <Row style={{flexWrap: 'wrap', marginTop: 10,}}>
 
-            {tags.map((item, index) => <CategoryList index={index} key={index} item={item} />)}
+            {tags.map((item, index) => <CategoryList  index={index} key={index} item={item} />)}
             </Row>
         </Column>
         </Column>

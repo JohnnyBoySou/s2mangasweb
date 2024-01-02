@@ -40,7 +40,7 @@ const Draggable = ({rootClass = "", children }) => {
       }
   
     return (
-      <div ref={ourRef} style={{cursor: 'e-resize'}} onMouseDown={handleDragStart} onMouseUp={handleDragEnd} onMouseMove={handleDrag} className={rootClass + "flex overflow-x-scroll"}>
+      <div ref={ourRef}  onMouseDown={handleDragStart} onMouseUp={handleDragEnd} onMouseMove={handleDrag} className={rootClass + "flex overflow-x-scroll"}>
         {children}
       </div>
     );

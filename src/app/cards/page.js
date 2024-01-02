@@ -16,8 +16,8 @@ export default function CardsDecks(){
     const ListDecks = ({item}) => {
 
         return(
-            <Column onClick={() => { router.push(`/cards/deck/${item.manga_id}`)}} style={{ flexGrow: 1, margin: 6,  alignSelf: 'center', }}>
-            <img src={ item?.capa } alt='' width={162} height={162} style={{ borderRadius: 8, objectFit: 'cover'}}  />
+            <Column onClick={() => { router.push(`/cards/deck/${item.manga_id}`)}} style={{ flexGrow: 1, cursor: 'pointer', borderRadius: 8, margin: 6,  alignSelf: 'center', padding: 20, backgroundColor: "#262626" }}>
+            <img src={ item?.capa } alt='' width={162} height={162} style={{ borderRadius: 8, objectFit: 'cover', marginBottom: 10,}}  />
             <Label style={{textAlign: 'center',}}>{item?.name}</Label>
             </Column>
         )

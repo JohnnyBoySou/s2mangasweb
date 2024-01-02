@@ -137,13 +137,14 @@ export const ButtonOff = styled.button`
 
 export const BTIcon = styled.button`
   border: none;
-  padding: 12px 20px 8px 20px; 
+  padding: 12px 20px 10px 24px; 
   font-family: 'Medium';
   font-size: 28px;
   border-radius: 6px; 
   color: ${props => props.theme.color.label+98};
   background-color: #00000000;
   transition: .2s linear;
+  align-self: center;
   cursor: pointer;
   &:hover {
   color: ${props => props.theme.color.title};
