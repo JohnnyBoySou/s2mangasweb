@@ -8,10 +8,13 @@ import { BsThreeDots } from "react-icons/bs";
 import { mangas } from "../../requests/mangas"
 import './fixed.css';
 import '../../themes/ani.css'
+import { usePathname } from "next/navigation";
 
 import ColorThief from 'colorthief';
 
 export default function Fixed({close}){
+  
+  const pathname = usePathname();
    const item = mangas[1];
    const stats = {porcentage: '60%', read: 48, total: 82,}
    const [dominantColor, setDominantColor] = useState(null);
@@ -45,6 +48,10 @@ export default function Fixed({close}){
       setDominantColor(hex)
     })
    }, [item])
+
+ //  if (pathname == "/register" || "/login") {
+  //  return <></>;
+  //}
 
    if(dominantColor != null ){
   return(

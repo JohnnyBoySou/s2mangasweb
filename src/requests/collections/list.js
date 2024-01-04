@@ -1,5 +1,6 @@
 export const collections = [
     {
+        id: 1,
         name: 'Curtidos',
         icon: '❤️',
         color: '#adffef',
@@ -7,6 +8,7 @@ export const collections = [
         date: '12 de Jan, 2024'
     },
     {
+        id: 2,
         name: 'Meus Favoritos',
         icon: '✨',
         color: '#32a852',
@@ -14,6 +16,7 @@ export const collections = [
         date: '24 de Fev, 2024'
     },
     {
+        id: 3,
         name: 'Natal',
         icon: '🎅',
         color: '#ff878f',
@@ -21,6 +24,7 @@ export const collections = [
         date: '12 de Fev, 2024'
     },
     {
+        id: 4,
         name: 'Batmans',
         icon: '🦇',
         color: '#171213',
@@ -28,6 +32,7 @@ export const collections = [
         date: '8 de Fev, 2023'
     },
     {
+        id: 5,
         name: 'Corridas',
         icon: '🏎️',
         color: '#c0d7fc',
@@ -35,6 +40,7 @@ export const collections = [
         date: '8 de Fev, 2023'
     },
     {
+        id: 6,
         name: 'Gatos Fofos',
         icon: '🐈',
         color: '#ffe2b8',
@@ -42,6 +48,7 @@ export const collections = [
         date: '8 de Fev, 2023'
     },
     {
+        id: 7,
         name: 'Corridas de moto',
         icon: '🏎️',
         color: '#c0d7fc',

@@ -12,6 +12,8 @@ import ForYou from "../../components/Cards/foryou";
 import Rate from "../../components/Cards/rate";
 import Similar from "../../components/Cards/similar";
 import ListManga from "../Cards/list";
+import popular from "../../requests/mangas/popular";
+import recentes from "../../requests/mangas/recentes";
 
 export default function Feed () {
   const { color, font } = useContext(ThemeContext)
@@ -75,8 +77,10 @@ export default function Feed () {
               <ListManga />
               <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Novos capítulos</Title>
               <ListManga />
+              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Recentes</Title>
+              <ListManga data={recentes}/>
               <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Populares</Title>
-              <ListManga />
+              <ListManga data={popular}/>
             </Column>
         </Column>
     </Row>

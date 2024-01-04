@@ -5,6 +5,7 @@ import { Column, Row } from "../themes/global"
 import Header from '../components/Header'
 import Fixed from '../components/Fixed'
 
+
 export const metadata = {
   title: 'S2Mangás',
   description: 'O seu leitor de mangás moderno.',

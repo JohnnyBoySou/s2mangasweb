@@ -5,7 +5,7 @@ import { mangas } from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
-export default function ListManga({ data }) {
+export default function ListManga({ data = mangas }) {
   const router = useRouter()
   const handle = (id) => {
     router.push(`/manga/${id}`)
@@ -32,7 +32,7 @@ export default function ListManga({ data }) {
         <>
         <Draggable style={{width: '100%', overflow: 'hidden', }}>
           <Row style={{ overflow: 'hidden', paddingLeft: 44, }}>
-          {mangas.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
+          {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
           </Row>
         </Draggable>
         </>
