@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import './list.css'
 
 export default function ListMangaNews({ data }) {
-  console.log(data)
   const router = useRouter()
   const handle = (id) => {
     router.push(`/manga/${id}`)

@@ -10,6 +10,12 @@ export default async function handler(req, res) {
     const { id } = req.query;
   
     try {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+
+
       const response = await axios.get(`https://lermanga.org/mangas/${id}`);
       const similarMangas = clearSimilar(response.data);
   

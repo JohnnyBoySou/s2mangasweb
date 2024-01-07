@@ -8,6 +8,7 @@ import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
 
+const headers = {'Accept': "application/json",} 
 export default function Feed () {
   const { color, font } = useContext(ThemeContext)
   const user = {name: 'Johnny', avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg', }
@@ -19,18 +20,25 @@ export default function Feed () {
 
   useEffect(() => {
     requestData()
-  }, [])
+  }, [loading])
 
   const requestData = async () => {
-    const weekend_raw = await axios.get('https://s2mangas.com/api/manga/weekend') 
-    const lasted_raw = await axios.get('https://s2mangas.com/api/manga/lasted') 
-    const news_raw = await axios.get('https://s2mangas.com/api/manga/news') 
-    const rate_raw = await axios.get('https:/s2mangas.com/api/manga/rate') 
-    setWeekend(weekend_raw.data.mangas)
-    setLasted(lasted_raw.data.mangas)
-    setNews(news_raw.data.mangas)
-    setRate(rate_raw.data.mangas)
-  }
+    try {
+      const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
+        axios.get('https://s2mangas.com/api/manga/weekend', { headers,  follow: 'manual', }),
+        axios.get('https://s2mangas.com/api/manga/lasted', { headers,  follow: 'manual', }),
+        axios.get('https://s2mangas.com/api/manga/news', { headers,  follow: 'manual', }),
+        axios.get('https://s2mangas.com/api/manga/rate', { headers,  follow: 'manual', }),
+      ]);
+  
+      setWeekend(weekend_raw.data.mangas);
+      setLasted(lasted_raw.data.mangas);
+      setNews(news_raw.data.mangas);
+      setRate(rate_raw.data.mangas);
+    } catch (error) {
+      console.log(error)      
+      }
+    }
   
 
   return(
@@ -56,6 +64,8 @@ export default function Feed () {
               <ListMangaNews data={news} />
               <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Populares</Title>
               <ListManga data={weekend}/>
+              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Melhores notas</Title>
+              <ListManga data={rate}/>
             </Column>
         </Column>
     </Row>

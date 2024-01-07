@@ -14,7 +14,6 @@ export default function ChapterDetails({ params }) {
 
     const requestData = async () => {
       const item_raw = await axios.get('https://s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
-      console.log(item_raw.data)
       setItem(item_raw?.data)
     }
     

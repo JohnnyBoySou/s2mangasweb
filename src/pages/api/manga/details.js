@@ -5,8 +5,14 @@ const API_URL = "https://lermanga.org/"
 
 export default async function handler(req, res) {
   const { id } = req.query;
+  
 
   try {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    
     const manga = {};
     const response = await axios.get(API_URL + '/mangas/' + id);
     const $ = cheerio.load(response.data);
@@ -22,7 +28,7 @@ export default async function handler(req, res) {
 
     manga.name = item.find('.boxAnimeSobreLast h1').text().slice(10);
     manga.title = item.find('.boxAnimeSobreLast h1').text().slice(10);
-    manga.typename = item.find('.fd-infor .fdi-item').text().trim();
+    manga.type = item.find('.fd-infor .fdi-item').text().trim();
     manga.date = item.find('.fd-infor a ').eq(1).text().trim();
     manga.categories = item.find('.genre-list li').map((index, element) => {
       const categoryText = $(element).text().trim();

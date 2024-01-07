@@ -3,6 +3,10 @@ import axios from "axios";
 import cheerio from 'cheerio';
 
 export default async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
     const { chapter, id } = req.query;
     const return_data = {
       "link": 1,

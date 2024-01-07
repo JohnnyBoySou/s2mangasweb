@@ -7,6 +7,7 @@ import { FaPlay } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
 import { FaUserAstronaut , FaCalendarDays } from "react-icons/fa6"
 
+const headers = {'Accept': "application/json",} 
 import './manga.css'
 import Link from 'next/link';
 
@@ -24,8 +25,8 @@ export default function DetailsManga({ params }) {
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
     const requestData = async () => {
         if(id != undefined){
-            const item_raw = await axios.get('https://s2mangas.com/api/manga/details?id=' + id) 
-            const chapters_raw = await axios.get('https://s2mangas.com/api/manga/chapters?id=' + id) 
+            const item_raw = await axios.get('https://s2mangas.com/api/manga/details?id=' + id, {headers} ) 
+            const chapters_raw = await axios.get('https://s2mangas.com/api/manga/chapters?id=' + id, {headers}) 
             setItem(item_raw?.data.manga)
             setChapters(chapters_raw?.data)
         }
