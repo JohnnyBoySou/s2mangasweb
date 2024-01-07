@@ -22,10 +22,10 @@ export default function Feed () {
   }, [])
 
   const requestData = async () => {
-    const weekend_raw = await axios.get('http://s2mangas.com/api/manga/weekend') 
-    const lasted_raw = await axios.get('http://s2mangas.com/api/manga/lasted') 
-    const news_raw = await axios.get('http://s2mangas.com/api/manga/news') 
-    const rate_raw = await axios.get('http:/s2mangas.com/api/manga/rate') 
+    const weekend_raw = await axios.get('https://s2mangas.com/api/manga/weekend') 
+    const lasted_raw = await axios.get('https://s2mangas.com/api/manga/lasted') 
+    const news_raw = await axios.get('https://s2mangas.com/api/manga/news') 
+    const rate_raw = await axios.get('https:/s2mangas.com/api/manga/rate') 
     setWeekend(weekend_raw.data.mangas)
     setLasted(lasted_raw.data.mangas)
     setNews(news_raw.data.mangas)
