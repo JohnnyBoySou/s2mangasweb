@@ -14,13 +14,13 @@ import { usePathname } from "next/navigation";
 import ColorThief from 'colorthief';
 
 const API_URL = 'https://www.s2mangas.com/api/manga'
-export default function Fixed({close}){
-  
-  const pathname = usePathname();
+export default function Fixed({}){
+  const [close, setClose] = useState(true);
+  const pathname = usePathname()
   const item = mangas[0]
   const stats = {porcentage: '60%', read: 48, total: 82,}
   const [dominantColor, setDominantColor] = useState(null);
-
+  const path = pathname.slice(1, 6)
   const [ranking, setRanking] = useState([]);
 
    const getPalette = (url) => {
@@ -77,17 +77,15 @@ export default function Fixed({close}){
     </Column>
     )
   }
-
-  if (pathname == "/manga/[id]/[chapter]") {
+  else if (path === "manga") {
     <></>
   }
-
-   if(dominantColor != null ){
+   else if(dominantColor != null ){
     return(
       <Column className="rightbar slideInRight" style={{ background: `linear-gradient(-145deg, ${dominantColor} -40.91%, #191919 54.92%)`, }}>
         <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Title>
-              <IoMdClose onClick={close} style={{cursor: 'pointer'}}/>
+              <IoMdClose onClick={() => setClose(true)} style={{cursor: 'pointer'}}/>
             </Title>
             <Title>Fixado</Title>
             <Title>
