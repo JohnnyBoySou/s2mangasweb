@@ -16,7 +16,7 @@ export const metadata = {
 }
 export default function RootLayout({ children }) {
 
-  const fixed = false  
+  const fixed = true  
   return (
     <html lang="pt-BR">
       <ThemeClient>
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         {children}
         <SpeedInsights />
         </Column>
-        {fixed && <Fixed style={{width: '20%'}}/> }
+        {fixed && <Fixed style={{width: '20%', height: 400,}}/> }
       </Row>
       </body>
       </ThemeClient>

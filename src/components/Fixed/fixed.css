@@ -78,6 +78,20 @@
     padding: 24px;
     border-radius: 8px;
     width: 25%;
+    height: 86vh;
     min-width: 300px;
     overflow: hidden;
+    overflow-y: auto;
+}
+
+.cardimg{
+    box-shadow: 0px 0px 20px #00000070;
+}
+.rowranking{
+    transition: .2s linear;
+    background-color: #262626;
+    cursor: pointer;
+}
+.rowranking:hover{
+    background-color: #404040;
 }

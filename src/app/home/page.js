@@ -6,6 +6,7 @@ import { Column, Row, Label, Title, ButtonPrimary, ButtonOff} from '../../themes
 import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
+import { requestWeekend } from "../../pages/api/manga/api";
 
 export default function Feed () {
   const user = {name: 'Johnny', avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg', }
@@ -14,27 +15,36 @@ export default function Feed () {
   const [lasted, setLasted] = useState([]);
   const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState();
-  const API_URL = 'https://s2mangas.com/api/manga'
+  const API_URL = 'https://localhost:3000/api/manga'
 
   useEffect(() => {
-    requestData()
+    getData()
   }, [loading])
+
+  const getData = async () => {
+    try {
+      const res = await axios.get('https://s2mangas.com/api/manga/weekend/')
+      console.log(res.data)
+    } catch (error) {
+      console.log(error.code)
+    }
+  }
+  
 
   const requestData = async () => {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
-        axios.get(API_URL + '/weekend', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
-        axios.get(API_URL + '/lasted', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
-        axios.get(API_URL + '/news', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
-        axios.get(API_URL + '/rate', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
-      ]);
+        axios.get(`${API_URL}/weekend`, ),
+        axios.get(`${API_URL}/lasted`, ),
+        axios.get(`${API_URL}/news`, ),
+        axios.get(`${API_URL}/rate`, ),
+      ])
+
       setWeekend(weekend_raw.data.mangas);
       setLasted(lasted_raw.data.mangas);
       setNews(news_raw.data.mangas);
       setRate(rate_raw.data.mangas);
     }
   
-
-    
 
   return(
     <Row style={{overflowY: 'hidden'}}>

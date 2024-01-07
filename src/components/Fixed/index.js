@@ -31,7 +31,6 @@ export default function Fixed({close}){
        })
    }
 
-
    function rgbToHex(r, g, b) {
     const toHex = (c) => {
       const hex = c.toString(16);
@@ -49,13 +48,29 @@ export default function Fixed({close}){
     })
    }, [item])
 
- //  if (pathname == "/register" || "/login") {
-  //  return <></>;
-  //}
+  if (pathname == "/home") {
+    return (
+    <Column className="rightbar slideInRight" style={{ background: `linear-gradient(-145deg, #6699ff -40.91%, #202020 54.92%)`, }}>
+      <Title style={{marginBottom: 10,}}>Ranking de mangás</Title>
+      {mangas.map((item, index) =>
+      <Row className='rowranking' key={index} style={{justifyContent: 'space-between', height: 160, alignItems: 'center',  borderRadius: 6, marginBottom: 12,}}>
+        <Label style={{fontSize: 24, marginLeft: 14,}}>#{index + 1}</Label>
+        <Column style={{marginLeft: -10,}}>
+          <Title style={{fontSize: 16, }}>{item?.name?.slice(0,16)}</Title>
+          <Label style={{fontSize: 12, }}>{item?.type} • {item?.status}</Label>
+        
+        </Column>
+        <Column style={{overflow: 'hidden'}}>
+        <img className='cardimg' alt="ranking" src={item?.capa} width={50} height={80} style={{objectFit: 'cover', borderRadius: 4, marginBottom: -20, marginTop: 20, marginRight: 22,}}/>
+        </Column>
+      </Row>)}
+    </Column>
+    )
+  }
 
    if(dominantColor != null ){
-  return(
-    <Column className="rightbar slideInRight" style={{ background: `linear-gradient(-145deg, ${dominantColor} -40.91%, #191919 54.92%)`, }}>
+    return(
+      <Column className="rightbar slideInRight" style={{ background: `linear-gradient(-145deg, ${dominantColor} -40.91%, #191919 54.92%)`, }}>
         <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Title>
               <IoMdClose onClick={close} style={{cursor: 'pointer'}}/>
@@ -93,7 +108,7 @@ export default function Fixed({close}){
           <IoMdCheckmark  className="check"/>
         </Row>
       </Column>
-    </Column>
-  )
-}
+      </Column>
+    )
+  }
 }

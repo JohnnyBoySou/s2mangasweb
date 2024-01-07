@@ -7,8 +7,6 @@ const API_URL = "https://lermanga.org/"
 export default async function handler(req, res) {
   
   try {
-
-  
     const response = await axios.get(API_URL, { headers });
     const mangaData = clearNews(response.data);
     // Retorna um JSON válido
