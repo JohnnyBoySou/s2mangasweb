@@ -6,13 +6,14 @@ const API_URL = "https://lermanga.org/"
 
 export default async function handler(req, res) {
   try {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     const response = await axios.get('https://lermanga.org/mangas/?orderby=views&order=desc', { headers });
     const mangaData = clearWeekend(response.data);
     // Retorna um JSON válido
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
     res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate')
    
     res.status(200).json({ mangas: mangaData });
