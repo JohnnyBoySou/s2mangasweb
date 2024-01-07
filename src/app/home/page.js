@@ -14,7 +14,7 @@ export default function Feed () {
   const [lasted, setLasted] = useState([]);
   const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState();
-  const API_URL = 'http://s2mangas.com/api/manga'
+  const API_URL = 'https://s2mangas.com/api/manga'
 
   useEffect(() => {
     requestData()
@@ -22,12 +22,11 @@ export default function Feed () {
 
   const requestData = async () => {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
-        axios.get('http://localhost:3000/api/manga/rate'),
         axios.get(API_URL + '/weekend'),
         axios.get(API_URL + '/lasted'),
         axios.get(API_URL + '/news'),
+        axios.get(API_URL + '/rate'),
       ]);
-  
       setWeekend(weekend_raw.data.mangas);
       setLasted(lasted_raw.data.mangas);
       setNews(news_raw.data.mangas);
@@ -35,16 +34,14 @@ export default function Feed () {
     }
   
 
-    const requestWeekend = () => {
-     const res = axios.get(API_URL + '/weekend')
-     setWeekend(res.data.mangas);
-    }
     
 
   return(
     <Row style={{overflowY: 'hidden'}}>
         <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}}>
             <Column className="banner" >
+
+
               <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
                 <Column>
                   <Title style={{fontSize: 72, lineHeight: 1}}>Boa tarde,<br/>{user?.name}</Title>   
