@@ -23,7 +23,7 @@ export default function Feed () {
 
   const getData = async () => {
     try {
-      const res = await axios.get('https://s2mangas.com/api/manga/weekend/')
+      const res = await axios.get('https://s2mangas.com/api/manga/weekend')
       console.log(res.data)
     } catch (error) {
       console.log(error.code)
