@@ -22,14 +22,25 @@ module.exports = {
         },
       ],
     },
+    
     async headers() {
       return [
         {
-          source: '/api/:path*',
+          source: "/api/(.*)",
           headers: [
-            { key: 'Access-Control-Allow-Origin', value: '*' },
-            { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS, PUT, DELETE, PATCH' },
-            { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
+            // Allow for specific domains to have access or * for all
+            {
+              key: "Access-Control-Allow-Origin",
+              value: "https://s2mangas.com",
+            },
+            {
+              key: "Access-Control-Allow-Methods",
+              value: "GET, POST, PUT, DELETE, OPTIONS",
+            },
+            {
+              key: "Access-Control-Allow-Headers",
+              value: "Content-Type, Authorization",
+            },
           ],
         },
       ];
