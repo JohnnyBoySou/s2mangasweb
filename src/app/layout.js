@@ -4,7 +4,7 @@ import ThemeClient from "./page"
 import { Column, Row } from "../themes/global"
 import Header from '../components/Header'
 import Fixed from '../components/Fixed'
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: 'S2Mangás',
@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         <Header  style={{width: '10%'}}/>
         <Column style={{height: '100vh', width: '70%', overflowY: 'auto', overflowX: 'hidden'}}>
         {children}
+        <SpeedInsights />
         </Column>
         {fixed && <Fixed style={{width: '20%'}}/> }
       </Row>

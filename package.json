@@ -12,6 +12,7 @@
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.17",
     "@vercel/postgres": "^0.5.1",
+    "@vercel/speed-insights": "^1.0.2",
     "axios": "^1.6.4",
     "cheerio": "^1.0.0-rc.12",
     "color-thief-react": "^2.1.0",

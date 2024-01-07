@@ -1,6 +1,5 @@
 'use client';
 import React, {useContext, useEffect, useState} from "react"
-import { ThemeContext } from 'styled-components'
 import Image from 'next/image'
 import axios from 'axios'
 import { Column, Row, Label, Title, ButtonPrimary, ButtonOff} from '../../themes/global'
@@ -8,38 +7,39 @@ import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
 
-const headers = {'Accept': "application/json",} 
 export default function Feed () {
-  const { color, font } = useContext(ThemeContext)
   const user = {name: 'Johnny', avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg', }
   const [weekend, setWeekend] = useState([]);
   const [news, setNews] = useState([]);
   const [lasted, setLasted] = useState([]);
   const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState();
+  const API_URL = 'http://s2mangas.com/api/manga'
 
   useEffect(() => {
     requestData()
   }, [loading])
 
   const requestData = async () => {
-    try {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
-        axios.get('https://s2mangas.com/api/manga/weekend/', { headers,  follow: 'manual', }),
-        axios.get('https://s2mangas.com/api/manga/lasted/', { headers,  follow: 'manual', }),
-        axios.get('https://s2mangas.com/api/manga/news/', { headers,  follow: 'manual', }),
-        axios.get('https://s2mangas.com/api/manga/rate/', { headers,  follow: 'manual', }),
+        axios.get('http://localhost:3000/api/manga/rate'),
+        axios.get(API_URL + '/weekend'),
+        axios.get(API_URL + '/lasted'),
+        axios.get(API_URL + '/news'),
       ]);
   
       setWeekend(weekend_raw.data.mangas);
       setLasted(lasted_raw.data.mangas);
       setNews(news_raw.data.mangas);
       setRate(rate_raw.data.mangas);
-    } catch (error) {
-      console.log(error)      
-      }
     }
   
+
+    const requestWeekend = () => {
+     const res = axios.get(API_URL + '/weekend')
+     setWeekend(res.data.mangas);
+    }
+    
 
   return(
     <Row style={{overflowY: 'hidden'}}>
