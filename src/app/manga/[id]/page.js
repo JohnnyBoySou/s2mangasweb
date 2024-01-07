@@ -15,7 +15,7 @@ import ColorThief from 'colorthief';
 export default function DetailsManga({ params }) {
     const id = Number(params.id)
     const [item, setItem] = useState();
-    const [chapters, setChapters] = useState();
+    const [chapters, setChapters] = useState([]);
 
     const cl = item?.type === 'Manga' ? "#ED274A" : item?.type === 'Manhwa' ? "#366AD3" : item?.type === 'Manhua' ? "#009688" : '#000';
 
@@ -26,8 +26,8 @@ export default function DetailsManga({ params }) {
 
     const requestData = async () => {
         if(id != undefined){
-            const item_raw = await axios.get('http://s2mangas.com/api/manga/details?id=' + id) 
-            const chapters_raw = await axios.get('http://s2mangas.com/api/manga/chapters?id=' + id) 
+            const item_raw = await axios.get('http://localhost:3000/api/manga/details?id=' + id) 
+            const chapters_raw = await axios.get('http://localhost:3000/api/manga/chapters?id=' + id) 
             setItem(item_raw)
             setChapters(chapters_raw)
         }
@@ -91,7 +91,7 @@ export default function DetailsManga({ params }) {
                     </Column>
                    
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
-                        <Title style={{fontSize: '3.6em', textTransform: 'uppercase', fontFamily: 'Black',}}>{item?.name.slice(0, 20)}</Title>
+                        <Title style={{fontSize: '3.6em', textTransform: 'uppercase', fontFamily: 'Black',}}>{item?.name?.slice(0, 20)}</Title>
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16,}}>{item?.description?.slice(0, 270)}...</Label>
 
                     <Row style={{alignItems: 'center', marginTop: 20,}}>
