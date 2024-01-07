@@ -16,6 +16,10 @@ module.exports = {
               protocol: 'https',
               hostname: 'i.pinimg.com',
           },
+          {
+            protocol: 'https',
+            hostname: 'img.lermanga.org',
+        },
       ],
     },
   async headers() {

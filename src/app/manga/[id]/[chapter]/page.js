@@ -1,61 +1,32 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Column, Row, Title, Label, } from '../../../../themes/global';
-import chapters from '../../../../requests/chapters/chapter';
-import Tesseract from 'tesseract.js';
+import { Column, Row, Title, Label, BTIcon, } from '../../../../themes/global';
+import Image from 'next/image';
+import '../manga.css'
 
 export default function ChapterDetails({ params }) {
-    const id = Number(params?.chapter)
-    const item = chapters.find((chapter) => chapter.id === id);
-    const [imageUrl, setImageUrl] = useState('');
-    const [translatedText, setTranslatedText] = useState('');
-  
-    const extractTextFromImage = async () => {
-      try {
-        console.log('Requesting image:', imageUrl);
-        const { data: imageBuffer } = await axios.get(imageUrl, {
-            responseType: 'arraybuffer',
-        });
-  
-        const imageBase64 = Buffer.from(imageBuffer, 'binary').toString('base64');
-  
-        Tesseract.recognize(
-          `data:image/jpeg;base64,${imageBase64}`,
-          'por', // You can change the language code as needed
-          {
-            logger: (info) => console.log(info), // Optional: to log Tesseract.js progress
-          }
-        ).then(({ data: { text } }) => {
-          setTranslatedText(text);
-        });
-      } catch (error) {
-        console.error('Error extracting text from image:', error);
-      }
-    };
-  
-  
+    const {id, chapter } = params
+    const [item, setItem] = useState();
+    useEffect(() => {
+      requestData()
+    },[id])
+
+    const requestData = async () => {
+      const item_raw = await axios.get('http://localhost:3000/api/manga/pages?chapter=' + chapter + '&id=' + id) 
+      console.log(item_raw.data)
+      setItem(item_raw?.data)
+    }
+    
+
     return (
-        <Column>
-            <Title>Current chapter  {translatedText}</Title>
-            
-            <input
-                type="text"
-                placeholder="Enter image URL"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-            />
-            <button onClick={extractTextFromImage}>Translate</button>
-
-            {translatedText && (
-                <div>
-                <h2>Translated Text:</h2>
-                <p>{translatedText}</p>
-                </div>
-            )}
+        <Column style={{backgroundColor: "#262626"}} className='banner'>
+          <Row>
+            <BTIcon>Controle</BTIcon>
+          </Row>
 
 
-            <img src={imageUrl} alt="image to tradute" width='100%' height='100%'/>
+           {item?.images?.map((item, index) => <Image alt="text" width={800} height={1000} style={{objectFit: 'contain'}} src={item} key={index} />)}
         </Column>
     )
 }

@@ -13,7 +13,7 @@ import Link from 'next/link';
 import ColorThief from 'colorthief';
 
 export default function DetailsManga({ params }) {
-    const id = Number(params.id)
+    const id = params.id
     const [item, setItem] = useState();
     const [chapters, setChapters] = useState([]);
 
@@ -22,27 +22,24 @@ export default function DetailsManga({ params }) {
     const [dominantColor, setDominantColor] = useState(null);
     const [liked, setLiked] = useState(false);
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
-      
-
     const requestData = async () => {
         if(id != undefined){
             const item_raw = await axios.get('http://localhost:3000/api/manga/details?id=' + id) 
             const chapters_raw = await axios.get('http://localhost:3000/api/manga/chapters?id=' + id) 
-            setItem(item_raw)
-            setChapters(chapters_raw)
+            setItem(item_raw?.data.manga)
+            setChapters(chapters_raw?.data)
         }
     }
-    
     useEffect(() => {
         requestData()
     }, [id])
 
     const Chapter = ({item, index}) => {
       return(
-        <Link href={`chapter/${item?.id}`} style={{textDecoration: 'none'}}>
-        <Row style={{ padding: 12, maxWidth: 700, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
+        <Link href={`${id}/${item?.number}`} style={{textDecoration: 'none'}}>
+        <Row style={{ padding: 12, marginRight: 34, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
             <Label style={{fontSize: 18, marginRight: 20,}}>#{item.number}</Label>
-            <Title style={{fontSize: 20, fontFamily: 'Medium',}}>{item.name}</Title>
+            <Title style={{fontSize: 20, fontFamily: 'Medium',}}>{item?.name}</Title>
             <Label style={{fontSize: 18, marginRight: 20,}}>{item.date}</Label>
             <Title style={{marginTop: 4,}}>
                 <GoHeart />
@@ -91,7 +88,7 @@ export default function DetailsManga({ params }) {
                     </Column>
                    
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
-                        <Title style={{fontSize: '3.6em', textTransform: 'uppercase', fontFamily: 'Black',}}>{item?.name?.slice(0, 20)}</Title>
+                        <Title style={{fontSize: '3.6em', textTransform: 'uppercase', fontFamily: 'Black',}}>{item?.name?.slice(0, 40)}</Title>
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16,}}>{item?.description?.slice(0, 270)}...</Label>
 
                     <Row style={{alignItems: 'center', marginTop: 20,}}>
@@ -135,7 +132,7 @@ export default function DetailsManga({ params }) {
 
                     <Column style={{width: '96%', height: 2, marginTop: 15, backgroundColor: "#303030"}}/>
                     <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
-                    {chapters?.map((item, index) => <Chapter key={index} index={index} item={item}/>)}
+                    {chapters?.slice(0, 5).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
                 </Column>
 
                 <Column>
@@ -148,3 +145,7 @@ export default function DetailsManga({ params }) {
         </Column>
     )
 }
+
+
+//
+// {chapters?.map((item, index) => <Chapter key={index} index={index} item={item}/>)}

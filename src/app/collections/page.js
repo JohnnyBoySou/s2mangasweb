@@ -5,8 +5,6 @@ import { CiEdit, CiCreditCard1 } from "react-icons/ci";
 import { collections } from '../../requests/collections/list';
 import './collections.css'
 import Link from 'next/link';
-import addCollectionToUser from '../../pages/api/collections/edit';
-import { CreateCollection } from '../../requests/collections/request';
 
 export default function Collections() {
     function formatarData(data) {
@@ -31,7 +29,7 @@ export default function Collections() {
 
     
     const handleNew = () => {
-        CreateCollection(newCollection, 9).then(res => console.log(res))
+       // CreateCollection(newCollection, 9).then(res => console.log(res))
     }
     
     return (
