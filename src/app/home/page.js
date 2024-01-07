@@ -3,15 +3,9 @@ import React, {useContext, useEffect, useState} from "react"
 import { ThemeContext } from 'styled-components'
 import Image from 'next/image'
 import axios from 'axios'
-
 import { Column, Row, Label, Title, ButtonPrimary, ButtonOff} from '../../themes/global'
-
 import './feed.css';
-
 import ListManga from "../../components/Cards/list";
-import popular from "../../requests/mangas/popular";
-import mangas from "../../requests/mangas/index";
-import recentes from "../../requests/mangas/recentes";
 import ListMangaNews from "../../components/Cards/list_news";
 
 export default function Feed () {
@@ -27,20 +21,17 @@ export default function Feed () {
     requestData()
   }, [])
 
-
   const requestData = async () => {
-    const weekend_raw = await axios.get('http://localhost:3000/api/manga/weekend') 
-    const lasted_raw = await axios.get('http://localhost:3000/api/manga/lasted') 
-    const news_raw = await axios.get('http://localhost:3000/api/manga/news') 
-    const rate_raw = await axios.get('http://localhost:3000/api/manga/rate') 
+    const weekend_raw = await axios.get('http://s2mangas.com/api/manga/weekend') 
+    const lasted_raw = await axios.get('http://s2mangas.com/api/manga/lasted') 
+    const news_raw = await axios.get('http://s2mangas.com/api/manga/news') 
+    const rate_raw = await axios.get('http:/s2mangas.com/api/manga/rate') 
     setWeekend(weekend_raw.data.mangas)
     setLasted(lasted_raw.data.mangas)
     setNews(news_raw.data.mangas)
     setRate(rate_raw.data.mangas)
   }
   
-
-
 
   return(
     <Row style={{overflowY: 'hidden'}}>

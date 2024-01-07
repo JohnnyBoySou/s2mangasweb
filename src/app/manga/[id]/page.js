@@ -24,8 +24,8 @@ export default function DetailsManga({ params }) {
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
     const requestData = async () => {
         if(id != undefined){
-            const item_raw = await axios.get('http://localhost:3000/api/manga/details?id=' + id) 
-            const chapters_raw = await axios.get('http://localhost:3000/api/manga/chapters?id=' + id) 
+            const item_raw = await axios.get('http://s2mangas.com/api/manga/details?id=' + id) 
+            const chapters_raw = await axios.get('http://s2mangas.com/api/manga/chapters?id=' + id) 
             setItem(item_raw?.data.manga)
             setChapters(chapters_raw?.data)
         }
