@@ -22,10 +22,10 @@ export default function Feed () {
 
   const requestData = async () => {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
-        axios.get(API_URL + '/weekend'),
-        axios.get(API_URL + '/lasted'),
-        axios.get(API_URL + '/news'),
-        axios.get(API_URL + '/rate'),
+        axios.get(API_URL + '/weekend', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
+        axios.get(API_URL + '/lasted', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
+        axios.get(API_URL + '/news', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
+        axios.get(API_URL + '/rate', {headers: { 'Content-Type': 'application/x-www-form-urlencoded' },}),
       ]);
       setWeekend(weekend_raw.data.mangas);
       setLasted(lasted_raw.data.mangas);
