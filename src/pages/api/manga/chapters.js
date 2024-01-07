@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         const monthAbbreviation = months[parseInt(month, 10) - 1];
         const date = `${day} de ${monthAbbreviation}, ${year}`;
         const chapterInfo = {
-          number: number,
+          number: parseInt(number),
           date: date,
         };
         chaptersArray.push(chapterInfo);

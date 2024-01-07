@@ -13,19 +13,15 @@ export default function ChapterDetails({ params }) {
     },[id])
 
     const requestData = async () => {
-      const item_raw = await axios.get('https://s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
+      const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
       setItem(item_raw?.data)
+      console.log(item_raw.data)
     }
     
 
     return (
         <Column style={{backgroundColor: "#262626"}} className='banner'>
-          <Row>
-            <BTIcon>Controle</BTIcon>
-          </Row>
-
-
-           {item?.images?.map((item, index) => <Image alt="text" width={800} height={1000} style={{objectFit: 'contain'}} src={item} key={index} />)}
+           {item?.images?.map((item, index) => <Image  alt="text" priority={true} width={600} height={1000} style={{objectFit: 'contain'}} src={item} key={index} />)}
         </Column>
     )
 }

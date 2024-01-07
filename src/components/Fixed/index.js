@@ -5,6 +5,7 @@ import { Column, Row, Title, Label } from "../../themes/global"
 import { IoMdClose, IoMdCheckmark , IoMdHeartEmpty  } from "react-icons/io";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
+import axios from 'axios';
 import mangas from "../../requests/mangas"
 import './fixed.css';
 import '../../themes/ani.css'
@@ -12,12 +13,15 @@ import { usePathname } from "next/navigation";
 
 import ColorThief from 'colorthief';
 
+const API_URL = 'https://www.s2mangas.com/api/manga'
 export default function Fixed({close}){
   
   const pathname = usePathname();
-   const item = mangas[1];
-   const stats = {porcentage: '60%', read: 48, total: 82,}
-   const [dominantColor, setDominantColor] = useState(null);
+  const item = mangas[0]
+  const stats = {porcentage: '60%', read: 48, total: 82,}
+  const [dominantColor, setDominantColor] = useState(null);
+
+  const [ranking, setRanking] = useState([]);
 
    const getPalette = (url) => {
     return new Promise(resolve => {
@@ -36,7 +40,6 @@ export default function Fixed({close}){
       const hex = c.toString(16);
       return hex.length === 1 ? '0' + hex : hex;
     };
-  
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
   }
 
@@ -46,13 +49,18 @@ export default function Fixed({close}){
       const hex = rgbToHex(res[0], res[1], res[2]);
       setDominantColor(hex)
     })
+    const getRanking = async () => {
+      const res = await axios.get(`${API_URL}/weekend`)
+      setRanking(res?.data.mangas)
+    }
+    getRanking()    
    }, [item])
 
   if (pathname == "/home") {
     return (
     <Column className="rightbar slideInRight" style={{ background: `linear-gradient(-145deg, #6699ff -40.91%, #202020 54.92%)`, }}>
       <Title style={{marginBottom: 10,}}>Ranking de mangás</Title>
-      {mangas.map((item, index) =>
+      {ranking?.map((item, index) =>
       <Row className='rowranking' key={index} style={{justifyContent: 'space-between', height: 160, alignItems: 'center',  borderRadius: 6, marginBottom: 12,}}>
         <Label style={{fontSize: 24, marginLeft: 14,}}>#{index + 1}</Label>
         <Column style={{marginLeft: -10,}}>
@@ -64,8 +72,14 @@ export default function Fixed({close}){
         <img className='cardimg' alt="ranking" src={item?.capa} width={50} height={80} style={{objectFit: 'cover', borderRadius: 4, marginBottom: -20, marginTop: 20, marginRight: 22,}}/>
         </Column>
       </Row>)}
+     
+
     </Column>
     )
+  }
+
+  if (pathname == "/manga/[id]/[chapter]") {
+    <></>
   }
 
    if(dominantColor != null ){

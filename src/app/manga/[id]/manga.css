@@ -22,10 +22,11 @@
 .chapter{
     transition: .2s linear;
     backdrop-filter: blur(500px);
+    background-color: #262626;
 }
 .chapter:hover{
     backdrop-filter: blur(100px);
-    background-color: #262626;
+    background-color: #404040;
 }
 
 .icb{
