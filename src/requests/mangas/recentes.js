@@ -7,9 +7,10 @@ const recentes = [
         status: 'Em curso',
         type: 'Manga',
         date: 2021,
-        author: 'Nakamaru Yousuke ',
-        chapters: [33, 34, 35, 36],
-        date: '22 de Jan, 2024'
+        author: 'Nakamaru Yousuke',
+        chapters: 36,
+        newchapters: [33, 34, 35, 36],
+        release_date: '22 de Jan, 2024'
     },
     {
         id: 17,
@@ -20,8 +21,9 @@ const recentes = [
         type: 'Manga',
         date: 2015,
         author: 'Nekoguchi',
-        chapters: [108, 109, 110, 111, 12],
-        date: '23 de Jan, 2024'
+        chapters: 112,
+        newchapters: [108, 109, 110, 111, 112],
+        release_date: '23 de Jan, 2024'
     },
     {
         id: 18,
@@ -32,8 +34,22 @@ const recentes = [
         type: 'Manhwa',
         date: 2023,
         author: 'Kim Jung-Hyun',
-        chapters: [11, 12, 13, 14],
-        date: '23 de Jan, 2024'
+        chapters: 14,
+        newchapters: [11, 12, 13, 14],
+        release_date: '23 de Jan, 2024'
+    },
+    {
+        id: 19,
+        name: 'Meguru Mirai',
+        capa: 'https://img.mangaschan.com/uploads/manga-images/m/meguru-mirai/thumbnail.jpg',
+        score: 7.2,
+        status: 'Em curso',
+        type: 'Manhua',
+        date: 2021,
+        author: 'Yamori Tsuji',
+        chapters: 17,
+        newchapters: [14, 15, 16, 17],
+        release_date: '26 de Jan, 2024'
     },
 ]
 

@@ -15,3 +15,26 @@
 .card:hover .imagezoom{
     transform: scale(1.05);
 }
+
+
+.new{
+    padding: 6px 10px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: #404040;
+    color: #fff;
+    transition: .2s linear;
+}
+.new:hover{
+    color: #fff;
+    background-color: #ED274A;
+}
+
+.tag{
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    color: #fff;
+    border-radius: 6px;
+    align-self: flex-start;
+}

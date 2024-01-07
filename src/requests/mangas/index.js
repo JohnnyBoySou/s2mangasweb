@@ -1,4 +1,4 @@
-export const mangas = [
+const mangas = [
     {
         //long details
         id: 1,
@@ -106,3 +106,5 @@ export const mangas = [
     },
 
 ]
+
+export default mangas

@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Column, Label, Title, Row, } from "../../themes/global"
-import Draggable from "../draggable"
-import { mangas } from "../../requests/mangas"
+import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 

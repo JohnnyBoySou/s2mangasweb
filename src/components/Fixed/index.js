@@ -5,7 +5,7 @@ import { Column, Row, Title, Label } from "../../themes/global"
 import { IoMdClose, IoMdCheckmark , IoMdHeartEmpty  } from "react-icons/io";
 import { FaPlay } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
-import { mangas } from "../../requests/mangas"
+import mangas from "../../requests/mangas"
 import './fixed.css';
 import '../../themes/ani.css'
 import { usePathname } from "next/navigation";

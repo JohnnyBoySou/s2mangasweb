@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Column, Label, Title, Row, } from "../../themes/global"
 import Draggable from "../draggable"
-import { mangas } from "../../requests/mangas"
+import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
@@ -25,6 +25,7 @@ export default function ListManga({ data = mangas }) {
               />
               <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name.slice(0,28)}</Label>
               <Label style={{fontSize: 16, marginTop: 4,}}>{item?.score} • {item?.chapters} capítulos</Label>
+            
           </Column>
         )
       }

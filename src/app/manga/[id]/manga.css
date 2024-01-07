@@ -4,8 +4,7 @@
     padding: 44px;
     padding-right: 0px;
     border-radius: 8px;
-    width: 100%;
-    background: linear-gradient(145deg, #ED274A -20.91%, #191919 54.92%);
+    flex-grow: 1;
 }
 .play{
     width: 64px;
@@ -27,4 +26,95 @@
 .chapter:hover{
     backdrop-filter: blur(100px);
     background-color: #262626;
+}
+
+.icb{
+ background-color: #404040;
+ padding: 10px 10px;
+ border-radius: 100px;
+ color: #fff;
+ text-align: center;
+ justify-content: center;
+ font-size: 18px;
+ margin-right: 10px;
+}
+.btrow{
+    background-color: #262626;
+    padding: 6px 20px 6px 10px;
+    border-radius: 100px;
+    align-items: center;
+    margin-right: 10px;
+    transition: .2s linear;
+}
+.btrow:hover{
+    background-color: #303030;
+}
+
+.type{
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-align: center;
+    align-self: center;
+}
+.btlike{
+    background-color: #262626;
+    padding: 6px 20px 6px 10px;
+    border-radius: 100px;
+    align-items: center;
+    margin-right: 10px;
+    color: #f7f7f7;
+    font-family: 'Medium';
+    transition: .2s linear;
+    cursor: pointer;
+}
+.btlike:hover{
+    color: #000;
+    background-color: #f7f7f7;
+}
+.btlike:hover .icbl{
+    color: #fff;
+    background-color: #ED274A;
+}
+.icbl{
+    background-color: #404040;
+    padding: 10px 10px;
+    border-radius: 100px;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: .2s all;
+    margin-right: 10px;
+   }
+
+
+.btcheck{
+    color: #fff;
+    background-color: #ED274A;
+    padding: 6px 20px 6px 10px;
+    border-radius: 100px;
+    align-items: center;
+    margin-right: 10px;
+    font-family: 'Medium';
+    transition: .2s linear;
+    cursor: pointer;
+}
+.icblc{
+    background-color: #ffffff30;
+    padding: 10px 10px;
+    border-radius: 100px;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: .2s all;
+    margin-right: 10px;
+   }
+
+   .coverimg{
+    transition: all .2s;
+    cursor: pointer;
+}
+.coverimg:hover{
+    transform: scale(1.12) rotate(-10deg);
 }
