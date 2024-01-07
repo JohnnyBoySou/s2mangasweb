@@ -26,9 +26,9 @@ export default function Feed () {
     try {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
         axios.get('https://s2mangas.com/api/manga/weekend/', { headers,  follow: 'manual', }),
-        axios.get('http://s2mangas.com/api/manga/lasted/', { headers,  follow: 'manual', }),
+        axios.get('https://s2mangas.com/api/manga/lasted/', { headers,  follow: 'manual', }),
         axios.get('https://s2mangas.com/api/manga/news/', { headers,  follow: 'manual', }),
-        axios.get('http://s2mangas.com/api/manga/rate/', { headers,  follow: 'manual', }),
+        axios.get('https://s2mangas.com/api/manga/rate/', { headers,  follow: 'manual', }),
       ]);
   
       setWeekend(weekend_raw.data.mangas);

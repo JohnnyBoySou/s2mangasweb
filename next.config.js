@@ -18,11 +18,11 @@ module.exports = {
           },
           {
             protocol: 'https',
-            hostname: 'img.lermanga.com',
+            hostname: 'img.lermanga.org',
         },
       ],
     },
-  async headers() {
+   async headers() {
     return [
       {
         source: '/api/:path*',
