@@ -6,6 +6,24 @@
     border-radius: 8px;
     flex-grow: 1;
 }
+
+.hoverd{
+  transition: .2s linear;
+  border-radius: 8px;
+  padding: 10px;
+}
+.hoverd:hover{
+  background-color: #656565;
+}
+
+.arrow{
+  padding: 12px 12px 5px 12px;
+  background-color: #303030;
+  border-radius: 12px;
+  transition: .2s linear;
+  cursor: pointer;
+}
+
 .play{
     width: 64px;
     height: 64px;
@@ -138,25 +156,25 @@ input[type="range"] {
   /******** Chrome, Safari, Opera and Edge Chromium styles ********/
   /* slider track */
   input[type="range"]::-webkit-slider-runnable-track {
-    background-color: #f5f5f5;
+    background-color: #898989;
     border-radius: 0.5rem;
-    height: 10px;
+    height: 6px;
   }
   
   /* slider thumb */
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    margin-top: -15px; /* Centers thumb on the track */
-    background-color: #dedede;
+    margin-top: -8px;
+    background-color: #ef274f;
     border-radius: 3rem;
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
   }
   
   input[type="range"]:focus::-webkit-slider-thumb {
-    outline: 3px solid #dedede;
-    outline-offset: 0.125rem;
+    outline: 3px solid #ef274f;
+    outline-offset: 5px;
   }
   
   /*********** Firefox styles ***********/
