@@ -28,6 +28,13 @@ export const GlobalStyle = createGlobalStyle `
     font-weight: 900;
     font-display: swap;
   }
+  @font-face {
+    font-family: 'Intro';
+    src: url('/fonts/Intro_Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+  }
   h1{
     font-weight: 400;
     margin: 0;
@@ -107,6 +114,22 @@ export const ButtonPrimary = styled.button`
   border-radius: 100px; 
   background-color: ${props => props.theme.color.primary};
   color: ${props => props.theme.color.title};
+  transition: .2s linear;
+  font-family: 'Medium';
+  font-size: 18px;
+  cursor: pointer;
+  &:hover {
+  background-color: ${props => props.theme.color.poff};
+  color:  ${props => props.theme.color.label};
+  }
+`;
+
+export const ButtonPrimaryLight = styled.button`
+  border: none;
+  padding: 8px 20px; 
+  border-radius: 100px; 
+  background-color: #fff;
+  color: ${props => props.theme.color.off};
   transition: .2s linear;
   font-family: 'Medium';
   font-size: 18px;

@@ -31,8 +31,8 @@ export default async function handler(req, res) {
         let pageIndex = startPageIndex;
   
         while (pageIndex <= 2) {
-          const link = `https://img.lermanga.org/${tag}/${id}/capitulo-${chapter}/${pageIndex.toString().padStart(2, '0')}.${format}`;
-  
+          const link = `https://img.lermanga.org/${tag}/${id}/capitulo-${chapter}/${pageIndex.toString().padStart(1)}.${format}`;
+          console.log(link  )
           try {
             await axios.get(link);
             foundPage = true;
@@ -40,7 +40,6 @@ export default async function handler(req, res) {
             pageIndex++;
           } catch (error) {
             if (pageIndex === 1) {
-              // Se falhar para pageIndex 1, tente com 01
               pageIndex = 2;
             } else {
               break;
@@ -60,7 +59,7 @@ export default async function handler(req, res) {
         let pageIndex = startPageIndex;
       
         while (true) {
-          const link = `https://img.lermanga.org/${tag}/${id}/capitulo-${chapter}/${pageIndex.toString().padStart(2, '0')}.${selectedFormat}`;
+          const link = `https://img.lermanga.org/${tag}/${id}/capitulo-${chapter}/${pageIndex.toString().padStart(1)}.${selectedFormat}`;
       
           try {
             // Verifica a existência da página novamente

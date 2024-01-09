@@ -38,7 +38,9 @@ export default function Feed () {
   return(
     <Row style={{overflowY: 'hidden'}}>
         <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}}>
-            <Column className="banner" >
+            <Column style={{margin:'12px 12px 12px 6px',  padding: 44, borderRadius: 8, flexGrow: 1, 
+           background: `linear-gradient(145deg, #ED274A -20.91%, #202020 80.92%)`
+          }} >
 
 
               <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>

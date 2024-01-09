@@ -78,7 +78,31 @@ export default function Fixed({}){
     )
   }
   else if (path === "manga") {
+    return
     <></>
+  }
+  else if(path === 'start'){
+    return(
+      <Column  className="rightbar slideInRight" style={{backgroundColor: "#262626", }}>
+        <Column style={{backgroundColor: "#1E9571", borderRadius: 8, padding: 12}}>
+          <Title>Use Filtros, salve no seu Flow, conheça o Mix e muito mais</Title>
+        </Column>
+        <Row style={{ marginTop: 20, marginBottom: 20,}}>
+          <Column style={{borderRadius: 100, padding: 24, backgroundColor: '#FF8399',}}>
+            <Column style={{width: 70, height: 70, borderRadius: 100, backgroundColor: "#303030", marginTop: 72,}}/>
+          </Column>
+          <Column style={{borderRadius: 12, marginLeft: 20, flexGrow: 1, padding: 24, justifyContent: 'center', alignItems: 'center',  backgroundColor: "#FF9E68",}}>
+          <Title>Colecione Cards dos seus mangás favoritos</Title>
+          </Column>
+        </Row>
+        <Column style={{backgroundColor: "#ED274A", borderRadius: 12, borderBottomRightRadius: 100, padding: 12}}>
+            <Title>Coleções para você se organizar</Title>
+          </Column>
+          <Column style={{backgroundColor: "#27A6ED", marginTop: 20, borderRadius: 12, textAlign: 'right', borderBottomLeftRadius: 100, padding: 12}}>
+            <Title style={{ textAlign: 'right',}}>Seja notificado de novos capítulos</Title>
+          </Column>
+      </Column>
+    )
   }
    else if(dominantColor != null ){
     return(

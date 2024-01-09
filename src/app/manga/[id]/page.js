@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState  } from 'react';
-import { Column, Row, Title, Label, BTFlow} from '../../../themes/global';
+import { Column, Row, Title, Label, BTFlow, ButtonOff} from '../../../themes/global';
 import axios from 'axios'
 import { FaPlay } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
@@ -52,7 +52,7 @@ export default function DetailsManga({ params }) {
  
 
     return (
-        <Column className='banner' style={{background: `linear-gradient(-145deg, #303030 21%, #191919 99.92%)`,}}>
+        <Column className='banner' style={{background: `linear-gradient(-145deg, #303030 21%, #191919 99.92%)`, padding: '44px', marginTop: 12, marginRight: 12, borderRadius: 12,}}>
             <Column>
                 <Row>
                     <Column>
@@ -95,6 +95,16 @@ export default function DetailsManga({ params }) {
                         <Title style={{}}>{item?.chapters} Capítulos</Title>
                         <Label>Todos os capítulos disponíveis aqui</Label>
                        </Column>
+                        <Row>
+
+                            <Link href={`${id}/${item?.chapters}`}>
+                                <ButtonOff style={{marginRight: 14,}}>Último capítulo</ButtonOff>
+                            </Link>
+                            <Link href={`${id}/1`}>
+                                <ButtonOff>Primeiro capítulo</ButtonOff>
+                            </Link>
+                        </Row>
+
                         <Row style={{justifyContent: 'center', alignItems: 'center', }}>
                             <BTFlow>Seguir</BTFlow>
                             <BTFlow style={{marginLeft: 12,}} >Salvar</BTFlow>

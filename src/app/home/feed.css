@@ -1,8 +1,5 @@
 .banner{
-    margin: 12px 12px 12px 6px;   
-    padding: 44px;
-    border-radius: 8px;
-    flex-grow: 1;
+    
     background: linear-gradient(145deg, #ED274A -20.91%, #262626 54.92%);
 }
 .blur{

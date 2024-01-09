@@ -207,3 +207,32 @@
     animation: slideOutDown 0.5s ease-in-out;
   }
   
+
+.marq {
+  padding: 10px;
+  background-color: #202020;
+  transform: rotate(45deg);
+  width: 130%;
+  overflow: hidden;
+}
+.marqueeStyle {
+  animation: scrolling-left1 10s linear infinite;
+}
+ 
+@keyframes scrolling-left1 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+} 
+.imgicon{
+  transition: .2s linear;
+  background-color: #202020;
+  padding: 12px;
+  border-radius: 24px;
+}
+.imgicon:hover{
+  transform: rotate(45deg);
+}

@@ -13,8 +13,13 @@ export default function ChapterDetails({ params }) {
     },[id])
 
     const requestData = async () => {
-      const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
-      setItem(item_raw?.data)
+      try {
+        const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
+        console.log(item_raw.data)
+        setItem(item_raw?.data)
+      } catch (error) {
+        console.log(error)        
+      }
     }
     
     const colors = ["#ED274A",'#6699ff', '#FF620A', '#27AE60', '#3454D1', '#F7F7F7', '#000000',]
@@ -25,7 +30,6 @@ export default function ChapterDetails({ params }) {
 
     const [filterColor, setFilterColor] = useState("#f7f7f7");
     const [filterOpacity, setFilterOpacity] = useState(0.9);
-    const [bgColor, setBgColor] = useState("#262626");
 
     return (
         <Column style={{backgroundColor: "#262626", alignItems: 'center'}} className='bannerchapter' >
@@ -56,7 +60,7 @@ export default function ChapterDetails({ params }) {
            {item?.images?.map((item, index) => 
            <Column key={index} style={{position: 'relative'}}>
             <Column style={{backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width: 500, height: 700, }}/>
-              <Image alt="text" priority={true} width={500} height={700} 
+              <Image alt="manga page" priority={true} width={500} height={700} 
               style={{objectFit: 'contain', backgroundColor: filterColor,}} 
               src={item}  />
             </Column>

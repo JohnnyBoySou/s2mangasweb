@@ -1,5 +1,4 @@
 module.exports = {
-    //basePath: '/pages',
     compiler: {
       styledComponents: {
         displayName: true,
@@ -19,7 +18,15 @@ module.exports = {
         },
       ],
     },
-    
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/start',
+          permanent: true,
+        },
+      ]
+    },
     async headers() {
       return [
         {
