@@ -208,3 +208,41 @@ input[type="range"] {
 .clr:hover{
     margin-top: -10px;
   }
+
+.btoption{
+  transition: all .2s;  
+  background-color: #303030;
+  padding: 8px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btoption:hover{
+  background-color: #606060;
+}
+
+.btnext{
+  transition: all .2s;  
+  background-color: #303030;
+  padding: 12px 12px;
+  border-radius: 8px;
+  flex-grow: 1;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.page{
+  transition: .2s all;
+  align-self: center;
+}´
+
+.input{
+  font-family: 'Book';
+  font-size: 2.2em;
+  background-color: #404040;
+  border-radius: 8px;
+  outline: navy;
+  padding: 12px;
+
+}

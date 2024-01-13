@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useState } from "react"
 import { Column, Label, Title, Row, } from "../../themes/global"
 import Draggable from "../draggable"
 import  mangas  from "../../requests/mangas"
@@ -6,8 +7,10 @@ import { useRouter } from 'next/navigation'
 import './list.css'
 
 export default function ListManga({ data = mangas }) {
+  const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {
+    setLoading(true)
     router.push(`/manga/${id}`)
   }
   
@@ -21,7 +24,7 @@ export default function ListManga({ data = mangas }) {
               alt={item?.name}
               width={144}
               height={206}
-              style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover',}}
+              style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover', cursor: loading ? 'wait' : 'pointer', }}
               />
               <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name.slice(0,28)}</Label>
               <Label style={{fontSize: 16, marginTop: 4,}}>{item?.score} • {item?.type}</Label>

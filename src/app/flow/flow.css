@@ -1,0 +1,32 @@
+.page{
+    padding: 44px;
+    background-color: #262626;
+    margin-top: 12px;
+    margin-right: 12px;
+    border-radius: 8px;
+}
+.btlike{
+    background-color: #505050;
+    border-radius: 100px;
+    width: 54px;    
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all .2s;
+}
+.btlike:hover{
+    background-color: #fff;
+    color: #EB5757;
+}
+.imgmain{
+    align-self: center;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #303030;
+    transition: all .2s;
+}
+.imgmain:hover{
+    transform: scale(1.3);
+    background-color: #505050;
+}

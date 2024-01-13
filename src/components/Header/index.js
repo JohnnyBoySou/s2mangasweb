@@ -16,7 +16,7 @@ export default function Header(){
      //   return <></>;
    // }
     return(
-        <Column style={{padding: 12, }}>
+        <Column style={{padding: 12, height: '100vh', }}>
             <Column style={{backgroundColor: "#262626", borderRadius: 8,}}>
                 <Link href="/home"> <BTIcon><GoHome/></BTIcon></Link>
                 <Link href="/search"> <BTIcon><GoSearch/></BTIcon> </Link>   
