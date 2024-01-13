@@ -5,11 +5,12 @@ import { Column, Row, Title, Label, BTIcon, } from '../../../../themes/global';
 import Image from 'next/image';
 import '../manga.css'
 import '../../../../themes/ani.css'
-import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings, IoIosArrowRight  } from "react-icons/io";
-
+import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings,   } from "react-icons/io";
+import Link from 'next/link'
 
 export default function ChapterDetails({ params }) {
     const {id, chapter } = params
+    const cpt = Number(chapter)
     const [item, setItem] = useState();
     useEffect(() => {
       requestData()
@@ -33,7 +34,6 @@ export default function ChapterDetails({ params }) {
 
     const [filterOption, setFilterOption] = useState(false);
     const [flowOption, setFlowOption] = useState(false);
-    
     const [flowDate, setFlowDate] = useState({
       img: '',
       name: id,
@@ -48,10 +48,9 @@ export default function ChapterDetails({ params }) {
     return (
         <Column style={{backgroundColor: "#262626", alignItems: 'center'}} className='bannerchapter' >
 
-
         <IoIosSettings  onClick={() => setOptionShow(!optionShow)} 
             style={{fontSize: 42, color: '#f7f7f790', backgroundColor: "#303030", borderRadius: 8, marginBottom: 20, cursor: 'pointer', }}/>
-        {optionShow &&
+         {optionShow &&
         
           <Row style={{justifyContent: 'space-between', }}>
       
@@ -86,6 +85,9 @@ export default function ChapterDetails({ params }) {
                   {flowOption ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </Title>
               </Row>
+
+
+
             {flowOption && 
               <Column>
               <Row style={{flexWrap: 'wrap',}}>
@@ -115,18 +117,23 @@ export default function ChapterDetails({ params }) {
               <Row style={{marginBottom: 10,}}>
                 <input style={{fontSize: 24, fontFamily: 'Book', backgroundColor: "#606060", border: 'none', outline: 'none', padding: 12, borderRadius: 8, color: "#fff", }} className="input" min="1"  value={searchChapter}  onChange={e => setSearchChapter(e.target.value)} type="number" placeholder="Capítulo. Ex.: 132"/>
                 <Row className='btnext'  style={{ marginLeft: 20, fontSize: 32, backgroundColor: "#ED274A", color: "#fff", }}>
-                <IoIosArrowRight/>
                 </Row>
               </Row>
             
             <Row>
-              <Row className='btnext'  >
+              
+             <Link href={`${parseInt(cpt - 1)}`} style={{textDecoration: 'none'}}>
+              <Row className='btnext'>
                 <Label style={{fontSize: 24, }}>Anterior</Label>
               </Row>
+             </Link>
               <Column style={{width: 20, height: 20,}}/>
-              <Row className='btnext' >
+             <Link href={`${parseInt(cpt + 1)}`} style={{textDecoration: 'none'}}>
+              <Row className='btnext'>
                 <Label style={{fontSize: 24,}}>Próximo</Label>
               </Row>
+             </Link>
+
             </Row>
             
             <Column style={{width: 60, height: 10, marginTop: 10, marginBottom: -10, borderRadius: 100, backgroundColor: "#606060", alignSelf: 'center',}}/>
