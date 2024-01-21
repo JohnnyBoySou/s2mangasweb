@@ -61,13 +61,32 @@ export const GlobalStyle = createGlobalStyle `
 `;
 
 export const TextInput = styled.input`
-  font-size: ${props => props.theme.size.label};
+  font-size: ${props => props.theme.size.title};
   color: ${props => props.theme.color.title};
   font-family: 'Book';
+  background-color: #303030;
+  border: 0.6px solid #404040;
+  border-radius: 6px;
   margin-top: 10px;
+  outline: none;
+  z-index: 2;
+  padding: 8px 10px;
+  transition: .2s linear;
+  &:focus {
+    
+  border: 0.6px solid ${props => props.theme.color.primary};
+  }
 `;
 
 export const SubInput = styled.span`
+  font-size: 18px;
+  color: ${props => props.theme.color.title};
+  margin-bottom: -20px;
+  margin-top: 20px;
+  background-color: #505050;
+  border-radius: 4px;
+  padding: 8px 14px 16px 14px;
+  align-self: flex-start;
 `
 
 export const Title = styled.h1`

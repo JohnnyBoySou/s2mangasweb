@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <body>
       <Row>
         <Header  style={{width: '10%'}}/>
-        <Column style={{height: '100vh', width: '100%', overflowY: 'auto', overflowX: 'hidden'}}>
+        <Column style={{width: '100%', overflowY: 'auto', overflowX: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginRight:12,}}>
         {children}
         <SpeedInsights />
         </Column>
