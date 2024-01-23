@@ -23,9 +23,9 @@ export default function Dashboard (){
 
     const [mangaList, setMangaList] = useState([]);
     const [mangas, setMangas] = useState({
-        name: '1',
-        id: '1',
-        capa: '1',
+        name: '',
+        id: '',
+        capa: '',
     });
         const [formData, setFormData] = useState({
           id: 0,
@@ -52,6 +52,11 @@ export default function Dashboard (){
 
           const addManga = () => {
             setMangaList([...mangaList, mangas])
+            setMangas({
+                name: '',
+                id: '',
+                capa: '',
+            })
           }
           
           const raw = JSON.stringify(formData)
@@ -93,7 +98,7 @@ export default function Dashboard (){
 
         <Column style={{padding: 24, backgroundColor: "#202020", padding: 24, borderRadius: 12, margin: '0px 20px', width: 400,}}>
             <Title>Mangás</Title>
-               {mangas.capa.length > 1 ? 
+               {mangas?.capa.length > 1 ? 
                 <Image src={mangas.capa} width={240} height={320} alt={formData?.name} style={{backgroundColor: '#404040', borderRadius: 12, marginTop: 20, alignSelf: 'center', objectFit: 'cover',}}/>
                : <Column style={{width: 240, height: 320, borderRadius: 12, backgroundColor: "#303030", marginTop: 20, alignSelf: 'center'}}/> }
             <SubInput>ID</SubInput>
