@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { Column, Row, Title, Label, TextInput, SubInput, ButtonPrimary, ButtonOff, } from '../../themes/global';
+import { Column, Row, Title, Label, TextInput, SubInput, ButtonPrimary, ButtonOff, ButtonPrimaryLight, Button, } from '../../themes/global';
 import Image from 'next/image'
+import Skeleton from '../../components/Loading';
 
 export default function Dashboard (){
 
@@ -61,30 +62,50 @@ export default function Dashboard (){
           
           const raw = JSON.stringify(formData)
 
+          const [step, setStep] = useState(1);
+
     return(
     <Column style={{padding: 42,}}>
-        <Title style={{marginBottom: 20, fontSize: 32,}}>Criando</Title>
+        <Label style={{fontSize: 18, fontFamily: 'Book'}}>Dashboard  /  Mangalist  /  Criar</Label>
+        <Title style={{marginBottom: 20, fontSize: 54, marginTop: 10,}}>Criando Mangálist</Title>
+
+        <Row style={{marginBottom: 30,}}>
+            <ButtonOff onClick={() => setStep(1)} style={{fontSize: 24, backgroundColor: step === 1 ? "#fff" : "#303030",  color: step === 1 ? "#000" : "#fff", }}>Sobre</ButtonOff>
+            <ButtonOff onClick={() => setStep(2)} style={{fontSize: 24, backgroundColor: step === 2 ? "#fff" : "#303030",  color: step === 2 ? "#000" : "#fff", margin: '0px 20px', }}>Vídeo</ButtonOff>
+            <ButtonOff onClick={() => setStep(3)} style={{fontSize: 24, backgroundColor: step === 3 ? "#fff" : "#303030",  color: step === 3 ? "#000" : "#fff", marginRight: 20,}}>Mangás</ButtonOff>
+            <ButtonOff onClick={() => setStep(4)} style={{fontSize: 24, backgroundColor: step === 4 ? "#fff" : "#303030",  color: step === 4 ? "#000" : "#fff", }}>Código</ButtonOff>
+        </Row>
+
         <Row style={{padding: 24, borderRadius: 12, backgroundColor: '#303030'}}>
 
-        <Column style={{padding: 24, }}>
-            <Title>Story</Title>
-            
-        <SubInput>ID</SubInput>
-        <TextInput name="id" value={formData.id} onChange={handleChange} />
-        <SubInput>Nome</SubInput>
-        <TextInput name="name" value={formData.name} onChange={handleChange} />
-        <SubInput>Descrição curta</SubInput>
-        <TextInput name="desc" value={formData.desc} onChange={handleChange}/>
-        <SubInput>Capa URL</SubInput>
-        <TextInput name="capa" value={formData.capa} onChange={handleChange}/>
-
-        <SubInput>Date</SubInput>
-        <TextInput placeholder='22 de Jan, 2024' name="date" value={formData.date} onChange={handleChange}/>
-        <ButtonPrimary style={{marginTop: 10,}} >Gerar</ButtonPrimary>
+       {step === 1 && <Column style={{}}>
+        <Row>
+            <Column>
+                <SubInput>UID</SubInput>
+                <TextInput name="id" value={formData.id} onChange={handleChange} />
+            </Column>
+            <Column style={{marginLeft: 20,}}>
+                <SubInput>Nome</SubInput>
+                <TextInput name="name" value={formData.name} onChange={handleChange} />
+            </Column>
+        </Row>
+            <SubInput>Descrição</SubInput>
+            <TextInput name="desc" value={formData.desc} onChange={handleChange}/>
+        <Row>
+            <Column>
+                <SubInput>Capa URL</SubInput>
+                <TextInput name="capa" value={formData.capa} onChange={handleChange}/>
+            </Column>
+            <Column style={{marginLeft: 20,}}>
+                <SubInput>Date</SubInput>
+                <TextInput placeholder='22 de Jan, 2024' name="date" value={formData.date} onChange={handleChange}/>
+            </Column>
+        </Row>
+            <ButtonPrimary style={{marginTop: 10,}} >Gerar</ButtonPrimary>
         </Column>
+         }
 
-
-        <Column style={{backgroundColor: "#404040", padding: 24, borderRadius: 12, marginRight: 10,}}>
+        {step === 2 &&  <Column style={{backgroundColor: "#404040", padding: 24, borderRadius: 12, marginRight: 10,}}>
             <Title>Video</Title>
             <video width="300" height="400" controls style={{backgroundColor: '#606060', borderRadius: 12, marginBottom: 10, marginTop: 10,}}>
                 {formData.video.length > 1 && <source src={formData.video} type="video/mp4"/>}
@@ -93,10 +114,10 @@ export default function Dashboard (){
             <TextInput name='video' value={formData.video} onChange={handleChange}/>
             <SubInput>Descrição curta</SubInput>
             <TextInput name="short" value={formData.short} onChange={handleChange}/>
-        
-        </Column>
+        </Column>}
 
-        <Column style={{padding: 24, backgroundColor: "#202020", padding: 24, borderRadius: 12, margin: '0px 20px', width: 400,}}>
+        
+        {step === 3 &&  <Column style={{padding: 24, backgroundColor: "#202020", padding: 24, borderRadius: 12, margin: '0px 20px', width: 400,}}>
             <Title>Mangás</Title>
                {mangas?.capa.length > 1 ? 
                 <Image src={mangas.capa} width={240} height={320} alt={formData?.name} style={{backgroundColor: '#404040', borderRadius: 12, marginTop: 20, alignSelf: 'center', objectFit: 'cover',}}/>
@@ -109,11 +130,10 @@ export default function Dashboard (){
             <TextInput name="capa" value={mangas.capa} onChange={handleChangeManga} />
 
             <ButtonOff style={{marginTop: 20,}} onClick={addManga}>Adicionar Mangá</ButtonOff>
+        </Column>}
 
-        </Column>
 
-
-        <Column style={{padding: 24, border: '2px dashed #404040', borderRadius: 12, width: 400,}}>
+        {step === 4 && <Column style={{padding: 24, border: '2px dashed #404040', borderRadius: 12, width: 400,}}>
             <Title>Código</Title>
             <Label style={{width: 400, wordBreak: 'break-all'}}>
                 
@@ -123,7 +143,17 @@ export default function Dashboard (){
             <Label key={index}>{JSON.stringify(item)},</Label>
             ))} ]{'}'}
             </Label>
-        </Column>
+        </Column>}
+
+        </Row>
+
+        <Row style={{justifyContent: 'space-between', margin: 20,}}>
+            <ButtonOff>Anterior</ButtonOff>
+            <Row style={{justifyContent: 'center', alignItems: 'center', }}>
+                <Label style={{marginRight: 10,}}>2 de 6 campos preenchidos</Label>
+                {step < 4 && <ButtonPrimary onClick={() => setStep(step + 1)}>Próximo</ButtonPrimary>}
+                {step === 4 && <ButtonPrimary>Salvar & Publicar</ButtonPrimary>}
+            </Row>
         </Row>
         
     </Column>

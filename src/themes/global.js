@@ -171,7 +171,7 @@ export const ButtonOff = styled.button`
   transition: .2s linear;
   cursor: pointer;
   &:hover {
-  background-color: ${props => props.theme.color.off};
+  background-color: #303030;
   color: ${props => props.theme.color.label};
   }
 `;
