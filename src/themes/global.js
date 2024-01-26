@@ -123,6 +123,7 @@ export const Main = styled.section`
 
 export const Button = styled.button`
   border: none;
+  cursor: pointer;
   background-color: #00000000;
 `;
 
