@@ -69,7 +69,7 @@ export default function DetailsManga({ params }) {
 
  if(!loading){
     return (
-        <Column style={{background: `linear-gradient(-145deg, #282828 21%, #161616 99.92%)`, padding: '44px',}}>
+        <Column style={{background: `linear-gradient(-145deg, #282828 21%, #161616 99.92%)`, padding: '44px', overflowY:'auto', borderRadius: 12, }}>
             <Column>
                 <Row>
                     <Column>
@@ -77,7 +77,7 @@ export default function DetailsManga({ params }) {
                     <Label style={{backgroundColor: cl, color: "#fff"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
                     </Column>
                    
-                    <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, overflow: 'hidden',}}>
+                    <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
                         <Title style={{fontSize: '2.6em',  fontFamily: 'Black',}}>{item?.name?.slice(0, 40)}</Title>
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16, width: 500,}}>{item?.description?.slice(0, 270)}...</Label>
                        

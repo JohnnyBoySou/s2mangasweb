@@ -58,7 +58,6 @@ export default function Contents({ }){
             <source
               src={item?.video}
               type="video/mp4"
-              resizeMode="cover"
               loop
               />
               </video>
