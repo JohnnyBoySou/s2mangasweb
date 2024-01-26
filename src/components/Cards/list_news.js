@@ -28,14 +28,14 @@ export default function ListMangaNews({ data }) {
                 />
             </Column>
 
-            <Column style={{width:200, borderRadius: 8, marginLeft: -20, backgroundColor: '#262626', padding: 12, paddingLeft: 40, }}>
+            <Column style={{width:200, borderRadius: 8, marginLeft: -20, backgroundColor: '#303030', padding: 12, paddingLeft: 40, }}>
              <Row style={{alignItems: 'center', flexWrap: 'wrap', }}>
-              {item.categories.map((item, index) => <Label key={index} style={{fontSize: 16, marginTop: 4,}}>{item} • </Label>)}
+              {item.categories.map((item, index) => <Label key={index} style={{fontSize: 16, marginTop: 4,}}>{item} • &nbsp;</Label>)}
              </Row>
               <Label style={{color: "#f6f6f6", fontSize: 20, }}>{item?.name.slice(0,28)}</Label>
               
               <Row style={{flexWrap: 'wrap', marginTop: 10,}}>
-                {item?.newchapters.map((c, index) => ( <Label className="new" key={index}>{c}</Label> ))} 
+                {item?.newchapters.map((c, index) => ( <Label className="new" key={index}>{c} </Label> ))} 
               </Row>
               <Label style={{fontSize: 14, marginTop: 4,}}>Atualizado à {item?.release_date} </Label>
               
