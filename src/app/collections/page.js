@@ -1,10 +1,12 @@
 'use client';
 import React, {useState} from 'react';
-import { Column, Row, Title, Label, BTColection, BTColectionLarge} from '../../themes/global';
-import { CiEdit, CiCreditCard1 } from "react-icons/ci";
+import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, ButtonPrimary} from '../../themes/global'; 
 import { collections } from '../../requests/collections/list';
 import './collections.css'
-import Link from 'next/link';
+import Link from 'next/link'; 
+import { IoClose } from "react-icons/io5";
+
+
 
 export default function Collections() {
     function formatarData(data) {
@@ -27,16 +29,16 @@ export default function Collections() {
         date: formatarData(new Date()),
       };
 
+      const [modal, setModal] = useState(false);
     
     const handleNew = () => {
        // CreateCollection(newCollection, 9).then(res => console.log(res))
     }
-    
     return (
-        <Column className='banner'>
-            <Row>
+        <Column style={{padding: 44,}}>
+            <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
                 <Title>Suas Coleções</Title>
-                <Column onClick={handleNew}>Nova Coleção</Column>
+                <ButtonOff onClick={() => setModal(!modal)}>Nova Coleção</ButtonOff>
             </Row>
             <Row style={{flexWrap: 'wrap', marginTop: 12,}}>
             {collections.map((item, index) => {
@@ -56,6 +58,29 @@ export default function Collections() {
                  )})}
             </Row>
 
+            {modal &&
+            <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', backgroundColor: "#00000090" , position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
+                <Column style={{width: 600, borderRadius: 12,  padding: 24, backgroundColor: "#262626" , position: 'absolute', top: 100, alignSelf: 'center', zIndex: 99,}}>
+                    
+                    
+                    <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
+                        <Title>Criar coleção</Title>
+                        <IoClose style={{fontSize: 32, color: "#fff", cursor: 'pointer', padding: 8, }} onClick={() => setModal(!modal)}/>
+                    </Row>
+
+                    <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
+                        <ButtonOff>Descartar</ButtonOff>
+                        <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
+                            <Label style={{marginRight: 10,}}>Existem alterações não salvas</Label>
+                            <ButtonPrimary>Salvar</ButtonPrimary>
+                        </Row>
+                    </Row>
+                    <Column style={{width: 120, height: 10, backgroundColor: '#606060', borderRadius: 100, alignSelf: 'center'}}/>
+
+                </Column>
+            </Column>
+            }
+        
         </Column>
     )
 }

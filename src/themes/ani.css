@@ -208,16 +208,6 @@
   }
   
 
-.marq {
-  padding: 10px;
-  background-color: #202020;
-  transform: rotate(45deg);
-  width: 130%;
-  overflow: hidden;
-}
-.marqueeStyle {
-  animation: scrolling-left1 10s linear infinite;
-}
  
 @keyframes scrolling-left1 {
     0% {
@@ -235,4 +225,12 @@
 }
 .imgicon:hover{
   transform: rotate(45deg);
+}
+
+.scale-ani{
+  transition: .2s linear;
+  cursor: pointer;
+}
+.scale-ani:hover{
+  transform: scale(1.1);
 }

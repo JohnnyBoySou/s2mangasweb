@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <ThemeClient>
-      <body  style={{ overflow: 'hidden',}}>
+      <body  style={{ overflow: 'hidden', paddingTop: 6,}}>
       <Row>
         <Header />
         <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>

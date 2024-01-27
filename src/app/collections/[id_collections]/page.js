@@ -10,15 +10,20 @@ export default function CollectionsDetails({ params }) {
     const item = collections.find((collection) => collection.id === id);
     return (
         <>
-        <Column className='banner' style={{paddingBottom: 44,
-            background: `linear-gradient(145deg, ${item.color} -20.91%, #191919 54.92%)`,
-        }}>
-            <Title style={{marginTop: 44, marginLeft: 44, fontSize: 54,}}>{item?.name} {item?.icon}</Title>
-            <Label style={{marginLeft: 44, color: "#ffffff90"}}>Criado {item?.date}  </Label>
-
+        <Column style={{padding: 44, background: `linear-gradient(145deg, ${item.color}50 -20.91%, #191919 54.92%)`,  }}>
+            <Row>
+                <Column className='scale-ani' style={{backgroundColor: item?.color, width: 150, height: 150, borderRadius: 6, justifyContent: 'center', alignItems: 'center', }}>
+                    <Title style={{fontSize: 58,}}>{item?.icon}</Title>
+                </Column>
+                <Column style={{justifyContent: 'center',}}>
+                    <Label style={{marginLeft: 44, color: "#ffffff90"}}>Coleção</Label>
+                    <Title style={{ marginLeft: 44, fontSize: 54,}}>{item?.name}</Title>
+                    <Label style={{marginLeft: 44, color: "#ffffff90"}}>Criado {item?.date} • {item?.mangas_ids.length} mangás</Label>
+                </Column>
+            </Row>
         </Column>
     
-        <Column className='content'>
+        <Column style={{marginTop: 40,}}>
             <ListMangaWrap />
         </Column>
          </>

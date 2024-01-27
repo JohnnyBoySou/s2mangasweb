@@ -50,9 +50,33 @@ export const collections = [
     {
         id: 7,
         name: 'Corridas de moto',
-        icon: '🏎️',
-        color: '#c0d7fc',
+        icon: '🏍️',
+        color: '#DDF093',
         mangas_ids: [1253, 4413, 5542, 4413, 5532,],
         date: '8 de Fev, 2023'
+    },
+    {
+        id: 8,
+        name: 'Romance',
+        icon: '🥰',
+        color: '#CE4760',
+        mangas_ids: [1253, 4413, 5542, 4413, 5532,],
+        date: '24 de Fev, 2023'
+    },
+    {
+        id: 9,
+        name: 'Isekai de respeito',
+        icon: '⛩️',
+        color: '#c0d7fc',
+        mangas_ids: [1253, 4413, 5542, 4413, 5532,],
+        date: '25 de Fev, 2023'
+    },
+    {
+        id: 10,
+        name: 'Medalha de honra',
+        icon: '🎖️',
+        color: '#90E39A',
+        mangas_ids: [1253, 4413, 5542, 4413, 5532,],
+        date: '28 de Fev, 2023'
     },
 ]

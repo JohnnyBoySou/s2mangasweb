@@ -43,7 +43,7 @@ export const GlobalStyle = createGlobalStyle `
     padding: 0;
     margin: 0;
     font-family: 'Medium';
-    background-color: #171717;
+    background-color: #101010;
   }
   ::-webkit-scrollbar {
     width: 12px; /* Largura da barra de rolagem */
