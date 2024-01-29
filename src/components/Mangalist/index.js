@@ -11,19 +11,42 @@ import { CiVolumeHigh } from "react-icons/ci";
 
 export default function Contents({ }){
 
-  const Card = ({item, index}) => {
-    return(
-        <Column style={{marginRight: 12,}}>
-            <>
-            <Image src={item?.capa} width={150} height={150} style={{borderRadius: 4, objectFit: 'cover', marginBottom: 0, }} alt=''/>
-            <Label style={{fontSize: 18, width: 150, marginTop: 6, }}>{item?.name}</Label>
-            </>
-        </Column>
-    )
-  }
+  const Card = ({ item }) => {
+    const [hover, setHover] = useState(false);
+
+    const handleMouseEnter = () => {
+      setHover(true);
+    };
+
+    const handleMouseLeave = () => {
+      setHover(false);
+    };
+
+    return (
+      <Column
+        style={{ marginRight: 12 }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {hover ? (
+          <>
+            <Column style={{ width: 250, height: 250, borderRadius: 12, background: "#303030" }} >
+              <Label>{item?.manga_ids?.length}</Label>
+            </Column>
+            <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
+          </>
+        ) : (
+          <>
+            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 4, objectFit: 'cover', marginBottom: 0 }} alt='' />
+            <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
+          </>
+        )}
+      </Column>
+    );
+  };
 
 
-  const Storie = ({item, index}) => {
+  const Storie = ({item, }) => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -84,7 +107,6 @@ export default function Contents({ }){
                     type="range"
                     style={{
                         orient: 'vertical',
-                       // appearance: 'slider-vertical',
                         width: 60, 
                         height: 10,
                         marginLeft: 5,
@@ -117,7 +139,7 @@ export default function Contents({ }){
     <Column style={{margin: 44,}}> 
     <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10,}}>
       <Column style={{justifyContent: 'center'}}>
-        <Title style={{fontSize: 24,}}>Segue o fio</Title>
+        <Title style={{fontSize: 42, marginBottom: 20,}}>Segue o fio</Title>
       </Column>
     </Row>
     <Column>
@@ -129,7 +151,7 @@ export default function Contents({ }){
    </Draggable>
     <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10, marginTop: 30,}}>
       <Column style={{justifyContent: 'center'}}>
-        <Title style={{fontSize: 24,}}>Mangalists do momento</Title>
+        <Title style={{fontSize: 42, marginBottom: 20, marginTop: 30,}}>Mangalists do momento</Title>
       </Column>
     </Row>
 

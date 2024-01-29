@@ -21,3 +21,18 @@
     padding-bottom: 24px;
     background: linear-gradient(145deg, #262626 -20.91%, #191919 54.92%);
 }
+
+.edit{
+    font-size: 18px;
+    background-color: #30303050;
+    padding: 8px;
+    border-radius: 100px;
+    margin-left: 12px;
+    color: #ffffff90;
+    cursor: pointer;
+    transition: .2s linear;
+}
+.edit:hover{
+    color: #ffffff;
+    background-color: #303030;
+}

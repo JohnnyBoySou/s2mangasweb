@@ -17,14 +17,13 @@ export default function Header(){
    // if (pathname == "/register" || "/login") {
      //   return <></>;
    // }
-
    const [grid, setGrid] = useState(true);
-   const [openTab, setOpenTab] = useState(true);
+   const [openTab, setOpenTab] = useState(false);
     return(
         <Column style={{padding: 12, height: '100vh', width: openTab ? '400px' : '76px', transition: '.2s linear', }}>
             <Column style={{backgroundColor: "#262626", borderRadius: 8,}}>
                 <Row style={{ alignItems: 'center', }}>
-                    <Link href="/home"> <BTIcon><GoHome/></BTIcon> </Link>
+                    <Link href="/home"><BTIcon><GoHome/></BTIcon> </Link>
                     {openTab && <Link href="/home" style={{textDecoration: 'none', }}><Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Início</Title></Link> }
                 </Row>
                 <Row style={{ alignItems: 'center', }}>
@@ -43,12 +42,10 @@ export default function Header(){
             </Column>
             <Row style={{ marginBottom: -15, marginTop: 20, justifyContent: 'space-between', alignItems: 'center', paddingRight: 5, }}>
                 <Row style={{ alignItems: 'center', }}>
-                    <Button onClick={() => setOpenTab(!openTab)} style={{ marginLeft: -10, marginRight: -20,}}>
-                        <Row>
-                                <BTIcon><BsCollection/></BTIcon> 
-                        </Row>
-                    </Button>
-                    {openTab && <Label style={{fontSize: 18, marginTop: -4, marginLeft: 6,}}>Coleções</Label>}
+                    <BTIcon onClick={() => {
+                        if(openTab){setOpenTab(false); setGrid(true)}else{setOpenTab(true)}
+                    }} style={{ marginLeft: 0, marginRight: -20,}}><BsCollection/></BTIcon> 
+                    {openTab && <Label style={{fontSize: 18, marginTop: -4, marginLeft: 10,}}>Coleções</Label>}
                 </Row>
                 {openTab && 
                 <Row>

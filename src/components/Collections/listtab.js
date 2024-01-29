@@ -1,8 +1,9 @@
 'use client';
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import { Column, BTIcon, BTColection, Label, Button, Row } from "../../themes/global";
 import { collections } from "../../requests/collections/list";
 import Link from 'next/link'
+import { getCollections } from '../../requests/collections/request';
 
 
 function CollectionItem({ item, open }) {
@@ -68,20 +69,29 @@ function CollectionItemRow({ item, open }) {
   
   export default function ListCollections({ open, grid}) {
 
-    if(grid){
+    const [collections, setCollections] = useState([]);
+    useEffect(() => {
+      const fetchData = async () => {
+          const collections = await getCollections();
+          setCollections(collections);
+      };
+      fetchData();
+  }, []);
 
+
+    if(grid ){
         return (
             <Column style={{ paddingTop: 12, backgroundColor: "#262626", borderRadius: 8 }}>
-        {collections.map((item, index) => (
+        {collections?.map((item, index) => (
             <CollectionItem key={item.id} item={item} open={open} />
             ))}
       </Column>
     );
 }
-  else if(!grid){
+  else if(!grid ){
     return(
         <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
-        {collections.map((item, index) => (
+        {collections?.map((item, index) => (
             <CollectionItemRow key={item.id} item={item} open={open} />
             ))}
       </Row>

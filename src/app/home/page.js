@@ -1,13 +1,15 @@
 'use client';
-import React, {useContext, useEffect, useState} from "react"
+import React, {useRef, useEffect, useState} from "react"
 import Image from 'next/image'
 import axios from 'axios'
-import { Column, Row, Label, Title, ButtonPrimary, ButtonOff} from '../../themes/global'
+import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, ButtonPrimaryLight} from '../../themes/global'
 import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { LuBell } from "react-icons/lu";
+
 import Contents from "../../components/Mangalist";
 
 
@@ -38,37 +40,56 @@ export default function Feed () {
       setRate(rate_raw.data.mangas);
     }
   
+ 
 
   return(
-    <Row style={{overflowY: 'hidden'}}>
-        <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}}>
+        <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}} >
             <Column style={{padding: 44, borderRadius: 8, flexGrow: 1,  }} >
               <Column style={{ background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`, width: '120%', height: 400, margin: '-44px -44px -400px -44px' }}/>
               <Row style={{justifyContent: 'space-between', alignItems: 'center', marginTop: 50, }}>
-                <Column>
-                  <Row style={{marginBottom: 20,}}>
-                  <ButtonOff style={{width: 44, height: 44, justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
-                    <FiArrowLeft style={{marginTop: 6,}}/>
-                  </ButtonOff>
-                  <ButtonOff style={{width: 44, height: 44, marginLeft: 10, justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
-                    <FiArrowRight style={{marginTop: 6,}}/>
-                  </ButtonOff>
+                
+                <Column style={{position: 'relative', }}>
+                
+                  <Row className="nav"  style={{marginBottom: 20, position: 'fixed', marginTop: -58, width: '92.4%', borderRadius: '12px 12px 4px 4px', padding: 20, marginLeft: -44, zIndex: 9999, paddingLeft: 44,}} >
+                  
+                    <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
+                      <ButtonOff style={{width: 34, height: 34, justifyContent: 'center', alignItems: 'center', fontSize: 22, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
+                        <FiArrowLeft style={{marginTop: 6,}}/>
+                      </ButtonOff>
+                      <ButtonOff style={{width: 34, height: 34, marginLeft: 10, justifyContent: 'center', alignItems: 'center', fontSize: 22, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
+                        <FiArrowRight style={{marginTop: 6,}}/>
+                      </ButtonOff>
+
+
+
+
+                    <ButtonPrimaryLight style={{marginLeft: 20,}}>Instalar aplicativo</ButtonPrimaryLight>
+
+                    <ButtonOff style={{background: "#40404090", marginLeft: 20, width: 44, height: 44, borderRadius: 100, padding: 0, justifyContent: 'center', alignItems: 'center', }}>
+                      <LuBell/>
+                    </ButtonOff>
+                    </Row>
+
+
                   </Row>
-                  <Title style={{fontSize: 72, lineHeight: 1}}>Boa tarde</Title>   
+                
+                  <Title style={{fontSize: 72, marginTop: 100, lineHeight: 1}}>Boa tarde</Title>   
                   <Row style={{justifyContent: 'space-between', marginTop: 20, alignItems: 'center', }}>
                     <ButtonOff>Curtidos ❤️</ButtonOff>
                     <ButtonOff style={{margin: '0px 10px',}}>Comprar 🃏</ButtonOff>
                     <ButtonOff>Importar 🗂️</ButtonOff>
                   </Row>
                 </Column>
+              
               </Row>
               
             </Column>
 
 
-
-
             <Column >
+              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Continue lendo</Title>
+
+
               <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Novos capítulos</Title>
               <ListMangaNews data={news} />
               <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Populares</Title>
@@ -79,7 +100,6 @@ export default function Feed () {
 
             <Contents />
         </Column>
-    </Row>
     )
 }
 

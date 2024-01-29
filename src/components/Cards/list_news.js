@@ -35,7 +35,7 @@ export default function ListMangaNews({ data }) {
               <Label style={{color: "#f6f6f6", fontSize: 20, }}>{item?.name.slice(0,28)}</Label>
               
               <Row style={{flexWrap: 'wrap', marginTop: 10,}}>
-                {item?.newchapters.map((c, index) => ( <Label className="new" key={index}>{c} </Label> ))} 
+                {item?.newchapters?.slice(0, 4)?.map((c, index) => ( <Label className="new" key={index}>{c} </Label> ))} 
               </Row>
               <Label style={{fontSize: 14, marginTop: 4,}}>Atualizado à {item?.release_date} </Label>
               
@@ -46,7 +46,7 @@ export default function ListMangaNews({ data }) {
       }
     return(
         <>
-        <Draggable style={{width: '100%', overflow: 'hidden', }}>
+        <Draggable style={{width: '100%', overflow: 'hidden', marginTop: 0, }}>
           <Row style={{ overflow: 'hidden', paddingLeft: 44, }}>
           {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
           </Row>
