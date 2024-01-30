@@ -10,7 +10,7 @@
 
 .imagezoom{
     transition: linear .2s;
-    box-shadow: 0px 20px 30px #00000060;
+    box-shadow: 0px 20px 30px #00000030;
 }
 .card:hover .imagezoom{
     transform: scale(1.05);

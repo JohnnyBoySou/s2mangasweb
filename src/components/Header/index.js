@@ -53,7 +53,7 @@ export default function Header(){
                         <Button onClick={() => setGrid(!grid)} style={{fontSize: 18, color: grid ? '#fff' : '#000', width: 36, height: 36, textAlign: 'center', borderRadius: 100, transition: '.2s linear', backgroundColor: grid ? '#262626' : '#fff', justifyContent: 'center', alignItems: 'center', }}>
                             <IoGridOutline   style={{marginTop: 5,}}/>
                         </Button>
-                        <Link href={"./collections"} style={{fontSize: 22, color: '#fff', width: 36, textAlign: 'center', height: 36, marginLeft: 10, borderRadius: 100, backgroundColor: '#262626', justifyContent: 'center', alignItems: 'center', }}>
+                        <Link href={"/collections"} style={{fontSize: 22, color: '#fff', width: 36, textAlign: 'center', height: 36, marginLeft: 10, borderRadius: 100, backgroundColor: '#262626', justifyContent: 'center', alignItems: 'center', }}>
                             <IoArrowForward  style={{marginTop: 7,}}/>
                         </Link>
 

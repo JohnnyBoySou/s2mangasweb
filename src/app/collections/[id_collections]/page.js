@@ -6,18 +6,30 @@ import { LuPencilLine, LuTrash2 } from "react-icons/lu";
 import ListMangaWrap from '../../../components/Cards/listwrap';
 import { editCollectionByID, getCollectionByID, excludeCollectionByID } from '../../../requests/collections/request';
 import Toast from '../../../components/Toast';
+import ListCollection from '../../../components/Cards/list_collection';
+import axios from 'axios';
 
 export default function CollectionsDetails({ params }) {
     const id = Number(params.id_collections);
-    const [collections, setCollections] = useState();
+    const [mangas, setMangas ] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [item, setItem] = useState();
     const [name, setName] = useState();
     useEffect(() => {
         const fetchData = async () => {
             const collection = await getCollectionByID(id);
             setItem(collection)
+            const ids = collection?.mangas_ids;
+                if(ids){
+                    const mangas = await Promise.all(ids.map(async (id) => {
+                        const item_raw = await axios.get('https://www.s2mangas.com/api/manga/details?id=' + id);
+                        return item_raw.data.manga;
+                    }));
+                    setMangas(mangas);
+            }
         };
         fetchData();
+       
     }, []);
 
     const editCollection = async ()  => {
@@ -69,7 +81,7 @@ export default function CollectionsDetails({ params }) {
         </Column>
     
         <Column style={{marginTop: 40,}}>
-            <ListMangaWrap />
+            <ListCollection data={mangas} />
         </Column>
          </>
         

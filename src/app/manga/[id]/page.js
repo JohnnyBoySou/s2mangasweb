@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState  } from 'react';
-import { Column, Row, Title, Label, BTFlow, ButtonOff} from '../../../themes/global';
+import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection} from '../../../themes/global';
 import axios from 'axios'
 import { FaPlay } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
@@ -10,6 +10,9 @@ import Link from 'next/link';
 import ColorThief from 'colorthief';
 import Image from 'next/image';
 import Skeleton from '../../../components/Loading';
+import { IoClose } from "react-icons/io5";
+import Loader from '../../../components/Loader';
+import { addMangaInCollectionByID, getCollections } from '../../../requests/collections/request';
 
 export default function DetailsManga({ params }) {
     const id = params.id
@@ -18,6 +21,7 @@ export default function DetailsManga({ params }) {
     const [loading, setLoading] = useState(true);
     const [chapters, setChapters] = useState([]);
     const [images, setImages] = useState();
+    const [modal, setModal] = useState(false);
     const cl = item?.type === 'Manga' ? "#ED274A" : item?.type === 'Manhwa' ? "#366AD3" : item?.type === 'Manhua' ? "#009688" : '#000';
     const [liked, setLiked] = useState(false);
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
@@ -65,6 +69,51 @@ export default function DetailsManga({ params }) {
         </Link>
       )
     }
+
+    const [collections, setCollections] = useState([]);
+    useEffect(() => {
+      const fetchData = async () => {
+          const collections = await getCollections();
+          setCollections(collections);
+      };
+      fetchData();
+  }, []);
+
+    const [selectCollection, setSelectCollection] = useState();
+    const [message, setMessage] = useState('');
+
+    const addCollection = async () => {
+        try {
+            const response = await addMangaInCollectionByID(selectCollection, item.id);
+            if(response){
+                setMessage('Mangá adicionado com sucesso');
+                setTimeout(() => {
+                    setModal(!modal);
+                }, 2000);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+  
+  
+    function CollectionItemRow({ item, open }) {
+        return (
+            <Column style={{ zIndex: 99, flexGrow: 1,}} onClick={() => setSelectCollection(item.id)}>
+            <BTColection
+                style={{ backgroundColor: item?.color, alignSelf: 'center', width: 100, height: 100, fontSize: 42, border: `4px solid ${selectCollection == item.id ? '#fff' : '#30303010'}`, }}
+            >
+                {item?.icon}
+            </BTColection>
+                <Column style={{ justifyContent: 'center', borderRadius: 6, transition: '.2s linear' , marginBottom: 20,}}>
+                <Label style={{ fontSize: 15, textAlign: 'center', }}>{item?.name}</Label>
+                <Label style={{ fontSize: 12, textAlign: 'center', }}>{item?.mangas_ids.length} mangás</Label>
+                </Column>
+            </Column>
+        );
+    }
+    
 
 
  if(!loading){
@@ -136,7 +185,7 @@ export default function DetailsManga({ params }) {
 
                         <Row style={{justifyContent: 'center', alignItems: 'center', }}>
                             <BTFlow>Seguir</BTFlow>
-                            <BTFlow style={{marginLeft: 12,}} >Salvar</BTFlow>
+                            <BTFlow style={{marginLeft: 12,}} onClick={() => setModal(!modal)}>Salvar</BTFlow>
                             <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
                         </Row>
                     </Row>
@@ -155,6 +204,37 @@ export default function DetailsManga({ params }) {
                 </Column>
             </Column>
 
+
+            {modal &&
+            <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', backgroundColor: "#00000090" , position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
+                <Column style={{width: 600, borderRadius: 12,  padding: 24, backgroundColor: "#262626" , position: 'absolute', top: 100, alignSelf: 'center', zIndex: 99,}}>
+                    <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
+                        <Title style={{fontSize: 32,}}>Adicionar a coleção</Title>
+                        <IoClose style={{fontSize: 32, color: "#fff", cursor: 'pointer', padding: 8, }} onClick={() => setModal(!modal)}/>
+                    </Row>
+                    <Column style={{marginTop: 24,}}>
+                      
+                    <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
+                    {collections?.map((item, index) => (
+                        <CollectionItemRow key={item.id} item={item} open={open} />
+                        ))}
+                    </Row>
+
+
+                    </Column>
+                    <Row style={{justifyContent: 'space-between', alignItems: 'center', marginTop: 20, }}>
+                        <ButtonOff>Descartar</ButtonOff>
+                        <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
+                            <Label style={{marginRight: 10,}}>{message}</Label>
+                            <ButtonPrimary onClick={addCollection}>
+                                {loading ? <Loader/> : 'Salvar' }
+                                </ButtonPrimary>
+                        </Row>
+                    </Row>
+                    <Column style={{width: 80, height: 10, backgroundColor: '#606060', borderRadius: 100, alignSelf: 'center', marginTop: 20,}}/>
+                </Column>
+            </Column>
+            }
         </Column>
     )
 }
@@ -184,3 +264,4 @@ export default function DetailsManga({ params }) {
     )
     }
 }
+
