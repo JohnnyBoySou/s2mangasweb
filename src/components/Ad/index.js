@@ -17,7 +17,7 @@ const Ad = () => {
         <div className="ad-container">
             <ins className="adsbygoogle"
                 style={{ display: 'block' }}
-                data-ad-client="SEU_ID_DO_CLIENTE"
+                data-ad-client="ca-pub-7579936116181719"
                 data-ad-slot="SEU_SLOT_DO_ANÚNCIO"
                 data-ad-format="auto"
                 data-full-width-responsive="true"></ins>
