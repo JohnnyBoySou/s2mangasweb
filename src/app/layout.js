@@ -5,6 +5,7 @@ import { Column, Row } from "../themes/global"
 import Header from '../components/Header'
 import Fixed from '../components/Fixed'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import NavBar from "../components/NavBar"
 
 export const metadata = {
   title: 'S2Mangás',
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <Row>
         <Header />
         <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>
+          <NavBar />
           {children}
         </Column>
          <SpeedInsights />

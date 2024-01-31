@@ -34,8 +34,3 @@
     background-color: red; /* Cor desejada quando a posição da tela for maior que 200px */
     transition: background-color 0.5s ease; /* Adiciona uma animação suave de 0.5 segundos */
   }
-
-  .nav{
-    background-color: #10101060;
-    backdrop-filter: blur(30px);
-  }

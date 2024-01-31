@@ -10,7 +10,7 @@ import Ad from '../../components/Ad';
 
 export default function Start (){
 
-    
+
 
 
 
@@ -33,7 +33,6 @@ export default function Start (){
                 <Column className='cardoff' style={{width: 100, height: 20,}}/>
             </Row>
 
-            <Ad/>
 
             <Row>
                 <Title style={{fontSize: 72, fontFamily: 'Book', textAlign: 'center', marginTop: 10,}}>Bem vindo ao </Title>

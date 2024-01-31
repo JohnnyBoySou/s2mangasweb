@@ -9,6 +9,7 @@ import ListMangaNews from "../../components/Cards/list_news";
 import { IoIosArrowBack } from "react-icons/io";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { LuBell } from "react-icons/lu";
+import Link from 'next/link'
 
 import Contents from "../../components/Mangalist";
 
@@ -50,28 +51,7 @@ export default function Feed () {
                 
                 <Column style={{position: 'relative', }}>
                 
-                  <Row className="nav"  style={{marginBottom: 20, position: 'fixed', marginTop: -58, width: '92.4%', borderRadius: '12px 12px 4px 4px', padding: 20, marginLeft: -44, zIndex: 9999, paddingLeft: 44,}} >
-                  
-                    <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
-                      <ButtonOff style={{width: 34, height: 34, justifyContent: 'center', alignItems: 'center', fontSize: 22, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
-                        <FiArrowLeft style={{marginTop: 6,}}/>
-                      </ButtonOff>
-                      <ButtonOff style={{width: 34, height: 34, marginLeft: 10, justifyContent: 'center', alignItems: 'center', fontSize: 22, textAlign: 'center', backgroundColor: '#30303090' , padding: 0,}}>
-                        <FiArrowRight style={{marginTop: 6,}}/>
-                      </ButtonOff>
-
-
-
-
-                    <ButtonPrimaryLight style={{marginLeft: 20,}}>Instalar aplicativo</ButtonPrimaryLight>
-
-                    <ButtonOff style={{background: "#40404090", marginLeft: 20, width: 44, height: 44, borderRadius: 100, padding: 0, justifyContent: 'center', alignItems: 'center', }}>
-                      <LuBell/>
-                    </ButtonOff>
-                    </Row>
-
-
-                  </Row>
+                 
                 
                   <Title style={{fontSize: 72, marginTop: 100, lineHeight: 1}}>Boa tarde</Title>   
                   <Row style={{justifyContent: 'space-between', marginTop: 20, alignItems: 'center', }}>
