@@ -3,13 +3,10 @@ import './ad.css'
 
 const Ad = () => {
     useEffect(() => {
-        // Carregar o script do Google Ads
         const script = document.createElement('script');
         script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7579936116181719";
         script.async = true;
         document.body.appendChild(script);
-
-        // Inicializar os anúncios do Google Ads
         (window.adsbygoogle = window.adsbygoogle || []).push({});
     }, []);
 

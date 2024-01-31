@@ -6,11 +6,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { geral } from '../../requests/shop/avatars';
 import { geralbg } from '../../requests/shop/capas';
+import Ad from '../../components/Ad';
 
 export default function Start (){
 
-    const [avatar, setAvatar] = useState();
+    
 
+
+
+
+    const [avatar, setAvatar] = useState();
     const [step, setStep] = useState(1);
     return(
         <Column  style={{ overflow: 'hidden', padding: 44, borderRadius: 8, flexGrow: 1, background: `radial-gradient(circle, #262626, #121212)`,  }}>
@@ -27,6 +32,8 @@ export default function Start (){
                 <Column className='card_grad' style={{width: 100, height: 20, marginLeft: 20, marginRight: 20,}}/>
                 <Column className='cardoff' style={{width: 100, height: 20,}}/>
             </Row>
+
+            <Ad/>
 
             <Row>
                 <Title style={{fontSize: 72, fontFamily: 'Book', textAlign: 'center', marginTop: 10,}}>Bem vindo ao </Title>

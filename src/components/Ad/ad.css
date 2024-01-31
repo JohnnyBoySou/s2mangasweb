@@ -2,8 +2,7 @@
     margin: 20px auto;
     width: 100%;
     max-width: 728px;
-}.ad-container {
-    margin: 20px auto;
-    max-width: 100%;
-    text-align: center;
+    height: 300px;
+    background-color: #303030;
+    border-radius: 12px;
 }

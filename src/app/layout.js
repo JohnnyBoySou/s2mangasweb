@@ -34,3 +34,13 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+RootLayout.getLayoutProps = () => ({
+  title: metadata.title,
+  description: metadata.description,
+  script: {
+    src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7579936116181719",
+    async: true,
+    crossOrigin: "anonymous"
+  }
+});
