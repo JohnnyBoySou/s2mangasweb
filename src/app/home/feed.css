@@ -34,3 +34,52 @@
     background-color: red; /* Cor desejada quando a posição da tela for maior que 200px */
     transition: background-color 0.5s ease; /* Adiciona uma animação suave de 0.5 segundos */
   }
+
+
+  .novos{
+    padding-left: 30px;
+    padding-top: 30px;
+    background: linear-gradient(45deg, #404040, #303030, #262626);
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 0px 10px;
+    transition: animation .3s linear;
+    transition: transform .2s linear;
+    font-family: 'Bold';
+    width: 200px;
+    height: 200px;
+  }
+.novos:hover{
+    font-family: 'Bold';
+    background-size: 200% 100%;
+    animation: gradientMovement 5s infinite; 
+    transform: scale(1.1);
+}
+  
+  
+  @keyframes gradientMovement {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+
+.gradient {
+    font-size: 72px;
+    background: linear-gradient(45deg, #ED274A, #FF620A, #FF007F, #d81438 );
+    background-clip: text;
+    font-family: 'Bold';
+    color: transparent;
+    background-size: 200% 100%;
+    animation: gradientMovement 5s infinite; 
+  }
+
+  /*background: linear-gradient(45deg, #ED274A, #FF620A, #FF007F, #d81438 );
+  */

@@ -2,32 +2,42 @@
 import React, {useRef, useEffect, useState} from "react"
 import Image from 'next/image'
 import axios from 'axios'
-import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, ButtonPrimaryLight} from '../../themes/global'
+import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../../themes/global'
 import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
 import { IoIosArrowBack } from "react-icons/io";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight, FiArrowUp } from "react-icons/fi";
 import { LuBell } from "react-icons/lu";
 import Link from 'next/link'
 
 import Contents from "../../components/Mangalist";
+import { createPreferences, getPreferences } from "../../requests/user/requests";
 
 
 export default function Feed () {
-  const user = {name: 'Johnny', avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg', }
   const [weekend, setWeekend] = useState([]);
   const [news, setNews] = useState([]);
   const [lasted, setLasted] = useState([]);
   const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState();
+  const [user, setUser] = useState();
   const API_URL = 'https://www.s2mangas.com/api/manga'
 
-  useEffect(() => {
-    requestData()
-  }, [loading])
+  const usera = {
+    name: 'JohnnyBoy',
+    genres: [{name: 'Ação', id: 'acao'}, {name: 'Artes Marciais', id: 'artes-marciais'}, {name: 'Adulto', id: 'adulto'}],
+    email: '***',
+    premium: true,
+    avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg',
+    capa: 'https://i.pinimg.com/736x/7d/de/81/7dde81dbac1e8cf0883cee9cac615452.jpg',
+    coins: 3200,
+    diamonds: 20, 
+    date: '20 de Jan, 2024',
+  }
 
-  const requestData = async () => {
+  useEffect(() => {
+    const requestData = async () => {
       const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
         axios.get(`${API_URL}/weekend`, ),
         axios.get(`${API_URL}/lasted`, ),
@@ -40,46 +50,127 @@ export default function Feed () {
       setNews(news_raw.data.mangas);
       setRate(rate_raw.data.mangas);
     }
-  
- 
 
+    const requestUser = async () => {
+      try {
+        const response = createPreferences(usera)
+        console.log(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+
+    const getUser = () => {
+      try {
+        const response = getPreferences()
+        setUser(response)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    
+    getUser()
+    requestData()
+    //requestUser()
+
+  }, [loading])
+
+  //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
+  
+  const [announced, setAnnouced] = useState(undefined);
+  const [step, setStep] = useState('home');
   return(
-        <Column style={{height: '100vh', width: '100%',  overflow: 'auto', overflowX:'hidden'}} >
-            <Column style={{padding: 44, borderRadius: 8, flexGrow: 1,  }} >
-              <Column style={{ background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`, width: '120%', height: 400, margin: '-44px -44px -400px -44px' }}/>
-              <Row style={{justifyContent: 'space-between', alignItems: 'center', marginTop: 50, }}>
-                
-                <Column style={{position: 'relative', }}>
-                
-                 
-                
-                  <Title style={{fontSize: 72, marginTop: 100, lineHeight: 1}}>Boa tarde</Title>   
-                  <Row style={{justifyContent: 'space-between', marginTop: 20, alignItems: 'center', }}>
-                    <ButtonOff>Curtidos ❤️</ButtonOff>
-                    <ButtonOff style={{margin: '0px 10px',}}>Comprar 🃏</ButtonOff>
-                    <ButtonOff>Importar 🗂️</ButtonOff>
+        <Column style={{ width: '100%',  overflow: 'auto', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
+
+
+            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 80, }} >
+              <Column style={{padding: 80,  }}/>
+                  <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
+                    <Column>
+                      <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>Boa tarde,</Title>
+                      <Row>
+                        <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
+                        <span className="gradient">{user?.name}</span>
+                        <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
+                      </Row>
+                    </Column>
                   </Row>
-                </Column>
-              
-              </Row>
+
+
+                  <Column style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 20, marginBottom: 10, border: '2px solid #f9f9f990',  padding: '12px 24px', borderRadius: 100,}}>
+                    <Title style={{fontSize: 18, fontFamily: 'Book',}}>Escolha um para começar</Title>
+                  </Column>
+
+                  <Row style={{justifyContent: 'center', marginTop: 20,  }}>
+                  <Column className="novos" style={{overflow: 'hidden', position: 'relative'}}>
+                          <Label style={{fontSize: 28, color: '#fff', textAlign: 'left', }}>Continue</Label>
+                          <Column >
+                            <Image src="https://img.lermanga.org/Z/zomgan/capa.jpg" alt="continue" width={105} height={150} style={{ objectFit: 'cover', position: 'absolute', bottom: -20, left: 30, borderRadius: 8, zIndex: 99,}} />
+                            <Image src="/continue.svg" alt="continue" width={100} height={170} style={{ objectFit: 'cover', transform: 'rotate(50deg)', position: 'absolute', bottom: -20, right: -20,}} />
+                          </Column>
+                    </Column>
+                    <Column className="novos" style={{overflow: 'hidden', position: 'relative'}} onClick={() => setStep('news')}>
+                          <Label style={{fontSize: 28, color: '#fff', textAlign: 'left', }}>Novos <br/>Capítulos</Label>
+                          <Image src="/capitulos.svg" alt="continue" width={100} height={170} style={{ objectFit: 'cover', transform: 'rotate(50deg)', position: 'absolute', bottom: -20, right: -20,}} />
+                          
+                    </Column>
+                    <Column className="novos" style={{overflow: 'hidden', position: 'relative'}} onClick={() => setStep('alta')}>
+                          <Label style={{fontSize: 28, color: '#fff', textAlign: 'left', }}>Em <br/>Alta</Label>
+                          <Image src="/em_alta.svg" alt="continue" width={100} height={170} style={{ objectFit: 'cover', transform: 'rotate(50deg)', position: 'absolute', bottom: -20, right: -20,}} />
+                          
+                    </Column>
+                    <Column className="novos" style={{overflow: 'hidden', position: 'relative'}} onClick={() => setStep('notas')}>
+                          <Label style={{fontSize: 28, color: '#fff', textAlign: 'left', }}>Melhores <br/>Notas</Label>
+                          <Image src="/notas.svg" alt="continue" width={100} height={170} style={{ objectFit: 'cover', transform: 'rotate(50deg)', position: 'absolute', bottom: -20, right: -20,}} />
+                          
+                    </Column>
+                  
+                  </Row>
               
             </Column>
 
 
-            <Column >
-              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Continue lendo</Title>
-
-
+            <Column>
+              
+              {step === 'news' && <Column className="fadeInUp">
               <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Novos capítulos</Title>
               <ListMangaNews data={news} />
-              <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Populares</Title>
+              </Column>}
+
+              {step === 'alta' && <Column className="fadeInUp">
+              <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Em alta</Title>
               <ListManga data={weekend}/>
+              </Column>}
+
+              {step === 'notas' && <Column className="fadeInUp">
               <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Melhores notas</Title>
               <ListManga data={rate}/>
+              </Column>}
+
             </Column>
 
-            <Contents />
+            
         </Column>
     )
 }
-
+/**
+ *   {announced ? <Column className="fadeInUp" style={{position: 'relative', backgroundColor: "#303030", borderRadius: '12px', padding: '10px 0px' }}>
+                  <Row style={{padding: '0px 10px 10px 10px', alignItems: 'center', }}>
+                    <Image src='/icon_colorido.png'  alt="temporada 1" width={24} height={24} style={{ objectFit: 'cover', marginRight: 6,}}/>
+                    <Label>S2Mangás</Label>
+                  </Row>
+                  <Image src='/t1.png'  alt="temporada 1" width={260} height={280} style={{borderRadius: 0, objectFit: 'cover'}}/>
+                  
+                  <Label style={{width: 240, margin: 10, fontSize: 16,}}>Temporada 1 anunciada! Traremos novidades em breve...</Label>
+                  <Column style={{width: 70, height: 10, borderRadius: 100, background: '#505050', alignSelf: 'center', cursor: 'pointer'}} onClick={() => setAnnouced(!announced)}/>
+                  </Column> :
+                  <Row onClick={() => setAnnouced(!announced)} style={{ backgroundColor: "#f7f7f790", cursor: 'pointer', justifyContent: 'space-between', borderRadius: '12px', padding: '10px 12px', width: 180, alignSelf: 'flex-end'}}>
+                    <Title style={{fontSize: 18, color: '#000', }}>Vem aí</Title>
+                    <FiArrowUp  style={{fontSize: 24, color: '#000', }}/>
+                  </Row>
+                  }
+ * 
+ * 
+ * <Contents />
+ */

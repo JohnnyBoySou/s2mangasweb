@@ -16,7 +16,7 @@ export default function ListManga({ data = mangas }) {
   
     const Card = ({ item, index, handle }) => {
         return(
-          <Column className="card" key={index}  style={{ marginBottom: 20, justifyContent: 'center', padding:22, borderRadius: 6, marginRight: 16,}}>
+          <Column className="card" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16,}}>
           <img 
               onClick={handle}
               className="imagezoom"
@@ -34,11 +34,10 @@ export default function ListManga({ data = mangas }) {
       }
     return(
         <>
-        <Draggable style={{width: '100%', overflow: 'hidden', }}>
-          <Row style={{ overflow: 'hidden', paddingLeft: 44, }}>
+          <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap', }}>
           {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
-          </Row>
-        </Draggable>
+          </Row> 
         </>
     )
 }
+//<Draggable style={{width: '100%', overflow: 'hidden', }}>

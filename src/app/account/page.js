@@ -7,7 +7,7 @@ import ListManga from '../../components/Cards/list';
 import ListMangaWrap from '../../components/Cards/listwrap';
 import Image from 'next/image';
 
-import user from '../../requests/user/preferences';
+import user from '../../requests/user/preferences_json';
 
 export default function Account() {
 
