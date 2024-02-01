@@ -1,22 +1,42 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Column, Row, Title, Label,  ButtonOff, Button} from '../../themes/global';
 import './gradient.css'
-import Link from 'next/link'
 import Image from 'next/image'
 import { geral } from '../../requests/shop/avatars';
 import { geralbg } from '../../requests/shop/capas';
-import Ad from '../../components/Ad';
+import { getPreferences } from '../../requests/user/requests';
+import { useRouter } from 'next/navigation'
+import Skeleton from '../../components/Loading';
 
 export default function Start (){
 
+    const router = useRouter();
+            useEffect(() => { 
+                    const getData = async () => {
+                        const response = await getPreferences()
+                        if(response){
+                            router.push('/home');
+                        }
+                    }
+                getData()
+            }, []);
 
 
 
-
-
+    const [loading, setLoading] = useState(true);
     const [avatar, setAvatar] = useState();
     const [step, setStep] = useState(1);
+
+    if(loading){
+        return(
+            <Column style={{alignSelf: 'center', alignItems: 'center', justifyContent: 'center'}}>
+                <Skeleton width={400} height={70} top={100}/>
+                <Skeleton width={500} height={140} top={30}/>
+            </Column>
+        )
+    }else{
+
     return(
         <Column  style={{ overflow: 'hidden', padding: 44, borderRadius: 8, flexGrow: 1, background: `radial-gradient(circle, #262626, #121212)`,  }}>
         {step == 1 && <Column style={{justifyContent: 'center', alignItems: 'center', marginTop: 100,}}>
@@ -128,7 +148,7 @@ export default function Start (){
           </Column> </Row>
             </Column>}
       </Column>
-    )}
+    )}}
 
     /*<Link href={`/login`} >
     <ButtonOff style={{marginLeft: 15,}}>Entrar</ButtonOff>

@@ -15,12 +15,17 @@ export const metadata = {
   creator: 'JohnnyBoy',
   publisher: 'S2Mangas Team',
 }
+
+import StyledComponentsRegistry from '../lib/registry'
+
+
 export default function RootLayout({ children }) {
 
   const fixed = false  
   return (
     <html lang="pt-BR">
       <ThemeClient>
+      <StyledComponentsRegistry>
       <body  style={{ overflow: 'hidden', paddingTop: 6,}}>
       <Row>
         <Header />
@@ -32,6 +37,8 @@ export default function RootLayout({ children }) {
         {fixed && <Fixed style={{width: '20%', height: 400,}}/> }
       </Row>
       </body>
+      </StyledComponentsRegistry>
+
       </ThemeClient>
     </html>
   )

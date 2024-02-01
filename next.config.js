@@ -1,10 +1,6 @@
 module.exports = {
     compiler: {
-      styledComponents: {
-        displayName: true,
-        ssr: true,
-        fileName: false,
-      },
+      styledComponents: true,
     },
     images: {
       remotePatterns: [
@@ -16,6 +12,10 @@ module.exports = {
             protocol: 'https',
             hostname: 'img.lermanga.org',
         },
+        {
+          protocol: 'https',
+          hostname: 'em-content.zobj.net',
+        }
       ],
     },
     async redirects() {

@@ -13,6 +13,7 @@ import Link from 'next/link'
 
 import Contents from "../../components/Mangalist";
 import { createPreferences, getPreferences } from "../../requests/user/requests";
+import ContinueReading from "../../components/Continue";
 
 
 export default function Feed () {
@@ -54,7 +55,6 @@ export default function Feed () {
     const requestUser = async () => {
       try {
         const response = createPreferences(usera)
-        console.log(response)
       } catch (error) {
         console.log(error)
       }
@@ -79,12 +79,12 @@ export default function Feed () {
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
   
   const [announced, setAnnouced] = useState(undefined);
-  const [step, setStep] = useState('home');
+  const [step, setStep] = useState('news');
   return(
         <Column style={{ width: '100%',  overflow: 'auto', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
 
 
-            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 80, }} >
+            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 40, }} >
               <Column style={{padding: 80,  }}/>
                   <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
                     <Column>
@@ -103,7 +103,7 @@ export default function Feed () {
                   </Column>
 
                   <Row style={{justifyContent: 'center', marginTop: 20,  }}>
-                  <Column className="novos" style={{overflow: 'hidden', position: 'relative'}}>
+                  <Column className="novos" style={{overflow: 'hidden', position: 'relative'}}  onClick={() => setStep('continue')}>
                           <Label style={{fontSize: 28, color: '#fff', textAlign: 'left', }}>Continue</Label>
                           <Column >
                             <Image src="https://img.lermanga.org/Z/zomgan/capa.jpg" alt="continue" width={105} height={150} style={{ objectFit: 'cover', position: 'absolute', bottom: -20, left: 30, borderRadius: 8, zIndex: 99,}} />
@@ -148,6 +148,9 @@ export default function Feed () {
               <ListManga data={rate}/>
               </Column>}
 
+              {step === 'continue' && <Column className="fadeInUp">
+                <ContinueReading />
+                </Column>}
             </Column>
 
             

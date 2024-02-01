@@ -13,12 +13,12 @@ import { IoGridOutline , IoArrowForward  } from "react-icons/io5";
 
 
 export default function Header(){
-    const pathname = usePathname();
-   // if (pathname == "/register" || "/login") {
-     //   return <></>;
-   // }
+    
+
    const [grid, setGrid] = useState(true);
    const [openTab, setOpenTab] = useState(false);
+
+   
     return(
         <Column style={{padding: 12, height: '100vh', width: openTab ? '400px' : '76px', transition: '.2s linear', }}>
             <Column style={{backgroundColor: "#262626", borderRadius: 8,}}>

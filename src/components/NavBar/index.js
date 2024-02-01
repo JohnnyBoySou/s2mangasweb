@@ -7,6 +7,8 @@ import Link from 'next/link'
 import './nav.css';
 import { getPreferences } from '../../requests/user/requests';
 import Image from 'next/image';
+import { usePathname } from "next/navigation";
+
 
 export default function NavBar (){
     const [user, setUser] = useState();
@@ -28,6 +30,12 @@ export default function NavBar (){
           }
           getUser()
     }, [])
+
+    const pathname = usePathname();
+    if (pathname == "/register" || "/login") {
+        return <></>;
+    }
+
         return(
     <Row className="nav"  style={{ borderRadius: '12px 12px 4px 4px',justifyContent: 'space-between', alignItems: 'center',  }} >
         <Row>

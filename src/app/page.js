@@ -6,8 +6,6 @@ import Image from "next/image";
 import '../themes/ani.css'
 
 export default function ThemeClient({children}) {
-
-
     return (
       <ThemeProvider theme={dark}>
       <GlobalStyle/>
