@@ -43,9 +43,11 @@
 }
 .add_collection{
   transition: .2s linear;
+  background-color: #404040;
 }
 .add_collection:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: #606060;
 }
 .chapter{
     transition: .2s linear;

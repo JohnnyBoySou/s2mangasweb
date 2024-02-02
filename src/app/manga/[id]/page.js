@@ -258,7 +258,7 @@ export default function DetailsManga({ params }) {
                                 </Row> 
                             
                             
-                            <Row className='add_collection' style={{backgroundColor: '#404040', alignItems: 'center', margin: 6, cursor: 'pointer', borderRadius: 5, color: '#fff', padding: 12, flexGrow: 1, }} onClick={() => setModal(!modal)}>
+                            <Row className='add_collection' style={{ alignItems: 'center', margin: 6, cursor: 'pointer', borderRadius: 5, color: '#fff', padding: 12, flexGrow: 1, }} onClick={() => setModal(!modal)}>
                                 <Column style={{width: 44, height: 44, marginRight: 15, borderRadius: 4, backgroundColor: "#505050", justifyContent: 'center', alignItems: 'center', color: '#fff', fontSize: 32, }}>
                                     <FiPlus />
                                 </Column>
