@@ -1,0 +1,9 @@
+
+.bar{
+    transition: .2s linear;
+    border-radius: 12px;
+    background-color: #262626;
+}
+.bar:hover{
+    background-color: #303030;
+}

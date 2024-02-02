@@ -155,8 +155,8 @@ export const ButtonPrimaryLight = styled.button`
   font-size: 18px;
   cursor: pointer;
   &:hover {
-  background-color: ${props => props.theme.color.poff};
-  color:  ${props => props.theme.color.label};
+    background-color: ${props => props.theme.color.primary};
+    color:  ${props => props.theme.color.title};
   }
 `;
 
@@ -172,8 +172,8 @@ export const ButtonOff = styled.button`
   transition: .2s linear;
   cursor: pointer;
   &:hover {
-  background-color: #303030;
-  color: ${props => props.theme.color.label};
+  background-color: #000;
+  color: ${props => props.theme.color.title};
   }
 `;
 
@@ -200,7 +200,7 @@ export const BTColection = styled.button`
   border: none;
   width: 54px;
   height: 50px;
-  margin: 0px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   z-index: 99;
   border-radius: 6px; 
   color: ${props => props.theme.color.label};

@@ -4,13 +4,13 @@ import { Column, BTIcon, BTColection, Label, Button, Row } from "../../themes/gl
 import { collections } from "../../requests/collections/list";
 import Link from 'next/link'
 import { getCollections } from '../../requests/collections/request';
-
+import './style.css';
 
 function CollectionItem({ item, open }) {
     const [hovered, setHovered] = useState(false);
   
     return (
-      <Link href={`/collections/${item.id}`} style={{ textDecoration: 'none' }}>
+      <Link href={`/collections/${item.id}`} style={{ textDecoration: 'none' }} className='bar'>
         <Row style={{ alignSelf: 'center', zIndex: 99, position: 'relative' }}>
           <BTColection
             onMouseEnter={() => setHovered(true)}
@@ -20,9 +20,9 @@ function CollectionItem({ item, open }) {
             {item?.icon}
           </BTColection>
           {open && (
-            <Column style={{ justifyContent: 'center', marginTop: -10, borderRadius: 6, transition: '.2s linear' }}>
+            <Column style={{ justifyContent: 'center',  borderRadius: 6, transition: '.2s linear' }}>
               <Label style={{ fontSize: 15 }}>{item?.name}</Label>
-              <Label style={{ fontSize: 12 }}>{item?.mangas_ids.length} • {item?.date}</Label>
+              <Label style={{ fontSize: 12 }}>{item?.mangas_ids.length} mangás • {item?.date}</Label>
             </Column>
           )}
           {hovered && !open && (
@@ -81,18 +81,18 @@ function CollectionItemRow({ item, open }) {
 
     if(grid ){
         return (
-            <Column style={{ paddingTop: 12, backgroundColor: "#262626", borderRadius: 8 }}>
+            <Column style={{backgroundColor: "#262626", borderRadius: 8 }}>
         {collections?.map((item, index) => (
-            <CollectionItem key={item.id} item={item} open={open} />
+            <CollectionItem key={index} item={item} open={open} />
             ))}
       </Column>
     );
 }
   else if(!grid ){
     return(
-        <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
+        <Row style={{ backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
         {collections?.map((item, index) => (
-            <CollectionItemRow key={item.id} item={item} open={open} />
+            <CollectionItemRow key={index} item={item} open={open} />
             ))}
       </Row>
     )

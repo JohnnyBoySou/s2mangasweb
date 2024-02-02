@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState  } from 'react';
-import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection} from '../../../themes/global';
+import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection, ButtonPrimaryLight} from '../../../themes/global';
 import axios from 'axios'
 import { FaPlay } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
@@ -13,6 +13,9 @@ import Skeleton from '../../../components/Loading';
 import { IoClose } from "react-icons/io5";
 import Loader from '../../../components/Loader';
 import { addMangaInCollectionByID, getCollections } from '../../../requests/collections/request';
+import { CiBookmarkPlus } from "react-icons/ci";
+import { FiPlus } from "react-icons/fi";
+
 
 export default function DetailsManga({ params }) {
     const id = params.id
@@ -23,6 +26,7 @@ export default function DetailsManga({ params }) {
     const [images, setImages] = useState();
     const [modal, setModal] = useState(false);
     const cl = item?.type === 'MANGA' ? "#FFA8B7" : item?.type === 'MANHWA' ? "#BBD2FF" : item?.type === 'MANHUA' ? "#BFFFC6" : '#FFF';
+    const rl = item?.status === 'Finalizado' ? '#BFFFC6' : '#FFC7A8'
     const [liked, setLiked] = useState(false);
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
     
@@ -59,11 +63,11 @@ export default function DetailsManga({ params }) {
         <Link href={`${id}/${item?.number}`} style={{textDecoration: 'none'}}  
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)} >
-        <Row style={{ padding: 12, marginRight: 34, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
+        <Row style={{ padding: 12, marginRight: 6, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
             {hovered ?  <Label style={{fontSize: 18, marginRight: 30,}}> &#9658; </Label> :  <Label style={{fontSize: 18, marginRight: 20,}}>#{item.number}</Label>}
             <Label style={{fontSize: 18, marginRight: 20,}}>{item.date}</Label>
             <Title style={{marginTop: 4,}}>
-                <GoHeart />
+                <CiBookmarkPlus  />
             </Title>
         </Row>
         </Link>
@@ -117,17 +121,88 @@ export default function DetailsManga({ params }) {
         );
     }
 
+
+    const ListChapters = () => {
+        const [currentPage, setCurrentPage] = useState(1);
+        const itemsPerPage = 30;
+
+        const indexOfLastItem = currentPage * itemsPerPage;
+        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        const currentItems = chapters.slice(indexOfFirstItem, indexOfLastItem);
+        const paginate = (pageNumber) => setCurrentPage(pageNumber);
+        
+
+        const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+            pageNumbers.push(i);
+        }
+        return (
+            <Row style={{ justifyContent: 'center', marginTop: 20 }}>
+                {pageNumbers.map((number) => (
+                    <ButtonOff
+                        key={number}
+                        onClick={() => paginate(number)}
+                        style={{ margin: 5 }}
+                    >
+                        {number}
+                    </ButtonOff>
+                ))}
+            </Row>
+        );
+    };
+    const [show, setShow] = useState(false);
+
+        return (
+            <Column style={{ height: 500, overflowY: 'auto' }}>
+                {show ? 
+                <>
+                {currentItems.map((item, index) => (
+                    <Chapter key={index} item={item} />
+                ))}
+                <Pagination
+                    itemsPerPage={itemsPerPage}
+                    totalItems={chapters.length}
+                    currentPage={currentPage}
+                    paginate={paginate}
+                />
+                </>
+                : 
+                <Column>
+                <Image src="https://i.pinimg.com/564x/5e/be/4e/5ebe4ef85cec42f739d417e7b10f2347.jpg" alt='show chapters' width={200} height={300} style={{alignSelf: 'center', objectFit: 'cover', borderRadius: 12, transform: 'rotate(16deg)', marginTop: 30, marginBottom: 20, }}/>
+                <Title style={{textAlign: 'center', marginTop: 10, marginBottom: 20,}}>Preparado novato?</Title>
+                <ButtonPrimaryLight style={{width: 200, alignSelf: 'center', }} onClick={() => setShow(!show)}>Mostar capítulos</ButtonPrimaryLight>
+                </Column>
+                }
+            </Column>
+        );
+    };
+
+
+
+
+    
+
  if(!loading){
     return (
-        <Column style={{background: `linear-gradient(-145deg, #282828 21%, #161616 99.92%)`, padding: '44px', overflowY:'auto', borderRadius: 12, }}>
+        <Column    style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, overflowX: 'hidden', position: 'relative',  padding: '44px', overflowY:'auto', borderRadius: 12, }}>
             <Column>
-                <Row>
+                <Column className='circle' style={{backgroundColor: cl,}}/>
+                <Column className='circle2' style={{backgroundColor: rl,}}/>
+                <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
+
+                    <Row>
+
                     <Column>
-                        <Image src={item?.capa} className='coverimg' width={220} height={340}  alt={item?.name} style={{objectFit: 'cover', backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
+                        <Image src={item?.capa} className='coverimg' width={260} height={370}  alt={item?.name} style={{objectFit: 'cover', zIndex: 99, backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
                     </Column>
                    
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
-                        <Label style={{backgroundColor: cl, color: "#000"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
+                        <Row>
+                            <Label style={{backgroundColor: cl, color: "#000"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
+                            <Label style={{backgroundColor: rl, color: "#000", marginLeft: 20,}} className='ongoing'>&#9900; {item?.status}</Label>
+                        </Row>
+                        
                         <Title style={{fontSize: '2.6em',  fontFamily: 'Black', width: 500,}}>{item?.name?.slice(0, 40)}</Title>
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16, width: 500,}}>{item?.description?.slice(0, 270)}...</Label>
                        
@@ -162,46 +237,61 @@ export default function DetailsManga({ params }) {
                         </Row>}
                      </Row>
                     </Column>
-                    {images?.length > 0 &&
-                    <Column style={{width: 400, height: 400,  overflow: 'hidden',  borderRadius: 12, backgroundColor: "#ED274A"}}>
-                        <Row style={{ zIndex: 2, transform: 'rotate(-25deg)', flexWrap: 'wrap', width:570,}}>
-                        {images?.map((img, index) => 
-                        <Image src={img} key={index}width={120} height={200}  alt={item?.name} style={{objectFit: 'cover', backgroundColor: "#404040", marginTop: 20, marginRight: 20, alignSelf: 'center',  borderRadius: 6,}}/>
-                        )}
-                        </Row>
+
+
+
+                    </Row>
+
+                    <Column style={{width: 400, height: 400,  overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
+                        <Column style={{justifyContent: 'center', alignItems: 'center', }}>
+                            <ButtonOff>Seguir</ButtonOff>
+                            
+                            
+                            
+                            <Row style={{backgroundColor: '#404040', borderRadius: 5, color: '#fff', padding: 12, flexGrow: 1, }} onClick={() => setModal(!modal)}>
+                                <Column style={{width: 44, height: 44, marginRight: 15, borderRadius: 4, backgroundColor: "#505050", justifyContent: 'center', alignItems: 'center', color: '#fff', fontSize: 32, }}>
+                                    <FiPlus />
+                                </Column>
+                                <Title style={{marginTop: 20,}}>Adicionar a coleção </Title>
+                            </Row>
+
+
+
+
+                            <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
                         </Column>
-                    }
+                    </Column>
+
+
+
+
                 </Row>
                 
-                <Column>
-                    <Row style={{justifyContent: 'space-between', marginTop: 20, alignItems: 'center', backgroundColor: "#303030", marginRight: 30, padding: 10, borderRadius: 8,}}>
-                       
-                       <Column style={{marginLeft: 10,}}>
-                        <Title style={{fontSize: 32, marginBottom: 10,}}>{item?.chapters} Capítulos</Title>
-                        <Row style={{marginBottom: 10,}}>
-                            <Link href={`${id}/${item?.chapters}`}>
-                                <ButtonOff style={{marginRight: 14,}}>Último capítulo</ButtonOff>
-                            </Link>
-                            <Link href={`${id}/1`}>
-                                <ButtonOff>Primeiro capítulo</ButtonOff>
-                            </Link>
+
+                        <Row style={{justifyContent: 'spacee-between', marginTop: 30,}}>
+
+                        <Column style={{  flexGrow: 1, marginRight: 30, backgroundColor: "#303030", padding: '20px 20px',  borderRadius: 8,}}>
+                            <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
+                            {chapters?.slice(0, 8).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
+                        </Column>
+                        <Column style={{ marginBottom: 20, flexGrow: 1, backgroundColor: "#303030", borderRadius: 8, padding: 20, paddingRight: 6,}}>
+                            <Row style={{justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, marginTop: 10, }}>
+
+                                <Title style={{}}>Todos (30 de {item?.chapters})</Title>
+                                <Row style={{marginRight: 30,}}>
+                                    <Link href={`${id}/${item?.chapters}`}>
+                                    <ButtonOff style={{marginRight: 14,}}>Último capítulo</ButtonOff>
+                                    </Link>
+                                    <Link href={`${id}/1`}>
+                                    <ButtonPrimaryLight>Primeiro capítulo</ButtonPrimaryLight>
+                                    </Link>
+                                </Row>
+                            </Row>
+                            <ListChapters/>
+                        </Column>
+
                         </Row>
-                       </Column>
-                        <Row style={{justifyContent: 'center', alignItems: 'center', }}>
-                            <BTFlow>Seguir</BTFlow>
-                            <BTFlow style={{marginLeft: 12,}} onClick={() => setModal(!modal)}>Salvar</BTFlow>
-                            <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
-                        </Row>
-                    </Row>
-                    <Column style={{width: '96%', height: 2, marginTop: 15, backgroundColor: "#303030"}}/>
-                    <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
-                    {chapters?.slice(0, 5).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
-                </Column>
-                <Column style={{width: '96%', height: 2, marginTop: 30, marginBottom: 20, backgroundColor: "#303030",}}/>
-                <Title style={{marginBottom: 10, marginTop: 10,}}>Todos ({item?.chapters})</Title>
-                <Column style={{height: 500, overflowY: 'auto', }}>
-                    {chapters?.map((item, index) => <Chapter key={index} index={index} item={item}/>)}
-                </Column>
+
             </Column>
 
 
@@ -243,8 +333,10 @@ export default function DetailsManga({ params }) {
             <Column>
                 <Skeleton width={600} height={100} left={30} top={30}/>
                 <Skeleton width={470} height={80} left={30} top={20} bottom={20}/>
-                <Skeleton width={400} height={40} left={30}/>
+                <Skeleton width={400} height={40} left={100}/>
             </Column>
+            
+            <Skeleton width={400} height={400}/>
             </Row>
             <Column>
                 <Skeleton width={'100%'} height={160} top={50}/>
@@ -262,3 +354,19 @@ export default function DetailsManga({ params }) {
     }
 }
 
+/**
+ * 
+ * 
+ * 
+
+                    {images?.length > 0 &&
+                    <Column style={{width: 400, height: 400,  overflow: 'hidden',  borderRadius: 12, backgroundColor: "#ED274A"}}>
+                        <Row style={{ zIndex: 2, transform: 'rotate(-25deg)', flexWrap: 'wrap', width:570,}}>
+                        {images?.map((img, index) => 
+                        <Image src={img} key={index}width={120} height={200}  alt={item?.name} style={{objectFit: 'cover', backgroundColor: "#404040", marginTop: 20, marginRight: 20, alignSelf: 'center',  borderRadius: 6,}}/>
+                        )}
+                        </Row>
+                        </Column>
+                    }
+
+ */

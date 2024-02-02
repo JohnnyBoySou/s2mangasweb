@@ -34,3 +34,18 @@
     border-radius: 8px;
     background: linear-gradient(145deg, #262626 -20.91%, #191919 54.92%);
 }
+.badge{
+        padding: 6px 12px;
+        margin-left: 20px;
+        border-radius: 100px;
+        font-family: 'Medium';
+        background-color: #ED274A;
+}
+.bar{
+    transition: .2s linear;
+    border-radius: 12px;
+    background-color: #262626;
+}
+.bar:hover{
+    background-color: #303030;
+}

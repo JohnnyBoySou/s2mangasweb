@@ -77,6 +77,16 @@
     font-family: 'Medium';
     font-size: 18px;
 }
+
+.ongoing{
+  padding: 5px 15px;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  font-family: 'Medium';
+  font-size: 18px;
+}
+
 .btlike{
     background-color: #262626;
     padding: 6px 20px 6px 10px;
@@ -247,4 +257,23 @@ input[type="range"] {
   outline: navy;
   padding: 12px;
 
+}
+
+.circle{
+  filter:blur(120px);
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  border-radius: 100px;
+}
+
+.circle2{
+  filter:blur(100px);
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
 }
