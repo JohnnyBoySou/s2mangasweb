@@ -179,11 +179,12 @@ export default function DetailsManga({ params }) {
     };
 
 
+    const reaction = item?.rate >= 4 ? 'Ótimo' : item?.rate >= 3 ? 'Bom' : item?.rate <= 2 ? 'Ruim' : 'Regular';
+    const reaction_color = reaction === 'Ótimo' ? '#FFC4A3' : reaction === 'Bom' ? '#B5FFBC' :  reaction === 'Ruim' ? '#1D1A39' : '#FFFFCA';
+    const reaction_image =  reaction === 'Ótimo' ? 'https://em-content.zobj.net/source/samsung/380/smiling-face-with-heart-eyes_1f60d.png' : reaction === 'Bom'? 'https://em-content.zobj.net/source/microsoft/379/smiling-face-with-smiling-eyes_1f60a.png' : reaction === 'Ruim' ? 'https://em-content.zobj.net/source/microsoft/379/skull_1f480.png' : 'https://em-content.zobj.net/source/microsoft/379/sparkles_2728.png';
+    const reaction_desc = reaction === 'Ótimo' ? 'Um mangá fantástico, pode ler sem medo!' : reaction === 'Bom' ? 'A galera está gostando dsse mangá!' : reaction === 'Ruim' ? 'Não está agradando a maioria das pessoas' : 'Não podemos opinar no momento'
 
-
-    
-
- if(!loading){
+    if(!loading){
     return (
         <Column    style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, overflowX: 'hidden', position: 'relative',  padding: '44px', overflowY:'auto', borderRadius: 12, }}>
             <Column>
@@ -201,6 +202,7 @@ export default function DetailsManga({ params }) {
                         <Row>
                             <Label style={{backgroundColor: cl, color: "#000"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
                             <Label style={{backgroundColor: rl, color: "#000", marginLeft: 20,}} className='ongoing'>&#9900; {item?.status}</Label>
+                            <Label style={{backgroundColor: "#FF94A7", color: "#000", marginLeft: 20,}} className='ongoing'>&#10004; Verificado</Label>
                         </Row>
                         
                         <Title style={{fontSize: '2.6em',  fontFamily: 'Black', width: 500,}}>{item?.name?.slice(0, 40)}</Title>
@@ -242,23 +244,43 @@ export default function DetailsManga({ params }) {
 
                     </Row>
 
-                    <Column style={{width: 400, height: 400,  overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
-                        <Column style={{justifyContent: 'center', alignItems: 'center', }}>
-                            <ButtonOff>Seguir</ButtonOff>
+                    <Column style={{width: 500,   overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
+                        <Column style={{justifyContent: 'center',  padding: 24,}}>
+                            
+                            <Row style={{justifyContent: 'center', alignItems: 'center',}}>
+                                    <Column style={{padding: 22, marginBottom: 10, borderRadius: 32, background: reaction_color, marginRight: 15,}}>
+                                        <Image src={reaction_image} alt='reaction manga' width={64} height={64} className='emoji'/>
+                                    </Column>
+                                    <Column >
+                                        <Title style={{color: reaction_color, }}>{reaction}</Title>
+                                        <Label style={{color: reaction_color }}>{reaction_desc}</Label>
+                                    </Column>
+                                </Row> 
                             
                             
-                            
-                            <Row style={{backgroundColor: '#404040', borderRadius: 5, color: '#fff', padding: 12, flexGrow: 1, }} onClick={() => setModal(!modal)}>
+                            <Row className='add_collection' style={{backgroundColor: '#404040', alignItems: 'center', margin: 6, cursor: 'pointer', borderRadius: 5, color: '#fff', padding: 12, flexGrow: 1, }} onClick={() => setModal(!modal)}>
                                 <Column style={{width: 44, height: 44, marginRight: 15, borderRadius: 4, backgroundColor: "#505050", justifyContent: 'center', alignItems: 'center', color: '#fff', fontSize: 32, }}>
                                     <FiPlus />
                                 </Column>
-                                <Title style={{marginTop: 20,}}>Adicionar a coleção </Title>
+                                <Title style={{}}>Adicionar a coleção </Title>
                             </Row>
 
-
-
-
-                            <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
+                            <Row style={{ alignItems: 'center', marginTop: 20, marginBottom: 20, justifyContent: 'space-between', marginLeft: 10, marginRight: 10,}}>
+                                <ButtonPrimaryLight>Curtir</ButtonPrimaryLight>
+                                <ButtonOff>Seguir</ButtonOff>
+                                <ButtonOff>Compartilhar</ButtonOff>
+                            </Row>
+                            <Row style={{ alignItems: 'center', }}>
+                                <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
+                                <Column style={{marginLeft: 10,}}>
+                                <Label>Começe a ler agora mesmo</Label>
+                                <Row style={{flexGrow: 1, marginTop: 12,}}>
+                                    <Column style={{height: 10, borderRadius: 100, width: '20%', background: '#B5FFBC'}}/>
+                                    <Column style={{height: 10, borderRadius: 100, flexGrow: 1,  background: '#505050', marginLeft: 8,}}/>
+                                </Row>
+                                </Column>
+                          
+                            </Row>
                         </Column>
                     </Column>
 
@@ -333,10 +355,10 @@ export default function DetailsManga({ params }) {
             <Column>
                 <Skeleton width={600} height={100} left={30} top={30}/>
                 <Skeleton width={470} height={80} left={30} top={20} bottom={20}/>
-                <Skeleton width={400} height={40} left={100}/>
+                <Skeleton width={400} height={40} />
             </Column>
             
-            <Skeleton width={400} height={400}/>
+            <Skeleton width={400} height={400} left={100}/>
             </Row>
             <Column>
                 <Skeleton width={'100%'} height={160} top={50}/>
