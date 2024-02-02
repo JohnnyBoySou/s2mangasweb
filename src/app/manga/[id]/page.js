@@ -22,7 +22,7 @@ export default function DetailsManga({ params }) {
     const [chapters, setChapters] = useState([]);
     const [images, setImages] = useState();
     const [modal, setModal] = useState(false);
-    const cl = item?.type === 'Manga' ? "#ED274A" : item?.type === 'Manhwa' ? "#366AD3" : item?.type === 'Manhua' ? "#009688" : '#000';
+    const cl = item?.type === 'MANGA' ? "#FFA8B7" : item?.type === 'MANHWA' ? "#BBD2FF" : item?.type === 'MANHUA' ? "#BFFFC6" : '#FFF';
     const [liked, setLiked] = useState(false);
     const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
     
@@ -83,8 +83,13 @@ export default function DetailsManga({ params }) {
     const [message, setMessage] = useState('');
 
     const addCollection = async () => {
+        const mangaadd = {
+            id: item.id,
+            name: item.name,
+            capa: item.capa,
+        }
         try {
-            const response = await addMangaInCollectionByID(selectCollection, item.id);
+            const response = await addMangaInCollectionByID(selectCollection, mangaadd);
             if(response){
                 setMessage('Mangá adicionado com sucesso');
                 setTimeout(() => {
@@ -95,8 +100,6 @@ export default function DetailsManga({ params }) {
             console.log(error)
         }
     }
-    
-  
   
     function CollectionItemRow({ item, open }) {
         return (
@@ -113,8 +116,6 @@ export default function DetailsManga({ params }) {
             </Column>
         );
     }
-    
-
 
  if(!loading){
     return (
@@ -122,18 +123,15 @@ export default function DetailsManga({ params }) {
             <Column>
                 <Row>
                     <Column>
-                    <Image src={item?.capa} className='coverimg' width={220} height={340}  alt={item?.name} style={{objectFit: 'cover', backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
-                    <Label style={{backgroundColor: cl, color: "#fff"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
+                        <Image src={item?.capa} className='coverimg' width={220} height={340}  alt={item?.name} style={{objectFit: 'cover', backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
                     </Column>
                    
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
-                        <Title style={{fontSize: '2.6em',  fontFamily: 'Black',}}>{item?.name?.slice(0, 40)}</Title>
+                        <Label style={{backgroundColor: cl, color: "#000"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
+                        <Title style={{fontSize: '2.6em',  fontFamily: 'Black', width: 500,}}>{item?.name?.slice(0, 40)}</Title>
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16, width: 500,}}>{item?.description?.slice(0, 270)}...</Label>
                        
-
                     <Row style={{alignItems: 'center', marginTop: 20,}}>
-                       
-                       
                        {item?.like?.length > 1 && <Row className={liked ? 'btcheck' : 'btlike'} onClick={() => setLiked(!liked)}>
                             <Column className={liked ? 'icblc' : 'icbl'}>
                                 <GoHeart/>
@@ -146,6 +144,14 @@ export default function DetailsManga({ params }) {
                                 <FaCalendarDays />
                             </Column>
                             <Label>{item?.date}</Label>
+                        </Row>
+
+                        
+                        <Row className='btrow'>
+                            <Column className='icb'>
+                                <FaCalendarDays />
+                            </Column>
+                            <Label>{item?.rate}</Label>
                         </Row>
                        
                        {item?.author?.length > 1 && <Row className='btrow'>
@@ -181,23 +187,17 @@ export default function DetailsManga({ params }) {
                             </Link>
                         </Row>
                        </Column>
-                        
-
                         <Row style={{justifyContent: 'center', alignItems: 'center', }}>
                             <BTFlow>Seguir</BTFlow>
                             <BTFlow style={{marginLeft: 12,}} onClick={() => setModal(!modal)}>Salvar</BTFlow>
                             <Link href={`${id}/${item?.chapters}`}><Column className="play"><FaPlay/></Column></Link>
                         </Row>
                     </Row>
-
-
                     <Column style={{width: '96%', height: 2, marginTop: 15, backgroundColor: "#303030"}}/>
                     <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
                     {chapters?.slice(0, 5).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
                 </Column>
-
                 <Column style={{width: '96%', height: 2, marginTop: 30, marginBottom: 20, backgroundColor: "#303030",}}/>
-                
                 <Title style={{marginBottom: 10, marginTop: 10,}}>Todos ({item?.chapters})</Title>
                 <Column style={{height: 500, overflowY: 'auto', }}>
                     {chapters?.map((item, index) => <Chapter key={index} index={index} item={item}/>)}
@@ -213,14 +213,11 @@ export default function DetailsManga({ params }) {
                         <IoClose style={{fontSize: 32, color: "#fff", cursor: 'pointer', padding: 8, }} onClick={() => setModal(!modal)}/>
                     </Row>
                     <Column style={{marginTop: 24,}}>
-                      
                     <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
                     {collections?.map((item, index) => (
                         <CollectionItemRow key={item.id} item={item} open={open} />
                         ))}
                     </Row>
-
-
                     </Column>
                     <Row style={{justifyContent: 'space-between', alignItems: 'center', marginTop: 20, }}>
                         <ButtonOff>Descartar</ButtonOff>
@@ -244,9 +241,9 @@ export default function DetailsManga({ params }) {
             <Row>
             <Skeleton width={240} height={360}/>
             <Column>
-                <Skeleton width={400} height={100} left={30} top={30}/>
-                <Skeleton width={370} height={80} left={30} top={20} bottom={20}/>
-                <Skeleton width={300} height={40} left={30}/>
+                <Skeleton width={600} height={100} left={30} top={30}/>
+                <Skeleton width={470} height={80} left={30} top={20} bottom={20}/>
+                <Skeleton width={400} height={40} left={30}/>
             </Column>
             </Row>
             <Column>

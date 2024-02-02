@@ -71,9 +71,11 @@
 
 .type{
     padding: 5px 10px;
-    border-radius: 6px;
-    text-align: center;
-    align-self: center;
+    border-radius: 100px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    font-family: 'Medium';
+    font-size: 18px;
 }
 .btlike{
     background-color: #262626;

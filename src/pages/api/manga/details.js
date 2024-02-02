@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const item = $('.content_post');
 
    // manga.score = item.find('.rating-area .kksr-legend').text().split("/")[0].trim();
-    manga.rate = item.find('.rating-area .kksr-legend').text().split("/")[0].trim();
+    manga.rate = item.find('.kksr-legend').text().split("/")[0].trim();
     manga.id = id;
     manga.capa = item.find('.capaMangaInfo img').attr('src');
     manga.chapters = item.find('.single-chapter').first().attr('data-id-cap');
