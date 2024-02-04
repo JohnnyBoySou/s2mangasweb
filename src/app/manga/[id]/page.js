@@ -4,7 +4,7 @@ import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColectio
 import axios from 'axios'
 import { FaPlay } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
-import { FaUserAstronaut , FaCalendarDays } from "react-icons/fa6"
+import { FaUserAstronaut , FaCalendarDays, FaStar  } from "react-icons/fa6"
 import './manga.css'
 import Link from 'next/link';
 import ColorThief from 'colorthief';
@@ -13,8 +13,9 @@ import Skeleton from '../../../components/Loading';
 import { IoClose } from "react-icons/io5";
 import Loader from '../../../components/Loader';
 import { addMangaInCollectionByID, getCollections } from '../../../requests/collections/request';
-import { CiBookmarkPlus } from "react-icons/ci";
+import { CiBookmarkPlus ,  } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
+import NavBar from '../../../components/NavBar';
 
 
 export default function DetailsManga({ params }) {
@@ -186,8 +187,9 @@ export default function DetailsManga({ params }) {
 
     if(!loading){
     return (
-        <Column    style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, overflowX: 'hidden', position: 'relative',  padding: '44px', overflowY:'auto', borderRadius: 12, }}>
-            <Column>
+        <Column  style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, overflowX: 'hidden', position: 'relative',  overflowY:'auto', borderRadius: 12, }}>
+            <NavBar/>
+            <Column style={{ padding: '44px', paddingTop: 10,}}>
                 <Column className='circle' style={{backgroundColor: cl,}}/>
                 <Column className='circle2' style={{backgroundColor: rl,}}/>
                 <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
@@ -226,7 +228,7 @@ export default function DetailsManga({ params }) {
                         
                         <Row className='btrow'>
                             <Column className='icb'>
-                                <FaCalendarDays />
+                                <FaStar   />
                             </Column>
                             <Label>{item?.rate}</Label>
                         </Row>

@@ -1,20 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react"
-import { Column, Label,  Row, } from "../../themes/global"
+import { Column, Label, Title, Row, } from "../../themes/global"
+import Draggable from "../draggable"
 import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
-export default function ListManga({ data = mangas }) {
+export default function ListSearch({ data = mangas }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {
     setLoading(true)
     router.push(`/manga/${id}`)
   }
+  
     const Card = ({ item, index, handle }) => {
         return(
-          <Column className="card" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16,}}>
+          <Column className="card_search" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16, }}>
           <img 
               onClick={handle}
               className="imagezoom"
@@ -25,14 +27,14 @@ export default function ListManga({ data = mangas }) {
               style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover', cursor: loading ? 'wait' : 'pointer', }}
               />
               <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name.slice(0,15)}</Label>
-              <Label style={{fontSize: 16, marginTop: 4,}}>{item?.score} • {item?.type}</Label>
+              <Label style={{fontSize: 16, marginTop: 4,}}>{item?.rate} • {item?.typename}</Label>
             
           </Column>
         )
       }
     return(
         <>
-          <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap', }}>
+          <Row style={{ overflow: 'hidden', flexWrap: 'wrap', }}>
           {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
           </Row> 
         </>

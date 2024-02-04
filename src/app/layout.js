@@ -26,11 +26,10 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <ThemeClient>
       <StyledComponentsRegistry>
-      <body  style={{ overflow: 'hidden', paddingTop: 6,}}>
+      <body  style={{ overflow: 'hidden', }}>
       <Row>
         <Header />
         <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>
-          <NavBar />
           {children}
         </Column>
          <SpeedInsights />
@@ -53,3 +52,5 @@ RootLayout.getLayoutProps = () => ({
     crossOrigin: "anonymous"
   }
 });
+
+//<NavBar/>

@@ -16,7 +16,6 @@
     transform: scale(1.05);
 }
 
-
 .new{
     padding: 6px 10px;
     margin-right: 10px;
@@ -37,4 +36,18 @@
     color: #fff;
     border-radius: 6px;
     align-self: flex-start;
+}
+
+.card_search{
+    transition: .2s linear;
+    background-color: #303030;
+    border-radius: 12px;
+    
+}
+.card_search:hover{
+    background-color: #505050;
+}
+
+.card_search:hover .imagezoom{
+    transform: scale(1.05);
 }

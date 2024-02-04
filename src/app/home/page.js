@@ -81,13 +81,20 @@ export default function Feed () {
   const [announced, setAnnouced] = useState(undefined);
   const [step, setStep] = useState('news');
   return(
-        <Column style={{ width: '100%',  overflow: 'auto', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
-
+        <Column style={{ width: '100%',  overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
+           
+          
 
             <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 40, }} >
-              <Column style={{padding: 80,  }}/>
-                  <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
+            
+            <Row style={{justifyContent: 'space-between', alignItems: 'center', marginLeft: -50, marginRight: -50,}}>
+              <Column className='circle' />
+              <Column className='circle2' />
+            </Row>
+
+            <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
                     <Column>
+                    <Image src={user?.avatar} alt="avatar" className="fadeInUp" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20,  marginTop: 60,}}/>
                       <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>Boa tarde,</Title>
                       <Row>
                         <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
@@ -98,7 +105,9 @@ export default function Feed () {
                   </Row>
 
 
-                  <Column style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 20, marginBottom: 10, border: '2px solid #f9f9f990',  padding: '12px 24px', borderRadius: 100,}}>
+
+              <Column style={{padding: 80, paddingTop: 0,  }}/>
+                  <Column style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center',  marginBottom: 10, border: '2px solid #f9f9f990',  padding: '12px 24px', borderRadius: 100,}}>
                     <Title style={{fontSize: 18, fontFamily: 'Book',}}>Escolha um para começar</Title>
                   </Column>
 

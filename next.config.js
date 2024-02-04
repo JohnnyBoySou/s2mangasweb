@@ -15,7 +15,11 @@ module.exports = {
         {
           protocol: 'https',
           hostname: 'em-content.zobj.net',
-        }
+        },
+        {
+          protocol: 'https',
+          hostname: 'img.mangaschan.com',
+        },
       ],
     },
     async redirects() {

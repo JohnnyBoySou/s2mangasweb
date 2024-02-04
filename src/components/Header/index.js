@@ -35,25 +35,7 @@ export default function Header(){
                     <Link href="/search"> <BTIcon><GoSearch/></BTIcon>  </Link>   
                     {openTab &&  <Link href="/search" style={{textDecoration: 'none', }}> <Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Pesquisar</Title></Link> }
                 </Row>
-                <Row style={{ alignItems: 'center', }}  className='bar'>
-                    <Link href="/cards"> <BTIcon><TbCards /></BTIcon></Link>  
-                    {openTab && <Link href="/cards" style={{textDecoration: 'none',  flexDirection: 'row',}}>
-                    <Row style={{justifyContent: 'center', alignItems: 'center', }}>
-                        <Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Cards</Title>
-                        <Label className='badge' style={{fontSize: 14, color: '#f7f7f7'}}>Novos</Label>
-                        </Row>
-                    </Link>}
-                </Row>
-
-                <Row style={{ alignItems: 'center', }}  className='bar'>
-                    <Link href="/account"> <BTIcon><CgProfile /></BTIcon></Link>
-                    {openTab && <Link href="/account" style={{textDecoration: 'none',  }}>
-                        <Row style={{justifyContent: 'center', alignItems: 'center', }}>
-                            <Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Conta</Title>
-                            <Label className='badge' style={{fontSize: 14, color: '#f7f7f7'}}>Novo</Label>
-                        </Row>
-                    </Link> }
-                </Row>
+              
             </Column>
             <Row style={{ marginBottom: -15, marginTop: 20, justifyContent: 'space-between', alignItems: 'center', paddingRight: 5, }}>
                 <Row style={{ alignItems: 'center', }}>
@@ -80,3 +62,26 @@ export default function Header(){
             </Column>
         </Column>
 )}
+
+
+/**
+ *   <Row style={{ alignItems: 'center', }}  className='bar'>
+                    <Link href="/cards"> <BTIcon><TbCards /></BTIcon></Link>  
+                    {openTab && <Link href="/cards" style={{textDecoration: 'none',  flexDirection: 'row',}}>
+                    <Row style={{justifyContent: 'center', alignItems: 'center', }}>
+                        <Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Cards</Title>
+                        <Label className='badge' style={{fontSize: 14, color: '#f7f7f7'}}>Novos</Label>
+                        </Row>
+                    </Link>}
+                </Row>
+
+                <Row style={{ alignItems: 'center', }}  className='bar'>
+                    <Link href="/account"> <BTIcon><CgProfile /></BTIcon></Link>
+                    {openTab && <Link href="/account" style={{textDecoration: 'none',  }}>
+                        <Row style={{justifyContent: 'center', alignItems: 'center', }}>
+                            <Title style={{fontSize: 22, color: "#F6F6F690", fontFamily: 'Book'}}>Conta</Title>
+                            <Label className='badge' style={{fontSize: 14, color: '#f7f7f7'}}>Novo</Label>
+                        </Row>
+                    </Link> }
+                </Row>
+ */
