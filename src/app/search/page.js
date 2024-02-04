@@ -1,14 +1,12 @@
 'use client';
-import React, {useState, useRef, useEffect} from 'react';
-import { Column, Row, Title, Label, B, TextInput, BTIcon, SubInput, ButtonPrimaryLight} from '../../themes/global';
+import React, {useState, useEffect} from 'react';
+import { Column, Row, Title, Label, ButtonPrimaryLight} from '../../themes/global';
 import './search.css'
-import { CiEdit, CiCreditCard1, CiSearch } from "react-icons/ci";
-
+import { CiSearch } from "react-icons/ci";
 import tags from '../../requests/categories/tags'
 import Link from 'next/link';
 import Image from 'next/image';
 import { excludeWords, listWords, saveWord } from '../../requests/search/request';
-import ListManga from '../../components/cards/list';
 import ListSearch from '../../components/Cards/list_search';
 import NavBar from '../../components/NavBar';
 
