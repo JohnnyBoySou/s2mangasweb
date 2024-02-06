@@ -52,19 +52,13 @@ export default function Feed () {
       setRate(rate_raw.data.mangas);
     }
 
-    const requestUser = async () => {
-      try {
-        const response = createPreferences(usera)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
+   
 
     const getUser = () => {
       try {
         const response = getPreferences()
         setUser(response)
+        console.log(response)
       } catch (error) {
         console.log(error)
       }
