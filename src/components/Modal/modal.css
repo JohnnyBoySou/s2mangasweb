@@ -1,0 +1,15 @@
+.close{
+    width: 54px;
+    height: 54px;
+    border-radius: 100px;
+    background: #f2f2f2;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color:#000;
+    transition: all 0.3s linear;
+}
+.close:hover{
+    background: #000;
+    color:#fff
+}

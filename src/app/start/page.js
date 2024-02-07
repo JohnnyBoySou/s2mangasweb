@@ -18,8 +18,9 @@ export default function Start (){
             useEffect(() => { 
                     const getData = async () => {
                         const response = await getPreferences()
-                        if(response){
-                          router.push('/home');
+                        console.log(response)
+                        if(response.length > 0){
+                            router.push('/home');
                         }
                     }
                 getData()
@@ -55,12 +56,13 @@ export default function Start (){
     }
     }
 
-
     const [name, setName] = useState('');
     const [bio, setBio] = useState('');
     const [avatar, setAvatar] = useState();
     const [capa, setCapa] = useState();
     const [categorias, setCategorias] = useState([]);
+    function formatarData(data) {  const meses = [  'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ];  const dia = data.getDate();const mes = meses[data.getMonth()];const ano = data.getFullYear();  return `${dia} de ${mes}, ${ano}`;}
+   
 
     const createtUser = async () => {
         const user = {
@@ -72,6 +74,55 @@ export default function Start (){
             capa: capa,
             genres: categorias,
             premium: false,
+            likes: [
+                {
+                    name: 'Naruto',
+                    id: 'naruto',
+                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
+                },
+                {
+                    name: 'One Piece',
+                    id: 'one-piece',
+                    capa: 'https://img.lermanga.org/O/one-piece/capa.jpg',
+                },
+                {
+                    name: 'Jujutsu Kaisen',
+                    id: 'jujutsu-kaisen',
+                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
+                }
+            ],
+            progress: [
+                {
+                    name: 'Naruto',
+                    id: 'naruto',
+                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
+                },
+                {
+                    name: 'One Piece',
+                    id: 'one-piece',
+                    capa: 'https://img.lermanga.org/O/one-piece/capa.jpg',
+                },
+            ],
+            follow: [
+                {
+                    name: 'Naruto',
+                    id: 'naruto',
+                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
+                },
+                {
+                    name: 'Jujutsu Kaisen',
+                    id: 'jujutsu-kaisen',
+                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
+                }  
+            ],
+            complete: [
+                {
+                    name: 'Jujutsu Kaisen',
+                    id: 'jujutsu-kaisen',
+                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
+                }  
+            ],
+            date: formatarData(new Date()),
         }
         try {
           const response = createPreferences(user)
@@ -168,11 +219,6 @@ export default function Start (){
                         value={name}
                         className='search_input'
                         onChange={e => setName(e.target.value)}
-                        onKeyDown={e => {
-                            if (e.key === 'Enter') {
-                                getData();
-                            }
-                        }}
                         type="text"
                         placeholder="Nome ou Apelido"
                     />
@@ -184,11 +230,6 @@ export default function Start (){
                         value={bio}
                         className='search_input'
                         onChange={e => setBio(e.target.value)}
-                        onKeyDown={e => {
-                            if (e.key === 'Enter') {
-                                getData();
-                            }
-                        }}
                         type="text"
                         placeholder="Bio ou breve descrição"
                     />

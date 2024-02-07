@@ -5,11 +5,16 @@ import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
-export default function ListMangaNews({ data }) {
+export default function ListMangaNews({ data, page }) {
   const router = useRouter()
   const handle = (id) => {
     router.push(`/manga/${id}`)
   }
+  
+  const startIndex = (page - 1) * 12;
+  const endIndex = page * 12;
+
+  const paginatedData = data.slice(startIndex, endIndex);
   
     const Card = ({ item, index, handle }) => {
       const cl = item.type === 'Manga' ? "#ED274A" : item.type === 'Manhwa' ? "#366AD3" : item.type === 'Manhua' ? "#009688" : '#000';
@@ -29,10 +34,10 @@ export default function ListMangaNews({ data }) {
             </Column>
 
             <Column style={{width:200, borderRadius: 8, marginLeft: -20, backgroundColor: '#303030', padding: 12, paddingLeft: 40, }}>
-             <Row style={{alignItems: 'center', flexWrap: 'wrap', }}>
-              {item.categories.map((item, index) => <Label key={index} style={{fontSize: 16, marginTop: 4,}}>{item} • &nbsp;</Label>)}
+             <Row style={{alignItems: 'center', flexWrap: 'wrap', color: "#cccccc", fontSize: 14, marginTop: 4,  marginBottom: 7, }}>• &nbsp;
+              {item.categories.map((item, index) => <Label key={index} style={{fontSize: 14, }}>{item} •&nbsp;</Label>)}
              </Row>
-              <Label style={{color: "#f6f6f6", fontSize: 20, }}>{item?.name.slice(0,28)}</Label>
+              <Label style={{color: "#f6f6f6", fontSize: 24, fontFamily: 'Medium', }}>{item?.name.slice(0,28)}</Label>
               
               <Row style={{flexWrap: 'wrap', marginTop: 10,}}>
                 {item?.newchapters?.slice(0, 4)?.map((c, index) => ( <Label className="new" key={index}>{c} </Label> ))} 
@@ -46,10 +51,15 @@ export default function ListMangaNews({ data }) {
       }
     return(
         <>
-          <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap', }}>
-          {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
-          </Row>
+         <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap' }}>
+      {paginatedData?.map((item, index) => (
+        <Card item={item} key={index} className="fadeInUp" handle={() => handle(item.id)} />
+      ))}
+    </Row>
         </>
     )
 }
+
+
+
       //  </Draggable>//

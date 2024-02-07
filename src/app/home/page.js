@@ -25,6 +25,9 @@ export default function Feed () {
   const [user, setUser] = useState();
   const API_URL = 'https://www.s2mangas.com/api/manga'
 
+  const [newsPage, setNewsPage] = useState(1);
+
+
   const usera = {
     name: 'JohnnyBoy',
     genres: [{name: 'Ação', id: 'acao'}, {name: 'Artes Marciais', id: 'artes-marciais'}, {name: 'Adulto', id: 'adulto'}],
@@ -66,8 +69,6 @@ export default function Feed () {
     
     getUser()
     requestData()
-    //requestUser()
-
   }, [loading])
 
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
@@ -137,8 +138,21 @@ export default function Feed () {
             <Column>
               
               {step === 'news' && <Column className="fadeInUp">
-              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Novos capítulos</Title>
-              <ListMangaNews data={news} />
+                <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44,}}>
+                  <Column style={{marginLeft: 44,  marginTop: 44, marginBottom: 20,}}>
+                  <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Novos capítulos</Title>
+                  <Label>Última atualização há {news[0]?.release_date}.</Label>
+                  </Column>
+                  <Row>
+                  <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 44, height: 44, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                    <FiArrowLeft style={{marginTop: 6,}}/>
+                </ButtonOff>
+                <ButtonOff onClick={() => {  if(newsPage < 3){ setNewsPage(newsPage + 1) }}} style={{width: 44, height: 44, marginLeft: 10, opacity: newsPage === 3 ? 0.4 : 1, justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                          <FiArrowRight style={{marginTop: 6,}}/>
+                </ButtonOff>
+                    </Row>
+                </Row>
+              <ListMangaNews data={news} page={newsPage}/>
               </Column>}
 
               {step === 'alta' && <Column className="fadeInUp">

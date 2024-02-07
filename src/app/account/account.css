@@ -85,3 +85,33 @@
     
     transform: translateY(20px);
   }
+
+  .btsettings{
+    font-size: 1.2em; 
+    cursor: pointer;
+    font-family: 'Book'; 
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    transition: .2s linear;
+    color: #fffFFF90;
+    border-radius: 5px;
+    background-color: #404040;
+    flex-grow: 1;
+  }
+  .btsettings:hover{
+    color: #fff;
+    background-color: #101010;
+  }
+  .sideprofile{
+    background: linear-gradient(145deg, #363636 20.91%, #202020 54.92%);
+    border-radius: 24px;
+    padding: 32px;
+    transition: .2s linear;
+  }
+  .bg{
+    height: 260px; 
+    width: 100%;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    opacity: 0.4;
+  }

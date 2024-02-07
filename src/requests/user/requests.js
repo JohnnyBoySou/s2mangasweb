@@ -37,10 +37,54 @@ function excludePreferences() {
   }
 }
 
-export { createPreferences, getPreferences, editPreferences, excludePreferences  };
+export { createPreferences, getPreferences, editPreferences, excludePreferences, likeManga, dislikeManga, verifyLiked, dislikeAllManga};
 
 
 
+function likeManga(manga) {
+  try {
+    const preferences = getPreferences();
+    if (!preferences.likes.some(item => item.id === manga.id)) {
+      preferences.likes.push(manga);
+      editPreferences(preferences);
+    }
+    return true;
+  } catch (error) {
+    console.error('Error liking manga:', error);
+    return false;
+  }
+}
 
+function verifyLiked(id) {
+  try {
+    const preferences = getPreferences();
+    return preferences.likes.some(manga => manga.id === id);
+  } catch (error) {
+    console.error('Error verifying liked manga:', error);
+    return false;
+  }
+}
 
+function dislikeManga(id) {
+  try {
+    const preferences = getPreferences();
+    preferences.likes = preferences.likes.filter(manga => manga.id !== id);
+    editPreferences(preferences);
+    return true;
+  } catch (error) {
+    console.error('Error disliking manga:', error);
+    return false;
+  }
+}
 
+function dislikeAllManga() {
+  try {
+    const preferences = getPreferences();
+    preferences.likes = [];
+    editPreferences(preferences);
+    return true;
+  } catch (error) {
+    console.error('Error disliking all manga:', error);
+    return false;
+  }
+}

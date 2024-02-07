@@ -16,6 +16,7 @@ import { addMangaInCollectionByID, getCollections } from '../../../requests/coll
 import { CiBookmarkPlus ,  } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
 import NavBar from '../../../components/NavBar';
+import { dislikeManga, likeManga, verifyLiked } from '../../../requests/user/requests';
 
 
 export default function DetailsManga({ params }) {
@@ -81,7 +82,16 @@ export default function DetailsManga({ params }) {
           const collections = await getCollections();
           setCollections(collections);
       };
-      fetchData();
+    const verifyLike = () => {
+        const response = verifyLiked(id);
+        if(response){
+            setLiked(true)
+        }else{
+            setLiked(false)
+        }
+    }
+    verifyLike()
+    fetchData();
   }, []);
 
     const [selectCollection, setSelectCollection] = useState();
@@ -154,6 +164,7 @@ export default function DetailsManga({ params }) {
     };
     const [show, setShow] = useState(false);
 
+
         return (
             <Column style={{ height: 500, overflowY: 'auto' }}>
                 {show ? 
@@ -179,6 +190,27 @@ export default function DetailsManga({ params }) {
         );
     };
 
+    
+    const toggleLike = () => {
+        const manga = {
+            id: item.id,
+            name: item.name,
+            capa: item.capa,
+        }
+        if(liked){
+          const response = dislikeManga(id);
+          if(response){
+              setLiked(false)
+          }
+        }
+        else{
+          const response = likeManga(manga);
+          if(response){
+              setLiked(true)
+          }
+        }
+      }
+      
 
     const reaction = item?.rate >= 4 ? 'Ótimo' : item?.rate >= 3 ? 'Bom' : item?.rate <= 2 ? 'Ruim' : 'Regular';
     const reaction_color = reaction === 'Ótimo' ? '#FFC4A3' : reaction === 'Bom' ? '#B5FFBC' :  reaction === 'Ruim' ? '#1D1A39' : '#FFFFCA';
@@ -268,7 +300,7 @@ export default function DetailsManga({ params }) {
                             </Row>
 
                             <Row style={{ alignItems: 'center', marginTop: 20, marginBottom: 20, justifyContent: 'space-between', marginLeft: 10, marginRight: 10,}}>
-                                <ButtonPrimaryLight>Curtir</ButtonPrimaryLight>
+                                <ButtonPrimaryLight onClick={toggleLike} style={{background: liked ? '#ED274A' : "#fff",  color: liked ? "#fff": '#000',}}>{liked ? 'Curtiu' : 'Curtir'}</ButtonPrimaryLight>
                                 <ButtonOff>Seguir</ButtonOff>
                                 <ButtonOff>Compartilhar</ButtonOff>
                             </Row>
