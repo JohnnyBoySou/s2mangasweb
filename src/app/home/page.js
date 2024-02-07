@@ -6,10 +6,9 @@ import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../.
 import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
-import { IoIosArrowBack } from "react-icons/io";
 import { FiArrowLeft, FiArrowRight, FiArrowUp } from "react-icons/fi";
-import { LuBell } from "react-icons/lu";
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import Contents from "../../components/Mangalist";
 import { createPreferences, getPreferences } from "../../requests/user/requests";
@@ -27,6 +26,7 @@ export default function Feed () {
 
   const [newsPage, setNewsPage] = useState(1);
 
+  const router = useRouter();
 
   const usera = {
     name: 'JohnnyBoy',
@@ -60,8 +60,11 @@ export default function Feed () {
     const getUser = () => {
       try {
         const response = getPreferences()
-        setUser(response)
-        console.log(response)
+        if(response){
+          setUser(response)
+        }else{
+          router.push('/start');
+        }
       } catch (error) {
         console.log(error)
       }
