@@ -14,8 +14,7 @@ export default async function handler(req, res) {
     const response = await axios.get('https://lermanga.org/mangas/?orderby=date&order=desc', { headers });
     const mangaData = clearWeekend(response.data);
     // Retorna um JSON válido
-    
-    res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate')
+    console.log(mangaData)
     res.status(200).json({ mangas: mangaData });
   } catch (error) {
     console.error('Axios error:', error.message);
