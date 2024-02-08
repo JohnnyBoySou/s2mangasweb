@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation'
 import Contents from "../../components/Mangalist";
 import { createPreferences, getPreferences } from "../../requests/user/requests";
 import ContinueReading from "../../components/Continue";
+import Skeleton from "../../components/Loading";
 
 
 export default function Feed () {
@@ -20,25 +21,11 @@ export default function Feed () {
   const [news, setNews] = useState([]);
   const [lasted, setLasted] = useState([]);
   const [rate, setRate] = useState([]);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
   const API_URL = 'https://www.s2mangas.com/api/manga'
-
   const [newsPage, setNewsPage] = useState(1);
-
   const router = useRouter();
-
-  const usera = {
-    name: 'JohnnyBoy',
-    genres: [{name: 'Ação', id: 'acao'}, {name: 'Artes Marciais', id: 'artes-marciais'}, {name: 'Adulto', id: 'adulto'}],
-    email: '***',
-    premium: true,
-    avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg',
-    capa: 'https://i.pinimg.com/736x/7d/de/81/7dde81dbac1e8cf0883cee9cac615452.jpg',
-    coins: 3200,
-    diamonds: 20, 
-    date: '20 de Jan, 2024',
-  }
 
   useEffect(() => {
     const requestData = async () => {
@@ -53,6 +40,7 @@ export default function Feed () {
       setLasted(lasted_raw.data.mangas);
       setNews(news_raw.data.mangas);
       setRate(rate_raw.data.mangas);
+      //setLoading(false)
     }
 
    
@@ -62,6 +50,7 @@ export default function Feed () {
         const response = getPreferences()
         if(response){
           setUser(response)
+          setLoading(false)
         }else{
           router.push('/start');
         }
@@ -75,9 +64,26 @@ export default function Feed () {
   }, [loading])
 
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
-  
-  const [announced, setAnnouced] = useState(undefined);
   const [step, setStep] = useState('news');
+
+  const saudacao = new Date().getHours() < 12 ? 'Bom dia' : new Date().getHours() < 18 ? 'Boa tarde' : 'Boa noite';
+
+  if(loading){
+    return(
+      <Column style={{justifyContent: 'center', alignItems: 'center', }}>
+        <Skeleton width={300} height={300} radius={1000} top={140}/>
+        <Skeleton width={500} height={70} radius={12} top={50}/>
+        <Skeleton width={700} height={100} radius={12} top={20} bottom={70}/>
+        <Row>
+          <Skeleton width={240} height={300} radius={12}/>
+          <Skeleton width={240} height={300} radius={12}  left={30} />
+          <Skeleton width={240} height={300} radius={12} left={30} right={30}/>
+          <Skeleton width={240} height={300} radius={12}/>
+        </Row>
+      </Column>
+    )
+  }else {
+
   return(
         <Column style={{ width: '100%',  overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
            
@@ -93,8 +99,8 @@ export default function Feed () {
             <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
                     <Column>
                     <Image src={user?.avatar} alt="avatar" className="fadeInUp" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20,  marginTop: 60,}}/>
-                      <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>Boa tarde,</Title>
-                      <Row>
+                      <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
+                      <Row style={{alignSelf: 'center'}}>
                         <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
                         <span className="gradient">{user?.name}</span>
                         <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
@@ -176,7 +182,7 @@ export default function Feed () {
             
         </Column>
     )
-}
+}}
 /**
  *   {announced ? <Column className="fadeInUp" style={{position: 'relative', backgroundColor: "#303030", borderRadius: '12px', padding: '10px 0px' }}>
                   <Row style={{padding: '0px 10px 10px 10px', alignItems: 'center', }}>
@@ -193,7 +199,18 @@ export default function Feed () {
                     <FiArrowUp  style={{fontSize: 24, color: '#000', }}/>
                   </Row>
                   }
- * 
+ *   const usera = {
+    name: 'JohnnyBoy',
+    genres: [{name: 'Ação', id: 'acao'}, {name: 'Artes Marciais', id: 'artes-marciais'}, {name: 'Adulto', id: 'adulto'}],
+    email: '***',
+    premium: true,
+    avatar: 'https://i.pinimg.com/564x/d8/e1/be/d8e1be5e6a784c40f7dc02734007c67e.jpg',
+    capa: 'https://i.pinimg.com/736x/7d/de/81/7dde81dbac1e8cf0883cee9cac615452.jpg',
+    coins: 3200,
+    diamonds: 20, 
+    date: '20 de Jan, 2024',
+  }
+
  * 
  * <Contents />
  */

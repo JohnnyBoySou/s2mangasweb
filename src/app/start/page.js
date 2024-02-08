@@ -19,7 +19,7 @@ export default function Start (){
             const getData = async () => {
                 const response = await getPreferences()
                 console.log(response)
-                if(response.length >= 0){
+                if(response != undefined){
                     router.push('/home');
                 }
             }
