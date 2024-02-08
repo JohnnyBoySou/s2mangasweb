@@ -15,16 +15,16 @@ import tags from '../../requests/categories/tags';
 export default function Start (){
 
     const router = useRouter();
-            useEffect(() => { 
-                    const getData = async () => {
-                        const response = await getPreferences()
-                        console.log(response)
-                        if(response.length > 0){
-                            router.push('/home');
-                        }
-                    }
-                getData()
-            }, []);
+    useEffect(() => { 
+            const getData = async () => {
+                const response = await getPreferences()
+                console.log(response)
+                if(response.length >= 0){
+                    router.push('/home');
+                }
+            }
+        getData()
+    }, []);
 
 
             const CategoryList = ({ item, index }) => {
