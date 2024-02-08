@@ -1,0 +1,14 @@
+.card_grd{
+    margin: 10px;
+    border-radius: 12px;
+    width: 220px;
+    overflow: hidden;
+    background-color: #373737;
+    cursor: pointer;
+}
+.select{
+    transition: .2s linear;
+}
+.card_grd:hover .select{
+    transform: scale(1.5);
+}

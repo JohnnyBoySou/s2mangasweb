@@ -7,9 +7,14 @@ import { IoIosPause, IoIosPlay } from "react-icons/io";
 import stories from '../../requests/mangalist';
 import Draggable from '../draggable';
 import { CiVolumeHigh } from "react-icons/ci";
-
+import { useRouter } from 'next/navigation'
+import './style.css'
 
 export default function Contents({ }){
+  const router = useRouter()
+  const handle = (id) => {
+    router.push(`/mangalist/${id}`)
+  }
 
   const Card = ({ item }) => {
     const [hover, setHover] = useState(false);
@@ -22,26 +27,28 @@ export default function Contents({ }){
       setHover(false);
     };
 
-    return (
+    return ( 
       <Column
-        style={{ marginRight: 12 }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        style={{ marginRight: 12 }} className='cd'
+        onClick={() => handle(item.id)}
+        //onMouseEnter={handleMouseEnter}
+        //onMouseLeave={handleMouseLeave}
       >
         {hover ? (
           <>
-            <Column style={{ width: 250, height: 250, borderRadius: 12, background: "#303030" }} >
+            <Column style={{ width: 250, height: 250, borderRadius: 12, }} >
               <Label>{item?.manga_ids?.length}</Label>
             </Column>
             <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
           </>
         ) : (
           <>
-            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 4, objectFit: 'cover', marginBottom: 0 }} alt='' />
+            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
             <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
           </>
         )}
-      </Column>
+      </Column> 
+
     );
   };
 
@@ -133,15 +140,9 @@ export default function Contents({ }){
       </Column>
     )
   }
-
-
   return (
-    <Column style={{margin: 44,}}> 
-    <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10,}}>
-      <Column style={{justifyContent: 'center'}}>
-        <Title style={{fontSize: 42, marginBottom: 20,}}>Segue o fio</Title>
-      </Column>
-    </Row>
+    <Column style={{margin: 44, marginTop: 0,}}> 
+   
     <Column>
    
    <Draggable>
@@ -149,7 +150,19 @@ export default function Contents({ }){
     {stories?.map((item,index) => <Card key={index} item={item} /> )} 
     </Row>
    </Draggable>
-    <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10, marginTop: 30,}}>
+   
+
+    </Column>
+  </Column>
+  )
+}
+/**
+ *  <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10,}}>
+      <Column style={{justifyContent: 'center'}}>
+        <Title style={{fontSize: 42, marginBottom: 20,}}>Segue o fio</Title>
+      </Column>
+    </Row>
+ *  <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10, marginTop: 30,}}>
       <Column style={{justifyContent: 'center'}}>
         <Title style={{fontSize: 42, marginBottom: 20, marginTop: 30,}}>Mangalists do momento</Title>
       </Column>
@@ -158,8 +171,4 @@ export default function Contents({ }){
     <Row style={{flexWrap: 'wrap',}}>
     {stories?.map((item,index) => <Storie key={index} item={item} /> )} 
     </Row>
-
-    </Column>
-  </Column>
-  )
-}
+ */

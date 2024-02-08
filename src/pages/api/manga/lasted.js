@@ -3,9 +3,8 @@ import axios from "axios";
 import cheerio from 'cheerio';
 const headers = {
   'Accept': 'application/json',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
 };
-const API_URL = "https://lermanga.org/"
 
 export default async function handler(req, res) {
   try {
@@ -16,9 +15,8 @@ export default async function handler(req, res) {
     
     const response = await axios.get('https://lermanga.org/mangas/?orderby=date&order=desc', { headers });
     const mangaData = clearWeekend(response.data);
-    // Retorna um JSON válido
-    console.log(mangaData)
-    res.status(200).json({ mangas: mangaData });
+    // Retorna um JSON válido 
+    res.status(200).json({ mangas: response });
   } catch (error) {
     console.error('Axios error:', error.message);
     console.error('Status:', error.response ? error.response.status : 'unknown');

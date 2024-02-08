@@ -1,11 +1,11 @@
 .card{
     transition: .2s linear;
-    background-color: #404040;
+    background-color: #303030;
     border-radius: 12px;
     
 }
 .card:hover{
-    background-color: #606060;
+    background-color: #454545;
 }
 
 .imagezoom{

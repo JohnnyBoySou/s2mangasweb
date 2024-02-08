@@ -103,3 +103,19 @@
   border-radius: 100px;
   background-color: #FF620A;
 }
+.profile {
+    animation: boxShadowAnimation 3s infinite;
+}
+
+@keyframes boxShadowAnimation {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 100px 50px #ED274A20;
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+  
+}

@@ -1,10 +1,12 @@
 'use client';
 import React, { useState, useEffect} from 'react'
-import { Column, BTIcon, BTColection, Label, Button, Row } from "../../themes/global";
+import { Column, BTIcon, BTColection, Label, Button, Row, Title, ButtonPrimaryLight } from "../../themes/global";
 import { collections } from "../../requests/collections/list";
 import Link from 'next/link'
 import { getCollections } from '../../requests/collections/request';
 import './style.css';
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
+
 
 function CollectionItem({ item, open }) {
     const [hovered, setHovered] = useState(false);
@@ -77,7 +79,22 @@ function CollectionItemRow({ item, open }) {
       };
       fetchData();
   }, []);
+    if(collections.length === 0){
+    return(
+      <Column style={{ backgroundColor: '#303030', padding: 16, borderRadius: 12, alignItems: 'center',}}>
+      <AiOutlineAppstoreAdd style={{fontSize: 46, color: "#ED274A",  padding: 10,}} />
+      
+     {open && 
+      <Column style={{alignItems: 'center'}}>
+        <Label style={{textAlign: 'center', marginBottom: 10,}}>
+          Crie sua primeira <span className='grad'>coleção</span> agora mesmo!
+        </Label>
+        <Link href={`/collections/`} style={{ textDecoration: 'none' }}><ButtonPrimaryLight style={{marginTop: 10,}}>Vamos!</ButtonPrimaryLight></Link>
+      </Column>}
 
+      </Column>
+    )
+    }
 
     if(grid ){
         return (

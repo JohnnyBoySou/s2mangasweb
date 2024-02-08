@@ -4,6 +4,7 @@ import Draggable from "../draggable"
 import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
+import Skeleton from "../Loading"
 
 export default function ListMangaNews({ data, page }) {
   const router = useRouter()
@@ -52,10 +53,47 @@ export default function ListMangaNews({ data, page }) {
     return(
         <>
          <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap' }}>
-      {paginatedData?.map((item, index) => (
-        <Card item={item} key={index} className="fadeInUp" handle={() => handle(item.id)} />
-      ))}
-    </Row>
+          {paginatedData?.map((item, index) => (
+            <Card item={item} key={index} className="fadeInUp" handle={() => handle(item.id)} />
+          ))}
+
+        {data?.length === 0 && 
+          <Row>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+            <Column style={{marginRight: 20,}}>
+              <Skeleton width={200} height={270} radius={12}/>
+              <Skeleton width={160} height={40} radius={12} top={16}/>
+            </Column>
+          </Row>
+        }
+      </Row>
         </>
     )
 }

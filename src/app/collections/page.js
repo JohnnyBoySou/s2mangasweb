@@ -4,8 +4,9 @@ import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, Bu
 import './collections.css'
 import Link from 'next/link'; 
 import { IoClose } from "react-icons/io5";
-import { createCollection, getCollections } from '../../requests/collections/request';
+import { createCollection, excludeAllCollections, getCollections } from '../../requests/collections/request';
 import Loader from '../../components/Loader';
+import Image from 'next/image';
 
 
 export default function Collections() {
@@ -67,13 +68,34 @@ export default function Collections() {
         }
     }
     const [editCollection, seteditCollection] = useState();
+    const excludeAll = () => {
+      try {
+        const response = excludeAllCollections();
+        if(response){
+            setLoading(false)
+            console.log('Excluido')
+        }
+      }
+        catch (error) {
+            console.error(error);
+        }
+    }
+    
     
     return (
         <Column style={{padding: 44,}}>
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
                 <Title>Suas Coleções</Title>
-                <ButtonOff onClick={() => setModal(!modal)}>Nova Coleção</ButtonOff>
+                <Row>
+                    <ButtonPrimary onClick={() => setModal(!modal)}>Nova Coleção</ButtonPrimary>
+                    <ButtonOff onClick={excludeAll} style={{marginLeft: 10,}}>Excluir todas</ButtonOff>
+                </Row>
             </Row>
+
+
+
+           {collections.length === 0 && <Image src="/colleciton_add.png" alt="collection add" width={300} height={300} style={{width: 300, height: 300, alignSelf: 'center', marginTop: 50, borderRadius: 16,}}/>}
+           
             <Row style={{flexWrap: 'wrap', marginTop: 12,}}>
             {collections.map((item, index) => {
                 return(

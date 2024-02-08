@@ -14,6 +14,7 @@ import Contents from "../../components/Mangalist";
 import { createPreferences, getPreferences } from "../../requests/user/requests";
 import ContinueReading from "../../components/Continue";
 import Skeleton from "../../components/Loading";
+import NavBar from "../../components/NavBar";
 
 
 export default function Feed () {
@@ -40,7 +41,7 @@ export default function Feed () {
       setLasted(lasted_raw.data.mangas);
       setNews(news_raw.data.mangas);
       setRate(rate_raw.data.mangas);
-      //setLoading(false)
+      setLoading(false)
     }
 
    
@@ -86,10 +87,9 @@ export default function Feed () {
 
   return(
         <Column style={{ width: '100%',  overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
-           
+           <NavBar/>
           
-
-            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 40, }} >
+            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 0, }} >
             
             <Row style={{justifyContent: 'space-between', alignItems: 'center', marginLeft: -50, marginRight: -50,}}>
               <Column className='circle' />
@@ -98,7 +98,7 @@ export default function Feed () {
 
             <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
                     <Column>
-                    <Image src={user?.avatar} alt="avatar" className="fadeInUp" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20,  marginTop: 60,}}/>
+                    <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
                       <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
                       <Row style={{alignSelf: 'center'}}>
                         <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
@@ -111,7 +111,58 @@ export default function Feed () {
 
 
               <Column style={{padding: 80, paddingTop: 0,  }}/>
-                  <Column style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center',  marginBottom: 10, border: '2px solid #f9f9f990',  padding: '12px 24px', borderRadius: 100,}}>
+              
+            </Column>
+
+
+            <Column>
+              
+            <Column className="fadeInUp">
+                <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44,}}>
+                  <Column style={{marginLeft: 44,  marginBottom: 20,}}>
+                  <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Novos capítulos</Title>
+                  <Label>Última atualização há {news[0]?.release_date}.</Label>
+                  </Column>
+                  <Row>
+                  <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 44, height: 44, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, cursor: newsPage === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                    <FiArrowLeft style={{marginTop: 6,}}/>
+                </ButtonOff>
+                <ButtonOff onClick={() => {  if(newsPage < 3){ setNewsPage(newsPage + 1) }}} style={{width: 44, height: 44, marginLeft: 10, opacity: newsPage === 3 ? 0.4 : 1, cursor: newsPage === 3 ? 'not-allowed' : 'pointer', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                          <FiArrowRight style={{marginTop: 6,}}/>
+                </ButtonOff>
+                    </Row>
+                </Row>
+              <ListMangaNews data={news} page={newsPage}/>
+              </Column>
+
+              <Column className="fadeInUp">
+              <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Em alta</Title>
+              <ListManga data={weekend}/>
+              </Column>
+
+            <Column className="fadeInUp">
+              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Melhores notas</Title>
+              <ListManga data={rate}/>
+              </Column>
+
+
+              <Column className="fadeInUp">
+              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Mangálists</Title>
+              <Contents />
+              </Column>
+
+
+              {step === 'continue' && <Column className="fadeInUp">
+                <ContinueReading />
+                </Column>}
+            </Column>
+
+            
+        </Column>
+    )
+}}
+/**
+ *    <Column style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center',  marginBottom: 10, border: '2px solid #f9f9f990',  padding: '12px 24px', borderRadius: 100,}}>
                     <Title style={{fontSize: 18, fontFamily: 'Book',}}>Escolha um para começar</Title>
                   </Column>
 
@@ -140,50 +191,6 @@ export default function Feed () {
                     </Column>
                   
                   </Row>
-              
-            </Column>
-
-
-            <Column>
-              
-              {step === 'news' && <Column className="fadeInUp">
-                <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44,}}>
-                  <Column style={{marginLeft: 44,  marginTop: 44, marginBottom: 20,}}>
-                  <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Novos capítulos</Title>
-                  <Label>Última atualização há {news[0]?.release_date}.</Label>
-                  </Column>
-                  <Row>
-                  <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 44, height: 44, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                    <FiArrowLeft style={{marginTop: 6,}}/>
-                </ButtonOff>
-                <ButtonOff onClick={() => {  if(newsPage < 3){ setNewsPage(newsPage + 1) }}} style={{width: 44, height: 44, marginLeft: 10, opacity: newsPage === 3 ? 0.4 : 1, justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                          <FiArrowRight style={{marginTop: 6,}}/>
-                </ButtonOff>
-                    </Row>
-                </Row>
-              <ListMangaNews data={news} page={newsPage}/>
-              </Column>}
-
-              {step === 'alta' && <Column className="fadeInUp">
-              <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Em alta</Title>
-              <ListManga data={weekend}/>
-              </Column>}
-
-              {step === 'notas' && <Column className="fadeInUp">
-              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Melhores notas</Title>
-              <ListManga data={rate}/>
-              </Column>}
-
-              {step === 'continue' && <Column className="fadeInUp">
-                <ContinueReading />
-                </Column>}
-            </Column>
-
-            
-        </Column>
-    )
-}}
-/**
  *   {announced ? <Column className="fadeInUp" style={{position: 'relative', backgroundColor: "#303030", borderRadius: '12px', padding: '10px 0px' }}>
                   <Row style={{padding: '0px 10px 10px 10px', alignItems: 'center', }}>
                     <Image src='/icon_colorido.png'  alt="temporada 1" width={24} height={24} style={{ objectFit: 'cover', marginRight: 6,}}/>

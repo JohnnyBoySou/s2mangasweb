@@ -85,10 +85,19 @@ function addMangaInCollectionByID(id, mangaID) {
   }
 }
 
-export { createCollection, getCollections, editCollectionByID, getCollectionByID, excludeCollectionByID, addMangaInCollectionByID };
 
 
 
+function excludeAllCollections() {
+  try {
+    localStorage.removeItem('collections');
+    return true;
+  } catch (error) {
+    console.error('Error excluding all collections:', error);
+    return false;
+  }
+}
 
+export { createCollection, getCollections, editCollectionByID, getCollectionByID, excludeCollectionByID, addMangaInCollectionByID , excludeAllCollections};
 
 

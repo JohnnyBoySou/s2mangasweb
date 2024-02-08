@@ -1,0 +1,38 @@
+.card{
+    border-radius: 12px;
+    background-color: #363636;
+    padding: 22px;
+    margin: 6px;
+}
+
+.banner{
+    margin: 12px; 
+    margin-left: 6px; 
+    padding-right: 0px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.content{
+    margin: 12px; 
+    margin-left: 6px; 
+    margin-top: 6px;
+    border-radius: 8px;
+    padding-bottom: 24px;
+    background: linear-gradient(145deg, #262626 -20.91%, #191919 54.92%);
+}
+
+.edit{
+    font-size: 18px;
+    background-color: #30303050;
+    padding: 8px;
+    border-radius: 100px;
+    margin-left: 12px;
+    color: #ffffff90;
+    cursor: pointer;
+    transition: .2s linear;
+}
+.edit:hover{
+    color: #ffffff;
+    background-color: #303030;
+}

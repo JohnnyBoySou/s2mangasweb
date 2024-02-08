@@ -51,7 +51,7 @@ export default function NavBar (){
                     <LuBell style={{marginTop: 5,}}/>
                 </ButtonOff>
             </Link> 
-            <Link href="/news">
+            <Link href="/account">
                     <Image src={user?.avatar} alt="user avatar" width={44} height={44} style={{ objectFit: 'cover', borderRadius: 100, marginLeft: 12, }}/>
             </Link> 
             </Row>
