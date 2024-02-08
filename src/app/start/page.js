@@ -24,7 +24,7 @@ export default function Start (){
                 }
             }
         getData()
-    }, []);
+    }, [router]);
 
 
             const CategoryList = ({ item, index }) => {

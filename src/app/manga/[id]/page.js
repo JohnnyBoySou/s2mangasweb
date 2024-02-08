@@ -92,7 +92,7 @@ export default function DetailsManga({ params }) {
     }
     verifyLike()
     fetchData();
-  }, []);
+  }, [id]);
 
     const [selectCollection, setSelectCollection] = useState();
     const [message, setMessage] = useState('');

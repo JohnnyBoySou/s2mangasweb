@@ -30,7 +30,7 @@ export default function CollectionsDetails({ params }) {
         };
         fetchData();
        
-    }, []);
+    }, [id]);
 
     const editCollection = async ()  => {
         let collectionnew = {

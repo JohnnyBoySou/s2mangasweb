@@ -13,18 +13,19 @@ export default function ChapterDetails({ params }) {
     const cpt = Number(chapter)
     const [item, setItem] = useState();
     useEffect(() => {
-      requestData()
-    },[id])
-
-    const requestData = async () => {
-      try {
-        const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
-        setItem(item_raw?.data)
-      } catch (error) {
-        console.log(error)        
+      const requestData = async () => {
+        try {
+          const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
+          setItem(item_raw?.data)
+        } catch (error) {
+          console.log(error)        
+        }
       }
-    }
     
+      requestData()
+    },[ id, chapter])
+
+   
     const colors = ["#ED274A",'#6699ff', '#FF620A', '#27AE60', '#3454D1', '#F7F7F7', '#000000',]
     const ListColor = ({ c }) => {
       return(
