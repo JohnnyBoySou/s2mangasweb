@@ -174,7 +174,7 @@ export default function Start (){
 
 
 
-        {step == 0 && <Column style={{justifyContent: 'center', alignItems: 'center', marginTop: 100,}}>
+        {step == 0 && <Column style={{justifyContent: 'center', alignItems: 'center', marginTop: 100,}} className='fadeInLeft'>
             <Row>
                 <Column className='cardoff' style={{width: 100, height: 220,}}/>
                 <Column className='cardoff' style={{width: 100, height: 220, marginLeft: 20, marginRight: 20,}}/>
@@ -211,7 +211,7 @@ export default function Start (){
             </Column>}
 
             {step == 1 && 
-            <Column style={{justifyContent: 'center', maxWidth: 1300, alignSelf: 'center',}}>
+            <Column style={{justifyContent: 'center', maxWidth: 1300, alignSelf: 'center',}} className='fadeInLeft'>
             
             <Title style={{marginTop: 10,}}>Nome</Title>
             <Label>Este nome aparecerá no seu perfil.</Label>
@@ -252,12 +252,11 @@ export default function Start (){
                     height={124}
                     onClick={() => setAvatar(item)}
                     alt=""
+                    className='avatar'
                     style={{
                         objectFit: "cover", 
                         borderWidth: 4,
-                        transition: 'linear .2s',
                         cursor: 'pointer',
-                        transform: `scale(${avatar === item ? 1.1 : 1})`,
                         borderColor: avatar === item ? "#ED274A" : '#00000000',
                         borderStyle: 'solid',
                         borderRadius: 100, margin: 4,}}
@@ -305,7 +304,7 @@ export default function Start (){
             </Column>}
 
 
-        {step == 4 && <Column style={{justifyContent: 'center', maxWidth: 1300, alignSelf: 'center',}}>
+        {step == 4 && <Column style={{justifyContent: 'center', maxWidth: 1300, alignSelf: 'center',}} className="fadeInLeft">
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
                 
             <Column>

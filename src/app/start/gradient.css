@@ -69,6 +69,10 @@
     background: linear-gradient(45deg, #ED274A, #FF620A);
     transition: .2s all;
 }
+.card_grad:hover{
+  transform: scale(0.95);
+}
+
 .cardoff:hover{
   transform: scale(1.05);
 }
@@ -131,4 +135,10 @@
 }
 .image_poster:hover{
   transform: scale(1.05);
+}
+.avatar{
+  transition: .1s linear;
+}
+.avatar:hover{
+  transform: scale(1.2);
 }

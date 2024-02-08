@@ -27,7 +27,6 @@ export const avatars = [
 'https://i.pinimg.com/736x/10/51/b4/1051b4154fabf3d8d3a70b1c9798ee18.jpg',        
 'https://i.pinimg.com/736x/4c/f8/e2/4cf8e2b3c4b8f81e8efc296cf04ba5ae.jpg',    
 'https://i.pinimg.com/736x/f6/53/89/f65389eea803b18902807bcf76bc649f.jpg',
-
 ]
 
 export const chibi = [
@@ -118,6 +117,17 @@ export const geral = [
     'https://i.pinimg.com/736x/f0/54/d5/f054d593aee000fed79ac9f785cbed01.jpg',        
     'https://i.pinimg.com/736x/40/59/4a/40594ad06e1d7aa6107ab2153a09f417.jpg',
     'https://i.pinimg.com/736x/bc/50/ab/bc50abf9822b0a160f6b89ec521e23d3.jpg',
+    'https://i.pinimg.com/564x/57/21/2b/57212b8ac70fcb8b0b9f5149ace87465.jpg',
+    'https://i.pinimg.com/236x/f0/14/e7/f014e73b13df5492007b75c4dad79349.jpg',
+    'https://i.pinimg.com/236x/b1/74/d2/b174d2ba88b006c9361d88dcd51200da.jpg',
+    'https://i.pinimg.com/236x/0d/7f/61/0d7f616ce0a90846716bd160982da062.jpg',
+    'https://i.pinimg.com/236x/72/ad/67/72ad678e8484023353f6893a8331d45e.jpg',
+    'https://i.pinimg.com/236x/b0/6f/1e/b06f1e898ab69cb628629dd50e6ac13f.jpg',
+    'https://i.pinimg.com/474x/66/df/cd/66dfcde2f5a3cf761cf40271f63958c8.jpg',
+    'https://i.pinimg.com/236x/15/b3/16/15b316feb506f45cf1254f333cf73c89.jpg',
+    'https://i.pinimg.com/474x/13/70/ff/1370ffd4139ed81ca6a4b4b99b3d7658.jpg',
+    'https://i.pinimg.com/236x/dd/78/21/dd782185b6ddff58ea52c9420952776e.jpg',
+    'https://i.pinimg.com/236x/3e/f0/27/3ef027a8d19cc9cf10750bfd54f4d5d0.jpg',
 ]
 
 export const animev2 = [
