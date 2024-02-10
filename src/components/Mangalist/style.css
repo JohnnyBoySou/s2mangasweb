@@ -1,7 +1,9 @@
 .cd{
     transition: .2s linear;
     background-color: #303030;
+    padding: 12px;
     cursor: pointer;
+    border-radius: 12px;
 }
 .cd:hover{
     transform: scale(1.09);    

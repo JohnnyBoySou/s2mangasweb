@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Column, Label, Title, Row, } from "../../themes/global"
 import Draggable from "../draggable"
-import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"
@@ -12,8 +11,8 @@ export default function ListMangaNews({ data, page }) {
     router.push(`/manga/${id}`)
   }
   
-  const startIndex = (page - 1) * 12;
-  const endIndex = page * 12;
+  const startIndex = (page - 1) * 8;
+  const endIndex = page * 8;
 
   const paginatedData = data.slice(startIndex, endIndex);
   
@@ -34,9 +33,9 @@ export default function ListMangaNews({ data, page }) {
                 />
             </Column>
 
-            <Column style={{width:200, borderRadius: 8, marginLeft: -20, backgroundColor: '#303030', padding: 12, paddingLeft: 40, }}>
+            <Column style={{width:200, borderRadius: 8, marginLeft: -20, backgroundColor: '#262626', padding: 12, paddingLeft: 40, }}>
              <Row style={{alignItems: 'center', flexWrap: 'wrap', color: "#cccccc", fontSize: 14, marginTop: 4,  marginBottom: 7, }}>• &nbsp;
-              {item.categories.map((item, index) => <Label key={index} style={{fontSize: 14, }}>{item} •&nbsp;</Label>)}
+              {item?.categories?.map((item, index) => <Label key={index} style={{fontSize: 14, }}>{item} •&nbsp;</Label>)}
              </Row>
               <Label style={{color: "#f6f6f6", fontSize: 24, fontFamily: 'Medium', }}>{item?.name.slice(0,28)}</Label>
               

@@ -1,22 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react"
 import { Column, Label,  Row, } from "../../themes/global"
-import  mangas  from "../../requests/mangas"
+import  mangas  from "../../requests/mangas_old"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"
+import Image from "next/image"
 
-export default function ListManga({ data = mangas }) {
+export default function ListManga({ data, page }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {
     setLoading(true)
     router.push(`/manga/${id}`)
   }
+
+  
+  const startIndex = (page - 1) * 8;
+  const endIndex = page * 8;
+
+  const paginatedData = data.slice(startIndex, endIndex);
+  
     const Card = ({ item, index, handle }) => {
         return(
-          <Column className="card" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16,}}>
-          <img 
+          <Column className="card fadeInRight" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16,}}>
+          <Image 
               onClick={handle}
               className="imagezoom"
               src={item?.capa}
@@ -34,8 +42,8 @@ export default function ListManga({ data = mangas }) {
     return(
         <>
           <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap', }}>
-          {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
-          {data?.length === 0 && 
+          {paginatedData?.map((item, index) => (<Card  item={item} key={index} handle={() => handle(item.id)}/> ))}
+          {paginatedData?.length === 0 && 
           <Row>
             <Column style={{marginRight: 20,}}>
               <Skeleton width={200} height={270} radius={12}/>

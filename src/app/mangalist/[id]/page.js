@@ -9,10 +9,7 @@ import NavBar from '../../../components/NavBar';
 
 export default function MangaListDetails({ params }) {
     const id = Number(params.id);
-
     const item = stories.find((item) => item.id === id);
-    const [mangas, setMangas ] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     return (
         <Column style={{ overflow: 'auto',}}>
@@ -21,7 +18,7 @@ export default function MangaListDetails({ params }) {
             <Column style={{paddingLeft: 44, paddingRight: 44, paddingBottom: 74, paddingTop: 24, }}>
             <Row>
                 <Column className='scale-ani' style={{ width: 150, height: 150, borderRadius: 6, justifyContent: 'center', alignItems: 'center', }}>
-                    <Image src={item?.capa} alt="capa da mangalist" width={150} height={150} style={{borderRadius: 8,}}/>
+                    <Image src={item?.capa} alt="capa da mangalist" width={150} height={150} style={{borderRadius: 8, objectFit: 'cover'}}/>
                 </Column>
                 <Column style={{justifyContent: 'center',}}>
                         <Label style={{marginLeft: 44, color: "#ffffff90"}}>Mangálist</Label>

@@ -18,24 +18,22 @@ export default function Start (){
     useEffect(() => { 
             const getData = async () => {
                 const response = await getPreferences()
-                console.log(response)
-                if(response != undefined){
+                if(response.name){
                     router.push('/home');
                 }
             }
         getData()
     }, [router]);
 
-
-            const CategoryList = ({ item, index }) => {
-                const addCategoria = () => { if (categorias.includes(item)) { setCategorias(categorias.filter(cat => cat !== item)); } else { setCategorias([...categorias, item]); } }
-                return(
-                <Column onClick={addCategoria} key={index} style={{ width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', padding: 6, opacity: categorias.includes(item) ? 0.2 : 1 }}>
-                          <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
-                            <Image className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
-                        </Column>
-                )
-              }
+    const CategoryList = ({ item, index }) => {
+        const addCategoria = () => { if (categorias.includes(item)) { setCategorias(categorias.filter(cat => cat !== item)); } else { setCategorias([...categorias, item]); } }
+        return(
+            <Column onClick={addCategoria} key={index} style={{ width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', padding: 6, opacity: categorias.includes(item) ? 0.2 : 1 }}>
+                <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
+                <Image className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
+            </Column>
+            )
+    }
 
               
     const [loading, setLoading] = useState(false);

@@ -7,14 +7,20 @@ import './feed.css';
 import ListManga from "../../components/Cards/list";
 import ListMangaNews from "../../components/Cards/list_news";
 import { FiArrowLeft, FiArrowRight, FiArrowUp } from "react-icons/fi";
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import Contents from "../../components/Mangalist";
 import { createPreferences, getPreferences } from "../../requests/user/requests";
-import ContinueReading from "../../components/Continue";
 import Skeleton from "../../components/Loading";
+
 import NavBar from "../../components/NavBar";
+
+import requestHome from "../../requests/manga/home";
+
+import NewsComponent from "../../components/Home/News";
+import LastedComponent from "../../components/Home/Lasted";
+import WeekendComponent from './../../components/Home/Weekend/index';
+import RateComponent from './../../components/Home/Rate/index';
 
 
 export default function Feed () {
@@ -30,21 +36,14 @@ export default function Feed () {
 
   useEffect(() => {
     const requestData = async () => {
-      const [weekend_raw, lasted_raw, news_raw, rate_raw] = await Promise.all([
-        axios.get(`${API_URL}/weekend`, ),
-        axios.get(`${API_URL}/lasted`, ),
-        axios.get(`${API_URL}/news`, ),
-        axios.get(`${API_URL}/rate`, ),
-      ])
-
-      setWeekend(weekend_raw.data.mangas);
-      setLasted(lasted_raw.data.mangas);
-      setNews(news_raw.data.mangas);
-      setRate(rate_raw.data.mangas);
+      const response = await requestHome()
+      setWeekend(response.weekend);
+      setNews(response.news);
+      setLasted(response.lasted);
+      setRate(response.rate);
       setLoading(false)
     }
 
-   
 
     const getUser = () => {
       try {
@@ -59,14 +58,11 @@ export default function Feed () {
         console.log(error)
       }
     }
-    
     getUser()
     requestData()
-  }, [loading])
+  }, [loading, router])
 
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
-  const [step, setStep] = useState('news');
-
   const saudacao = new Date().getHours() < 12 ? 'Bom dia' : new Date().getHours() < 18 ? 'Boa tarde' : 'Boa noite';
 
   if(loading){
@@ -88,14 +84,11 @@ export default function Feed () {
   return(
         <Column style={{ width: '100%',  overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
            <NavBar/>
-          
             <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 0, }} >
-            
             <Row style={{justifyContent: 'space-between', alignItems: 'center', marginLeft: -50, marginRight: -50,}}>
               <Column className='circle' />
               <Column className='circle2' />
             </Row>
-
             <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
                     <Column>
                     <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
@@ -107,43 +100,14 @@ export default function Feed () {
                       </Row>
                     </Column>
                   </Row>
-
-
-
-              <Column style={{padding: 80, paddingTop: 0,  }}/>
-              
+              <Column style={{padding: 60, paddingTop: 0,  }}/>
             </Column>
-
-
             <Column>
-              
-            <Column className="fadeInUp">
-                <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44,}}>
-                  <Column style={{marginLeft: 44,  marginBottom: 20,}}>
-                  <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Novos capítulos</Title>
-                  <Label>Última atualização há {news[0]?.release_date}.</Label>
-                  </Column>
-                  <Row>
-                  <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 44, height: 44, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, cursor: newsPage === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                    <FiArrowLeft style={{marginTop: 6,}}/>
-                </ButtonOff>
-                <ButtonOff onClick={() => {  if(newsPage < 3){ setNewsPage(newsPage + 1) }}} style={{width: 44, height: 44, marginLeft: 10, opacity: newsPage === 3 ? 0.4 : 1, cursor: newsPage === 3 ? 'not-allowed' : 'pointer', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                          <FiArrowRight style={{marginTop: 6,}}/>
-                </ButtonOff>
-                    </Row>
-                </Row>
-              <ListMangaNews data={news} page={newsPage}/>
-              </Column>
-
-              <Column className="fadeInUp">
-              <Title onClick={() => {setLoading(!loading)}} style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Em alta</Title>
-              <ListManga data={weekend}/>
-              </Column>
-
-            <Column className="fadeInUp">
-              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Melhores notas</Title>
-              <ListManga data={rate}/>
-              </Column>
+             
+             <NewsComponent data={news}/>
+             <LastedComponent data={lasted}/>
+             <RateComponent data={rate}/>
+             <WeekendComponent data={weekend}/>
 
 
               <Column className="fadeInUp">
@@ -152,9 +116,7 @@ export default function Feed () {
               </Column>
 
 
-              {step === 'continue' && <Column className="fadeInUp">
-                <ContinueReading />
-                </Column>}
+            
             </Column>
 
             

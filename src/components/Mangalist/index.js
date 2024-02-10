@@ -17,36 +17,12 @@ export default function Contents({ }){
   }
 
   const Card = ({ item }) => {
-    const [hover, setHover] = useState(false);
-
-    const handleMouseEnter = () => {
-      setHover(true);
-    };
-
-    const handleMouseLeave = () => {
-      setHover(false);
-    };
 
     return ( 
       <Column
-        style={{ marginRight: 12 }} className='cd'
-        onClick={() => handle(item.id)}
-        //onMouseEnter={handleMouseEnter}
-        //onMouseLeave={handleMouseLeave}
-      >
-        {hover ? (
-          <>
-            <Column style={{ width: 250, height: 250, borderRadius: 12, }} >
-              <Label>{item?.manga_ids?.length}</Label>
-            </Column>
-            <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
-          </>
-        ) : (
-          <>
+        style={{ marginRight: 12 }} className='cd'  onClick={() => handle(item.id)} >
             <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
-            <Label style={{ fontSize: 24, width: 250, marginTop: 12 }}>{item?.name}</Label>
-          </>
-        )}
+            <Label style={{ fontSize: 24, width: 250, marginTop: 12, color: "#f7f7f7", }}>{item?.name}</Label>
       </Column> 
 
     );
