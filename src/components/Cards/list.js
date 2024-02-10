@@ -23,7 +23,7 @@ export default function ListManga({ data, page }) {
     const Card = ({ item, index, handle }) => {
         return(
           <Column className="card fadeInRight" key={index}  style={{ marginBottom: 20, justifyContent: 'center', flexGrow: 1, padding:22, borderRadius: 6, marginRight: 16,}}>
-          <Image 
+          <img 
               onClick={handle}
               className="imagezoom"
               src={item?.capa}
