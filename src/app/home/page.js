@@ -108,14 +108,7 @@ export default function Feed () {
              <LastedComponent data={lasted}/>
              <RateComponent data={rate}/>
              <WeekendComponent data={weekend}/>
-
-
-              <Column className="fadeInUp">
-              <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 44, marginBottom: 20, marginLeft: 44,}}>Mangálists</Title>
-              <Contents />
-              </Column>
-
-
+             <Contents />
             
             </Column>
 

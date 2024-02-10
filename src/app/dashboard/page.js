@@ -5,8 +5,6 @@ import Image from 'next/image'
 import Skeleton from '../../components/Loading';
 
 export default function Dashboard (){
-
-
     const values = {   
         id: 3,
         video: 'https://v1.pinimg.com/videos/mc/720p/eb/46/d8/eb46d895a130eb3da44ecfcbcff73992.mp4',
@@ -40,7 +38,6 @@ export default function Dashboard (){
           manga_ids:'',
         });
        
-        // Função para lidar com a mudança nos inputs
         const handleChange = (e) => {
             const { name, value } = e.target;
             setFormData({ ...formData, [name]: value });
@@ -59,13 +56,11 @@ export default function Dashboard (){
                 capa: '',
             })
           }
-          
           const raw = JSON.stringify(formData)
-
           const [step, setStep] = useState(1);
 
     return(
-    <Column style={{padding: 42,}}>
+    <Column style={{padding: 42, overflow: 'auto',}}>
         <Label style={{fontSize: 18, fontFamily: 'Book'}}>Dashboard  /  Mangalist  /  Criar</Label>
         <Title style={{marginBottom: 20, fontSize: 54, marginTop: 10,}}>Criando Mangálist</Title>
 

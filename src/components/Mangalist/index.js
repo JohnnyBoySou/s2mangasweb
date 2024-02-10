@@ -1,7 +1,7 @@
 'use client';
 import React, {  useRef, useState } from 'react'
 import Image from 'next/image'
-import { Button , Column, Label, Row, Title} from '../../themes/global';
+import { Button , ButtonOff, Column, Label, Row, Title} from '../../themes/global';
 import { GoHeart } from "react-icons/go";
 import { IoIosPause, IoIosPlay } from "react-icons/io";
 import stories from '../../requests/mangalist';
@@ -9,6 +9,8 @@ import Draggable from '../draggable';
 import { CiVolumeHigh } from "react-icons/ci";
 import { useRouter } from 'next/navigation'
 import './style.css'
+import Skeleton from '../Loading';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 export default function Contents({ }){
   const router = useRouter()
@@ -16,17 +18,10 @@ export default function Contents({ }){
     router.push(`/mangalist/${id}`)
   }
 
-  const Card = ({ item }) => {
 
-    return ( 
-      <Column
-        style={{ marginRight: 12 }} className='cd'  onClick={() => handle(item.id)} >
-            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
-            <Label style={{ fontSize: 24, width: 250, marginTop: 12, color: "#f7f7f7", }}>{item?.name}</Label>
-      </Column> 
-
-    );
-  };
+  
+  const news = stories;
+  const [newsPage, setNewsPage] = useState(1);
 
 
   const Storie = ({item, }) => {
@@ -120,31 +115,61 @@ export default function Contents({ }){
     <Column style={{margin: 44, marginTop: 0,}}> 
    
     <Column>
-   
-   <Draggable>
-    <Row>
-    {stories?.map((item,index) => <Card key={index} item={item} /> )} 
-    </Row>
-   </Draggable>
-   
+    {stories.length === 0 ? 
+        <Column style={{padding: '0px 44px', marginBottom: 20,}}>
+            <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
+            <Column>
+            <Skeleton width={300} height={50} radius={6}/> 
+            <Skeleton width={270} height={30} radius={8} top={10}/> 
+            </Column>
+            <Row style={{justifyContent: 'center', alignItems: 'center', }}>
+            <Skeleton width={60} height={60} radius={100}/> 
+            <Skeleton width={60} height={60} radius={100} left={10}/> 
+            </Row>
+            </Row>
+        </Column>
+        : 
+        <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginTop: 30,}}>
+        <Column style={{ marginBottom: 20,}}>
+        <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Mangálists</Title>
+        <Label>Escolhemos a dedo para você</Label>
+        </Column>
+        <Row>
+        <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 54, height: 54, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, cursor: newsPage === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+            <FiArrowLeft style={{marginTop: 6,}}/>
+        </ButtonOff>
+        <ButtonOff onClick={() => {  if(newsPage < 3){ setNewsPage(newsPage + 1) }}} style={{width: 54, height: 54, marginLeft: 10, opacity: newsPage === 3 ? 0.4 : 1, cursor: newsPage === 3 ? 'not-allowed' : 'pointer', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                <FiArrowRight style={{marginTop: 6,}}/>
+        </ButtonOff>
+            </Row>
+        </Row>
+        }
+      <CardComponent data={stories} page={newsPage} />
 
     </Column>
   </Column>
   )
 }
-/**
- *  <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10,}}>
-      <Column style={{justifyContent: 'center'}}>
-        <Title style={{fontSize: 42, marginBottom: 20,}}>Segue o fio</Title>
-      </Column>
-    </Row>
- *  <Row style={{justifyContent: 'space-between', marginHorizontal: 20, marginBottom: 10, marginTop: 30,}}>
-      <Column style={{justifyContent: 'center'}}>
-        <Title style={{fontSize: 42, marginBottom: 20, marginTop: 30,}}>Mangalists do momento</Title>
-      </Column>
-    </Row>
 
-    <Row style={{flexWrap: 'wrap',}}>
-    {stories?.map((item,index) => <Storie key={index} item={item} /> )} 
+const CardComponent = ({page, data}) => {
+  const startIndex = (page - 1) * 8;
+  const endIndex = page * 8;
+  const paginatedData = data.slice(startIndex, endIndex);
+  
+  const Card = ({ item }) => {
+
+    return ( 
+      <Column
+        style={{ marginRight: 12 }} className='cd'  onClick={() => handle(item.id)} >
+            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
+            <Label style={{ fontSize: 24, width: 250, marginTop: 12, color: "#f7f7f7", }}>{item?.name}</Label>
+      </Column> 
+
+    );
+  };
+  return(
+    <Row>
+    {paginatedData?.map((item,index) => <Card key={index} item={item} /> )} 
     </Row>
- */
+  )
+}

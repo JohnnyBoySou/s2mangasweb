@@ -53,11 +53,6 @@ const stories = [
                 
             },
             {
-                name: 'Vibration Man',
-                id: 'vibration-man',
-                capa: 'https://img.lermanga.org/V/vibration/capa.jpg',
-            },
-            {
                 name: 'Dead Rock',
                 id: 'dead-rock',
                 capa: 'https://img.lermanga.org/D/dead-rock/capa.jpg',

@@ -21,6 +21,7 @@ export default function Start (){
                 if(response.name){
                     router.push('/home');
                 }
+                setLoading(false)
             }
         getData()
     }, [router]);
@@ -36,7 +37,7 @@ export default function Start (){
     }
 
               
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [step, setStep] = useState(0);
     const stepLabel = step === 1 ? "Nome e Bio" : step === 2 ? "Avatar" : step === 3 ? "Capa" : "Categorias";
     const stepTotal = 4;
