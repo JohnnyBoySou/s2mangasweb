@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react"
 import { Column, Label, Title, Row, } from "../../themes/global"
-import Draggable from "../draggable"
-import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list_search.css'
 
-export default function ListSearch({ data = mangas }) {
+export default function ListSearch({ data }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {

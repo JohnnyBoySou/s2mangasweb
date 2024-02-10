@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react"
 import { Column, Label,  Row, } from "../../themes/global"
-import  mangas  from "../../requests/mangas_old"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"
