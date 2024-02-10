@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { Column, Label, Title, Row, } from "../../themes/global"
-import  mangas  from "../../requests/mangas"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
@@ -30,7 +29,7 @@ export default function ListMangaWrap({ data }) {
     return(
         <>
           <Row style={{ overflow: 'hidden', flexWrap: 'wrap', paddingLeft: 44, paddingRight: 24, }}>
-          {mangas.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
+          {data.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
           </Row>
         </>
     )
