@@ -20,7 +20,7 @@ export default function ListMangaNews({ data, page }) {
       const cl = item.type === 'Manga' ? "#ED274A" : item.type === 'Manhwa' ? "#366AD3" : item.type === 'Manhua' ? "#009688" : '#000';
 
         return(
-          <Row style={{justifyContent: 'center', marginRight: 30, alignItems: 'center', marginBottom: 30, }}>
+          <Row style={{justifyContent: 'center', marginRight: 30, alignItems: 'center', marginBottom: 30, }} className="fadeInUp">
             <Column className="card" key={index}  style={{  justifyContent: 'center', zIndex: 99, padding:22, borderRadius: 6, }}>
               <img 
                 onClick={handle}
