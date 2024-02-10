@@ -1,10 +1,10 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import { Column, Row, Title, Label, ButtonOff} from '../../themes/global';
-import ListMangaWrap from '../../components/Cards/listwrap';
+//import ListMangaWrap from '../../components/Cards/listwrap';
 import { news } from '../../requests/update/news';
 import './style.css';
-export default function News (){
+export default function Novidades (){
 
     const [step, setStep] = useState(1);
     const UpadateItem = ({ item }) => {
@@ -39,7 +39,6 @@ export default function News (){
 
         {step == 1 &&
         <Column style={{marginTop: 10, marginLeft: -44,}}>
-            <ListMangaWrap/>    
         </Column>
         }
         {step == 2 &&
@@ -50,3 +49,4 @@ export default function News (){
         
     </Column>
     )}
+    //<ListMangaWrap/>    

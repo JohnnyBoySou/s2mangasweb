@@ -46,7 +46,7 @@ export default function NavBar (){
             </ButtonOff>
         </Row>
         <Row>
-            <Link href="/news">
+            <Link href="/novidades">
                 <ButtonOff style={{background: "#40404090", justifyContent: 'center', fontSize: 20, alignItems: 'center',  marginLeft: 20, width: 44, height: 44, borderRadius: 100, padding: 0, justifyContent: 'center', alignItems: 'center', }}>
                     <LuBell style={{marginTop: 5,}}/>
                 </ButtonOff>
