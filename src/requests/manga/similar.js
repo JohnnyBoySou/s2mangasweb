@@ -7,12 +7,10 @@ const API_URL = "https://lermanga.org/"
 
 
 export default async function requestSimilar( id ) {
-  
     try {
       const response = await axios.get(`https://lermanga.org/mangas/${id}`);
       const similarMangas = clearSimilar(response.data);
       return { mangas: similarMangas }
-
     } catch (error) {
       return error.message;
     }

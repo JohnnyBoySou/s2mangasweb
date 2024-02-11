@@ -160,7 +160,7 @@ const CardComponent = ({page, data}) => {
 
     return ( 
       <Column
-        style={{ marginRight: 12 }} className='cd'  onClick={() => handle(item.id)} >
+        style={{ marginRight: 16, marginBottom: 16, }} className='cd'  onClick={() => handle(item.id)} >
             <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
             <Label style={{ fontSize: 24, width: 250, marginTop: 12, color: "#f7f7f7", }}>{item?.name}</Label>
       </Column> 
@@ -168,7 +168,7 @@ const CardComponent = ({page, data}) => {
     );
   };
   return(
-    <Row>
+    <Row style={{flexWrap: 'wrap'}}>
     {paginatedData?.map((item,index) => <Card key={index} item={item} /> )} 
     </Row>
   )

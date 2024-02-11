@@ -93,6 +93,19 @@ const stories = [
         capa: 'https://img.lermanga.org/M/my-universe/capa.jpg',
         mangas_ids: ['my-universe', 'nee-chan-no-tomodachi-ga-uzai-banashi', 'there-are-too-many-second-male-leads', 'punderworld', 'oshi-ni-amagam', 'sono-bijin-otoko-fushidara-ni-tsuki', 'sono-bijin-otoko-fushidara-ni-tsuki', 'heroine-hajimemashita', 'ijiranaide-nagatoro-sa']
     },
+    {   
+        id: 5,
+        video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
+        short: 'Ijiranaide, Nagatoro-san',
+        name: 'shounen ta na moda',
+        type: 'post',
+        color: '#2370BE',
+        date: '10 de Mar, 2024',
+        desc: 'ta nas trend o shounen ai eu gosto',
+        capa: 'https://i.pinimg.com/564x/b9/bf/3f/b9bf3fe65580574e057192d65aff7c80.jpg',
+        mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+
+    },
     
   ]
 

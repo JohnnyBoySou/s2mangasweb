@@ -15,21 +15,28 @@ import { CiBookmarkPlus ,  } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
 import requestChapters from '../../../requests/manga/chapters';
 import requestManga from '../../../requests/manga/details';
+import requestSimilar from '../../../requests/manga/similar';
 
 import { useRouter } from 'next/navigation'
 import NavBar from '../../../components/NavBar';
 import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked, verifyFollow, addComplete, removeComplete, verifyComplete } from '../../../requests/user/requests';
+import SimilarComponent from "../../../components/Home/Similar";
 
 
 export default function DetailsManga({ params }) {
     const id = params.id
-    const [item, setItem] = useState();
     const [loading, setLoading] = useState(true);
+    
+    const [item, setItem] = useState();
     const [chapters, setChapters] = useState([]);
-    const [search, setSearch] = useState(1);
+    const [similar, setSimilar] = useState();
+    
+    const [search, setSearch] = useState();
     const [modal, setModal] = useState(false);
-    const cl = item?.type === 'MANGA' ? "#FFA8B7" : item?.type === 'MANHWA' ? "#BBD2FF" : item?.type === 'MANHUA' ? "#BFFFC6" : '#FFF';
-    const rl = item?.status === 'Finalizado' ? '#BFFFC6' : '#FFC7A8'
+
+    const cl = item?.type === 'MANGA' ? "#FFA8B7" : item?.type === 'MANHWA' ? "#BBD2FF" : item?.type === 'MANHUA' ? "#BFFFC6" : '#FFF'; const rl = item?.status === 'Finalizado' ? '#BFFFC6' : '#FFC7A8'
+
+
     const [liked, setLiked] = useState(false);
     const [collections, setCollections] = useState([]);
     const [follow, setFollow] = useState(false);
@@ -45,6 +52,9 @@ export default function DetailsManga({ params }) {
                     })
                     requestChapters(id).then((response) => {
                         setChapters(response)
+                    })
+                    requestSimilar(id).then((response) => {
+                        setSimilar(response.mangas)
                     })
         };
         const fetchData = async () => {
@@ -294,7 +304,6 @@ export default function DetailsManga({ params }) {
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
                         <Row>
                             <Label style={{backgroundColor: cl, color: "#000"}} className='type'>&#10038; {item?.type} &#10022;	</Label>
-                            <Label style={{backgroundColor: rl, color: "#000", marginLeft: 20,}} className='ongoing'>&#9900; {item?.status}</Label>
                             <Label style={{backgroundColor: "#FF94A7", color: "#000", marginLeft: 20,}} className='ongoing'>&#10004; Verificado</Label>
                         </Row>
                         
@@ -328,7 +337,7 @@ export default function DetailsManga({ params }) {
                      </Row>
                     </Column>
                     </Row>
-                    <Column style={{width: 550,   overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
+                    <Column style={{width: 450,   overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
                         <Column style={{justifyContent: 'center',  padding: 24,}}>
                             
                             <Row style={{justifyContent: 'center', alignItems: 'center',}}>
@@ -369,9 +378,7 @@ export default function DetailsManga({ params }) {
                     </Column>
                 </Row>
                 
-
                         <Row style={{justifyContent: 'spacee-between', marginTop: 30,}}>
-
                         <Column style={{ width: 500, marginRight: 30, backgroundColor: "#303030", padding: '20px 20px',  borderRadius: 8,}}>
                             <Title>Recentes</Title>
                             <ul style={{listStyle: 'none', marginLeft: -35, marginTop: 10,}}> 
@@ -405,9 +412,11 @@ export default function DetailsManga({ params }) {
                         </Column>
 
                         </Row>
+                       
+                       <SimilarComponent data={similar} name={item?.name}/>
+
 
             </Column>
-
 
             {modal &&
             <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', backgroundColor: "#00000090" , position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
@@ -472,6 +481,7 @@ export default function DetailsManga({ params }) {
  * 
  * 
  * 
+                            <Label style={{backgroundColor: rl, color: "#000", marginLeft: 20,}} className='ongoing'>&#9900; {item?.status}</Label>
 
                     {images?.length > 0 &&
                     <Column style={{width: 400, height: 400,  overflow: 'hidden',  borderRadius: 12, backgroundColor: "#ED274A"}}>

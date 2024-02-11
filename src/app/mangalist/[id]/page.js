@@ -17,15 +17,13 @@ export default function MangaListDetails({ params }) {
             <NavBar />
             <Column style={{paddingLeft: 44, paddingRight: 44, paddingBottom: 74, paddingTop: 24, }}>
             <Row>
-                <Column className='scale-ani' style={{ width: 150, height: 150, borderRadius: 6, justifyContent: 'center', alignItems: 'center', }}>
-                    <Image src={item?.capa} alt="capa da mangalist" width={150} height={150} style={{borderRadius: 8, objectFit: 'cover'}}/>
+                <Column className='scale-ani' style={{ width: 200, height: 200, borderRadius: 6, justifyContent: 'center', alignItems: 'center', }}>
+                    <Image src={item?.capa} alt="capa da mangalist" width={200} height={200} style={{borderRadius: 8, objectFit: 'cover'}}/>
                 </Column>
-                <Column style={{justifyContent: 'center',}}>
-                        <Label style={{marginLeft: 44, color: "#ffffff90"}}>Mangálist</Label>
-                    <Row style={{alignItems: 'center', }}>
-                        <Title   style={{ marginLeft: 44, fontSize: 54, background: "#30303000", border: 'none', fontFamily: 'Bold', color: "#fff",}}> {item?.name}</Title>
-                    </Row>
-                    <Label style={{marginLeft: 44, color: "#ffffff90"}}>Criado {item?.date} • {item?.mangas_ids.length} mangás</Label>
+                <Column style={{justifyContent: 'center', marginLeft: 44,}}>
+                        <Label style={{ color: "#ffffff90"}}>Mangálist • {item?.date} • {item?.mangas_ids.length} mangás</Label>
+                        <Title   style={{  fontSize: 54, background: "#30303000", border: 'none', fontFamily: 'Bold', color: "#fff",}}> {item?.name}</Title>
+                        <Label style={{fontSize: 24,}}>{item?.desc} </Label>
                 </Column>
             </Row>
             </Column>

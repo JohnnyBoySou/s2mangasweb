@@ -6,7 +6,7 @@ import './list.css'
 import Skeleton from "../Loading"
 import Image from "next/image"
 
-export default function ListManga({ data, page }) {
+export default function ListSimilar({ data, page }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {
@@ -14,9 +14,8 @@ export default function ListManga({ data, page }) {
     router.push(`/manga/${id}`)
   }
 
-  
-  const startIndex = (page - 1) * 8;
-  const endIndex = page * 8;
+  const startIndex = (page - 1) * 5;
+  const endIndex = page * 5;
 
   const paginatedData = data?.slice(startIndex, endIndex);
   
@@ -33,14 +32,12 @@ export default function ListManga({ data, page }) {
               style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover', cursor: loading ? 'wait' : 'pointer', }}
               />
               <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name.slice(0,15)}</Label>
-              <Label style={{fontSize: 16, marginTop: 4,}}>{item?.score} • {item?.type}</Label>
-            
           </Column>
         )
       }
     return(
         <>
-          <Row style={{ overflow: 'hidden', paddingLeft: 44, flexWrap: 'wrap', }}>
+          <Row style={{ overflow: 'hidden', flexWrap: 'wrap', }}>
           {paginatedData?.map((item, index) => (<Card  item={item} key={index} handle={() => handle(item.id)}/> ))}
           {paginatedData?.length === 0 && 
           <Row>

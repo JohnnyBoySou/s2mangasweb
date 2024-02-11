@@ -2,6 +2,7 @@
 import React, { useEffect,  useState} from 'react';
 import { Column, Row, Title, Label, } from '../../../themes/global';
 import './details.css' 
+import { BiShareAlt } from "react-icons/bi"; 
 import { LuPencilLine, LuTrash2 } from "react-icons/lu";
 import ListMangaWrap from '../../../components/Cards/listwrap';
 import { editCollectionByID, getCollectionByID, excludeCollectionByID } from '../../../requests/collections/request';
@@ -15,6 +16,7 @@ export default function CollectionsDetails({ params }) {
     const [loading, setLoading] = useState(false);
     const [item, setItem] = useState();
     const [name, setName] = useState();
+    const [share, setShare] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -54,6 +56,11 @@ export default function CollectionsDetails({ params }) {
         }
     }
 
+    const handleShare = () => {
+        navigator.clipboard.writeText(JSON.stringify(item.mangas_ids));
+        Toast('success', 'Link da coleção copiado!');
+    }
+    
     return (
         <>
         <Column style={{padding: 44, background: `linear-gradient(145deg, ${item?.color}50 -20.91%, #191919 54.92%)`,  }}>
@@ -67,6 +74,7 @@ export default function CollectionsDetails({ params }) {
                         <input  onChange={(e) => setName(e.target.value)} style={{ marginLeft: 44, fontSize: 54, background: "#30303000", border: 'none', fontFamily: 'Bold', color: "#fff",}} defaultValue={item?.name}/>
                         <LuPencilLine className='edit' onClick={editCollection}/>
                         <LuTrash2 className='edit' onClick={excludeCollection}/>
+                        <BiShareAlt className='edit' onClick={handleShare}/>
                     </Row>
                     <Label style={{marginLeft: 44, color: "#ffffff90"}}>Criado {item?.date} • {item?.mangas_ids.length} mangás</Label>
                 </Column>
