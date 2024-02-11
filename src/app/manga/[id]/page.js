@@ -286,11 +286,9 @@ export default function DetailsManga({ params }) {
                 <Column className='circle' style={{backgroundColor: cl,}}/>
                 <Column className='circle2' style={{backgroundColor: rl,}}/>
                 <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
-
                     <Row>
-
                     <Column>
-                        <Image src={item?.capa} className='coverimg' width={260} height={370}  alt={item?.name} style={{objectFit: 'cover', zIndex: 99, backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
+                        <img src={item?.capa} className='coverimg' width={260} height={370}  alt={item?.name} style={{objectFit: 'cover', zIndex: 99, backgroundColor: "#404040", marginTop: 20, marginBottom: 20, alignSelf: 'center',  borderRadius: 6,}}/>
                     </Column>
                    
                     <Column style={{justifyContent: 'center', marginLeft: 34, marginRight:34, }}>
