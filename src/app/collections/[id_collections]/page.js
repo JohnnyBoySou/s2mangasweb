@@ -15,21 +15,14 @@ export default function CollectionsDetails({ params }) {
     const [loading, setLoading] = useState(false);
     const [item, setItem] = useState();
     const [name, setName] = useState();
+
     useEffect(() => {
         const fetchData = async () => {
             const collection = await getCollectionByID(id);
             setItem(collection)
-            const ids = collection?.mangas_ids;
-                if(ids){
-                    const mangas = await Promise.all(ids.map(async (id) => {
-                        const item_raw = await axios.get('https://www.s2mangas.com/api/manga/details?id=' + id);
-                        return item_raw.data.manga;
-                    }));
-                    setMangas(mangas);
-            }
+              
         };
         fetchData();
-       
     }, [id]);
 
     const editCollection = async ()  => {
@@ -81,7 +74,7 @@ export default function CollectionsDetails({ params }) {
         </Column>
     
         <Column style={{marginTop: 40,}}>
-            <ListCollection data={mangas} />
+            <ListCollection data={item?.mangas_ids} />
         </Column>
          </>
         

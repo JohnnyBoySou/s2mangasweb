@@ -22,8 +22,7 @@ export default function ListCollection({ data }) {
               style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover',}}
               />
               <Label style={{color: "#f6f6f6", width: 144, fontSize: 18, marginTop: 12,}}>{item?.name.slice(0,28)}</Label>
-              <Label style={{fontSize: 16, width: 144, marginTop: 4,}}>{item?.rate} • {item?.chapters} capítulos</Label>
-          </Column>
+                    </Column>
         )
       }
     return(
@@ -34,3 +33,4 @@ export default function ListCollection({ data }) {
         </>
     )
 }
+//    <Label style={{fontSize: 16, width: 144, marginTop: 4,}}>{item?.rate} • {item?.chapters} capítulos</Label>

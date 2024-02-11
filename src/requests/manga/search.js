@@ -4,24 +4,13 @@ import cheerio from 'cheerio';
 const headers = {'Accept': "application/json",} 
 const API_URL = "https://lermanga.org/"
 
-
-
-export default async function handler(req, res) {
-    const { name } = req.query;
-  
+export default async function requestSearch(name) {
     try {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  
-
-
       const response = await axios.get(API_URL + '?s=' + name);
       const similarMangas = cleanResults(response.data);
-      res.status(200).json(similarMangas);
+      return similarMangas;
     } catch (error) {
-      console.error(error.message);
-      res.status(500).json({ error: 'Erro na requisição' });
+      return error.message;
     }
   }
        

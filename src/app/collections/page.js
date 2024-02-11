@@ -40,6 +40,7 @@ export default function Collections() {
     useEffect(() => {
         const fetchData = async () => {
             const collections = await getCollections();
+            console.log(collections)
             setCollections(collections);
         };
         fetchData();
@@ -67,7 +68,6 @@ export default function Collections() {
             console.error(error);
         }
     }
-    const [editCollection, seteditCollection] = useState();
     const excludeAll = () => {
       try {
         const response = excludeAllCollections();

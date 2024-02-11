@@ -15,7 +15,7 @@ export default function LastedComponent({data}) {
     <Column className="fadeInUp">
 
         {news.length === 0 ? 
-        <Column style={{padding: '0px 44px', marginBottom: 20,}}>
+        <Column style={{padding: '0px 44px', marginBottom: 20, marginTop: 50,}}>
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Column>
             <Skeleton width={300} height={50} radius={6}/> 

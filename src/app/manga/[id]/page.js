@@ -1,13 +1,11 @@
 'use client';
+import { AiOutlineArrowRight } from "react-icons/ai"; 
 import React, { useEffect, useState  } from 'react';
 import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection, ButtonPrimaryLight} from '../../../themes/global';
-import axios from 'axios'
 import { FaPlay } from "react-icons/fa";
-import { GoHeart } from "react-icons/go";
 import { FaUserAstronaut , FaCalendarDays, FaStar  } from "react-icons/fa6"
 import './manga.css'
 import Link from 'next/link';
-import ColorThief from 'colorthief';
 import Image from 'next/image';
 import Skeleton from '../../../components/Loading';
 import { IoClose } from "react-icons/io5";
@@ -15,84 +13,108 @@ import Loader from '../../../components/Loader';
 import { addMangaInCollectionByID, getCollections } from '../../../requests/collections/request';
 import { CiBookmarkPlus ,  } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
+import requestChapters from '../../../requests/manga/chapters';
+import requestManga from '../../../requests/manga/details';
+
+import { useRouter } from 'next/navigation'
 import NavBar from '../../../components/NavBar';
-import { dislikeManga, likeManga, verifyLiked } from '../../../requests/user/requests';
+import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked, verifyFollow, addComplete, removeComplete, verifyComplete } from '../../../requests/user/requests';
 
 
 export default function DetailsManga({ params }) {
     const id = params.id
     const [item, setItem] = useState();
-    const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
     const [chapters, setChapters] = useState([]);
-    const [images, setImages] = useState();
+    const [search, setSearch] = useState(1);
     const [modal, setModal] = useState(false);
     const cl = item?.type === 'MANGA' ? "#FFA8B7" : item?.type === 'MANHWA' ? "#BBD2FF" : item?.type === 'MANHUA' ? "#BFFFC6" : '#FFF';
     const rl = item?.status === 'Finalizado' ? '#BFFFC6' : '#FFC7A8'
     const [liked, setLiked] = useState(false);
-    const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
+    const [collections, setCollections] = useState([]);
+    const [follow, setFollow] = useState(false);
+    const [complete, setComplete] = useState(false);
+
     
     useEffect(() => {
         setLoading(true)
         const requestData = async () => {
-            try {
-                if (id !== undefined) {
-                    const item_raw = await axios.get('https://www.s2mangas.com/api/manga/details?id=' + id);
-                    const chapters_raw = await axios.get('https://www.s2mangas.com/api/manga/chapters?id=' + id);
-                    const chapter_last = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=3' + '&id=' + id);
-    
-                    setItem(item_raw?.data.manga);
-                    setChapters(chapters_raw?.data);
-                    setImages(chapter_last?.data.images);
-                    setLoading(false);
-                }
-            } catch (error) {
-                if (error.response && error.response.status === 504) {
-                    setError("Erro 504: Gateway Timeout");
-                } else {
-                    setError("Erro na requisição:", error.message);
-                }
-                setLoading(false); 
-            }
+                    requestManga(id).then((response) => {
+                        setItem(response.manga)
+                        setLoading(false);
+                    })
+                    requestChapters(id).then((response) => {
+                        setChapters(response)
+                    })
         };
+        const fetchData = async () => {
+            const collections = await getCollections();
+            setCollections(collections);
+        };
+      const verifyLike = () => {
+          const response = verifyLiked(id);
+          if(response){
+              setLiked(true)
+          }else{
+              setLiked(false)
+          }
+      }
+      const verifyFoll = () => {
+        const response = verifyFollow(id);
+        if(response){
+            setFollow(true)
+        }else{
+            setFollow(false)
+        }
+      }
+      const verifyComp = () => {
+        const response = verifyComplete(id);
+        if(response){
+            setComplete(true)
+        }else{
+            setComplete(false)
+        }
+      }
+
+        verifyComp()
         requestData()
+        verifyLike()
+        verifyFoll()
+        fetchData();
     }, [id])
    
 
-    const Chapter = ({item, index}) => {
+    const Chapter = ({it}) => {
+        const router = useRouter()
+        const handle = () => {
+          router.push(`${id}/${it?.number}`)
+        }
+
         const [hovered, setHovered] = useState(false);
+        const [mark, setMark] = useState(false);
+        const manga = {name: item.name, id: item.id, capa: item.capa, }
+
+            const addMarkBook = async () => {
+                try {
+                    const res = await addMark(manga, it.number);
+                    console.log(res)
+                    setMark(res);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
         return(
-        <Link href={`${id}/${item?.number}`} style={{textDecoration: 'none'}}  
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)} >
-        <Row style={{ padding: 12, marginRight: 6, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
-            {hovered ?  <Label style={{fontSize: 18, marginRight: 30,}}> &#9658; </Label> :  <Label style={{fontSize: 18, marginRight: 20,}}>#{item.number}</Label>}
-            <Label style={{fontSize: 18, marginRight: 20,}}>{item.date}</Label>
-            <Title style={{marginTop: 4,}}>
-                <CiBookmarkPlus  />
-            </Title>
-        </Row>
-        </Link>
+            <li>
+            <Row  onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{ padding: 12, marginRight: 6, borderRadius: 6, marginTop: 5, justifyContent: 'space-between', alignItems: 'center', }} className='chapter'>
+                {
+                hovered ? <Label style={{fontSize: 18, marginRight: 30, cursor: 'pointer', }} onClick={handle}> &#9658; </Label> : <Label style={{fontSize: 18, marginRight: 20,}}>#{it?.number}</Label>}
+                <Label style={{fontSize: 18, marginRight: 20,}}>{it?.date}</Label>
+
+                <CiBookmarkPlus onClick={addMarkBook} style={{color: mark ? "#03a1fc" : '#f8f8f890', fontSize: 18, cursor: 'pointer'}} />
+            </Row>
+        </li>
       )
     }
-
-    const [collections, setCollections] = useState([]);
-    useEffect(() => {
-      const fetchData = async () => {
-          const collections = await getCollections();
-          setCollections(collections);
-      };
-    const verifyLike = () => {
-        const response = verifyLiked(id);
-        if(response){
-            setLiked(true)
-        }else{
-            setLiked(false)
-        }
-    }
-    verifyLike()
-    fetchData();
-  }, [id]);
 
     const [selectCollection, setSelectCollection] = useState();
     const [message, setMessage] = useState('');
@@ -132,10 +154,9 @@ export default function DetailsManga({ params }) {
         );
     }
 
-
     const ListChapters = () => {
         const [currentPage, setCurrentPage] = useState(1);
-        const itemsPerPage = 30;
+        const itemsPerPage = 15;
 
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -144,33 +165,32 @@ export default function DetailsManga({ params }) {
         
 
         const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
-        const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-            pageNumbers.push(i);
-        }
-        return (
-            <Row style={{ justifyContent: 'center', marginTop: 20 }}>
-                {pageNumbers.map((number) => (
-                    <ButtonOff
-                        key={number}
-                        onClick={() => paginate(number)}
-                        style={{ margin: 5 }}
-                    >
-                        {number}
-                    </ButtonOff>
-                ))}
-            </Row>
-        );
-    };
-    const [show, setShow] = useState(false);
+            const pageNumbers = [];
+            for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+                pageNumbers.push(i);
+            }
+            return (
+                <Row style={{ justifyContent: 'center', marginTop: 20, flexWrap: 'wrap' }}>
+                    {pageNumbers.map((number) => (
+                        <ButtonOff
+                            key={number}
+                            onClick={() => paginate(number)}
+                            style={{ margin: 5 }}
+                        >
+                            {number}
+                        </ButtonOff>
+                    ))}
+                </Row>
+            );
+        };
+        const [show, setShow] = useState(false);
 
-
         return (
-            <Column style={{ height: 500, overflowY: 'auto' }}>
+            <Column style={{ height: 500,  overflowY: 'auto' }}>
                 {show ? 
-                <>
+                <ul style={{listStyle: 'none',  marginLeft: -35,}}>
                 {currentItems.map((item, index) => (
-                    <Chapter key={index} item={item} />
+                    <Chapter key={index} it={item} />
                 ))}
                 <Pagination
                     itemsPerPage={itemsPerPage}
@@ -178,7 +198,7 @@ export default function DetailsManga({ params }) {
                     currentPage={currentPage}
                     paginate={paginate}
                 />
-                </>
+                </ul>
                 : 
                 <Column>
                 <Image src="https://i.pinimg.com/564x/5e/be/4e/5ebe4ef85cec42f739d417e7b10f2347.jpg" alt='show chapters' width={200} height={300} style={{alignSelf: 'center', objectFit: 'cover', borderRadius: 12, transform: 'rotate(16deg)', marginTop: 30, marginBottom: 20, }}/>
@@ -189,13 +209,12 @@ export default function DetailsManga({ params }) {
             </Column>
         );
     };
-
     
     const toggleLike = () => {
         const manga = {
-            id: item.id,
-            name: item.name,
-            capa: item.capa,
+            id: id,
+            name: item?.name,
+            capa: item?.capa,
         }
         if(liked){
           const response = dislikeManga(id);
@@ -209,8 +228,50 @@ export default function DetailsManga({ params }) {
               setLiked(true)
           }
         }
-      }
+    }
       
+    const toggleFollow = () => {
+        const manga = {
+            id: id,
+            name: item?.name,
+            capa: item?.capa,
+            chapter: item?.chapters,
+        }
+      if(follow){
+        const res = removeFollow(id);
+        if(res){
+            setFollow(false)
+        }
+      }
+      else{
+        const res = addFollow(manga)
+        if(res){
+            setFollow(true)
+        }
+    }
+    }
+    const toggleComplete = () => {
+        const manga = {
+            id: id,
+            name: item?.name,
+            capa: item?.capa,
+            chapter: item?.chapters,
+        }
+      if(complete){
+        const res = removeComplete(id);
+        if(res){
+            setComplete(false)
+        }
+      }
+      else{
+        const res = addComplete(manga)
+        if(res){
+            setComplete(true)
+        }
+    }
+    }
+
+    
 
     const reaction = item?.rate >= 4 ? 'Ótimo' : item?.rate >= 3 ? 'Bom' : item?.rate <= 2 ? 'Ruim' : 'Regular';
     const reaction_color = reaction === 'Ótimo' ? '#FFC4A3' : reaction === 'Bom' ? '#B5FFBC' :  reaction === 'Ruim' ? '#1D1A39' : '#FFFFCA';
@@ -243,12 +304,7 @@ export default function DetailsManga({ params }) {
                         <Label style={{ marginTop: 5, lineHeight: 1.5, fontSize: 16, width: 500,}}>{item?.description?.slice(0, 270)}...</Label>
                        
                     <Row style={{alignItems: 'center', marginTop: 20,}}>
-                       {item?.like?.length > 1 && <Row className={liked ? 'btcheck' : 'btlike'} onClick={() => setLiked(!liked)}>
-                            <Column className={liked ? 'icblc' : 'icbl'}>
-                                <GoHeart/>
-                            </Column>   
-                            <span>{formatNumber(item?.likes)}</span>
-                        </Row>}
+                      
                       
                         <Row className='btrow'>
                             <Column className='icb'>
@@ -258,12 +314,12 @@ export default function DetailsManga({ params }) {
                         </Row>
 
                         
-                        <Row className='btrow'>
+                       {item?.rate != 'Rate this mangas' && <Row className='btrow'>
                             <Column className='icb'>
                                 <FaStar   />
                             </Column>
                             <Label>{item?.rate}</Label>
-                        </Row>
+                        </Row>}
                        
                        {item?.author?.length > 1 && <Row className='btrow'>
                             <Column className='icb'>
@@ -273,12 +329,8 @@ export default function DetailsManga({ params }) {
                         </Row>}
                      </Row>
                     </Column>
-
-
-
                     </Row>
-
-                    <Column style={{width: 500,   overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
+                    <Column style={{width: 550,   overflow: 'hidden',  borderRadius: 12, backgroundColor: "#303030", zIndex: 9,}}>
                         <Column style={{justifyContent: 'center',  padding: 24,}}>
                             
                             <Row style={{justifyContent: 'center', alignItems: 'center',}}>
@@ -301,7 +353,7 @@ export default function DetailsManga({ params }) {
 
                             <Row style={{ alignItems: 'center', marginTop: 20, marginBottom: 20, justifyContent: 'space-between', marginLeft: 10, marginRight: 10,}}>
                                 <ButtonPrimaryLight onClick={toggleLike} style={{background: liked ? '#ED274A' : "#fff",  color: liked ? "#fff": '#000',}}>{liked ? 'Curtiu' : 'Curtir'}</ButtonPrimaryLight>
-                                <ButtonOff>Seguir</ButtonOff>
+                                <ButtonOff onClick={toggleFollow}  style={{background: follow ? '#fff' : "#404040",  color: follow ? "#000": '#fff',}}>{follow ? 'Seguindo' : 'Seguir'}</ButtonOff>
                                 <ButtonOff>Compartilhar</ButtonOff>
                             </Row>
                             <Row style={{ alignItems: 'center', }}>
@@ -317,31 +369,39 @@ export default function DetailsManga({ params }) {
                             </Row>
                         </Column>
                     </Column>
-
-
-
-
                 </Row>
                 
 
                         <Row style={{justifyContent: 'spacee-between', marginTop: 30,}}>
 
-                        <Column style={{  flexGrow: 1, marginRight: 30, backgroundColor: "#303030", padding: '20px 20px',  borderRadius: 8,}}>
-                            <Title style={{marginBottom: 10, marginTop: 10,}}>Recentes</Title>
-                            {chapters?.slice(0, 8).map((item, index) => <Chapter key={index} index={index} item={item}/>)}
+                        <Column style={{ width: 500, marginRight: 30, backgroundColor: "#303030", padding: '20px 20px',  borderRadius: 8,}}>
+                            <Title>Recentes</Title>
+                            <ul style={{listStyle: 'none', marginLeft: -35, marginTop: 10,}}> 
+                            {chapters?.slice(0, 8).map((item, index) => <Chapter key={index} index={index} it={item}/>)}
+                            </ul>
+                            <ButtonOff onClick={toggleComplete} style={{background: complete ? '#b5ffc0' : "#404040",  color: complete ? "#000": '#fff', alignSelf: 'center',}}>{complete ? 'Mangá Completo' : 'Marcar como completo'}</ButtonOff>
+                              
                         </Column>
-                        <Column style={{ marginBottom: 20, flexGrow: 1, backgroundColor: "#303030", borderRadius: 8, padding: 20, paddingRight: 6,}}>
-                            <Row style={{justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, marginTop: 10, }}>
 
-                                <Title style={{}}>Todos (30 de {item?.chapters})</Title>
+
+                        <Column style={{ width: 800, backgroundColor: "#303030", borderRadius: 8, padding: 20, paddingRight: 6,}}>
+                            <Row style={{justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, marginTop: 10, }}>
+                                <Title>Todos (15 de {item?.chapters})</Title>
+
                                 <Row style={{marginRight: 30,}}>
                                     <Link href={`${id}/${item?.chapters}`}>
-                                    <ButtonOff style={{marginRight: 14,}}>Último capítulo</ButtonOff>
+                                    <ButtonOff style={{marginRight: 14,}}>Último</ButtonOff>
                                     </Link>
                                     <Link href={`${id}/1`}>
-                                    <ButtonPrimaryLight>Primeiro capítulo</ButtonPrimaryLight>
+                                    <ButtonPrimaryLight>Primeiro</ButtonPrimaryLight>
                                     </Link>
                                 </Row>
+                            </Row>
+                            <Row style={{paddingRight: 30, marginTop: -10,}}>
+                                <input type="number"   onChange={e => setSearch(e.target.value)} value={search} placeholder="Buscar capítulo" min="1" max={item?.chapters} style={{padding: 12, flexGrow: 1, borderRadius: 6, fontFamily: 'Book', backgroundColor: "#404040", color: "#fff", border: 'none', fontSize: 18,}}/>
+                                <Link href={`${id}/${search}`}><ButtonPrimaryLight style={{marginLeft: 10, width: 44, height: 44, fontSize: 18, padding: 0, alignItems: 'center', justifyContent: 'center'}}>
+                                    <AiOutlineArrowRight />
+                                    </ButtonPrimaryLight></Link>
                             </Row>
                             <ListChapters/>
                         </Column>
@@ -389,7 +449,7 @@ export default function DetailsManga({ params }) {
             <Column>
                 <Skeleton width={600} height={100} left={30} top={30}/>
                 <Skeleton width={470} height={80} left={30} top={20} bottom={20}/>
-                <Skeleton width={400} height={40} />
+                <Skeleton width={400} height={40} left={30} />
             </Column>
             
             <Skeleton width={400} height={400} left={100}/>
@@ -424,5 +484,13 @@ export default function DetailsManga({ params }) {
                         </Row>
                         </Column>
                     }
+                     {item?.like?.length > 1 && <Row className={liked ? 'btcheck' : 'btlike'} onClick={() => setLiked(!liked)}>
+                            <Column className={liked ? 'icblc' : 'icbl'}>
+                                <GoHeart/>
+                            </Column>   
+                            <span>{formatNumber(item?.likes)}</span>
+                        </Row>}
+    const formatNumber = (number) => { if (number >= 1000) { return (number / 1000).toFixed(1) + 'k'; } else { return number?.toString()}   }
+
 
  */

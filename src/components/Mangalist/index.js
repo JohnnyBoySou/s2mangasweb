@@ -13,10 +13,6 @@ import Skeleton from '../Loading';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 export default function Contents({ }){
-  const router = useRouter()
-  const handle = (id) => {
-    router.push(`/mangalist/${id}`)
-  }
 
 
   
@@ -155,7 +151,11 @@ const CardComponent = ({page, data}) => {
   const startIndex = (page - 1) * 8;
   const endIndex = page * 8;
   const paginatedData = data.slice(startIndex, endIndex);
-  
+  const router = useRouter()
+  const handle = (id) => {
+    router.push(`/mangalist/${id}`)
+  }
+
   const Card = ({ item }) => {
 
     return ( 

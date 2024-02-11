@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { excludeWords, listWords, saveWord } from '../../requests/search/request';
 import ListSearch from '../../components/Cards/list_search';
 import NavBar from '../../components/NavBar';
+import requestSearch from '../../requests/manga/search';
 
 export default function Search() {
     const [name, setName] = useState(); 
@@ -32,7 +33,6 @@ export default function Search() {
             try {
                 const response = await listWords();
                 setHistory(response)
-                console.log(response)
             } catch (error) {
                 console.log(error)
             }
@@ -45,18 +45,11 @@ export default function Search() {
         if(name === '') {return;}
         setLoading(true);
         saveWord(name);
-        try {
-            const response = await fetch(`https://www.s2mangas.com/api/manga/search?name=${name}`);
-            const data = await response.json();
-            console.log(data);
-            if (data.length > 0) {
-                setData(data);
-                setLoading(false);
-            }
-        } catch (error) {
-            console.log(error);
-            setLoading(false);
-        }
+        requestSearch(name).then(res => {
+            console.log(res)
+            setData(res)
+            setLoading(false)
+        })
         };
 
     const cleanHistory = () => {

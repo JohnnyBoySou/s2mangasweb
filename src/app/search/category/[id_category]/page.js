@@ -5,8 +5,7 @@ import { GoArrowUp } from "react-icons/go";
 
 import './category.css'
 import tags from '../../../../requests/categories/tags'
-import ListManga from '../../../../components/Cards/list'
-import ListMangaWrap from '../../../../components/Cards/listwrap';
+//import ListManga from '../../../../components/Cards/list'
 
 export default function CategoryDetails ({params}){
     //API
@@ -37,16 +36,16 @@ return(
         <Column className='content'>
    
             <Title style={{fontSize: 32, marginLeft: 44, fontFamily: 'Bold', marginTop: 40, marginBottom: 20,}}>Em destaque</Title> 
-            <ListManga/>   
           
             <Row style={{justifyContent: 'space-between', marginTop: 30, marginRight: 44, marginLeft: 44, marginBottom: 20,}}>
             <Title style={{fontSize: 32, fontFamily: 'Bold', }}>Todos</Title> 
             </Row>
            
-            <ListMangaWrap/>
 
             <span className='btall'>Ver todos</span> 
         </Column>
     </Column>
     </>
 )}
+
+            //<ListManga data={}/>
