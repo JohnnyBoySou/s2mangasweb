@@ -21,7 +21,7 @@ import StyledComponentsRegistry from '../lib/registry'
 
 export default function RootLayout({ children }) {
 
-  const fixed = false  
+  const fixed = true  
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
       <ThemeClient>
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           {children}
         </Column>
          <SpeedInsights />
-        {fixed && <Fixed style={{width: '20%', height: 400,}}/> }
+        {fixed && <Fixed /> }
       </Row>
       </body>
       </StyledComponentsRegistry>

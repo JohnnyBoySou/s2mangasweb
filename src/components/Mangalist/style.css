@@ -1,11 +1,38 @@
 .cd{
     transition: .2s linear;
-    background-color: #303030;
+    background-color: #262626;
     padding: 12px;
     cursor: pointer;
     border-radius: 12px;
 }
 .cd:hover{
-    transform: scale(1.03);    
     background-color: #404040;
+}
+
+.imghover{
+    transition: .2s linear;
+}
+.pl{
+    transition: .2s linear;
+    transform: translateX(0px);
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    border-radius: 100px;
+    bottom: 10px;
+    left: 20px;
+    font-size: 20px;
+    background-color: #ED274A;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+}
+.pl:hover{
+    background-color: #FFF;
+    color: #ED274A;
+}
+.cd:hover .pl {
+    transform: translateY(-10px);
+    opacity: 1;
 }

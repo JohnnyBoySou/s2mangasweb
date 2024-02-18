@@ -119,3 +119,12 @@
     }
   
 }
+
+
+.txt{
+  font-size: 90px;
+  font-family: 'Bold';
+  color: #ED274A;
+  text-align: center;
+  text-transform: 'uppercase';
+}

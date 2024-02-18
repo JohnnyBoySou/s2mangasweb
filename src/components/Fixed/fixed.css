@@ -95,3 +95,37 @@
 .rowranking:hover{
     background-color: #404040;
 }
+
+.sidebar{
+    height: 95vh;
+    z-index: 99;
+    width: 30%;
+    min-width: 350px;
+    max-width: 500px;
+    margin-right: 12px;
+    border-radius: 12px;
+    margin-top: 12px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.desc{
+    margin-top: 20px; 
+    padding: 16px; 
+    border-radius: 8px; 
+    background-color: #262626;
+    transition: .2s linear;
+    cursor: pointer;
+}
+.desc:hover{
+    background-color: #404040;
+}
+.box{
+    width: 52px;
+    height: 52px;
+    border-radius: 8px; 
+    background-color: #ED274A;
+    transition: .2s linear;
+    cursor: pointer;
+}

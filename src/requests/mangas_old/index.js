@@ -1,7 +1,7 @@
 const mangas = [
     {
         //long details
-        id: 1,
+        id: 'jujutsu-kaisen',
         name: 'Jujutsu Kaisen',
         capa: 'https://i0.wp.com/animebox.net/wp-content/uploads/2022/11/jujutsu-kaisen-manga-volume-21.webp?resize=640%2C1007&ssl=1',
         score: 7.6,

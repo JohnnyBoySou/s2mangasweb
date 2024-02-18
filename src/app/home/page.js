@@ -4,13 +4,10 @@ import Image from 'next/image'
 import axios from 'axios'
 import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../../themes/global'
 import './feed.css';
-import ListManga from "../../components/Cards/list";
-import ListMangaNews from "../../components/Cards/list_news";
-import { FiArrowLeft, FiArrowRight, FiArrowUp } from "react-icons/fi";
 import { useRouter } from 'next/navigation'
 
 import Contents from "../../components/Mangalist";
-import { createPreferences, getPreferences } from "../../requests/user/requests";
+import { getPreferences } from "../../requests/user/requests";
 import Skeleton from "../../components/Loading";
 
 import NavBar from "../../components/NavBar";
@@ -21,6 +18,8 @@ import NewsComponent from "../../components/Home/News";
 import LastedComponent from "../../components/Home/Lasted";
 import WeekendComponent from './../../components/Home/Weekend/index';
 import RateComponent from './../../components/Home/Rate/index';
+import Headline from "../../components/Headline";
+
 
 
 export default function Feed () {
@@ -30,8 +29,6 @@ export default function Feed () {
   const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
-  const API_URL = 'https://www.s2mangas.com/api/manga'
-  const [newsPage, setNewsPage] = useState(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -65,6 +62,9 @@ export default function Feed () {
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
   const saudacao = new Date().getHours() < 12 ? 'Bom dia' : new Date().getHours() < 18 ? 'Boa tarde' : 'Boa noite';
 
+
+
+
   if(loading){
     return(
       <Column style={{justifyContent: 'center', alignItems: 'center', }}>
@@ -79,11 +79,12 @@ export default function Feed () {
         </Row>
       </Column>
     )
-  }else {
+  }
 
+  else {
   return(
-        <Column style={{ width: '100%',  overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
-           <NavBar/>
+        <Column  style={{ overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
+           <NavBar />
             <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 0, }} >
             <Row style={{justifyContent: 'space-between', alignItems: 'center', marginLeft: -50, marginRight: -50,}}>
               <Column className='circle' />

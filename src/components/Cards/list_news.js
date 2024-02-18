@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { Column, Label, Title, Row, } from "../../themes/global"
-import Draggable from "../draggable"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"
@@ -21,7 +20,7 @@ export default function ListMangaNews({ data, page }) {
 
         return(
           <Row style={{justifyContent: 'center', marginRight: 30, alignItems: 'center', marginBottom: 30, }} className="fadeInUp">
-            <Column className="card" key={index}  style={{  justifyContent: 'center', zIndex: 99, padding:22, borderRadius: 6, }}>
+            <Column className="card" key={index}  style={{  justifyContent: 'center', zIndex: 2, padding:22, borderRadius: 6, }}>
               <img 
                 onClick={handle}
                 className="imagezoom"

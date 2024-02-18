@@ -107,7 +107,6 @@ export default function DetailsManga({ params }) {
             const addMarkBook = async () => {
                 try {
                     const res = await addMark(manga, it.number);
-                    console.log(res)
                     setMark(res);
                 } catch (error) {
                     console.error(error);

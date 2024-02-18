@@ -3,7 +3,6 @@ import React, {useState,} from 'react';
 import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
-import ListManga from '../../Cards/list';
 import ListSimilar from '../../Cards/list_similar';
 
 export default function SimilarComponent({data, name}) {

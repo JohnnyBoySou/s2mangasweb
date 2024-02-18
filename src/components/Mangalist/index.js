@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation'
 import './style.css'
 import Skeleton from '../Loading';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+import { FaPlay } from "react-icons/fa";
 
 export default function Contents({ }){
 
@@ -160,9 +161,19 @@ const CardComponent = ({page, data}) => {
 
     return ( 
       <Column
-        style={{ marginRight: 16, marginBottom: 16, }} className='cd'  onClick={() => handle(item.id)} >
-            <Image src={item?.capa} width={250} height={250} style={{ borderRadius: 12, objectFit: 'cover', marginBottom: 0 }} alt='' />
-            <Label style={{ fontSize: 24, width: 250, marginTop: 12, color: "#f7f7f7", }}>{item?.name}</Label>
+        style={{ marginRight: 16, marginBottom: 16,  }} className='cd'  onClick={() => handle(item.id)} >
+          
+          <Column style={{position:'relative'}}>
+            <Image src={item?.capa} width={200} height={200} style={{ borderRadius: 8, objectFit: 'cover', margin: 10 }} alt='' />
+            <Column className='pl'>
+              <FaPlay/>
+            </Column>
+          </Column>
+           
+           <Column style={{padding: 12, paddingTop: 0, width: 200,}}>
+            <Title style={{ fontSize: 20, marginBottom: 4,}}>{item?.name}</Title>
+            <Label style={{ fontSize: 16, }}>{item?.desc}</Label>
+           </Column>
       </Column> 
 
     );
