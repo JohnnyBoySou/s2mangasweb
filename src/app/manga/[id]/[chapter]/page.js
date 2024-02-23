@@ -2,18 +2,22 @@
 import React, { useEffect, useState } from 'react';
 import { Column, Row, Title, Label, BTIcon, } from '../../../../themes/global';
 import Image from 'next/image';
-import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings,   } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings,    } from "react-icons/io";
+import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import Link from 'next/link'
+import './chapter.css'
 import requestPages from '../../../../requests/manga/pages';
 
 export default function ChapterDetails({ params }) {
     const {id, chapter } = params
+    const [loading, setLoading] = useState(true);
     const [item, setItem] = useState();
     useEffect(() => {
       const requestData = async () => {
         try {
           const response = await requestPages(chapter, id) 
           setItem(response)
+          setLoading(false)
         } catch (error) {
           console.log(error)        
         }
@@ -40,10 +44,13 @@ export default function ChapterDetails({ params }) {
 
     const [optionShow, setOptionShow] = useState(false);
     const [searchChapter, setSearchChapter] = useState();
+    const nextChapter = parseInt(chapter) + 1;
+    const previousChapter = parseInt(chapter) - 1;
+
 
     return (
-        <Column style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, alignItems: 'center', overflowX: 'hidden', position: 'relative',  overflowY:'auto', borderRadius: 12, }} >
-
+        <Column style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, position: 'relative', alignItems: 'center', overflowX: 'hidden', position: 'relative',  overflowY:'auto', borderRadius: 12, }} >
+            {!loading ? <>
            {item?.images?.map((item, index) => 
            <Column key={index} style={{position: 'relative'}}>
             <Column style={{backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width:'100%', height: '100%' }}/>
@@ -53,12 +60,40 @@ export default function ChapterDetails({ params }) {
             </Column>
            )}
 
+           <Row style={{position: 'fixed', alignItems: 'center', justifyContent: 'center', bottom: 40, left: 150, zIndex: 999, backgroundColor: "#303030", padding: 10, borderRadius: 100,}}>
+              
+            <Row>
+              
+            <Link href={`${previousChapter}`} style={{textDecoration: 'none', color: "#fff"}}>
+              <Row className='btnext'>
+                <GoArrowLeft/>
+              </Row>
+             </Link>
+              <Column style={{width: 10, height: 20,}}/>
+            <Link href={`${nextChapter}`} style={{textDecoration: 'none', color: "#fff"}}>
+              <Row className='btnext'>
+              <GoArrowRight/>
+              </Row>
+             </Link>
 
+            </Row>
+            
+            </Row>
+           </>
+          : 
+          <Column style={{alignSelf: 'center', height: '100vh', paddingTop: 100,  borderRadius: 12, alignItems: 'center',}}>
+            <Image alt="manga page" width={300} height={450} style={{objectFit: 'cover', backgroundColor: filterColor, transform: 'rotate(12deg)', borderRadius: 12, }} src="https://i.pinimg.com/564x/1e/9b/bc/1e9bbcd802874129776a08f548b39b65.jpg" />
+            <Title style={{fontSize: 52, color: '#f7f7f7', marginTop: 50,}}>Gerando páginas..</Title>
+            <Label style={{width: 400, textAlign: 'center'}}>Aguarde um momento, estamos gerando as páginas do capítulo. Isso leva em torno de 15seg, dependendo da velocidade de sua internet.</Label>
+            <Column className='loader'/>
+          </Column> 
+          }
         </Column>
     )
 }
 
 /**
+           <IoIosSettings  onClick={() => setOptionShow(!optionShow)} style={{color: '#fff', fontSize: 32,}}/>
  * 
         <IoIosSettings  onClick={() => setOptionShow(!optionShow)} 
             style={{fontSize: 42, color: '#f7f7f790', backgroundColor: "#303030", borderRadius: 8, marginBottom: 20, cursor: 'pointer', }}/>

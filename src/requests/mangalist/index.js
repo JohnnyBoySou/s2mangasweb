@@ -85,14 +85,60 @@ const stories = [
         id: 4,
         video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
         short: 'Ijiranaide, Nagatoro-san',
-        name: 'o amor está no ar',
+        name: 'casalzão da po**',
         type: 'stories',
-        color: '#00BB71',
+        color: '#8D0B9C',
         date: '06 de Mar, 2024',
-        desc: 'romances para aquecer o coração',
-        capa: 'https://img.lermanga.org/M/my-universe/capa.jpg',
-        mangas_ids: ['my-universe', 'nee-chan-no-tomodachi-ga-uzai-banashi', 'there-are-too-many-second-male-leads', 'punderworld', 'oshi-ni-amagam', 'sono-bijin-otoko-fushidara-ni-tsuki', 'sono-bijin-otoko-fushidara-ni-tsuki', 'heroine-hajimemashita', 'ijiranaide-nagatoro-sa']
-    },
+        desc: 'romances para aquecer o coração e cair o queixo de tão lindos que são, só casalzão.',
+        capa: 'https://i.pinimg.com/736x/b6/fb/91/b6fb913812c457880170b3d739f647c9.jpg',
+        mangas_ids: [
+        {
+            name: 'Hanma Baki',
+            id: 'hanma-baki',
+            capa: 'https://img.lermanga.org/H/hanma-baki/capa.jpg',
+        },
+        {
+            name: 'Tate no Yuusha no Nariagari',
+            id: 'tate-no-yuusha-no-nariagari',
+            capa: 'https://img.lermanga.org/T/tate-no-yuusha-no-nariagari/capa.jpg',
+        },
+        {
+            name: 'Eternal First Son-in-Law',
+            id: 'eternal-first-son-in-law',
+            capa: 'https://img.lermanga.org/E/eternal-first-son-in-law/capa.jpg',
+        },
+        {
+            name: 'The Great Mage Returns After 4000 Years',
+            id: 'the-great-mage-returns-after-4000-years',
+            capa: 'https://img.lermanga.org/T/the-great-mage-returns-after-4000-years/capa.jpg',
+        },
+        {
+            name: 'The Strongest Florist',
+            id: 'the-strongest-florist',
+            capa: 'https://img.lermanga.org/T/the-strongest-florist/capa.jpg',
+        },{
+            name: 'Solo Leveling',
+            id: 'solo-leveling-pt-br',
+            capa: 'https://img.lermanga.org/S/solo-leveling/capa.jpg',
+            
+        },
+        {
+            name: 'Dead Rock',
+            id: 'dead-rock',
+            capa: 'https://img.lermanga.org/D/dead-rock/capa.jpg',
+        },
+        {
+            name: 'Konjiki no Word Master: Yuusha Yonin ni Makikomareta Unique Cheat',
+            id: 'konjiki-no-word-master-yuusha-yonin-ni-makikomareta-unique-cheat',
+            capa: 'https://img.lermanga.org/K/konjiki-no-word-master-yuusha-yonin-ni-makikomareta-unique-cheat/capa.jpg',
+        },
+        {
+            name: 'Lycoris Recoil',
+            id: 'lycoris-recoil',
+            capa: 'https://img.lermanga.org/L/lycoris-recoil/capa.jpg',
+        }, 
+    ], },
+
     {   
         id: 5,
         video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
