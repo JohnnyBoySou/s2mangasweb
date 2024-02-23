@@ -21,6 +21,8 @@ import { useRouter } from 'next/navigation'
 import NavBar from '../../../components/NavBar';
 import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked, verifyFollow, addComplete, removeComplete, verifyComplete } from '../../../requests/user/requests';
 import SimilarComponent from "../../../components/Home/Similar";
+import Comments from "../../../components/Comments";
+import CommentsComponent from "../../../components/Comments/main";
 
 
 export default function DetailsManga({ params }) {
@@ -413,8 +415,7 @@ export default function DetailsManga({ params }) {
                         </Row>
                        
                        <SimilarComponent data={similar} name={item?.name}/>
-
-
+                        <CommentsComponent name={item?.name} id={item?.id}/>
             </Column>
 
             {modal &&

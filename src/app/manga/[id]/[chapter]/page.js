@@ -1,27 +1,23 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
 import { Column, Row, Title, Label, BTIcon, } from '../../../../themes/global';
 import Image from 'next/image';
-import '../manga.css'
-import '../../../../themes/ani.css'
 import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings,   } from "react-icons/io";
 import Link from 'next/link'
+import requestPages from '../../../../requests/manga/pages';
 
 export default function ChapterDetails({ params }) {
     const {id, chapter } = params
-    const cpt = Number(chapter)
     const [item, setItem] = useState();
     useEffect(() => {
       const requestData = async () => {
         try {
-          const item_raw = await axios.get('https://www.s2mangas.com/api/manga/pages?chapter=' + chapter + '&id=' + id) 
-          setItem(item_raw?.data)
+          const response = await requestPages(chapter, id) 
+          setItem(response)
         } catch (error) {
           console.log(error)        
         }
       }
-    
       requestData()
     },[ id, chapter])
 
@@ -46,12 +42,27 @@ export default function ChapterDetails({ params }) {
     const [searchChapter, setSearchChapter] = useState();
 
     return (
-        <Column style={{backgroundColor: "#262626", alignItems: 'center'}} className='bannerchapter' >
+        <Column style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, alignItems: 'center', overflowX: 'hidden', position: 'relative',  overflowY:'auto', borderRadius: 12, }} >
 
+           {item?.images?.map((item, index) => 
+           <Column key={index} style={{position: 'relative'}}>
+            <Column style={{backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width:'100%', height: '100%' }}/>
+              <Image alt="manga page" priority={true} width={500} height={700}  className='page fadeInDown'
+              style={{objectFit: 'contain', backgroundColor: filterColor, width: '100%', height: '100%'}} 
+              src={item}  />
+            </Column>
+           )}
+
+
+        </Column>
+    )
+}
+
+/**
+ * 
         <IoIosSettings  onClick={() => setOptionShow(!optionShow)} 
             style={{fontSize: 42, color: '#f7f7f790', backgroundColor: "#303030", borderRadius: 8, marginBottom: 20, cursor: 'pointer', }}/>
          {optionShow &&
-        
           <Row style={{justifyContent: 'space-between', }}>
       
            <Column className='slideInDown' style={{backgroundColor: '#404040', width: 400, marginLeft: 40, padding: 24, borderRadius: 12, marginBottom: 20,}}>
@@ -138,21 +149,7 @@ export default function ChapterDetails({ params }) {
             
             <Column style={{width: 60, height: 10, marginTop: 10, marginBottom: -10, borderRadius: 100, backgroundColor: "#606060", alignSelf: 'center',}}/>
           </Column>
-        </Row>
-}
-           
-
-
-
-           {item?.images?.map((item, index) => 
-           <Column key={index} style={{position: 'relative'}}>
-            <Column style={{backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width:'100%', height: '100%' }}/>
-              <img alt="manga page" priority={true} width={500} height={700}  className='page fadeInDown'
-              style={{objectFit: 'contain', backgroundColor: filterColor, width: '100%', height: '100%'}} 
-              src={item}  />
-            </Column>
-           )}
-        </Column>
-    )
-}
-
+        </Row>}
+ * 
+ * 
+ */

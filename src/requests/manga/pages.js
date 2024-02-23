@@ -1,13 +1,8 @@
 
 import axios from "axios";
-import cheerio from 'cheerio';
 
-export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+export default async function requestPages(chapter, id) {
 
-    const { chapter, id } = req.query;
     const return_data = {
       "link": 1,
       "chapter_number": chapter,
@@ -21,7 +16,7 @@ export default async function handler(req, res) {
   
     const startPageIndex = 1;
     const tag = id.slice(0, 1).toUpperCase();
-    const formats = ['png', 'jpg', 'jpeg'];
+    const formats = ['png', 'jpg', 'jpeg', 'webp'];
   
     try {
       let foundPage = false;
@@ -29,6 +24,10 @@ export default async function handler(req, res) {
   
       for (const format of formats) {
         let pageIndex = startPageIndex;
+  
+        if (format === 'webp') {
+          pageIndex = 1;
+        }
   
         while (pageIndex <= 2) {
           const link = `https://img.lermanga.org/${tag}/${id}/capitulo-${chapter}/${pageIndex.toString()}.${format}`;
@@ -80,9 +79,9 @@ export default async function handler(req, res) {
         console.error('Nenhuma página encontrada.');
       }
       
-      res.status(200).json(return_data);
+      return return_data
     } catch (error) {
       console.error(error.message);
-      res.status(500).json({ error: 'Erro na requisição' });
+      return error.message;
     }
   }

@@ -18,6 +18,7 @@
     "cheerio": "^1.0.0-rc.12",
     "color-thief-react": "^2.1.0",
     "colorthief": "^2.4.0",
+    "disqus-react": "^1.1.5",
     "gsap": "^3.12.5",
     "next": "^14.0.4",
     "nextjs": "^0.0.3",

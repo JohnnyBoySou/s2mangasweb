@@ -20,7 +20,7 @@ import Comments from '../Comments';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Fixed({}){
-  const [close, setClose] = useState(true);
+  const [close, setClose] = useState(false);
   const [descShort, setDescShort] = useState(true);
   const [similar, setSimilar] = useState([]);
   const item = mangas[0]
@@ -48,7 +48,7 @@ export default function Fixed({}){
               img.src = url;
           })
       }
-      const getSimilar = async () => {requestSimilar(item?.id).then((response) => {setSimilar(response.mangas); console.log(item.id) })}
+      const getSimilar = async () => {requestSimilar(item?.id).then((response) => {setSimilar(response.mangas); })}
 
 
       getPalette(item?.capa).then(res => {const hex = rgbToHex(res[0], res[1], res[2]);setDominantColor(hex)})
@@ -57,9 +57,10 @@ export default function Fixed({}){
    }, [item])
 
 
-
    
-
+   if(close){
+    return (<></>)
+   }
 
     return(
       <Column className='sidebar' style={{ background: `linear-gradient(-145deg, ${dominantColor} -40.91%, #191919 54.92%)`, }}>
@@ -67,7 +68,7 @@ export default function Fixed({}){
 
         <Row style={{justifyContent: 'space-between', alignItems: 'center',}}>
             <Title>
-              <IoMdClose onClick={() => setClose(true)} style={{cursor: 'pointer'}}/>
+              <IoMdClose onClick={() => setClose(!close)} style={{cursor: 'pointer'}}/>
             </Title>
             <Title>Continue lendo</Title>
             <Title>

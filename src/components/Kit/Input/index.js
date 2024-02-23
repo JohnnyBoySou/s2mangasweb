@@ -1,7 +1,7 @@
+import React from 'react';
 import { Column, Row } from '../../../themes/global';
 import './style.css';
 import { IoAlertCircleOutline } from "react-icons/io5";
-
 
 export default function Input({ value, onClick, place = 'Texto de exemplo', help}) {
     const handle = (event) => {

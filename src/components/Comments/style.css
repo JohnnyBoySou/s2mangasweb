@@ -1,10 +1,14 @@
 .avatar{
     width: 50px;
-    height: 70px;
+    height: 60px;
     border-radius: 8px;
-    margin-right: 20px;
+    margin-right: 10px;
     object-fit: cover;
     transform: rotate(12deg);
+    transition: .2s linear;
+}
+.avatar:hover{
+    transform: rotate(0deg);
 }
 .card-comment{
     background-color: #262626;
@@ -23,7 +27,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-grow: 1;
 }
 .dislike{
     color: #fff;
@@ -36,5 +39,4 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-grow: 1;
 }
