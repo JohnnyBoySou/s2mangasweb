@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import React, {memo} from 'react'
 import { Column, Label, Title, Row, } from "../../themes/global"
 import { useRouter } from 'next/navigation'
 import './list.css'
 
-export default function ListMangaWrap({ data }) {
+export default React.memo(function ListMangaWrap({ data }) {
   const router = useRouter()
   const handle = (id) => {
     router.push(`/manga/${id}`)
@@ -11,7 +12,7 @@ export default function ListMangaWrap({ data }) {
   
     const Card = ({ item, index, handle }) => {
         return(
-          <Column className="card" key={index}  style={{ marginBottom: 20, flexGrow: 1, justifyContent: 'center', padding:22, borderRadius: 6, marginRight: 16,}}>
+          <Column className="card fadeInRight" key={index}  style={{ marginBottom: 20, flexGrow: 1, justifyContent: 'center', padding:22, borderRadius: 6, marginRight: 16,}}>
           <img 
               onClick={handle}
               className="imagezoom"
@@ -29,8 +30,8 @@ export default function ListMangaWrap({ data }) {
     return(
         <>
           <Row style={{ overflow: 'hidden', flexWrap: 'wrap', paddingLeft: 44, paddingRight: 24, }}>
-          {data.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
+          {data?.map((item, index) => (<Card item={item} key={index} handle={() => handle(item.id)}/> ))}
           </Row>
         </>
     )
-}
+})

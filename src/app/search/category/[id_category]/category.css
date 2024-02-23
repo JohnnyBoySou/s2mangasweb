@@ -1,11 +1,4 @@
-.banner{
-    margin-top: 12px; 
-    margin-right: 6px; 
-    overflow: auto;
-    border-radius: 8px;
-    position: relative;
 
-}
 .cardlist{
     background: linear-gradient(145deg, #404040 -20.91%, #262626 54.92%);
     border-radius: 12px;
@@ -75,6 +68,5 @@
     transition: .3s linear;
   }
   .imgcapa:hover{
-    
-    transform: rotate(0deg)  scale(1);
+    transform: rotate(0deg) scale(.9);
   }

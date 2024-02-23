@@ -49,7 +49,7 @@ export default function ChapterDetails({ params }) {
 
 
     return (
-        <Column style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, position: 'relative', alignItems: 'center', overflowX: 'hidden', position: 'relative',  overflowY:'auto', borderRadius: 12, }} >
+        <Column style={{background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, position: 'relative', alignItems: 'center', overflowX: 'hidden', overflowY:'auto', borderRadius: 12, }} >
             {!loading ? <>
            {item?.images?.map((item, index) => 
            <Column key={index} style={{position: 'relative'}}>

@@ -19,6 +19,7 @@ import LastedComponent from "../../components/Home/Lasted";
 import WeekendComponent from './../../components/Home/Weekend/index';
 import RateComponent from './../../components/Home/Rate/index';
 import Headline from "../../components/Headline";
+import Mangalists from "../../components/Mangalist";
 
 
 
@@ -109,7 +110,7 @@ export default function Feed () {
              <LastedComponent data={lasted}/>
              <RateComponent data={rate}/>
              <WeekendComponent data={weekend}/>
-             <Contents />
+             <Mangalists />
             
             </Column>
 

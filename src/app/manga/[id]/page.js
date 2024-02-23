@@ -23,6 +23,7 @@ import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked,
 import SimilarComponent from "../../../components/Home/Similar";
 import Comments from "../../../components/Comments";
 import CommentsComponent from "../../../components/Comments/main";
+import DisqusComments from "../../../components/Comments/disqus";
 
 
 export default function DetailsManga({ params }) {

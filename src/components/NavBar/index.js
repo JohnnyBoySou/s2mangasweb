@@ -10,11 +10,10 @@ import Image from 'next/image';
 import { usePathname } from "next/navigation";
 
 
-export default function NavBar (){
+export default function NavBar ({bg}){
     const [user, setUser] = useState();
     const nextPage = () => {
-        const lastVisitedPage = window.location.pathname;
-        window.location.href = lastVisitedPage;
+        window.history.go(-1) 
     }
     const previusPage = () => {
         window.history.back();
@@ -36,7 +35,7 @@ export default function NavBar (){
  //       return <></>;
   //  }
         return(
-    <Row className="nav"  style={{ borderRadius: '12px 12px 4px 4px',justifyContent: 'space-between', alignItems: 'center',  zIndex: 99, }} >
+    <Row className="nav"  style={{ borderRadius: '12px 12px 4px 4px',justifyContent: 'space-between', alignItems: 'center', backgroundColor: bg, zIndex: 99, }} >
         <Row>
             <ButtonOff onClick={previusPage} style={{width: 44, height: 44, justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
                 <FiArrowLeft style={{marginTop: 6,}}/>

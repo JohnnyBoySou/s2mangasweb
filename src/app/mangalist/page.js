@@ -1,19 +1,18 @@
 'use client'
 import React, {useState, useRef, useEffect, memo } from 'react';
-import { Column, Row, Title, Label, ButtonOff } from '../../../../themes/global';
+import { Column, Row, Title, Label, ButtonOff } from '../../themes/global';
 import { GoArrowUp } from "react-icons/go";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import './category.css'
-import tags from '../../../../requests/categories/tags'
-import requestGenre from '../../../../requests/manga/genres';
-import ListMangaWrap from './../../../../components/Cards/listwrap';
-import NavBar from './../../../../components/NavBar/index';
-import Skeleton from '../../../../components/Loading';
+import './list.css'
+import NavBar from './../../components/NavBar/index';
+import Skeleton from '../../components/Loading';
+import { FaPlay } from 'react-icons/fa';
+import { useRouter } from 'next/navigation'
+import Image from 'next/image';
 
-export default function CategoryDetails ({params}){
+export default function Mangalists ({params}){
     //API
-    const id = params.id_category
-    const item = tags.find((tag) => tag.id === id);
+   
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
@@ -22,47 +21,59 @@ export default function CategoryDetails ({params}){
     const scroll = useRef(null);
     const scrollToTop = () => { if (scroll.current) { scroll.current.scrollTo({top: 0,behavior: 'smooth',}); } };
     const handleScroll = () => {  if (scroll.current) {  settopView(scroll.current.scrollTop > 200);  }  };
+    const router = useRouter()
+    const handle = (id) => {
+        router.push(`/mangalist/${id}`)
+    }
 
       useEffect(() => {
         async function requestData(){
             setLoading(true)
             try {
-                const res = await requestGenre(id, page)
-                setData(res)
+                const res = await fetch('https://www.s2mangas.com/api/mangalist?page=' + page);
+                const data = await res.json();
+                setData(data)
                 setLoading(false)
             } catch (error) {
                 console.log(error)
             }
         }
         requestData()
-      }, [id, page]);
+      }, [page]);
+
+
+     
+
+  const Card = ({ item }) => {
+    return ( 
+      <Column style={{ marginRight: 16, marginBottom: 16,  }} className='cd'  onClick={() => handle(item.id)} >
+          <Column style={{position:'relative'}}>
+            <Image src={item?.capa} width={200} height={200} style={{ borderRadius: 8, objectFit: 'cover', margin: 10 }} alt='' />
+            <Column className='pl'>
+              <FaPlay/>
+            </Column>
+          </Column>
+           
+           <Column style={{padding: 12, paddingTop: 0, width: 200,}}>
+            <Title style={{ fontSize: 20, marginBottom: 4,}}>{item?.name}</Title>
+            <Label style={{ fontSize: 16, }}>{item?.desc}</Label>
+           </Column>
+      </Column> 
+
+    );
+  };
 
 return(
     <>
-    <NavBar bg={item?.color+90}/>
-    <Column  onScroll={handleScroll} ref={scroll}  style={{overflowY: 'auto', overflowX: 'hidden', position: 'relative', background: `linear-gradient(-180deg, ${item.color} -20.91%, #202020 54.92%)`, }}> 
+    <NavBar bg="#ED274A"/>
+    <Column  onScroll={handleScroll} ref={scroll}  style={{overflowY: 'auto', overflowX: 'hidden', position: 'relative', background: `linear-gradient(-180deg, #ED274A 20.91%, #202020 54.92%)`, }}> 
         <Row style={{justifyContent: 'space-between', }}>
 
-        <Title style={{fontSize: 72, marginTop: 64, marginLeft: 44, marginBottom: 20,  fontFamily: 'Black',}}>{item?.name}</Title>
+        <Title style={{fontSize: 72, marginTop: 64, marginLeft: 44, marginBottom: 40,  fontFamily: 'Black',}}>Mang&aacute;list&rsquo;s</Title>
         </Row>
         {topView && <Column className='top' onClick={scrollToTop}><GoArrowUp /></Column> }
 
-        <Column  style={{backgroundColor: "#26262690"}}>
-          
-            <Row style={{justifyContent: 'space-between', marginTop: 30, marginRight: 44, marginLeft: 44, marginBottom: 20,}}>
-            <Title style={{fontSize: 32, fontFamily: 'Bold', }}>Mangás</Title> 
-
-            <Row>
-            <ButtonOff onClick={() => {  if(page > 1){ setPage(page - 1) }}} style={{width: 54, height: 54, justifyContent: 'center', opacity: page === 1 ? 0.4 : 1, cursor: page === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                <FiArrowLeft style={{marginTop: 6,}}/>
-            </ButtonOff>
-            <ButtonOff onClick={() => { { setPage(page + 1) }}} style={{width: 54, height: 54, marginLeft: 10, cursor: 'pointer', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
-                <FiArrowRight style={{marginTop: 6,}}/>
-            </ButtonOff>
-            </Row>
-        </Row>
-
-
+        <Column >
             {loading ? 
             <Row style={{flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
               <Column style={{marginRight: 20, marginBottom:30,}}>
@@ -98,7 +109,10 @@ return(
               <Skeleton width={160} height={40} radius={12} top={16}/>
             </Column>
             </Row> :
-            <ListMangaWrap data={data?.mangas} /> }
+            <Row style={{flexWrap: 'wrap', margin: '0px 44px'}}>
+             {data?.map((item,index) => <Card key={index} item={item} /> )} 
+            </Row>
+             }
 
         </Column>
     </Column>
@@ -108,3 +122,17 @@ return(
             //<ListManga data={}/>
             //<img className='imgcapa' width={200} height={300} src={item.img} alt={item.name + item.img} />
            // <span className='btall'>Ver todos</span> 
+           /**
+            *  <Row style={{justifyContent: 'space-between', marginTop: 30, marginRight: 44, marginLeft: 44, marginBottom: 20,}}>
+
+            <Row>
+            <ButtonOff onClick={() => {  if(page > 1){ setPage(page - 1) }}} style={{width: 54, height: 54, justifyContent: 'center', opacity: page === 1 ? 0.4 : 1, cursor: page === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                <FiArrowLeft style={{marginTop: 6,}}/>
+            </ButtonOff>
+            <ButtonOff onClick={() => { { setPage(page + 1) }}} style={{width: 54, height: 54, marginLeft: 10, cursor: 'pointer', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                <FiArrowRight style={{marginTop: 6,}}/>
+            </ButtonOff>
+            </Row>
+        </Row>
+
+            */

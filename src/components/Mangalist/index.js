@@ -12,8 +12,9 @@ import './style.css'
 import Skeleton from '../Loading';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { FaPlay } from "react-icons/fa";
+import Link from 'next/link';
 
-export default function Contents({ }){
+export default function Mangalists({ }){
 
 
   
@@ -128,7 +129,9 @@ export default function Contents({ }){
         : 
         <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginTop: 30,}}>
         <Column style={{ marginBottom: 20,}}>
-        <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Mangálists</Title>
+        <Link href="/mangalist" className='link'>
+          <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Mangálists</Title>
+        </Link>
         <Label>Escolhemos a dedo para você</Label>
         </Column>
         <Row>

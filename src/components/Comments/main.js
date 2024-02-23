@@ -6,6 +6,7 @@ import Image from 'next/image';
 import './style.css';
 import { GoStarFill, GoStar } from "react-icons/go";
 import Comments from '.';
+import DisqusComments from './disqus';
 
 export default function CommentsComponent ({ id, name }){
 
@@ -13,6 +14,9 @@ return(
     <Column>
         <Title style={{fontSize: 42, fontFamily: 'Bold', marginTop: 30, }}>Comentários</Title>
         <Label style={{marginBottom: 20,}}>O que estão comentando sobre {name}</Label>
-        <Comments id={id}/>
+        <DisqusComments id={id} name={name}/>
+       
+       
     </Column>
 )}
+//<Comments id={id}/>
