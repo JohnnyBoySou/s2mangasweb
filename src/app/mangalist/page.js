@@ -73,7 +73,7 @@ return(
         </Row>
         {topView && <Column className='top' onClick={scrollToTop}><GoArrowUp /></Column> }
 
-        <Column >
+        <Column style={{backgroundColor: "#171717", paddingTop: 40, paddingBottom: 40,}}>
             {loading ? 
             <Row style={{flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
               <Column style={{marginRight: 20, marginBottom:30,}}>

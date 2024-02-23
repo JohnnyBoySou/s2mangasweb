@@ -2,25 +2,25 @@ const stories = [
     {
         id: 1,
         video: 'https://v1.pinimg.com/videos/mc/720p/e8/2f/38/e82f38964d6e4b15c99e26077522f1e1.mp4',
-        name: 'Para curtir o final de tarde', 
+        name: 'só quero relaxar', 
         type: 'stories',
         short: 'Spy x Family',
         color: '#FF9FEF',
-        desc: 'só quero relaxar com meu mangázin',
+        desc: 'só quero relaxar com meu mangázin nesse fim de tarde',
         date: '30 de Mar, 2024',
-        capa: 'https://i.pinimg.com/564x/4f/5c/db/4f5cdbee3dd40db97458e586f5c33aa8.jpg',
+        capa: 'https://i.pinimg.com/736x/e3/8a/7e/e38a7ed48d141dec2d6b680a35bd0039.jpg',
         mangas_ids: ['spy-x-family', 'kobayashi-san-chi-no-maid-dragon-kanna-no-nichijou', 'shiro-seijo-to-kuro-bokushi', 'ookiku-nattara-kekkon-suru', 'auto-hunting-with-clones', 'tokyo-aliens', 'character-na-kang-lim' ]
     },
     {   
         id: 2,
         video: 'https://v1.pinimg.com/videos/mc/720p/79/36/3b/79363bd4f0a51a3df6be150eb3fe8218.mp4',
         short: 'Tate no Yuusha - AMV',
-        name: 'Apanho agora e apanho depois',
+        name: 'o prota vai sofrer?',
         type: 'stories',
-        color: "#004E2F",
+        color: "#076C45",
         date: '24 de Mar, 2024',
-        desc: 'talvez hoje não seja meu melhor dia',
-        capa: 'https://i.pinimg.com/564x/63/a7/49/63a7498407039ee86c9f8b93ff69913f.jpg',
+        desc: 'será que o prota vai sofrer? ou vai ser só mais um isekai de sucesso? só lendo pra saber.',
+        capa: 'https://i.pinimg.com/736x/59/35/71/5935717b4bd37013de13790fa3cf5701.jpg',
         mangas_ids: [
             {
                 name: 'Hanma Baki',
@@ -76,10 +76,10 @@ const stories = [
         name: 'Go gym',
         type: 'stories',
         date: '12 de Mar, 2024',
-        color: '#004BBB',
+        color: '#1D063D',
         desc: 'go gym, vamos vamos não perde o ritmo mais uma repetição',
-        capa: 'https://i.pinimg.com/564x/32/75/e5/3275e5012006ba8211a88f3a4a6a56ad.jpg',
-        mangas_ids: ['pokemon-special', 'the-great-villain-who-threatened-to-kill-himself', 'dorei-tensei-sono-dorei-saikyou-no-moto-ouji-ni-tsuki', 'yakusai-no-moushigo-to-seijo-no-meikyuu', 'necromancer-academy-and-the-genius-summoner', 'erotic-x-anabolic', 'mezametara-saikyou-soubi-to-uchuusen-mochi-datta-no-de-ikkodate-mezashite-youhei-toshite-jiyuu-ni-ikitai']
+        capa: 'https://i.pinimg.com/736x/4c/31/12/4c3112664553458860bc902b33936602.jpg',
+        mangas_ids: [{"id":"mashle","name":"Mashle","capa":"https://img.lermanga.org/M/mashle/capa.jpg"},{"id":"undead-unluck","name":"Undead Unluck","capa":"https://img.lermanga.org/U/undead-unluck/capa.jpg"},{"id":"jojos-bizarre-adventure-part-9---the-jojolands-colorido","name":"JoJo’s Bizarre Adventure Part 9 – The JoJoLands (Colorido)","capa":"https://img.lermanga.org/J/jojos-bizarre-adventure-part-9---the-jojolands-colorido/capa.jpg"},{"id":"to-not-die","name":"To Not Die","capa":"https://img.lermanga.org/T/to-not-die/capa.jpg"},{"id":"chiruran-shinsengumi-requiem","name":"Chiruran: Shinsengumi Requiem","capa":"https://img.lermanga.org/C/chiruran-shinsengumi-requiem/capa.jpg"}]
     },
     {   
         id: 4,
