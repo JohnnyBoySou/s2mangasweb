@@ -54,7 +54,7 @@ export default function ChapterDetails({ params }) {
            {item?.images?.map((item, index) => 
            <Column key={index} style={{position: 'relative'}}>
             <Column style={{backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width:'100%', height: '100%' }}/>
-              <Image alt="manga page" priority={true} width={500} height={700}  className='page fadeInDown'
+              <img alt="manga page" priority={true} width={500} height={700}  className='page fadeInDown'
               style={{objectFit: 'contain', backgroundColor: filterColor, width: '100%', height: '100%'}} 
               src={item}  />
             </Column>
