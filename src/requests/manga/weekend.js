@@ -3,9 +3,10 @@ import axios from "axios";
 import cheerio from 'cheerio';
 const headers = {'Accept': "application/json",} 
 const API_URL = "https://lermanga.org/"
-export default async function requestWeekend(req, res) {
+
+export default async function requestWeekend( page = 1 ) {
   try {
-    const response = await axios.get('https://lermanga.org/mangas/?orderby=views&order=desc',  { headers: {'Accept': "text/html", 'Access-Control-Allow-Origin': '*'} });
+    const response = await axios.get(`https://lermanga.org/mangas/page/${page}?orderby=views&order=desc`,  { headers: {'Accept': "text/html", 'Access-Control-Allow-Origin': '*'} });
     const mangaData = clearWeekend(response.data);
      return { mangas: mangaData }
   } catch (error) {

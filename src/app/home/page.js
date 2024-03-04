@@ -6,7 +6,6 @@ import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../.
 import './feed.css';
 import { useRouter } from 'next/navigation'
 
-import Contents from "../../components/Mangalist";
 import { getPreferences } from "../../requests/user/requests";
 import Skeleton from "../../components/Loading";
 
@@ -46,7 +45,8 @@ export default function Feed () {
     const getUser = () => {
       try {
         const response = getPreferences()
-        if(response){
+        console.log(response)
+        if(response != undefined){
           setUser(response)
           setLoading(false)
         }else{

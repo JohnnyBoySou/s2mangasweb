@@ -4,9 +4,8 @@ import { Column, Label,  Row, } from "../../themes/global"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"
-import Image from "next/image"
 
-export default function ListManga({ data, page }) {
+ function ListManga({ data, page }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter()
   const handle = (id) => {
@@ -83,3 +82,5 @@ export default function ListManga({ data, page }) {
     )
 }
 //<Draggable style={{width: '100%', overflow: 'hidden', }}>
+
+export default React.memo(ListManga);

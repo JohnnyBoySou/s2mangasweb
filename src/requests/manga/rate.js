@@ -4,9 +4,9 @@ import cheerio from 'cheerio';
 const headers = {'Accept': "application/json",} 
 const API_URL = "https://lermanga.org/"
 
-export default async function requestRate() {
+export default async function requestRate( page = 1 ) {
   try {
-    const response = await axios.get('https://lermanga.org/mangas/?orderby=rating&order=desc', { headers });
+    const response = await axios.get(`https://lermanga.org/mangas/page/${page}?orderby=rating&order=desc`, { headers });
     const mangaData = clearWeekend(response.data);
     return { mangas: mangaData }
   } catch (error) {

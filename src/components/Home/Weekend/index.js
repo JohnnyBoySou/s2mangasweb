@@ -4,8 +4,10 @@ import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
 import ListManga from '../../Cards/list';
+import Link from 'next/link';
 
-export default function WeekendComponent({data}) {
+
+ function WeekendComponent({data}) {
     const news = data;
     const [newsPage, setNewsPage] = useState(1);
 
@@ -28,7 +30,9 @@ export default function WeekendComponent({data}) {
         : 
         <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44, marginTop: 30,}}>
         <Column style={{marginLeft: 44,  marginBottom: 20,}}>
-        <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Em alta</Title>
+        <Link href="/s/weekend" className='link'>
+            <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Em alta</Title>
+        </Link>
         <Label>Mais lidos da semana</Label>
         </Column>
         <Row>
@@ -45,3 +49,5 @@ export default function WeekendComponent({data}) {
         <ListManga data={news} page={newsPage}/>
     </Column>
     )};
+
+    export default React.memo(WeekendComponent);

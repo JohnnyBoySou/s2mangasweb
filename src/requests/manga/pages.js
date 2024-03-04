@@ -15,7 +15,7 @@ export default async function requestPages(chapter, id) {
   const startPageIndex = 1;
   const tag = id.slice(0, 1).toUpperCase();
   const formats = ['png', 'jpg', 'jpeg', 'webp'];
-  let page = 0; // Change the initial value of `page` to 0
+  let page = ''; // Change the initial value of `page` to 0
   
   try {
     let foundPage = false;
@@ -38,8 +38,9 @@ export default async function requestPages(chapter, id) {
         } catch (error) {
           if (pageIndex === 1) {
             pageIndex = 2;
-            page = '';
-          } else {
+          } 
+         
+          else {
             break;
           }
         }

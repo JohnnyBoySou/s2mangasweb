@@ -5,7 +5,7 @@ import ListMangaNews from '../../Cards/list_news';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
 import ListManga from '../../Cards/list';
-//import './style.css';
+import Link from 'next/link';
 
 export default function LastedComponent({data}) {
     const news = data;
@@ -14,7 +14,7 @@ export default function LastedComponent({data}) {
     return(
     <Column className="fadeInUp">
 
-        {news.length === 0 ? 
+        {news?.length === 0 ? 
         <Column style={{padding: '0px 44px', marginBottom: 20, marginTop: 50,}}>
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Column>
@@ -30,7 +30,10 @@ export default function LastedComponent({data}) {
         : 
         <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44, marginTop: 30,}}>
         <Column style={{marginLeft: 44,  marginBottom: 20,}}>
-        <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Recém adicionados</Title>
+        
+        <Link href="/s/lasted" className='link'>
+            <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Recém adicionados</Title>
+        </Link>
         <Label>Acabaram de entrar no catálogo</Label>
         </Column>
         <Row>

@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Column, Row, Title, Label, BTIcon, } from '../../../../themes/global';
+import { Column, Row, Title, Label, BTIcon, ButtonOff, ButtonPrimaryLight, } from '../../../../themes/global';
 import Image from 'next/image';
 import { IoIosArrowDown, IoIosArrowUp , IoIosClose, IoIosSettings,    } from "react-icons/io";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
@@ -11,13 +11,20 @@ import requestPages from '../../../../requests/manga/pages';
 export default function ChapterDetails({ params }) {
     const {id, chapter } = params
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState();
     const [item, setItem] = useState();
     useEffect(() => {
       const requestData = async () => {
         try {
           const response = await requestPages(chapter, id) 
           setItem(response)
-          setLoading(false)
+          if(response.images.length > 0){
+            setLoading(false)
+          } 
+          else{
+            setError(true)
+            setLoading(false)
+          }
         } catch (error) {
           console.log(error)        
         }
@@ -60,7 +67,7 @@ export default function ChapterDetails({ params }) {
             </Column>
            )}
 
-           <Row style={{position: 'fixed', alignItems: 'center', justifyContent: 'center', bottom: 40, left: 150, zIndex: 999, backgroundColor: "#303030", padding: 10, borderRadius: 100,}}>
+           <Row style={{position: 'fixed', alignItems: 'center', justifyContent: 'center', bottom: 70, left: 150, zIndex: 999, backgroundColor: "#303030", padding: 10, borderRadius: 100,}}>
               
             <Row>
               
@@ -88,6 +95,13 @@ export default function ChapterDetails({ params }) {
             <Column className='loader'/>
           </Column> 
           }
+
+          {error && <Column style={{marginTop: 100, marginBottom: 200, flex: 1,}}>
+            <Image alt="manga page" width={300} height={450} style={{objectFit: 'cover', alignSelf: 'center',  backgroundColor: filterColor, transform: 'rotate(12deg)', borderRadius: 12, }} src="https://i.pinimg.com/564x/e9/91/c7/e991c73a6ed49d9ac163fb4025bd666f.jpg" />
+            <Title style={{fontSize: 52, color: '#f7f7f7', marginTop: 50,}}>Ocorreu um erro</Title>
+            <Label style={{width: 400, textAlign: 'center', marginBottom: 30,}}>Tivemos um problema em gerar as páginas do capítulo.</Label>
+            <ButtonPrimaryLight>Voltar ao mangá</ButtonPrimaryLight>
+          </Column>}
         </Column>
     )
 }
