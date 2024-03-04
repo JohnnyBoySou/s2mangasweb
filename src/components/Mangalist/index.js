@@ -113,7 +113,7 @@ export default function Mangalists({ }){
     <Column style={{margin: 44, marginTop: 0,}}> 
    
     <Column>
-    {stories.length === 0 ? 
+    {stories?.length === 0 ? 
         <Column style={{padding: '0px 44px', marginBottom: 20,}}>
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Column>
