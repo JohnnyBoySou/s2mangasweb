@@ -128,6 +128,20 @@ export const geral = [
     'https://i.pinimg.com/474x/13/70/ff/1370ffd4139ed81ca6a4b4b99b3d7658.jpg',
     'https://i.pinimg.com/236x/dd/78/21/dd782185b6ddff58ea52c9420952776e.jpg',
     'https://i.pinimg.com/236x/3e/f0/27/3ef027a8d19cc9cf10750bfd54f4d5d0.jpg',
+    'https://i.pinimg.com/236x/7f/b9/40/7fb9409d72230b2256bde109830eeb2b.jpg',
+    'https://i.pinimg.com/236x/fe/28/24/fe28241432e192495c94391ed5a9909d.jpg',
+    'https://i.pinimg.com/236x/b5/f2/82/b5f2823edb34c47a3d9fe5d2a27d6ea3.jpg',
+    'https://i.pinimg.com/236x/66/df/cd/66dfcde2f5a3cf761cf40271f63958c8.jpg',
+    'https://i.pinimg.com/236x/4b/8e/60/4b8e60f3475cdf18cf6f916ef4220e82.jpg',
+    'https://i.pinimg.com/236x/c4/d8/64/c4d86400beed335b4ac585a5229d0d01.jpg',
+    'https://i.pinimg.com/236x/4b/76/11/4b761133190c8d70d0197e472a86b334.jpg',
+    'https://i.pinimg.com/236x/fd/fd/62/fdfd6270b6b1a2a553e14c645b2d09e2.jpg',
+    'https://i.pinimg.com/236x/da/2c/51/da2c511b01ff0052af55de705f9ad3c6.jpg',
+    'https://i.pinimg.com/236x/25/58/70/2558709a94bccec12f23aa2d96a84e82.jpg',
+    'https://i.pinimg.com/236x/70/7c/e8/707ce855f98a2df5915d56e661d5aa71.jpg',
+    'https://i.pinimg.com/236x/82/46/9e/82469e3e56928571d11391eddf694b7d.jpg',
+    'https://i.pinimg.com/236x/72/ad/67/72ad678e8484023353f6893a8331d45e.jpg',
+    'https://i.pinimg.com/474x/ba/3a/bd/ba3abdfe77c9230cc712e84797f5998d.jpg',
 ]
 
 export const animev2 = [
