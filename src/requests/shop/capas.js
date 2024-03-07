@@ -58,22 +58,26 @@ export const comida = [
 
 
 export const geralbg = [
-    'https://i.pinimg.com/736x/e3/f1/b9/e3f1b93630884acca54150a44e4bdb26.jpg',
-    'https://i.pinimg.com/736x/c1/f9/0a/c1f90a710563388f6bacbc1a24483fea.jpg',
-    'https://i.pinimg.com/736x/54/ea/f6/54eaf66e6d6d0114639a3d913c81992d.jpg',
-    'https://i.pinimg.com/736x/61/f5/04/61f504c6a70aa4ddc4cb7b89e668dea9.jpg',
-    'https://i.pinimg.com/736x/7f/b3/9b/7fb39b2f987276886bb3423f0ae61b3a.jpg',
-    'https://i.pinimg.com/736x/1f/45/b8/1f45b814b01f9c2e1ed2f8eeff558a42.jpg',
-    'https://i.pinimg.com/736x/2e/a6/05/2ea6059269801a40d2794d4492e199b8.jpg',
-    'https://i.pinimg.com/736x/70/03/71/7003715b592bafdfe41f71020f7935a0.jpg',
-    'https://i.pinimg.com/736x/78/4a/41/784a41e67d223ffe52e5fd3d187ac15a.jpg',
-    'https://i.pinimg.com/736x/78/14/9e/78149ed1e60f190b162bef93f77b0065.jpg',
-    'https://i.pinimg.com/736x/7a/6a/4a/7a6a4a1623ac75ca08ae27a77f44f90d.jpg',
-    'https://i.pinimg.com/736x/44/c2/01/44c201cfbf25c7af3c63319be3a57da7.jpg',
-    'https://i.pinimg.com/736x/22/25/19/22251989d2dda4b7d174e2c58f0680a0.jpg',
-    'https://i.pinimg.com/736x/43/3a/d8/433ad8149740495fd5cd0657ad603701.jpg',
-    'https://i.pinimg.com/736x/9a/db/2a/9adb2a229bb466c73381543782cb4027.jpg',
-    'https://i.pinimg.com/736x/63/a6/67/63a6679cc8b4819f5ccf6505e4b6dabd.jpg',
+    'https://i.pinimg.com/736x/3e/09/29/3e0929e463d330ab184b5ed72f789695.jpg',
+    'https://i.pinimg.com/736x/ae/c0/80/aec08003ebf94b62d08a3f266d20311e.jpg',
+    'https://i.pinimg.com/736x/b8/60/32/b860328fb986699e75c3494179347475.jpg',
+    'https://i.pinimg.com/736x/9e/5f/6e/9e5f6ed649e074535ce5983d0093613a.jpg',
+    'https://i.pinimg.com/736x/b7/62/64/b76264cfb1e45a28e37e4a7b931dcc56.jpg',
+    'https://i.pinimg.com/736x/ac/c2/3d/acc23d48b4bc9e78d334ca3879d63a02.jpg',
+    'https://i.pinimg.com/736x/f9/19/79/f9197985db8d1cec2caaf0766c4ee0c6.jpg',
+    'https://i.pinimg.com/736x/ee/dc/09/eedc094bdbae750e974c2332a3e7f6f7.jpg',
+    'https://i.pinimg.com/736x/09/66/9d/09669d48b3c08f1777eccf25e5a5a445.jpg',
+    'https://i.pinimg.com/736x/c2/95/13/c29513b1a33666a8e3ebd2a54847d1da.jpg',
+    'https://i.pinimg.com/736x/b6/30/eb/b630eb32a97799d1fe4599a51fcd0fa0.jpg',
+    'https://i.pinimg.com/736x/64/99/ae/6499aec0d02ca7cf1d5029cb1cddc3d9.jpg',
+    'https://i.pinimg.com/736x/83/7e/6e/837e6e2e96fae6c2a85835bf2fc01981.jpg',
+    'https://i.pinimg.com/736x/1a/c9/d3/1ac9d3d023306d64a19bf1cad62da610.jpg',
+    'https://i.pinimg.com/736x/1f/f6/b0/1ff6b01fc2d3a7f2ea6a76099ebb8018.jpg',
+    'https://i.pinimg.com/736x/af/98/52/af9852d467e93a3b16c326e35241e69f.jpg',
+    'https://i.pinimg.com/736x/09/fe/20/09fe20c7f04b70c882fffc2846a434c3.jpg',
+    'https://i.pinimg.com/736x/a3/fa/1a/a3fa1a362b5db1d622c46d7c3e1f1e6c.jpg',
+    'https://i.pinimg.com/736x/de/03/23/de0323fd22083daa9a347e092d14407e.jpg',
+    
 ]
 
 export const news = [
