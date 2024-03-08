@@ -9,7 +9,53 @@ const stories = [
         desc: 'só quero relaxar com meu mangázin nesse fim de tarde',
         date: '30 de Mar, 2024',
         capa: 'https://i.pinimg.com/736x/e3/8a/7e/e38a7ed48d141dec2d6b680a35bd0039.jpg',
-        mangas_ids: ['spy-x-family', 'kobayashi-san-chi-no-maid-dragon-kanna-no-nichijou', 'shiro-seijo-to-kuro-bokushi', 'ookiku-nattara-kekkon-suru', 'auto-hunting-with-clones', 'tokyo-aliens', 'character-na-kang-lim' ]
+        mangas_ids: [
+            {
+                name: 'Hanma Baki',
+                id: 'hanma-baki',
+                capa: 'https://img.lermanga.org/H/hanma-baki/capa.jpg',
+            },
+            {
+                name: 'Tate no Yuusha no Nariagari',
+                id: 'tate-no-yuusha-no-nariagari',
+                capa: 'https://img.lermanga.org/T/tate-no-yuusha-no-nariagari/capa.jpg',
+            },
+            {
+                name: 'Eternal First Son-in-Law',
+                id: 'eternal-first-son-in-law',
+                capa: 'https://img.lermanga.org/E/eternal-first-son-in-law/capa.jpg',
+            },
+            {
+                name: 'The Great Mage Returns After 4000 Years',
+                id: 'the-great-mage-returns-after-4000-years',
+                capa: 'https://img.lermanga.org/T/the-great-mage-returns-after-4000-years/capa.jpg',
+            },
+            {
+                name: 'The Strongest Florist',
+                id: 'the-strongest-florist',
+                capa: 'https://img.lermanga.org/T/the-strongest-florist/capa.jpg',
+            },{
+                name: 'Solo Leveling',
+                id: 'solo-leveling-pt-br',
+                capa: 'https://img.lermanga.org/S/solo-leveling/capa.jpg',
+                
+            },
+            {
+                name: 'Dead Rock',
+                id: 'dead-rock',
+                capa: 'https://img.lermanga.org/D/dead-rock/capa.jpg',
+            },
+            {
+                name: 'Konjiki no Word Master: Yuusha Yonin ni Makikomareta Unique Cheat',
+                id: 'konjiki-no-word-master-yuusha-yonin-ni-makikomareta-unique-cheat',
+                capa: 'https://img.lermanga.org/K/konjiki-no-word-master-yuusha-yonin-ni-makikomareta-unique-cheat/capa.jpg',
+            },
+            {
+                name: 'Lycoris Recoil',
+                id: 'lycoris-recoil',
+                capa: 'https://img.lermanga.org/L/lycoris-recoil/capa.jpg',
+            },
+        ]
     },
     {   
         id: 2,
