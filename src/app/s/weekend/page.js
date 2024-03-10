@@ -46,7 +46,7 @@ export default function Weekend({params}){
     return ( 
       <Column style={{ marginRight: 16, marginBottom: 16,  }} className='cd'  onClick={() => handle(item.id)} >
           <Column style={{position:'relative'}}>
-            <Image src={item?.capa} width={200} height={200} style={{ borderRadius: 8, objectFit: 'cover', margin: 10 }} alt='' />
+            <img src={item?.capa} width={200} height={200} style={{ borderRadius: 8, objectFit: 'cover', margin: 10,  width: 190, height: 260, }} alt='' />
             <Column className='pl'>
               <FaPlay/>
             </Column>

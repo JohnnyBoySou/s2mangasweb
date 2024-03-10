@@ -47,7 +47,7 @@ export default function Rate({params}){
     return ( 
       <Column style={{ marginRight: 16, marginBottom: 16,  }} className='cd'  onClick={() => handle(item.id)} >
           <Column style={{position:'relative'}}>
-            <Image src={item?.capa} width={190} height={260} style={{ borderRadius: 8, objectFit: 'cover', margin: 10, alignSelf: 'center', }} alt='' />
+            <img src={item?.capa} width={190} height={260} style={{ borderRadius: 8, objectFit: 'cover', margin: 10, alignSelf: 'center',  width: 190, height: 260,}} alt='' />
             <Column className='pl'>
               <FaPlay/>
             </Column>
