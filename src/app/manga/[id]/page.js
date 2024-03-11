@@ -433,9 +433,12 @@ export default function DetailsManga({ params }) {
                             <CollectionItemRow key={item.id} item={item} open={open} />
                             ))}
                         </Row>}
-                    {collections.length === 0 && <Row style={{marginTop: 20,}}>
-                        <Label style={{fontSize: 18, marginRight: 20,}}>Nome da coleção</Label>
-                    </Row>}
+                    {collections.length === 0 && <Column style={{marginTop: 20, justifyContent: 'center', alignItems: 'center', }}>
+                       <Image src="https://i.pinimg.com/564x/9e/66/8b/9e668bfd56fc3aa8067e8ee1727f1921.jpg" alt="Nenhuma coleção foi criada ainda..." width={200} height={200} style={{objectFit: 'cover', borderRadius: 12, marginBottom: 20,}}/>
+                       <Title>Nenhuma coleção foi criada ainda...</Title>
+                       <Label style={{ marginBottom: 10, }}>Aproveite para criar uma agora mesmo</Label>
+                       <ButtonPrimaryLight>Criar coleção</ButtonPrimaryLight>
+                    </Column>}
                     
                     
                     </Column>

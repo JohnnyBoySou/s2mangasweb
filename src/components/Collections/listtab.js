@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { getCollections } from '../../requests/collections/request';
 import './style.css';
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import { GoPlus } from 'react-icons/go';
 
 
 function CollectionItem({ item, open }) {
@@ -82,7 +83,9 @@ function CollectionItemRow({ item, open }) {
     if(collections.length === 0){
     return(
       <Column style={{ backgroundColor: '#303030', padding: 16, borderRadius: 12, alignItems: 'center',}}>
-      <AiOutlineAppstoreAdd style={{fontSize: 46, color: "#ED274A",  padding: 10,}} />
+      <Link href={`/collections/`} style={{ textDecoration: 'none' }}>
+        <GoPlus style={{fontSize: 46, color: "#fff",  padding: 10,}} />
+      </Link>
       
      {open && 
       <Column style={{alignItems: 'center'}}>

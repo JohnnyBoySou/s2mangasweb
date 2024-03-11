@@ -1,6 +1,6 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, ButtonPrimary} from '../../themes/global'; 
+import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, ButtonPrimary, ButtonPrimaryLight} from '../../themes/global'; 
 import './collections.css'
 import Link from 'next/link'; 
 import { IoClose } from "react-icons/io5";
@@ -40,7 +40,6 @@ export default function Collections() {
     useEffect(() => {
         const fetchData = async () => {
             const collections = await getCollections();
-            console.log(collections)
             setCollections(collections);
         };
         fetchData();
@@ -94,7 +93,14 @@ export default function Collections() {
 
 
 
-           {collections.length === 0 && <Image src="/colleciton_add.png" alt="collection add" width={300} height={300} style={{width: 300, height: 300, alignSelf: 'center', marginTop: 50, borderRadius: 16,}}/>}
+           {collections.length === 0 && 
+           <Column style={{ justifyContent: 'center', alignItems: 'center', marginTop: 50, }}>
+                <Image src='https://i.pinimg.com/564x/7e/72/0e/7e720ea1e4cca83e0118f28d824509a7.jpg' width={200} height={200} alt='empety collection' style={{ objectFit: 'cover', borderRadius: 24, transform: 'rotate(18deg)',  }}/>
+                <Title style={{textAlign: 'center', marginBottom: 10, marginTop: 30, fontSize: 32,}}>Nenhuma coleção encontrada</Title>
+                <Label style={{textAlign: 'center', marginBottom: 15,}}>Crie uma nova coleção para começar <br/>a adicionar mangás e organizar-lós.</Label>
+                <ButtonPrimaryLight>Criar coleção</ButtonPrimaryLight>
+              </Column>
+           }
            
             <Row style={{flexWrap: 'wrap', marginTop: 12,}}>
             {collections.map((item, index) => {
