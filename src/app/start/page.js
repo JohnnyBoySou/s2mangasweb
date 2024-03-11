@@ -73,61 +73,14 @@ export default function Start (){
             capa: capa,
             genres: categorias,
             premium: false,
-            likes: [
-                {
-                    name: 'Naruto',
-                    id: 'naruto',
-                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
-                },
-                {
-                    name: 'One Piece',
-                    id: 'one-piece',
-                    capa: 'https://img.lermanga.org/O/one-piece/capa.jpg',
-                },
-                {
-                    name: 'Jujutsu Kaisen',
-                    id: 'jujutsu-kaisen',
-                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
-                }
-            ],
-            progress: [
-                {
-                    name: 'Naruto',
-                    id: 'naruto',
-                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
-                },
-                {
-                    name: 'One Piece',
-                    id: 'one-piece',
-                    capa: 'https://img.lermanga.org/O/one-piece/capa.jpg',
-                },
-            ],
-            follow: [
-                {
-                    name: 'Naruto',
-                    id: 'naruto',
-                    capa: 'https://img.lermanga.org/N/naruto/capa.jpg',
-                },
-                {
-                    name: 'Jujutsu Kaisen',
-                    id: 'jujutsu-kaisen',
-                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
-                }  
-            ],
-            complete: [
-                {
-                    name: 'Jujutsu Kaisen',
-                    id: 'jujutsu-kaisen',
-                    capa: 'https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg',
-                }  
-            ],
+            likes: [],
+            progress: [],
+            follow: [],
+            complete: [],
             date: formatarData(new Date()),
         }
         try {
-          const response = createPreferences(user)
-          if(response){
-            router.push('/home');
-          }
+            createPreferences(user).then(() => router.push('/home'));
         } catch (error) {
           console.log(error)
         }
@@ -216,7 +169,7 @@ export default function Start (){
             <Label>Este nome aparecerá no seu perfil.</Label>
             <input
                         value={name}
-                        className='search_input'
+                        className='inputa'
                         onChange={e => setName(e.target.value)}
                         type="text"
                         placeholder="Nome ou Apelido"
@@ -227,7 +180,7 @@ export default function Start (){
             <Label>Escreva um pouco sobre você. </Label>
             <input
                         value={bio}
-                        className='search_input'
+                        className='inputa'
                         onChange={e => setBio(e.target.value)}
                         type="text"
                         placeholder="Bio ou breve descrição"
@@ -251,7 +204,6 @@ export default function Start (){
                     height={124}
                     onClick={() => setAvatar(item)}
                     alt=""
-                    className='avatar'
                     style={{
                         objectFit: "cover", 
                         borderWidth: 4,

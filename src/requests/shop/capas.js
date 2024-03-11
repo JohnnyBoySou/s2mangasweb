@@ -60,7 +60,6 @@ export const comida = [
 export const geralbg = [
     'https://i.pinimg.com/736x/3e/09/29/3e0929e463d330ab184b5ed72f789695.jpg',
     'https://i.pinimg.com/736x/ae/c0/80/aec08003ebf94b62d08a3f266d20311e.jpg',
-    'https://i.pinimg.com/736x/b8/60/32/b860328fb986699e75c3494179347475.jpg',
     'https://i.pinimg.com/736x/9e/5f/6e/9e5f6ed649e074535ce5983d0093613a.jpg',
     'https://i.pinimg.com/736x/b7/62/64/b76264cfb1e45a28e37e4a7b931dcc56.jpg',
     'https://i.pinimg.com/736x/ac/c2/3d/acc23d48b4bc9e78d334ca3879d63a02.jpg',

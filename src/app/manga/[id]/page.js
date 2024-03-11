@@ -420,18 +420,24 @@ export default function DetailsManga({ params }) {
             </Column>
 
             {modal &&
-            <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', backgroundColor: "#00000090" , position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
+            <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
                 <Column style={{width: 600, borderRadius: 12,  padding: 24, backgroundColor: "#262626" , position: 'absolute', top: 100, alignSelf: 'center', zIndex: 99,}}>
                     <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
                         <Title style={{fontSize: 32,}}>Adicionar a coleção</Title>
                         <IoClose style={{fontSize: 32, color: "#fff", cursor: 'pointer', padding: 8, }} onClick={() => setModal(!modal)}/>
                     </Row>
                     <Column style={{marginTop: 24,}}>
-                    <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
-                    {collections?.map((item, index) => (
-                        <CollectionItemRow key={item.id} item={item} open={open} />
-                        ))}
-                    </Row>
+                    
+                    {collections.length > 0 && <Row style={{ paddingTop: 12, backgroundColor: "#303030", borderRadius: 8, flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', }}>
+                        {collections?.map((item, index) => (
+                            <CollectionItemRow key={item.id} item={item} open={open} />
+                            ))}
+                        </Row>}
+                    {collections.length === 0 && <Row style={{marginTop: 20,}}>
+                        <Label style={{fontSize: 18, marginRight: 20,}}>Nome da coleção</Label>
+                    </Row>}
+                    
+                    
                     </Column>
                     <Row style={{justifyContent: 'space-between', alignItems: 'center', marginTop: 20, }}>
                         <ButtonOff>Descartar</ButtonOff>

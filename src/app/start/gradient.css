@@ -142,3 +142,27 @@
 .avatar:hover{
   transform: scale(1.2);
 }
+
+
+
+
+.inputa{
+  border: 2px solid #303030;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  width: 400px;
+  font-family: 'Book';
+  color: #f7f7f7;
+  background-color: #383838;
+  transition: .2s linear;
+  outline: none;
+}
+.inputa:hover{
+  border: 2px solid #505050;
+}
+.inputa:focus{
+  border: 2px solid #ED274A;
+}
