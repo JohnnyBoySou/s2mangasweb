@@ -21,7 +21,7 @@ export default function Search() {
         <Link href={`/search/category/${item.id}`} style={{textDecoration: 'none'}}>
         <Column  key={index} style={{width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', padding: 6, }}>
                 <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
-                  <Image className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
+                  <img className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
               </Column>
         </Link>
       )
