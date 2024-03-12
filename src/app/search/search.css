@@ -54,7 +54,7 @@
 }
 .btsearch{
     display: flex;
-    border-radius: 100px;
+    border-radius: 8px;
     width: 52px;
     height: 52px;
     justify-content: center;
@@ -79,7 +79,7 @@
 
 .search_input{
   border: 2px solid #303030;
-  border-radius: 120px;
+  border-radius: 8px;
   padding: 12px 20px;
   font-size: 24px;
   width: 400px;
