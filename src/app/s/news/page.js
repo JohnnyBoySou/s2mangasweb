@@ -112,7 +112,7 @@ return(
                 <ButtonOff onClick={() => {  if(page > 1){ setPage(page - 1) }}} style={{width: 54, height: 54, justifyContent: 'center', opacity: page === 1 ? 0.4 : 1, cursor: page === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}> 
                     <FiArrowLeft style={{marginTop: 6,}}/>
                 </ButtonOff>
-                <ButtonOff onClick={() => {  if(data.length === 24){ setPage(page + 1) }}} style={{width: 54, height: 54, marginLeft: 10, opacity: data.length != 24 ? 0.4 : 1, cursor: data.length === 24 ? 'pointer' : 'not-allowed', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
+                <ButtonOff onClick={() => {  if(data?.length === 24){ setPage(page + 1) }}} style={{width: 54, height: 54, marginLeft: 10, opacity: data?.length != 24 ? 0.4 : 1, cursor: data?.length === 24 ? 'pointer' : 'not-allowed', justifyContent: 'center', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>
                     <FiArrowRight style={{marginTop: 6,}}/>
                 </ButtonOff>
               </Row>
