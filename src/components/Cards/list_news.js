@@ -13,7 +13,7 @@ export default function ListMangaNews({ data, page }) {
   const startIndex = (page - 1) * 8;
   const endIndex = page * 8;
 
-  const paginatedData = data.slice(startIndex, endIndex);
+  const paginatedData = data?.slice(startIndex, endIndex);
   
     const Card = ({ item, index, handle }) => {
       const cl = item.type === 'Manga' ? "#ED274A" : item.type === 'Manhwa' ? "#366AD3" : item.type === 'Manhua' ? "#009688" : '#000';

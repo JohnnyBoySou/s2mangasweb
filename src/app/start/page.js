@@ -126,38 +126,26 @@ export default function Start (){
 
 
 
-        {step == 0 && <Column style={{justifyContent: 'center', alignItems: 'center', marginTop: 100,}} className='fadeInLeft'>
-            <Row>
-                <Column className='cardoff' style={{width: 100, height: 220,}}/>
-                <Column className='cardoff' style={{width: 100, height: 220, marginLeft: 20, marginRight: 20,}}/>
-                <Column className='card_grad' style={{width: 100, height: 220,  marginRight: 20}}/>
-                <Column className='cardoff' style={{width: 100, height: 220,}}/>
-            </Row>
-            <Row style={{marginBottom: 60, marginTop: 20,}}>
-                <Column className='cardoff' style={{width: 100, height: 20,  marginRight: 20}}/>
-                <Column className='cardoff' style={{width: 100, height: 20,}}/>
-                <Column className='card_grad' style={{width: 100, height: 20, marginLeft: 20, marginRight: 20,}}/>
-                <Column className='cardoff' style={{width: 100, height: 20,}}/>
-            </Row>
+        {step == 0 && <Column style={{justifyContent: 'center', alignItems: 'center', marginTop: 20,}} className='fadeInLeft'>
+            
+            <Image src="/start.png" alt="start" width={500} height={400} style={{marginBottom: 20, objectFit: 'contain',}}/>
 
 
-            <Row>
+            <Column>
                 <Title style={{fontSize: 72, fontFamily: 'Book', textAlign: 'center', marginTop: 10,}}>Bem vindo ao </Title>
                 <Row>
                     <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
-                    <h1 className='gradient'>S2mangás.</h1>
+                    <h1 className='gradient'>S2mangás</h1>
                     <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
                 </Row>
-            </Row>
-            <Title style={{fontFamily: 'Book', color: "#d8d8d8", }}>Um leitor de mangás completo. Simples, interativo e rápido.</Title>
+            </Column>
+            <Title style={{fontFamily: 'Book', color: "#d8d8d8", textAlign: 'center', }}>Um leitor de mangás completo. <br/>Simples, interativo e rápido.</Title>
             <Row style={{marginTop: 50,}} >
             <Column  className='btgo' onClick={() => setStep(1)} >
                 <span>Começar agora</span>
             </Column>
 
-            <Column className='btof'>
-                <span>Ver funções</span>
-            </Column>
+           
           
             </Row>
             </Column>}

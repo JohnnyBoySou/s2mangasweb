@@ -10,6 +10,8 @@ export default function NewsComponent({data}) {
     const news = data;
     const [newsPage, setNewsPage] = useState(1);
 
+    const release = news?.length > 0 ? news[0]?.release_date : '1 dia';
+
     return(
     <Column className="fadeInUp">
 
@@ -30,7 +32,7 @@ export default function NewsComponent({data}) {
         <Row style={{justifyContent: 'space-between', alignItems: 'center',  marginRight: 44, marginTop: 30,}}>
         <Column style={{marginLeft: 44,  marginBottom: 20,}}>
         <Title style={{fontSize: 42, fontFamily: 'Bold', }}>Novos capítulos</Title>
-        <Label>Última atualização há {news[0]?.release_date}.</Label>
+        <Label>Última atualização há {release}.</Label>
         </Column>
         <Row>
         <ButtonOff onClick={() => {  if(newsPage > 1){ setNewsPage(newsPage - 1) }}} style={{width: 54, height: 54, justifyContent: 'center', opacity: newsPage === 1 ? 0.4 : 1, cursor: newsPage === 1 ? 'not-allowed' : 'pointer', alignItems: 'center', fontSize: 26, textAlign: 'center', backgroundColor: '#50505090' , padding: 0,}}>

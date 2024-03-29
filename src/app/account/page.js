@@ -68,7 +68,7 @@ export default function Account() {
            {step === 'complete' && <ListAccount data={user?.complete}/>}
            {step === 'like' && <ListAccount data={user?.likes}/>}
            {step === 'follow' && <ListAccount data={user?.follow}/>}
-          {user?.likes.length > 20 && <span className='btall'>Ver todos</span> }
+          {user?.likes?.length > 20 && <span className='btall'>Ver todos</span> }
         </Column>
 
             <Modal open={modal} setOpen={setModal} name='Configurações'>
