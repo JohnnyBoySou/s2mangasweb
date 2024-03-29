@@ -11,6 +11,8 @@ export default function LastedComponent({data}) {
     const news = data;
     const [newsPage, setNewsPage] = useState(1);
 
+    
+
     return(
     <Column className="fadeInUp">
 

@@ -45,7 +45,6 @@ export default function Feed () {
     const getUser = () => {
       try {
         const response = getPreferences()
-        console.log(response)
         if(response != undefined){
           setUser(response)
           setLoading(false)
