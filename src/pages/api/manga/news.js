@@ -5,7 +5,7 @@ const API_URL = "https://lermanga.org/"
 
 export default async function handler(req, res) {
 
-  let browser = await puppeteer.launch({ headless: true });
+  let browser = await puppeteer.launch({ headless: 'new' });
   try {
 
     const page = await browser.newPage();
