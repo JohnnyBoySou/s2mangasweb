@@ -55,7 +55,7 @@ export default function ListMangaNews({ data, page }) {
             <Card item={item} key={index} className="fadeInUp" handle={() => handle(item.id)} />
           ))}
 
-        {data?.length === 0 && 
+        {null === 0 && 
           <Row>
             <Column style={{marginRight: 20,}}>
               <Skeleton width={200} height={270} radius={12}/>

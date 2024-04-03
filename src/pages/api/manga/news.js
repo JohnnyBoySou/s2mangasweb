@@ -1,4 +1,3 @@
-'use client'
 import puppeteer from 'puppeteer';
 import cheerio from 'cheerio'; 
 const API_URL = "https://lermanga.org/"
@@ -13,7 +12,7 @@ export default async function handler(req, res) {
 
     const html = await page.content();
     const mangaData = clearNews(html);
-     
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(200).json({ mangas: mangaData });
   } catch (error) {
     console.error('Erro ao processar requisição:', error.message);
@@ -24,6 +23,9 @@ export default async function handler(req, res) {
     }
   }
 }
+
+
+
 export function clearNews(html) {
   const $ = cheerio.load(html);
   const bss = $('.innercontent .capitulo_recentehome')

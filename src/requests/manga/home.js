@@ -4,15 +4,15 @@ import requestRate from "./rate";
 import requestWeekend from "./weekend";
 
 const requestHome = async () => {
-    const lasted = await requestLasted();
-    const news = await requestNews();
-    const weekend = await requestWeekend();
-    const rate = await requestRate();
+    const lasted = await fetch('http://localhost:3000/api/manga/lasted').then(res => res.mangas).catch(() => []);
+    const news = await fetch('http://localhost:3000/api/manga/news').then(res => res.mangas).catch(() => []);
+    const weekend = await fetch('http://localhost:3000/api/manga/weekend').then(res => res.mangas).catch(() => []);
+    const rate = await fetch('http://localhost:3000/api/manga/rate').then(res => res.mangas).catch(() => []);
     const res = {
-        lasted: lasted.mangas,
-        news: news.mangas,
-        weekend: weekend.mangas,
-        rate: rate.mangas,
+      //  lasted: lasted,
+        news: news,
+       // weekend: weekend,
+       // rate: rate,
     }
     return res
 };

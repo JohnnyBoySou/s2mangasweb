@@ -1,7 +1,6 @@
 'use client';
 import React, {useRef, useEffect, useState} from "react"
 import Image from 'next/image'
-import axios from 'axios'
 import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../../themes/global'
 import './feed.css';
 import { useRouter } from 'next/navigation'
@@ -17,7 +16,6 @@ import NewsComponent from "../../components/Home/News";
 import LastedComponent from "../../components/Home/Lasted";
 import WeekendComponent from './../../components/Home/Weekend/index';
 import RateComponent from './../../components/Home/Rate/index';
-import Headline from "../../components/Headline";
 import Mangalists from "../../components/Mangalist";
 
 
@@ -34,10 +32,10 @@ export default function Feed () {
   useEffect(() => {
     const requestData = async () => {
       const response = await requestHome()
-      setWeekend(response.weekend);
+     // setWeekend(response.weekend);
       setNews(response.news);
-      setLasted(response.lasted);
-      setRate(response.rate);
+     // setLasted(response.lasted);
+     // setRate(response.rate);
       setLoading(false)
     }
 
