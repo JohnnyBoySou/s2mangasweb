@@ -1,4 +1,4 @@
-
+'use client'
 import puppeteer from 'puppeteer';
 import cheerio from 'cheerio'; 
 const API_URL = "https://lermanga.org/"
