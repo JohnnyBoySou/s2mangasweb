@@ -29,7 +29,7 @@ export default function Start (){
     const CategoryList = ({ item, index }) => {
         const addCategoria = () => { if (categorias.includes(item)) { setCategorias(categorias.filter(cat => cat !== item)); } else { setCategorias([...categorias, item]); } }
         return(
-            <Column onClick={addCategoria} key={index} style={{ width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', padding: 6, opacity: categorias.includes(item) ? 0.2 : 1 }}>
+            <Column onClick={addCategoria} key={index} style={{ width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', transition: '.2s linear', padding: 6, opacity: categorias.includes(item) ? 0.2 : 1, transform: categorias.includes(item) ? 'scale(0.8)' : 'scale(1)' }}>
                 <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
                 <Image className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
             </Column>
@@ -80,7 +80,10 @@ export default function Start (){
             date: formatarData(new Date()),
         }
         try {
-            createPreferences(user).then(() => router.push('/home'));
+           await createPreferences(user)
+           setTimeout(() => {
+            router.push('/home')
+           }, 1200);
         } catch (error) {
           console.log(error)
         }
@@ -153,6 +156,7 @@ export default function Start (){
             {step == 1 && 
             <Column style={{justifyContent: 'center', maxWidth: 1300, alignSelf: 'center',}} className='fadeInLeft'>
             
+            <Title style={{marginTop: 10, fontSize: 32,}}>Crie seu perfil rapídinho...</Title>
             <Title style={{marginTop: 10,}}>Nome</Title>
             <Label>Este nome aparecerá no seu perfil.</Label>
             <input
@@ -203,7 +207,7 @@ export default function Start (){
                         />
                     ))}
                     </Row>
-                    {avatar?.length > 1 && <ButtonPrimary className='fadeInUp' onClick={() => setStep(3)} style={{marginTop: 20, paddingTop: 15, paddingBottom: 15,}}>Continuar</ButtonPrimary>}
+                    {avatar?.length > 1 && <ButtonPrimary className='fadeInUp' onClick={() => setStep(3)} style={{marginTop: 20, padding: '15px 32px', alignSelf: 'center'}}>Continuar</ButtonPrimary>}
            
                     </Column> 
                 </Column>}
@@ -237,7 +241,7 @@ export default function Start (){
                         />
                     ))}
                 </Row>
-                {capa?.length > 1 && <ButtonPrimary className='fadeInUp' onClick={() => setStep(4)} style={{marginTop: 20, paddingTop: 15, paddingBottom: 15,}}>Continuar</ButtonPrimary>}
+                {capa?.length > 1 && <ButtonPrimary className='fadeInUp' onClick={() => setStep(4)} style={{marginTop: 20, padding: '15px 32px', alignSelf: 'center'}}>Continuar</ButtonPrimary>}
            
           </Column>  
             </Column>}
@@ -247,8 +251,8 @@ export default function Start (){
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
                 
             <Column>
-            <Row style={{alignItems: 'center'}}>
-                <Title style={{marginTop: 10, marginRight: 20,}}>Genêros</Title>
+            <Row style={{alignItems: 'center', marginBottom: 12,}}>
+                <Title style={{ marginRight: 20,}}>Genêros</Title>
                 {categorias.map((item, index) => <Label key={index} style={{margin: 4, padding: '10px 20px', backgroundColor: item.color+90, color: "#fff", borderRadius: 120,}}>{item.name}</Label>)}
             </Row>
             <Label>Selecione seus favoritos para receber recomendações personalizadas. No mínimo 3 categorias.</Label>

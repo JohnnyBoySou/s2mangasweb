@@ -17,7 +17,6 @@ export default function LastedComponent() {
             try {
                 const response = await axios.get(`https://lermanga.org/mangas/page/${page}?orderby=date&order=desc`, { headers: { 'Accept': "text/html", 'Access-Control-Allow-Origin': '*' } });
                 const mangaData = clearWeekend(response.data);
-                console.log(mangaData)
                 setnews(mangaData)
             } catch (error) {
                 return error.message;

@@ -1,21 +1,17 @@
 
-import axios from "axios";
+import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
-const headers = {
-  'Accept': 'application/json',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
-};
+
+const URL = 'https://lermanga.org/mangas/?orderby=date&order=desc';
 
 export default async function handler(req, res) {
+  const browser = await puppeteer.launch({ headless: true });
   try {
-    res.setHeader('Access-Control-Allow-Origin', 's2mangas.com');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); 
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    const page = await browser.newPage();
+    await page.goto(URL);
+    const html = await page.content();
+    const response = clearWeekend(html);
 
-    
-    const response = await axios.get('https://lermanga.org/mangas/?orderby=date&order=desc', { headers });
-    const mangaData = clearWeekend(response.data);
-    // Retorna um JSON válido 
     res.status(200).json({ mangas: response });
   } catch (error) {
     console.error('Axios error:', error.message);
@@ -23,6 +19,10 @@ export default async function handler(req, res) {
     console.error('Data:', error.response ? error.response.data : 'unknown');
     // Retorna um JSON válido mesmo em caso de erro
     res.status(error.response ? error.response.status : 500).json({ error: 'Erro na requisição' });
+  }finally {
+    if (browser) {
+      await browser.close();
+    }
   }
 }
 

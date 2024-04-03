@@ -22,6 +22,7 @@
     "gsap": "^3.12.5",
     "next": "^14.0.4",
     "nextjs": "^0.0.3",
+    "puppeteer": "^22.6.2",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",

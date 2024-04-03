@@ -1,13 +1,19 @@
-
-import axios from "axios";
+import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
-const headers = {'Accept': "application/json",} 
-const API_URL = "https://lermanga.org/"
+
+const API_URL = "https://lermanga.org/mangas/?orderby=views&order=desc"
+
+
+
 export default async function handler(req, res) {
-  try {
-    console.log('aq de boas')
-    const response = await axios.get('https://lermanga.org/mangas/?orderby=views&order=desc', { headers });
-    const mangaData = clearWeekend(response.data);
+  const browser = await puppeteer.launch({ headless: true });
+  try { 
+    const page = await browser.newPage();
+    await page.goto(API_URL);
+    const html = await page.content();
+    const response = clearWeekend(html);
+
+    const mangaData = clearWeekend(response);
     // Retorna um JSON válido
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -15,12 +21,15 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=600, stale-while-revalidate')
     res.status(200).json({ mangas: mangaData });
 
-
   } catch (error) {
     console.error('Axios error:', error.message);
     console.error('Status:', error.response ? error.response.status : 'unknown');
     console.error('Data:', error.response ? error.response.data : 'unknown');
     res.status(error.response ? error.response.status : 500).json({ error: 'Erro na requisição' });
+  }finally {
+    if (browser) {
+      await browser.close();
+    }
   }
 }
 export function clearWeekend(html) {

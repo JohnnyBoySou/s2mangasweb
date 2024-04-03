@@ -1,7 +1,10 @@
+'use client';
+
 function getPreferences() {
   try {
-    const preferences = JSON.parse(localStorage.getItem('preferences')) || [];
-    return preferences;
+    const preferences = window.localStorage.getItem('preferences')
+    return JSON.parse(preferences ?? '')
+
   } catch (error) {
     console.error('Error getting preferences:', error);
     return [];
@@ -11,7 +14,7 @@ function getPreferences() {
 function editPreferences(updatedPreferences) {
   try {
     const preferences = { ...updatedPreferences };
-    localStorage.setItem('preferences', JSON.stringify(preferences));
+    window.localStorage.setItem('preferences', JSON.stringify(preferences));
     return true;
   } catch (error) {
     console.error('Error editing preferences:', error);
@@ -21,7 +24,7 @@ function editPreferences(updatedPreferences) {
 
 function createPreferences(preferences) {
   try {
-    localStorage.setItem('preferences', JSON.stringify(preferences));
+    window.localStorage.setItem('preferences', JSON.stringify(preferences));
     return true;
   } catch (error) {
     console.error('Error creating preference:', error);
@@ -30,7 +33,7 @@ function createPreferences(preferences) {
 
 function excludePreferences() {
   try {
-    localStorage.removeItem('preferences');
+    window.localStorage.removeItem('preferences');
     return true;
   } catch (error) {
     console.error('Error excluding preference ', error);

@@ -1,11 +1,11 @@
-import axios from 'axios';
+import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
 const API_URL = "https://lermanga.org/"
 
 
 export default async function handler(req, res) {
   const { id } = req.query;
-  
+  let browser = await puppeteer.launch({ headless: true });
 
   try {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -14,8 +14,12 @@ export default async function handler(req, res) {
 
     
     const manga = {};
-    const response = await axios.get(API_URL + '/mangas/' + id);
-    const $ = cheerio.load(response.data);
+    
+    const page = await browser.newPage();
+    await page.goto(API_URL + '/mangas/' + id);
+    const html = await page.content();
+
+    const $ = cheerio.load(html);
     const item = $('.content_post');
 
    // manga.score = item.find('.rating-area .kksr-legend').text().split("/")[0].trim();
@@ -48,5 +52,8 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Erro na requisição' });
-  }
+  }finally {
+    if (browser) {
+      await browser.close();
+    }}
 }

@@ -23,7 +23,7 @@ export default function Fixed({}){
   const [close, setClose] = useState(false);
   const [descShort, setDescShort] = useState(true);
   const [similar, setSimilar] = useState([]);
-  const item = mangas[0]
+  const item = []
   const stats = {porcentage: 60, read: 48, total: 82,}
   const [dominantColor, setDominantColor] = useState(null);
 
@@ -58,7 +58,7 @@ export default function Fixed({}){
 
 
    
-   if(close){
+   if(close || item.length === 0){
     return (<></>)
    }
 

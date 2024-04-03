@@ -1,5 +1,5 @@
 
-import axios from "axios";
+import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
 const headers = {'Accept': "application/json",} 
 const API_URL = "https://lermanga.org/"
@@ -9,14 +9,17 @@ const months = [
 
 export default async function handler(req, res) {
     const { id } = req.query;
+    let browser = await puppeteer.launch({ headless: true });
     try {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
+      const page = await browser.newPage();
+      await page.goto(API_URL + 'manga/' + id);
+      const html = await page.content();
       
-      const response = await axios.get(API_URL + 'manga/' + id);
-      const $ = cheerio.load(response.data);    
+      const $ = cheerio.load(html);    
       const chaptersArray = [];
   
       $('.single-chapter').each((index, element) => {

@@ -1,30 +1,29 @@
 
-import axios from "axios";
-import cheerio from 'cheerio';
-const headers = {'Accept': "application/json",} 
+import puppeteer from 'puppeteer';
+import cheerio from 'cheerio'; 
 const API_URL = "https://lermanga.org/"
 
 export default async function handler(req, res) {
-  
+
+  let browser = await puppeteer.launch({ headless: true });
   try {
-    const response = await axios.get(API_URL, { headers });
-    const mangaData = clearNews(response.data);
-    // Retorna um JSON válido
-    
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate')
+
+    const page = await browser.newPage();
+    await page.goto(API_URL);
+
+    const html = await page.content();
+    const mangaData = clearNews(html);
+     
     res.status(200).json({ mangas: mangaData });
   } catch (error) {
-    console.error('Axios error:', error.message);
-    console.error('Status:', error.response ? error.response.status : 'unknown');
-    console.error('Data:', error.response ? error.response.data : 'unknown');
-    // Retorna um JSON válido mesmo em caso de erro
-    res.status(error.response ? error.response.status : 500).json({ error: 'Erro na requisição' });
+    console.error('Erro ao processar requisição:', error.message);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
   }
 }
-
 export function clearNews(html) {
   const $ = cheerio.load(html);
   const bss = $('.innercontent .capitulo_recentehome')
