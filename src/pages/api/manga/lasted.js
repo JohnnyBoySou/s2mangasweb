@@ -1,7 +1,5 @@
-
 //import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
-
 const URL = 'https://lermanga.org/mangas/?orderby=date&order=desc';
 
 export default async function handler(req, res) {
@@ -21,9 +19,7 @@ export default async function handler(req, res) {
     // Retorna um JSON válido mesmo em caso de erro
     res.status(error.response ? error.response.status : 500).json({ error: 'Erro na requisição' });
   }finally {
-    if (browser) {
-      await browser.close();
-    }
+   
   }
 }
 
