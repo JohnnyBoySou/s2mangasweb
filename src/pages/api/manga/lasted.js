@@ -1,15 +1,16 @@
 
-import puppeteer from 'puppeteer';
+//import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
 
 const URL = 'https://lermanga.org/mangas/?orderby=date&order=desc';
 
 export default async function handler(req, res) {
-  const browser = await puppeteer.launch({ headless: true });
+ // const browser = await puppeteer.launch();
   try {
-    const page = await browser.newPage();
-    await page.goto(URL);
-    const html = await page.content();
+//    const page = await browser.newPage();
+ //   await page.goto(URL);
+ //   const html = await page.content();
+    const html = await (await fetch(URL)).text();
     const response = clearWeekend(html);
 
     res.status(200).json({ mangas: response });
