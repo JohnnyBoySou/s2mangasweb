@@ -17,6 +17,7 @@ import LastedComponent from "../../components/Home/Lasted";
 import WeekendComponent from './../../components/Home/Weekend/index';
 import RateComponent from './../../components/Home/Rate/index';
 import Mangalists from "../../components/Mangalist";
+import { Search , Library} from "lucide-react"
 
 
 
@@ -88,17 +89,46 @@ export default function Feed () {
               <Column className='circle' />
               <Column className='circle2' />
             </Row>
-            <Row style={{justifyContent: 'center', alignItems: 'center', margin: '0px 60px'}}>
-                    <Column>
-                    <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
-                      <Title style={{ fontSize: 72, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
-                      <Row style={{alignSelf: 'center'}}>
-                        <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
-                        <span className="gradient">{user?.name}</span>
-                        <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
-                      </Row>
-                    </Column>
+              <Row style={{  margin: '0px 60px'}}>
+                      
+                      <Column>
+                        <Title style={{ fontSize: 54, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
+                        <Row style={{}}>
+                          <Image src="/star.png" alt="start" width={42} height={42} className='star' style={{marginRight: -20, marginTop: -10,}}/>
+                          <span className="gradient">{user?.name}</span>
+                          <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
+                        </Row>
+                        <ButtonPrimary style={{marginTop: 20, background: "#fff", color: "#000",}} onClick={() => router.push('/profile')}>Ver meu Feed</ButtonPrimary>
+                      </Column>
+
+                      <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
+              </Row>
+
+
+              <Row style={{ justifyContent: 'space-between', alignItems: 'center',  }}>
+                <Row>
+                  <Search color="#f7f7f7"/>
+                  <Label>Pesquisar</Label>
+                </Row>
+                <Row>
+                  <Library color="#f7f7f7"/>
+                  <Label>Categoria</Label>
+                </Row>
+              </Row>
+
+
+              <Row>
+                <Column style={{ background: 'red', width: 100, height: 230,}}></Column>
+                <Column>
+                  <Column style={{ background: '#FF9DCD' ,  width: 220, height: 100,  marginBottom: 10, marginLeft: 20,}}></Column>
+                  <Row style={{ margin: 20, }}>
+                    <Column style={{ background: '#6D40FE',  width: 100, height: 100, }}> </Column>
+                    <Column style={{  border: '2px solid #303030',  width: 100, height: 100, marginLeft: 20, }}> </Column>
                   </Row>
+                </Column>
+              </Row>
+
+
               <Column style={{padding: 60, paddingTop: 0,  }}/>
             </Column>
             <Column>
