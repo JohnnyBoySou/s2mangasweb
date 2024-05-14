@@ -4,11 +4,30 @@ import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
 import ListMangaNews from '../../../components/Cards/list_news';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
+
+import { clearWeekend } from '../../../requests/manga/lasted';
 //import './style.css';
 
-export default function NewsComponent({data}) {
-    const news = data;
+export default function NewsComponent({}) {
+    const [news, setnews] = useState([]);
     const [newsPage, setNewsPage] = useState(1);
+
+
+    useEffect(() => {
+        async function requestLasted(page = 1) {
+            try {
+                const response = await axios.get(`https://lermanga.org/mangas/page/${page}?orderby=date&order=desc`, { headers: { 'Accept': "text/html", 'Access-Control-Allow-Origin': '*' } });
+                const mangaData = clearWeekend(response.data);
+                setnews(mangaData)
+            } catch (error) {
+                return error.message;
+            }
+        }
+        requestLasted(newsPage)
+    }, [newsPage])
+
+
+
 
     const release = news?.length > 0 ? news[0]?.release_date : '1 dia';
 

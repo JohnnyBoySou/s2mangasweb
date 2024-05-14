@@ -32,9 +32,9 @@ export default function Feed () {
 
   useEffect(() => {
     const requestData = async () => {
-      const response = await requestHome()
+     // const response = await requestHome()
      // setWeekend(response.weekend);
-      setNews(response.news);
+     // setNews(response.news);
      // setLasted(response.lasted);
      // setRate(response.rate);
       setLoading(false)
@@ -84,13 +84,15 @@ export default function Feed () {
   return(
         <Column  style={{ overflowY: 'visible', overflowX:'hidden', background: `radial-gradient(circle, #202020, #171717)`,}} >
            <NavBar />
-            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 0, }} >
+            <Column style={{ borderRadius: 12,  flexGrow: 1, margin: 20, marginTop: 0,paddingBottom: 0, width: 900, alignSelf: 'center',}} >
+
             <Row style={{justifyContent: 'space-between', alignItems: 'center', marginLeft: -50, marginRight: -50,}}>
               <Column className='circle' />
               <Column className='circle2' />
             </Row>
-              <Row style={{  margin: '0px 60px'}}>
-                      
+
+
+              <Row style={{  margin: '0px 60px', justifyContent: 'space-between', alignItems: 'center', }}>    
                       <Column>
                         <Title style={{ fontSize: 54, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
                         <Row style={{}}>
@@ -105,25 +107,30 @@ export default function Feed () {
               </Row>
 
 
-              <Row style={{ justifyContent: 'space-between', alignItems: 'center',  }}>
-                <Row>
+              <Row style={{ justifyContent: 'space-between', alignItems: 'center',  margin: '20px 50px' }}>
+                <Row style={{border: '2px solid #303030', padding: '12px 20px', borderRadius: 100, cursor: 'pointer'}}>
                   <Search color="#f7f7f7"/>
-                  <Label>Pesquisar</Label>
+                  <Label style={{ marginLeft: 10, }}>Pesquisar</Label>
                 </Row>
-                <Row>
+                <Row  style={{border: '2px solid #303030', padding: '12px 20px', borderRadius: 100, cursor: 'pointer'}}>
                   <Library color="#f7f7f7"/>
-                  <Label>Categoria</Label>
+                  <Label  style={{ marginLeft: 10, }}>Categorias</Label>
                 </Row>
               </Row>
 
 
-              <Row>
-                <Column style={{ background: 'red', width: 100, height: 230,}}></Column>
-                <Column>
-                  <Column style={{ background: '#FF9DCD' ,  width: 220, height: 100,  marginBottom: 10, marginLeft: 20,}}></Column>
-                  <Row style={{ margin: 20, }}>
-                    <Column style={{ background: '#6D40FE',  width: 100, height: 100, }}> </Column>
-                    <Column style={{  border: '2px solid #303030',  width: 100, height: 100, marginLeft: 20, }}> </Column>
+              <Row style={{ margin: '20px 60px' }}>
+                <Column style={{ background: '#FF9514', width: "50%", height: 330, borderRadius: 12,}}></Column>
+                <Column style={{ width: '50%', }}>
+                  <Column style={{ background: '#96DC80' , flexGrow: 1, height: 100, borderRadius: 12,  marginBottom: 10, marginLeft: 20,}}>
+                  <Title></Title>
+
+                  </Column>
+                 
+                 
+                  <Row style={{ marginTop: 10, marginLeft: 20, }}>
+                    <Column style={{ background: '#6D40FE',  flexGrow: 1, height: 100, borderRadius: 12, }}> </Column>
+                    <Column style={{  border: '2px solid #303030', flexGrow: 1, height: 100, marginLeft: 20, borderRadius: 12, }}> </Column>
                   </Row>
                 </Column>
               </Row>
@@ -133,10 +140,10 @@ export default function Feed () {
             </Column>
             <Column>
              
-             <NewsComponent data={news}/>
-             <LastedComponent data={lasted}/>
-             <RateComponent data={rate}/>
-             <WeekendComponent data={weekend}/>
+             <NewsComponent  />
+             <LastedComponent  />
+             <RateComponent  />
+             <WeekendComponent  />
              <Mangalists />
             
             </Column>
