@@ -184,7 +184,6 @@ const stories = [
             capa: 'https://img.lermanga.org/L/lycoris-recoil/capa.jpg',
         }, 
     ], },
-
     {   
         id: 5,
         video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
@@ -196,7 +195,54 @@ const stories = [
         desc: 'shounen ta na moda e no hype, e eu to amando isso, só vem mais e mais',
         capa: 'https://i.pinimg.com/736x/53/04/09/53040907621d3e859edbe7dec7a583a4.jpg',
         mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
-
+    },
+    {   
+        id: 6,
+        video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
+        short: 'Ijiranaide, Nagatoro-san',
+        name: 'p&b com arte fod*',
+        type: 'post',
+        color: '#C61664',
+        date: '10 de Mar, 2024',
+        desc: 'p&b com arte de fod* e história que te prende',
+        capa: 'https://i.pinimg.com/736x/d6/15/fc/d615fcba3b002dab1237ade7d37bb0b9.jpg',
+        mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+    },
+    {   
+        id: 7,
+        video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
+        short: 'Ijiranaide, Nagatoro-san',
+        name: 'mulheres fodas',
+        type: 'post',
+        color: '#C61664',
+        date: '10 de Mar, 2024',
+        desc: 'mulheres fodas que não levam desaforo pra casa, e ainda por cima são lindas e maravilhosas',
+        capa: 'https://i.pinimg.com/736x/64/80/41/64804141abf0def24740a116770004ff.jpg',
+        mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+    },
+    {   
+        id: 8,
+        video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
+        short: 'Ijiranaide, Nagatoro-san',
+        name: 'errado é o medico que liberou',
+        type: 'post',
+        color: '#C61664',
+        date: '10 de Mar, 2024',
+        desc: 'errado é o medico que liberou, porque esse mangá é viciante e eu não consigo parar de ler',
+        capa: 'https://i.pinimg.com/736x/d5/03/b5/d503b5e9128eb5397904d2598016c61f.jpg',
+        mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+    },
+    {   
+        id: 9,
+        video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
+        short: 'Ijiranaide, Nagatoro-san',
+        name: 'mundos fascinantes',
+        type: 'post',
+        color: '#C61664',
+        date: '10 de Mar, 2024',
+        desc: 'mundos fascinantes e personagens cativantes, só lendo pra saber o que te espera',
+        capa: 'https://i.pinimg.com/736x/c4/34/b0/c434b008876047c9c112b3fd38d9f7ab.jpg',
+        mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
     },
     
   ]
