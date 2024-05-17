@@ -5,11 +5,13 @@ import ListMangaNews from '../../../components/Cards/list_news';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
 
+import mangas from '../../../data/mangas_placeholder';
+
 import { clearWeekend } from '../../../requests/manga/lasted';
 //import './style.css';
 
 export default function NewsComponent({}) {
-    const [news, setnews] = useState([]);
+    const [news, setnews] = useState(mangas);
     const [newsPage, setNewsPage] = useState(1);
 
 
@@ -23,7 +25,7 @@ export default function NewsComponent({}) {
                 return error.message;
             }
         }
-        requestLasted(newsPage)
+       // requestLasted(newsPage)
     }, [newsPage])
 
 

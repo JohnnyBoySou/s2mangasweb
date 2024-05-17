@@ -6,9 +6,10 @@ import Skeleton from '../../Loading';
 import ListManga from '../../Cards/list';
 import Link from 'next/link';
 
+import mangas from '../../../data/mangas_placeholder';
 
- function WeekendComponent({data}) {
-    const news = data;
+function WeekendComponent({data}) {
+    const news = mangas;
     const [newsPage, setNewsPage] = useState(1);
 
     return(

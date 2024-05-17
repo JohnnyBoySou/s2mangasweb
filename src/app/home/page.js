@@ -61,7 +61,7 @@ export default function Feed () {
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
   const saudacao = new Date().getHours() < 12 ? 'Bom dia' : new Date().getHours() < 18 ? 'Boa tarde' : 'Boa noite';
 
-
+  const a = false;
 
 
   if(loading){
@@ -92,7 +92,7 @@ export default function Feed () {
             </Row>
 
 
-              <Row style={{  margin: '0px 60px', justifyContent: 'space-between', alignItems: 'center', }}>    
+              <Row style={{  margin: '0px 60px', justifyContent: 'space-between',   }}>    
                       <Column>
                         <Title style={{ fontSize: 54, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
                         <Row style={{}}>
@@ -100,14 +100,14 @@ export default function Feed () {
                           <span className="gradient">{user?.name}</span>
                           <Image src="/north.png" alt="north"  className='star' width={42} height={42} style={{marginLeft: -10, marginTop: 60,}}/>
                         </Row>
-                        <ButtonPrimary style={{marginTop: 20, background: "#fff", color: "#000",}} onClick={() => router.push('/profile')}>Ver meu Feed</ButtonPrimary>
+                      {a &&  <ButtonPrimary style={{marginTop: 20, background: "#fff", color: "#000",}} onClick={() => router.push('/profile')}>Ver meu Feed</ButtonPrimary>}
                       </Column>
 
                       <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
               </Row>
 
 
-              <Row style={{ justifyContent: 'space-between', alignItems: 'center',  margin: '20px 50px' }}>
+           {a &&   <Row style={{ justifyContent: 'space-between', alignItems: 'center',  margin: '20px 50px' }}>
                 <Row style={{border: '2px solid #303030', padding: '12px 20px', borderRadius: 100, cursor: 'pointer'}}>
                   <Search color="#f7f7f7"/>
                   <Label style={{ marginLeft: 10, }}>Pesquisar</Label>
@@ -117,7 +117,9 @@ export default function Feed () {
                   <Label  style={{ marginLeft: 10, }}>Categorias</Label>
                 </Row>
               </Row>
+          }
 
+          {a &&
 
               <Row style={{ margin: '20px 60px' }}>
                 <Column style={{ background: '#FF9514', width: "50%", height: 330, borderRadius: 12,}}></Column>
@@ -134,7 +136,7 @@ export default function Feed () {
                   </Row>
                 </Column>
               </Row>
-
+            }
 
               <Column style={{padding: 60, paddingTop: 0,  }}/>
             </Column>

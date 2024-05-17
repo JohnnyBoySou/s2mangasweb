@@ -8,8 +8,10 @@ import Link from 'next/link';
 import axios from "axios";
 import { clearWeekend } from '../../../requests/manga/lasted';
 
+import mangas from '../../../data/mangas_placeholder';
+
 export default function LastedComponent() {
-    const [news, setnews] = useState([]);
+    const [news, setnews] = useState(mangas);
     const [newsPage, setNewsPage] = useState(1);
 
     useEffect(() => {
@@ -22,7 +24,7 @@ export default function LastedComponent() {
                 return error.message;
             }
         }
-        requestLasted(newsPage)
+       // requestLasted(newsPage)
     }, [newsPage])
 
 

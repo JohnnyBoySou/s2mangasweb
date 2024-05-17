@@ -6,8 +6,10 @@ import Skeleton from '../../Loading';
 import ListManga from '../../Cards/list';
 import Link from 'next/link';
 
+import mangas from '../../../data/mangas_placeholder';
+
 export default function RateComponent({data}) {
-    const news = data;
+    const news = mangas;
     const [newsPage, setNewsPage] = useState(1);
 
     return(
