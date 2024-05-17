@@ -25,6 +25,9 @@ import Comments from "../../../components/Comments";
 import CommentsComponent from "../../../components/Comments/main";
 import DisqusComments from "../../../components/Comments/disqus";
 
+import mangas from '../../../data/mangas_placeholder';
+
+
 
 export default function DetailsManga({ params }) {
     const id = params.id
@@ -49,16 +52,20 @@ export default function DetailsManga({ params }) {
     useEffect(() => {
         setLoading(true)
         const requestData = async () => {
-                    requestManga(id).then((response) => {
-                        setItem(response.manga)
-                        setLoading(false);
-                    })
-                    requestChapters(id).then((response) => {
-                        setChapters(response)
-                    })
-                    requestSimilar(id).then((response) => {
-                        setSimilar(response.mangas)
-                    })
+                   // requestManga(id).then((response) => {
+                    //    setItem(response.manga)
+                 //       setLoading(false);
+                 //   })
+                    const item = mangas.find(item => item.id === id);
+                    setItem(item);
+                    setLoading(false);
+
+                    //requestChapters(id).then((response) => {
+                      //  setChapters(response)
+                   // })
+                    //requestSimilar(id).then((response) => {
+                      //  setSimilar(response.mangas)
+                   // })
         };
         const fetchData = async () => {
             const collections = await getCollections();
