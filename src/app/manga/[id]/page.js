@@ -48,6 +48,20 @@ export default function DetailsManga({ params }) {
     const [follow, setFollow] = useState(false);
     const [complete, setComplete] = useState(false);
 
+    const cp = [
+        {date:'22 de Jun, 2024', number: 12,},
+        {date:'12 de Jun, 2024', number: 11,},
+        {date:'2 de Jun, 2024', number: 10,},
+        {date:'25 de Abr, 2024', number: 9,},
+        {date:'13 de Abr, 2024', number: 8,},
+        {date:'2 de Abr, 2024', number: 7,},
+        {date:'24 de Mai, 2024', number: 6,},
+        {date:'12 de Mai, 2024', number: 5,},
+        {date:'1 de Mai, 2024', number: 4,},
+        {date:'24 de Mar, 2024', number: 3,},
+        {date:'17 de Mar, 2024', number: 2,},
+        {date:'5 de Mar, 2024', number: 1,},
+    ]
     
     useEffect(() => {
         setLoading(true)
@@ -58,8 +72,9 @@ export default function DetailsManga({ params }) {
                  //   })
                     const item = mangas.find(item => item.id === id);
                     setItem(item);
+                    setSimilar(mangas.filter(manga => manga.type === item.type));
                     setLoading(false);
-
+                    setChapters(cp)
                     //requestChapters(id).then((response) => {
                       //  setChapters(response)
                    // })
