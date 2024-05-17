@@ -92,7 +92,9 @@ export default function Feed () {
             </Row>
 
 
-              <Row style={{  margin: '0px 60px', justifyContent: 'space-between',   }}>    
+              <Column style={{  margin: '0px 60px', justifyContent: 'space-between',  alignItems: 'center'  }}>  
+                <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
+
                       <Column>
                         <Title style={{ fontSize: 54, lineHeight: 1, textAlign: 'center' }}>{saudacao}</Title>
                         <Row style={{}}>
@@ -103,8 +105,7 @@ export default function Feed () {
                       {a &&  <ButtonPrimary style={{marginTop: 20, background: "#fff", color: "#000",}} onClick={() => router.push('/profile')}>Ver meu Feed</ButtonPrimary>}
                       </Column>
 
-                      <Image src={user?.avatar} alt="avatar" className="fadeInUp profile" width={200} height={200} style={{borderRadius: 100, objectFit: 'cover', alignSelf: 'center', border: '4px solid #fff', marginBottom: 20, }}/>
-              </Row>
+              </Column>
 
 
            {a &&   <Row style={{ justifyContent: 'space-between', alignItems: 'center',  margin: '20px 50px' }}>
