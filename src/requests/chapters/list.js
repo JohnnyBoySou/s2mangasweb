@@ -3,10 +3,13 @@ const ChapterList = [
         id: 1,
         chapters: [
         {
-            id: 1_247, 
-            name: '-',
-            number: 247,
-            date: '27 de Dez, 2023'
+            id: "20ae03d5-25c5-4bd0-a8ba-2652cbe43f46", 
+            title: 'Cops and Robbers (5)',
+            chapter: 22,
+            volume: 4,
+            language: ['en'],
+            publish_date: '27 de Dez, 2023',
+            pages: 28,
         },
         {
             id: 1_246, 
@@ -25,3 +28,4 @@ const ChapterList = [
 ]
 
 export default ChapterList;
+

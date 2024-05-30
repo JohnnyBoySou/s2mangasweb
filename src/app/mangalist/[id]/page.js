@@ -32,9 +32,25 @@ export default function MangaListDetails({ params }) {
     
         <Column style={{paddingTop: 40, borderRadius: 24, backgroundColor: '#202020', marginTop: -30,}}>
             <Title style={{marginLeft: 44, fontSize: 42, marginBottom: 20,}}>Mangás</Title>
+            {item?.mangas_ids.length === 0 && <NotFound />}
             <ListMangalist data={item.mangas_ids} />
         </Column>
          </Column>
         
+    )
+}
+
+
+const NotFound = () => {
+    return (
+        <Column style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 100, }}>
+            <Row style={{ margin: '20px 0px' }}>
+                <Column style={{ width: 120, height: 200, border: '2px dashed #606060', borderRadius: 12,   transform: 'rotate(-12deg)',  marginTop: 12,  }}/>
+                <Column style={{ width: 120, height: 200, border: '2px solid #606060', background: '#202020', zIndex: 8, borderRadius: 12, margin: '0px -20px',     }}/>
+                <Column style={{ width: 120, height: 200, border: '2px dashed #606060', borderRadius: 12,    transform: 'rotate(12deg)', marginTop: 12,   }}/>
+            </Row>
+            <Title>Nada aqui por enquanto!</Title>
+            <Label>Não encontramos nenhum mangá por aqui.</Label>
+        </Column>
     )
 }

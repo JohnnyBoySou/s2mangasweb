@@ -9,7 +9,6 @@ const mangas = [
         date: 2018,
         author: 'AKUTAMI Gege',
         description: 'No universo de Jujutsu Kaisen, escondido à vista de todos, um conflito milenar continua. Monstros sobrenaturais conhecidos como “Maldições” aterrorizam a humanidade das sombras, e humanos poderosos conhecidos como feiticeiros “Jujutsu” usam artes místicas para exterminá-los. Quando o estudante do ensino médio Yuuji Itadori encontra um dedo seco da lendária Maldição Sukuna Ryoumen, ele de repente se junta a este conflito sangrento.       Atacado por uma maldição atraída pelo poder do dedo, Yuuji toma uma decisão imprudente de se proteger, ganhando o poder de combater as maldições no processo, mas também involuntariamente liberando o malicioso Sukuna no mundo mais uma vez. Embora Yuuji possa controlar e confinar Sukuna em seu próprio corpo, o mundo do Jujutsu classifica Yuuji como uma maldição perigosa de alto nível que deve ser exterminada.',
-        
         likes: 32000,
         id_review: 2312_522,
         
