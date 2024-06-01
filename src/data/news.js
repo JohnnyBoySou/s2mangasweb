@@ -5,6 +5,13 @@ const news = [
         name: 'Dungeon Meshi',
         score: '9.29',
         type: 'Mangá'
+    },
+    {
+        id: '4f3bcae4-2d96-4c9d-932c-90181d9c873e',
+        capa: 'https://mangadex.org/covers/4f3bcae4-2d96-4c9d-932c-90181d9c873e/17773464-61da-4885-8084-50f9d2489fbd.jpg.512.jpg',
+        name: 'My Hero Academia',
+        score: '8.43',
+        type: 'Mangá',
     }
 ]
 
