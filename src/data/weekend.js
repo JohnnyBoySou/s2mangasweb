@@ -55,7 +55,81 @@ const weekend = [
         score: '7.78',
         type: 'Mangá'
     },
+    {
+        id: 'c326cbf9-c81b-4ff5-9d77-dc549437fd4e',
+        capa: 'https://mangadex.org/covers/c326cbf9-c81b-4ff5-9d77-dc549437fd4e/3385f606-9a6a-43b2-a7d3-99df56ce121d.jpg.512.jpg',
+        name: 'Kimi ni Somaru Monochrome',
+        score: '8.14',
+        type: 'Mangá',
+    },
+    {
+        id: '4509fd84-c003-4c57-ab07-e207e6999dab',
+        capa: 'https://mangadex.org/covers/4509fd84-c003-4c57-ab07-e207e6999dab/f6543ee0-f5fc-4266-aa25-585c2bb2d06f.jpg.512.jpg',
+        name: 'Issho ni Kurashite ii desu ka?',
+        score: '7.77',
+        type: 'Mangá',
+    },
+    {
+        id: 'bbc06354-a4ab-4f44-bb0a-db2e3a58d57c',
+        capa: 'https://mangadex.org/covers/bbc06354-a4ab-4f44-bb0a-db2e3a58d57c/68a02bc5-51c3-409b-895f-e0b5f23ef65a.jpg.512.jpg',
+        name: 'Tsukushitagari na Uchi no Yome ni Tsuite Derete mo Ii ka',
+        score: '7.43',
+        type: 'Mangá',
+    },
+    {
+        id: '7bf163e3-123a-41c1-b2bc-8254dbe5a09b',
+        capa: 'https://mangadex.org/covers/7bf163e3-123a-41c1-b2bc-8254dbe5a09b/99b807c0-0ace-4a75-846d-b6a225501e06.jpg.512.jpg',
+        name: '2.5 Dimensional Seduction',
+        score: '8.37',
+        type: 'Mangá',
+    },
+    {
+        id: '05bd710c-d94a-45eb-be99-2109d58f1006',
+        capa: 'https://mangadex.org/covers/05bd710c-d94a-45eb-be99-2109d58f1006/b285b593-19c4-4fe0-96d1-1610635be45b.jpg.512.jpg',
+        name: 'Hajirau Kimi Ga Mitainda',
+        score: '8.25',
+        type: 'Mangá',
+    },
+    {
+        id: '9dba8d1f-9fe7-48e7-9c1b-868ca4144068',
+        capa: 'https://mangadex.org/covers/9dba8d1f-9fe7-48e7-9c1b-868ca4144068/5013096f-f48a-4ee8-b848-ea09e3e8c3ed.jpg.512.jpg',
+        name: 'Strategic Lovers',
+        score: '6.91',
+        type: 'Mangá',
+    },
+    {
+        id: 'ced562a0-6b49-478a-862b-e737e1f32f7a',
+        capa: 'https://mangadex.org/covers/ced562a0-6b49-478a-862b-e737e1f32f7a/c9ef8dff-846b-4073-b7e0-818f071e8cfe.jpg.512.jpg',
+        name: "I Don't Know if It's LOVE or MAGIC!",
+        score: '7.16',
+        type: 'Mangá',
+    },
+    {
+        id: 'be2efc56-1669-4e42-9f27-3bd232bca8ea',
+        capa: 'https://mangadex.org/covers/be2efc56-1669-4e42-9f27-3bd232bca8ea/ce5a0bdb-da3c-419a-8620-ef22c5bd000d.jpg.512.jpg',
+        name: 'Ningen ni Koisuru Shinigami-chan',
+        score: '8.42',
+        type: 'Mangá',
+    },
+    {
+        id: '0cfadedb-99cf-4fe5-b117-dc624da32225',
+        capa: 'https://mangadex.org/covers/0cfadedb-99cf-4fe5-b117-dc624da32225/0172b37a-cff6-4499-90a5-830765e99cf3.jpg.512.jpg',
+        name: 'Black Gakkou ni Tsutomete Shimatta Sensei',
+        score: '7.54',
+        type: 'Mangá',
+    },
+    
     
 ]
 
 export default weekend;
+
+/*
+{
+        id: '',
+        capa: '',
+        name: '',
+        score: '',
+        type: 'Mangá',
+    },
+ */
