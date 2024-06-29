@@ -27,27 +27,13 @@ const news = [
         score: '9.26',
         type: 'Mangá',
     },
-    {
-        id: '',
-        capa: '',
-        name: '',
-        score: '',
-        type: 'Mangá',
-    },
-    {
-        id: '',
-        capa: '',
-        name: '',
-        score: '',
-        type: 'Mangá',
-    },
-    {
-        id: '',
-        capa: '',
-        name: '',
-        score: '',
-        type: 'Mangá',
-    },
 ]
 
 export default news;
+/*{
+    id: '',
+    capa: '',
+    name: '',
+    score: '',
+    type: 'Mangá',
+},*/
