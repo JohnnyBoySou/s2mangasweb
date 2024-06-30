@@ -4,11 +4,10 @@ import { Column, Row, Title, Label, ButtonOff } from '../../../../themes/global'
 import { GoArrowUp } from "react-icons/go";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import './category.css'
-import tags from '../../../../requests/categories/tags'
-import requestGenre from '../../../../requests/manga/genres';
-import ListMangaWrap from './../../../../components/Cards/listwrap';
-import NavBar from './../../../../components/NavBar/index';
-import Skeleton from '../../../../components/Loading';
+import tags from '@data/tags'
+import ListMangaWrap from '@components/Cards/listwrap';
+import NavBar from '@components/NavBar/index';
+import Skeleton from '@components/Loading';
 
 export default function CategoryDetails ({params}){
     //API
@@ -23,20 +22,22 @@ export default function CategoryDetails ({params}){
     const scrollToTop = () => { if (scroll.current) { scroll.current.scrollTo({top: 0,behavior: 'smooth',}); } };
     const handleScroll = () => {  if (scroll.current) {  settopView(scroll.current.scrollTop > 200);  }  };
 
-      useEffect(() => {
-        async function requestData(){
-            setLoading(true)
-            try {
-                const res = await requestGenre(id, page)
-                setData(res)
-                setLoading(false)
+    /* 
+    useEffect(() => {
+      async function requestData(){
+        setLoading(true)
+        try {
+          const res = await requestGenre(id, page)
+          setData(res)
+          setLoading(false)
             } catch (error) {
                 console.log(error)
+              }
             }
-        }
-        requestData()
-      }, [id, page]);
-
+            requestData()
+          }, [id, page]);
+      */
+          
 return(
     <>
     <NavBar bg={item?.color+90}/>

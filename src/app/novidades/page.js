@@ -1,8 +1,7 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import { Column, Row, Title, Label, ButtonOff} from '../../themes/global';
-//import ListMangaWrap from '../../components/Cards/listwrap';
-import { news } from '../../requests/update/news';
+import { news } from '@data/update/news';
 import './style.css';
 export default function Novidades (){
 
