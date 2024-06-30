@@ -1,4 +1,4 @@
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const proxyUrl = '/api/proxy?url=';
 
 const lasted = [
     {

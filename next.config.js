@@ -18,6 +18,10 @@ module.exports = {
       },
       {
         protocol: 'https',
+        hostname: 'api.mangadex.org',
+      },
+      {
+        protocol: 'https',
         hostname: 'em-content.zobj.net',
       },
     ],
