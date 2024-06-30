@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "https://s2mangas.com/start"
+      }
+    ]
+  }
