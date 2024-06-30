@@ -1,7 +1,7 @@
 'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import { Column, Row, Title, Label, } from '../../../../themes/global';
-import Decks from '../../../../requests/cards/decks';
+import Decks from '@data/cards/decks';
 import { ThemeContext } from 'styled-components';
 import Image from 'next/image';
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";

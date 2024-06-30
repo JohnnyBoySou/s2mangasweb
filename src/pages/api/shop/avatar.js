@@ -1,9 +1,7 @@
-import { avatars, chibi , art, art2, geral, animev2, novos} from "../../../requests/shop/avatars";
-
+import { avatars, chibi , art, art2, geral, animev2, novos} from "@data/shop/avatars";
 
 export default async function handler(req, res) {
   try {
-
     const avatar = [
         {'avatars':avatars}, 
         {'chibi': chibi}, 
