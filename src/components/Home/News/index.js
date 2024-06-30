@@ -4,11 +4,13 @@ import { Column, Row, Title, Label, ButtonOff, } from '@themes/global';
 import ListMangaNews from '@components/Cards/list_news';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '@components/Loading';
+import news from '@data/news';
 
-export default function NewsComponent({}) {
-    const [news, setnews] = useState();
+export default function NewsComponent() {
+    const [data, setnews] = useState(news);
     const [newsPage, setNewsPage] = useState(1);
 
+    /*Code review 
     useEffect(() => {
         async function requestNews(page = 1) {
             try {
@@ -20,13 +22,14 @@ export default function NewsComponent({}) {
         }
        requestNews(newsPage)
     }, [newsPage])
+    */
 
-    const release = news?.length > 0 ? news[0]?.release_date : '1 dia';
+    const release = '2 horas atrás';
 
     return(
     <Column className="fadeInUp">
 
-        {news?.length === 0 ? 
+        {data?.length === 0 ? 
         <Column style={{padding: '0px 44px', marginBottom: 20, marginTop: 30,}}>
             <Row style={{justifyContent: 'space-between', alignItems: 'center', }}>
             <Column>
@@ -56,6 +59,6 @@ export default function NewsComponent({}) {
         </Row>
         }
 
-        <ListMangaNews data={news} page={newsPage}/>
+        <ListMangaNews data={data} page={newsPage}/>
     </Column>
     )};

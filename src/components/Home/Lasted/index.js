@@ -5,12 +5,14 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '@components/Loading';
 import ListManga from '@components/Cards/list';
 import Link from 'next/link';
-import axios from "axios";
+
+import lasted from '@data/lasted';
 
 export default function LastedComponent() {
-    const [news, setnews] = useState();
+    const [news, setnews] = useState(lasted);
     const [newsPage, setNewsPage] = useState(1);
 
+    /* Code review 
     useEffect(() => {
         async function requestLasted(page = 1) {
             try {
@@ -22,11 +24,10 @@ export default function LastedComponent() {
         }
         requestLasted(newsPage)
     }, [newsPage])
-
+    */
 
     return (
         <Column className="fadeInUp">
-
             {news?.length === 0 ?
                 <Column style={{ padding: '0px 44px', marginBottom: 20, marginTop: 50, }}>
                     <Row style={{ justifyContent: 'space-between', alignItems: 'center', }}>
@@ -59,7 +60,6 @@ export default function LastedComponent() {
                     </Row>
                 </Row>
             }
-
             <ListManga data={news} page={newsPage} />
         </Column>
     )
