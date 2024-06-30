@@ -3,11 +3,10 @@ import React from 'react';
 import { Column, Row, Title, Label, B} from '../../themes/global';
 import './cards.css'
 import Image from 'next/image';
-import Decks from '../../requests/cards/decks';
-import Cards from '../../requests/cards/cards';
+import Decks from '@data/cards/decks';
+import Cards from '@data/cards/cards';
 import Draggable from '../../components/draggable';
 import Spline from '@splinetool/react-spline';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 
 export default function CardsDecks(){
