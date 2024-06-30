@@ -1,16 +1,27 @@
 'use client';
-import React, {useState,} from 'react';
-import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
+import React, {useState, useEffect} from 'react';
+import { Column, Row, Title, Label, ButtonOff, } from '@themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import Skeleton from '../../Loading';
-import ListManga from '../../Cards/list';
+import Skeleton from '@components/Loading';
+import ListManga from '@components/Cards/list';
 import Link from 'next/link';
+import axios from "axios";
 
-import mangas from '../../../data/mangas_placeholder';
-
-function WeekendComponent({data}) {
-    const news = mangas;
+function WeekendComponent() {
+    const [news, setnews] = useState();
     const [newsPage, setNewsPage] = useState(1);
+    useEffect(() => {
+        async function requestWeekend(page = 1) {
+            try {
+                const response = await axios.get(`https://s2mangas.com/api/publish/weekend?page=${page}`);
+                console.log(response)
+                setnews(response.data.mangas)
+            } catch (error) {
+                return error.message;
+            }
+        }
+        requestWeekend(newsPage)
+    }, [newsPage])
 
     return(
     <Column className="fadeInUp">

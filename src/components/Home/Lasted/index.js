@@ -1,30 +1,26 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
+import { Column, Row, Title, Label, ButtonOff, } from '@themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import Skeleton from '../../Loading';
-import ListManga from '../../Cards/list';
+import Skeleton from '@components/Loading';
+import ListManga from '@components/Cards/list';
 import Link from 'next/link';
 import axios from "axios";
-import { clearWeekend } from '../../../requests/manga/lasted';
-
-import mangas from '../../../data/mangas_placeholder';
 
 export default function LastedComponent() {
-    const [news, setnews] = useState(mangas);
+    const [news, setnews] = useState();
     const [newsPage, setNewsPage] = useState(1);
 
     useEffect(() => {
         async function requestLasted(page = 1) {
             try {
-                const response = await axios.get(`https://lermanga.org/mangas/page/${page}?orderby=date&order=desc`, { headers: { 'Accept': "text/html", 'Access-Control-Allow-Origin': '*' } });
-                const mangaData = clearWeekend(response.data);
-                setnews(mangaData)
+                const response = await axios.get(`https://s2mangas.com/api/publish/lasted?page=${page}`, { headers: { 'Accept': "text/html", 'Access-Control-Allow-Origin': '*' } });
+                setnews(response.mangas)
             } catch (error) {
                 return error.message;
             }
         }
-       // requestLasted(newsPage)
+        requestLasted(newsPage)
     }, [newsPage])
 
 

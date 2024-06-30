@@ -1,16 +1,16 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Column, Row, Title, Label,  ButtonOff, Button, ButtonPrimary} from '../../themes/global';
+import { Column, Row, Title, Label,  ButtonOff, Button, ButtonPrimary} from '@themes/global';
 import './gradient.css'
 import Image from 'next/image'
-import { geral } from '../../requests/shop/avatars';
-import { geralbg } from '../../requests/shop/capas';
-import { createPreferences, getPreferences } from '../../requests/user/requests';
+import { geral } from '@data/shop/avatars';
+import { geralbg } from '@data/shop/capas';
+import { createPreferences, getPreferences } from '@requests/user/requests';
 import { useRouter } from 'next/navigation'
-import Skeleton from '../../components/Loading';
+import Skeleton from '@components/Loading';
 
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import tags from '../../requests/categories/tags';
+import tags from '@data/tags';
 
 export default function Start (){
 

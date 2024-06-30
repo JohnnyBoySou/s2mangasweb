@@ -4,8 +4,7 @@ import Image from 'next/image'
 import { Button , ButtonOff, Column, Label, Row, Title} from '../../themes/global';
 import { GoHeart } from "react-icons/go";
 import { IoIosPause, IoIosPlay } from "react-icons/io";
-import stories from '../../requests/mangalist';
-import Draggable from '../draggable';
+import stories from '@data/mangalists'
 import { CiVolumeHigh } from "react-icons/ci";
 import { useRouter } from 'next/navigation'
 import './style.css'
@@ -15,13 +14,8 @@ import { FaPlay } from "react-icons/fa";
 import Link from 'next/link';
 
 export default function Mangalists({ }){
-
-
   
-  const news = stories;
   const [newsPage, setNewsPage] = useState(1);
-
-
   const Storie = ({item, }) => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);

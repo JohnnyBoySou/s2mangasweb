@@ -4,9 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Column, Row, Title, Label } from "../../themes/global"
 import { IoMdClose, IoMdCheckmark , IoMdHeartEmpty  } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
-import mangas from "../../requests/mangas_old"
 import './fixed.css';
-import { usePathname } from "next/navigation";
 
 import ColorThief from 'colorthief';
 import Progress from '../Kit/Progress';
@@ -14,7 +12,6 @@ import Progress from '../Kit/Progress';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
-import requestSimilar from '../../requests/manga/similar';
 import ListSimilar from '../Cards/list_similar';
 import Comments from '../Comments';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -48,11 +45,10 @@ export default function Fixed({}){
               img.src = url;
           })
       }
-      const getSimilar = async () => {requestSimilar(item?.id).then((response) => {setSimilar(response.mangas); })}
-
+      //const getSimilar = async () => {requestSimilar(item?.id).then((response) => {setSimilar(response.mangas); })}
 
       getPalette(item?.capa).then(res => {const hex = rgbToHex(res[0], res[1], res[2]);setDominantColor(hex)})
-      getSimilar()
+      //getSimilar()
     
    }, [item])
 

@@ -1,46 +1,30 @@
 'use client';
 import React, {useRef, useEffect, useState} from "react"
 import Image from 'next/image'
-import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '../../themes/global'
+import { Column, Row, Label, Title, ButtonPrimary, ButtonOff, Button} from '@themes/global'
 import './feed.css';
 import { useRouter } from 'next/navigation'
 
-import { getPreferences } from "../../requests/user/requests";
-import Skeleton from "../../components/Loading";
+import { getPreferences } from "@requests/user/requests";
+import Skeleton from "@components/Loading";
 
-import NavBar from "../../components/NavBar";
+import NavBar from "@components/NavBar";
 
-import requestHome from "../../requests/manga/home";
-
-import NewsComponent from "../../components/Home/News";
-import LastedComponent from "../../components/Home/Lasted";
-import WeekendComponent from './../../components/Home/Weekend/index';
-import RateComponent from './../../components/Home/Rate/index';
-import Mangalists from "../../components/Mangalist";
+import NewsComponent from "@components/Home/News";
+import LastedComponent from "@components/Home/Lasted";
+import WeekendComponent from '@components/Home/Weekend/index';
+import RateComponent from '@components/Home/Rate/index';
+import Mangalists from "@components/Mangalist";
 import { Search , Library} from "lucide-react"
 
 
 
 export default function Feed () {
-  const [weekend, setWeekend] = useState([]);
-  const [news, setNews] = useState([]);
-  const [lasted, setLasted] = useState([]);
-  const [rate, setRate] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
   const router = useRouter();
 
   useEffect(() => {
-    const requestData = async () => {
-     // const response = await requestHome()
-     // setWeekend(response.weekend);
-     // setNews(response.news);
-     // setLasted(response.lasted);
-     // setRate(response.rate);
-      setLoading(false)
-    }
-
-
     const getUser = () => {
       try {
         const response = getPreferences()
@@ -55,7 +39,6 @@ export default function Feed () {
       }
     }
     getUser()
-    requestData()
   }, [loading, router])
 
   //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
