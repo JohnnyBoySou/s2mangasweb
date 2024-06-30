@@ -1,15 +1,15 @@
 'use client';
 import React, {useState, useEffect} from 'react';
-import { Column, Row, Title, Label, ButtonPrimaryLight} from '../../themes/global';
+import { Column, Row, Title, Label, ButtonPrimaryLight} from '@themes/global';
 import './search.css'
 import { CiSearch } from "react-icons/ci";
-import tags from '../../requests/categories/tags'
+import tags from '@data/tags'
 import Link from 'next/link';
 import Image from 'next/image';
 import { excludeWords, listWords, saveWord } from '../../requests/search/request';
-import ListSearch from '../../components/Cards/list_search';
+import ListSearch from '@components/Cards/list_search';
 import NavBar from '../../components/NavBar';
-import requestSearch from '../../requests/manga/search';
+import {getSearch} from '@api/getSearch';
 
 export default function Search() {
     const [name, setName] = useState(); 
@@ -21,12 +21,12 @@ export default function Search() {
         <Link href={`/search/category/${item.id}`} style={{textDecoration: 'none'}}>
         <Column  key={index} style={{width: 200, cursor: 'pointer', margin: 10, borderRadius: 12, height: 240, backgroundColor: item?.color, overflow: 'hidden', padding: 6, }}>
                 <Title style={{fontSize: 24, margin: 10,}}>{item.name}</Title>
-                  <img className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
               </Column>
         </Link>
       )
     }
 
+    //<img className='image_poster' width={100} height={160} alt={item.name} src={item?.img} />
 
     useEffect(() => {
         const requestHistory = async () => {
@@ -45,7 +45,7 @@ export default function Search() {
         if(name === '') {return;}
         setLoading(true);
         saveWord(name);
-        requestSearch(name).then(res => {
+        getSearch(name).then(res => {
             console.log(res)
             setData(res)
             setLoading(false)
@@ -72,7 +72,7 @@ export default function Search() {
             <Column style={{padding: 24, backgroundColor: "#303030", borderRadius: 12,}}>
                 <Image src={item?.capa} width={150} height={220} alt={data[0]?.name} style={{objectFit: 'cover', borderRadius: 8,}} />
                 <Title style={{color: "#f6f6f6", fontSize: 22, marginTop: 8,}}>{item?.name.slice(0,15)}</Title>
-                <Label style={{fontSize: 16, marginTop: 4,}}>{item?.rate} • {item?.typename}</Label>
+                <Label style={{fontSize: 16, marginTop: 4,}}>{item?.status} • {item?.type}</Label>
             </Column>
         
           )

@@ -442,9 +442,8 @@ export default function DetailsManga({ params }) {
                                     </Row>
                                 }
                             </Row>
-                            <Row style={{ paddingRight: 30, marginTop: -10, }}>
+                            <Row style={{ paddingRight: 10, marginTop: -10, }}>
                                 <input type="number" onChange={e => setSearch(e.target.value)} onFocus={() => setonSearch(true)} onBlur={() => setonSearch(false)} value={search} placeholder="Buscar capítulo" min="1" max={item?.chapters} style={{ padding: 12, flexGrow: 1, borderRadius: 6, fontFamily: 'Book', backgroundColor: "#404040", color: "#fff", border: 'none', fontSize: 18, }} />
-                                
                             </Row>
                             <ListChapters search={search} onSearch={onSearch} />
                         </Column>

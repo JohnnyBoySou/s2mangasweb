@@ -24,8 +24,8 @@ export default function ListSearch({ data }) {
               height={206}
               style={{borderRadius: 6, alignSelf: 'center', cursor: 'pointer', objectFit: 'cover', cursor: loading ? 'wait' : 'pointer', }}
               />
-              <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name.slice(0,15)}</Label>
-              <Label style={{fontSize: 16, marginTop: 4,}}>{item?.rate} • {item?.typename}</Label>
+              <Label style={{color: "#f6f6f6", fontSize: 18, marginTop: 8,}}>{item?.name?.length > 18 ? item?.name.slice(0,18) + '...' : item?.name}</Label>
+              <Label style={{fontSize: 16, marginTop: 4,}}>{item?.status} • {item?.type}</Label>
             
           </Column>
         )
