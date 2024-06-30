@@ -1,4 +1,4 @@
-import stories from "../../../requests/mangalist";
+import stories from "@data/mangalists";
 
 export default async function handler(req, res) {
   try {
