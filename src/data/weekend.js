@@ -1,4 +1,4 @@
-const proxyUrl = 'https://proxyurl.com/';
+const proxyUrl = '/api/proxy?url=';
 
 const weekend = [
     {
