@@ -12,7 +12,7 @@ import Skeleton from "../Loading"
     setLoading(true)
     router.push(`/manga/${id}`)
   }
-
+  const proxyUrl = '/api/proxy?url=';
   
   const startIndex = (page - 1) * 8;
   const endIndex = page * 8;
@@ -25,7 +25,7 @@ import Skeleton from "../Loading"
           <img 
               onClick={handle}
               className="imagezoom"
-              src={item?.capa}
+              src={proxyUrl + item?.capa}
               alt={item?.name}
               width={144}
               height={206}
