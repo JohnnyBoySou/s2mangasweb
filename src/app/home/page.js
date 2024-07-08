@@ -126,7 +126,6 @@ export default function Feed () {
             </Column>
             <Column>
              
-             <NewsComponent  />
              <LastedComponent  />
              <RateComponent  />
              <WeekendComponent  />
