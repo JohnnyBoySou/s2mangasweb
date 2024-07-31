@@ -19,4 +19,12 @@ export const backgrounds = [
     'https://i.pinimg.com/564x/c1/4c/2d/c14c2dee5fb49eaa6702f8948a7ff97e.jpg',
     'https://i.pinimg.com/564x/83/6b/3a/836b3a732daa4ec1ed1025857fc25c5f.jpg',
     'https://i.pinimg.com/564x/9d/cd/54/9dcd54e74d9e7cb91a47b7e6b83bd04d.jpg',
+    'https://i.pinimg.com/564x/83/cb/85/83cb8558b3d5543f5dbf45da1ff0c286.jpg',
+    'https://i.pinimg.com/564x/70/18/d3/7018d399f8a78ec07740a7f373797508.jpg',
+    'https://i.pinimg.com/564x/e2/a3/05/e2a3050944e9b67c21a7757b1c0a4421.jpg',
+    'https://i.pinimg.com/564x/1a/9b/42/1a9b421c5388cde308362e571573c8ca.jpg',
+    'https://i.pinimg.com/564x/dc/8f/2c/dc8f2c57d562af26ee9219e4dcc3664f.jpg',
+    'https://i.pinimg.com/564x/11/71/19/1171195a504a1261d401d42eb7a5ce17.jpg',
+    'https://i.pinimg.com/564x/4c/9a/c2/4c9ac29db4fb99bad2f28434731578ff.jpg',
+    'https://i.pinimg.com/564x/82/ae/ac/82aeac94160113987f084ed93ab4c14d.jpg',
 ]
