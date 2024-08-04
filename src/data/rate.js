@@ -1,5 +1,3 @@
-const proxyUrl = '';
-
 const rate = [
     {
         id: 'd1a9fdeb-f713-407f-960c-8326b586e6fd',

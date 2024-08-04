@@ -1,4 +1,3 @@
-const proxyUrl = '/api/proxy?url=';
 
 const lasted = [
     {
@@ -27,6 +26,83 @@ const lasted = [
         capa: `https://mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/59ade418-3590-4d7b-91b0-24c8feaa845f.png.512.jpg`,
         name: 'Chainsaw Man',
         score: '9.26',
+        type: 'Mangá',
+    },
+    {
+        id: '67bd081f-1c40-4ae2-95a2-6af29de4fc01',
+        capa: 'https://mangadex.org/covers/67bd081f-1c40-4ae2-95a2-6af29de4fc01/29dcabe0-9efe-4575-9fcf-36be55363591.jpg.512.jpg',
+        name: 'The Horizon',
+        score: '9.43',
+        type: 'Mangá',
+    },
+    {
+        id: '5b93fa0f-0640-49b8-974e-954b9959929b',
+        capa: 'https://mangadex.org/covers/5b93fa0f-0640-49b8-974e-954b9959929b/760a82b6-ff87-4da2-971b-29a11ad535bc.jpg.512.jpg',
+        name: 'Girls Last Tour',
+        score: '9.42',
+        type: 'Mangá',
+    },
+    {
+        id: '6ecc62e4-25ad-4102-b0d8-580a8023d2fb',
+        capa: 'https://mangadex.org/covers/6ecc62e4-25ad-4102-b0d8-580a8023d2fb/571d1d00-9ab1-44ce-b6ab-aa72584ee2f9.jpg.512.jpg',
+        name: 'Kimi to Tsuzuru Utakata',
+        score: '9.40',
+        type: 'Mangá',
+    },
+    {
+        id: '8f8b7cb0-7109-46e8-b12c-0448a6453dfa',
+        capa: 'https://mangadex.org/covers/8f8b7cb0-7109-46e8-b12c-0448a6453dfa/0929bd2f-284d-44c8-bc44-9a3da5f1002f.jpg.512.jpg',
+        name: 'Haikyu!!',
+        score: '9.38',
+        type: 'Mangá',
+    },
+    {
+        id: '37f5cce0-8070-4ada-96e5-fa24b1bd4ff9',
+        capa: 'https://mangadex.org/covers/37f5cce0-8070-4ada-96e5-fa24b1bd4ff9/6bfc8f2a-7510-4746-90d6-b97d01c20796.jpg.512.jpg',
+        name: 'Kaguya-sama: Love is War',
+        score: '9.38',
+        type: 'Mangá',
+    },
+    {
+        id: '736a2bf0-f875-4b52-a7b4-e8c40505b68a',
+        capa: 'https://mangadex.org/covers/736a2bf0-f875-4b52-a7b4-e8c40505b68a/7f07f02e-39ba-4e38-a01d-6f74652013fa.jpg.512.jpg',
+        name: 'Mob Psycho 100',
+        score: '9.35',
+        type: 'Mangá',
+    },
+    {
+        id: 'dd8a907a-3850-4f95-ba03-ba201a8399e3',
+        capa: 'https://mangadex.org/covers/dd8a907a-3850-4f95-ba03-ba201a8399e3/a9cd0207-1b86-4738-a2b5-3575c32d5315.jpg.512.jpg',
+        name: 'Fullmetal Alchemist',
+        score: '9.35',
+        type: 'Mangá',
+    },
+    {
+        id: '32d76d19-8a05-4db0-9fc2-e0b0648fe9d0',
+        capa: 'https://mangadex.org/covers/32d76d19-8a05-4db0-9fc2-e0b0648fe9d0/e90bdc47-c8b9-4df7-b2c0-17641b645ee1.jpg.512.jpg',
+        name: 'Solo Leveling',
+        score: '9.32',
+        type: 'Mangá',
+    },
+    {
+        id: '1e84acd4-6e94-4b24-81a4-db236840d578',
+        capa: 'https://mangadex.org/covers/1e84acd4-6e94-4b24-81a4-db236840d578/4fcb26c5-5a5b-4690-958a-9529e05237e6.jpg.512.jpg',
+        name: 'I Want to Eat Your Pancreas',
+        score: '9.31',
+        type: 'Mangá',
+    },
+    {
+        id: '039d717e-9690-47fd-944d-93161b97fbac',
+        capa: 'https://mangadex.org/covers/039d717e-9690-47fd-944d-93161b97fbac/9377af74-48af-4fe7-bbd9-652d8fb35f92.jpg.512.jpg',
+        name: 'Given',
+        score: '9.24',
+        type: 'Mangá',
+    },
+    {
+        id: 'a25e46ec-30f7-4db6-89df-cacbc1d9a900',
+        capa: 'https://mangadex.org/covers/a25e46ec-30f7-4db6-89df-cacbc1d9a900/a6838b90-fa2b-4228-9650-3adab0961747.jpg.512.jpg',
+        name: 'Horimiya',
+        score: '9.21',
         type: 'Mangá',
     },
 ];
