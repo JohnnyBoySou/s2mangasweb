@@ -111,14 +111,14 @@ const weekend = [
         name: 'Ningen ni Koisuru Shinigami-chan',
         score: '8.42',
         type: 'Mangá'
-        },
-        {
+    },
+    {
         id: '0cfadedb-99cf-4fe5-b117-dc624da32225',
         capa: `https://mangadex.org/covers/0cfadedb-99cf-4fe5-b117-dc624da32225/0172b37a-cff6-4499-90a5-830765e99cf3.jpg.512.jpg`,
         name: 'Black Gakkou ni Tsutomete Shimatta Sensei',
         score: '7.54',
         type: 'Mangá'
-        }
-        ];
-        
-        export default weekend;
+    }
+];
+
+export default weekend;
