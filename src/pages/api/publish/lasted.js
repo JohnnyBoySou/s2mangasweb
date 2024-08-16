@@ -1,4 +1,4 @@
-import lasted from "@data/lasted";
+import lasted from "@data/mangas/lasted";
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(

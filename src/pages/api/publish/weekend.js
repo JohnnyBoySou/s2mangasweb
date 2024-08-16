@@ -1,4 +1,4 @@
-import weekend from "@data/weekend";
+import weekend from "@data/mangas/weekend";
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(

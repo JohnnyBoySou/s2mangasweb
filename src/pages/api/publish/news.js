@@ -1,4 +1,4 @@
-import news from "@data/news";
+import news from "@data/mangas/news";
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
