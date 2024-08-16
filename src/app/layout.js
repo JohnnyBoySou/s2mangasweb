@@ -1,44 +1,25 @@
-
 import React from "react"
-import ThemeClient from "./page"
-import { Column, Row } from "../themes/global"
-import Header from '../components/Header'
-import Fixed from '../components/Fixed'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import NavBar from "../components/NavBar"
+import Providers from "@hooks/providers"
 
 export const metadata = {
   title: 'S2Mangás',
   description: 'O seu leitor de mangás moderno.',
   keywords: ['ler mangás', 'S2Mangas', 'mangas', 'Mangas Online',],
-  authors: [{ name: 'Johnny', url: 'https://www.instagram.com/joaodesousa.ui' },],
+  authors: [{ name: 'Johnny', url: 'https://www.instagram.com/https.joaodesousa' },],
   creator: 'JohnnyBoy',
   publisher: 'S2Mangas Team',
 }
 
-import StyledComponentsRegistry from '../lib/registry'
-
-
 export default function RootLayout({ children }) {
-
-  const fixed = true  
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
-      <ThemeClient>
-      <StyledComponentsRegistry>
-      <body  style={{ overflow: 'hidden', }} >
-      <Row>
-        <Header />
-        <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>
+      <Providers>
+        <body>
           {children}
-        </Column>
-         <SpeedInsights />
-        {fixed && <Fixed /> }
-      </Row>
-      </body>
-      </StyledComponentsRegistry>
-
-      </ThemeClient>
+          <SpeedInsights />
+        </body>
+      </Providers>
     </html>
   )
 }
@@ -52,5 +33,3 @@ RootLayout.getLayoutProps = () => ({
     crossOrigin: "anonymous"
   }
 });
-
-//<NavBar/>
