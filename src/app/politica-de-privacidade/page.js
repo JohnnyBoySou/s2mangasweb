@@ -3,7 +3,7 @@ import { Title, Label, Column } from '@theme/global';
 
 const PrivacyPolicy = () => {
   return (
-    <Column style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+    <Column style={{ paddingVertical: 40, maxWidth: '800px', margin: '0 auto' }}>
       <Title size={32}>Política de Privacidade - S2 Mangás</Title>
       <Label>No <strong>S2 Mangás</strong>, levamos sua privacidade a sério. Queremos que você entenda como lidamos com seus dados pessoais.</Label>
 
