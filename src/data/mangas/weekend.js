@@ -71,34 +71,6 @@ const weekend = [
         type: 'Mangá'
     },
     {
-        id: 'bbc06354-a4ab-4f44-bb0a-db2e3a58d57c',
-        capa: `https://mangadex.org/covers/bbc06354-a4ab-4f44-bb0a-db2e3a58d57c/68a02bc5-51c3-409b-895f-e0b5f23ef65a.jpg.512.jpg`,
-        name: 'Tsukushitagari na Uchi no Yome ni Tsuite Derete mo Ii ka',
-        score: '7.43',
-        type: 'Mangá'
-    },
-    {
-        id: '7bf163e3-123a-41c1-b2bc-8254dbe5a09b',
-        capa: `https://mangadex.org/covers/7bf163e3-123a-41c1-b2bc-8254dbe5a09b/99b807c0-0ace-4a75-846d-b6a225501e06.jpg.512.jpg`,
-        name: '2.5 Dimensional Seduction',
-        score: '8.37',
-        type: 'Mangá'
-    },
-    {
-        id: '05bd710c-d94a-45eb-be99-2109d58f1006',
-        capa: `https://mangadex.org/covers/05bd710c-d94a-45eb-be99-2109d58f1006/b285b593-19c4-4fe0-96d1-1610635be45b.jpg.512.jpg`,
-        name: 'Hajirau Kimi Ga Mitainda',
-        score: '8.25',
-        type: 'Mangá'
-    },
-    {
-        id: '9dba8d1f-9fe7-48e7-9c1b-868ca4144068',
-        capa: `https://mangadex.org/covers/9dba8d1f-9fe7-48e7-9c1b-868ca4144068/5013096f-f48a-4ee8-b848-ea09e3e8c3ed.jpg.512.jpg`,
-        name: 'Strategic Lovers',
-        score: '6.91',
-        type: 'Mangá'
-    },
-    {
         id: 'ced562a0-6b49-478a-862b-e737e1f32f7a',
         capa: `https://mangadex.org/covers/ced562a0-6b49-478a-862b-e737e1f32f7a/c9ef8dff-846b-4073-b7e0-818f071e8cfe.jpg.512.jpg`,
         name: "I Don't Know if It's LOVE or MAGIC!",
@@ -118,7 +90,91 @@ const weekend = [
         name: 'Black Gakkou ni Tsutomete Shimatta Sensei',
         score: '7.54',
         type: 'Mangá'
-    }
+    },
+    {
+        id: '02b80fce-8fd0-46dc-a6e4-a65f701fde4a',
+        capa: 'https://mangadex.org/covers/02b80fce-8fd0-46dc-a6e4-a65f701fde4a/98be450d-fef5-4324-a277-94856f13b8bf.png.512.jpg',
+        name: 'We Are Not Dating!',
+        score: '8.35',
+        type: 'Mangá'
+    },
+    {
+        id: '85b3504c-62e8-49e7-9a81-fb64a3f51def',
+        capa: 'https://mangadex.org/covers/85b3504c-62e8-49e7-9a81-fb64a3f51def/d241a461-acac-48f4-9c8a-ec8211619263.jpg.512.jpg',
+        name: 'Houkago Kitaku Biyori',
+        score: '9.36',
+        type: 'Mangá'
+    },
+    {
+        id: 'b0b721ff-c388-4486-aa0f-c2b0bb321512',
+        capa: 'https://mangadex.org/covers/b0b721ff-c388-4486-aa0f-c2b0bb321512/f812f3d4-f1df-40ce-bd3c-dcc0fd0eb17b.jpg.512.jpg',
+        name: 'Sousou no Frieren',
+        score: '9.51',
+        type: 'Mangá'
+    },
+    {
+        id: 'a59ec084-aed4-4a49-abc1-ae08cf7a9aa7',
+        capa: 'https://mangadex.org/covers/a59ec084-aed4-4a49-abc1-ae08cf7a9aa7/c932f62c-b573-4552-a485-e2ebbaa9d485.png.512.jpg',
+        name: 'Hi Score Girl',
+        score: '8.90',
+        type: 'Mangá'
+    },
+    {
+        id: 'b5351a0c-96af-49f7-898e-17914a082561',
+        capa: 'https://mangadex.org/covers/b5351a0c-96af-49f7-898e-17914a082561/8a9f25a2-2ca1-47ac-bfea-6440d81c6fd4.jpg.512.jpg',
+        name: 'Boku no Kanojo wa Dekkawaii',
+        score: '8.93',
+        type: 'Mangá'
+    },
+    {
+        id: '418791c0-35cf-4f87-936b-acd9cddf0989',
+        capa: 'https://mangadex.org/covers/418791c0-35cf-4f87-936b-acd9cddf0989/53562d35-adfa-431c-8b13-a0ad4d79c5af.jpg.512.jpg',
+        name: 'Kaoru Hana wa Rin to Saku',
+        score: '9.54',
+        type: 'Mangá'
+    },
+    {
+        id: '58be6aa6-06cb-4ca5-bd20-f1392ce451fb',
+        capa: 'https://mangadex.org/covers/58be6aa6-06cb-4ca5-bd20-f1392ce451fb/5951267f-f863-4e1b-b1fc-a5cfb56faaf8.jpg.512.jpg',
+        name: 'Yotsuba&!',
+        score: '9.51',
+        type: 'Mangá'
+    },
+    {
+        id: 'fb09a201-eaec-4acb-bdff-2f010e8482db',
+        capa: 'https://mangadex.org/covers/fb09a201-eaec-4acb-bdff-2f010e8482db/d92bee76-25d2-4dda-95ff-3b18e07bed99.jpg.512.jpg',
+        name: 'I Had That Same Dream Again',
+        score: '9.37',
+        type: 'Mangá'
+    },
+    {
+        id: 'c5bd7460-644e-40c6-aa66-40d1efaddb58',
+        capa: 'https://mangadex.org/covers/c5bd7460-644e-40c6-aa66-40d1efaddb58/12469d86-61e9-4970-8f8a-97716e4a299f.jpg.512.jpg',
+        name: 'Zatch Bell! 2',
+        score: '9.33',
+        type: 'Mangá'
+    },
+    {
+        id: 'ef96c21c-6838-43d1-9b6e-cb30546bba8c',
+        capa: 'https://mangadex.org/covers/ef96c21c-6838-43d1-9b6e-cb30546bba8c/195e5d9f-46c0-4dd6-bced-259a3d889446.jpg.512.jpg',
+        name: 'Spirit Circle',
+        score: '9.25',
+        type: 'Mangá'
+    },
+    {
+        id: '9e954c6b-7a02-4fd7-986d-6331c0ba95d4',
+        capa: 'https://mangadex.org/covers/9e954c6b-7a02-4fd7-986d-6331c0ba95d4/67643209-6f24-4476-ad2c-f7f46649594f.jpg.512.jpg',
+        name: 'Hikaru ga Shinda Natsu',
+        score: '9.24',
+        type: 'Mangá'
+    },
+    {
+        id: '89daf9dc-075a-4aa5-873a-cc76bb287108',
+        capa: 'https://mangadex.org/covers/89daf9dc-075a-4aa5-873a-cc76bb287108/880b3904-d636-4b5c-a778-54627be8231c.jpg.512.jpg',
+        name: 'Gokushufudou: The Way of the House Husband',
+        score: '9.23',
+        type: 'Mangá'
+    },
 ];
 
 export default weekend;
