@@ -101,6 +101,15 @@ const stories = [
         desc: 'será que o prota vai sofrer? ou vai ser só mais um isekai de sucesso? só lendo pra saber.',
         capa: 'https://i.pinimg.com/736x/59/35/71/5935717b4bd37013de13790fa3cf5701.jpg',
         label: 'Tate no Yuusha, Demon Slayer: Kimetsu no Yaiba, Jujutsu Kaisen...',
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ],
     },
     {
         id: 3,
@@ -113,7 +122,78 @@ const stories = [
         desc: 'go gym, vamos vamos não perde o ritmo mais uma repetição',
         capa: 'https://i.pinimg.com/736x/4c/31/12/4c3112664553458860bc902b33936602.jpg',
         label: 'Mashle, Undead Unluck, JoJos Bizarre Adventure Part 9 – The JoJoLands...',
-        //  mangas_ids: [{"id":"mashle","name":"Mashle","capa":"https://img.lermanga.org/M/mashle/capa.jpg"},{"id":"undead-unluck","name":"Undead Unluck","capa":"https://img.lermanga.org/U/undead-unluck/capa.jpg"},{"id":"jojos-bizarre-adventure-part-9---the-jojolands-colorido","name":"JoJo’s Bizarre Adventure Part 9 – The JoJoLands (Colorido)","capa":"https://img.lermanga.org/J/jojos-bizarre-adventure-part-9---the-jojolands-colorido/capa.jpg"},{"id":"to-not-die","name":"To Not Die","capa":"https://img.lermanga.org/T/to-not-die/capa.jpg"},{"id":"chiruran-shinsengumi-requiem","name":"Chiruran: Shinsengumi Requiem","capa":"https://img.lermanga.org/C/chiruran-shinsengumi-requiem/capa.jpg"}]
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
     {
         id: 4,
