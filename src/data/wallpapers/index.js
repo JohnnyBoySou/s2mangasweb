@@ -7,15 +7,15 @@ const wallpapers = [
         data: [
             {
                 id: 1,
-                img: 'https://i.pinimg.com/736x/f1/1f/89/f11f895c6e37804b56bdc43ca168886a.jpg',
+                img: 'https://i.pinimg.com/564x/33/37/9d/33379d882ffdd994a2750caaf6aa91ed.jpg',
             },
             {
                 id: 2,
-                img: 'https://i.pinimg.com/736x/fa/28/cf/fa28cfa07d9291779866aadb2e273af0.jpg',
+                img: 'https://i.pinimg.com/736x/32/2b/b6/322bb641b35064ef5cf21a6e9dda91a5.jpg',
             },
             {
                 id: 3,
-                img: 'https://i.pinimg.com/736x/28/01/1f/28011f4ae0c38a021215607f38fa95b2.jpg',
+                img: 'https://i.pinimg.com/564x/9c/e7/78/9ce778c70354a5b6ae4310805357d58c.jpg',
             },
             {
                 id: 4,
@@ -23,7 +23,7 @@ const wallpapers = [
             },
             {
                 id: 5,
-                img: 'https://i.pinimg.com/736x/90/fc/5d/90fc5d8ac81d2a2158c477b88dc386dd.jpg',
+                img: 'https://i.pinimg.com/564x/4b/dc/fd/4bdcfd6aa5ad1264701e952148250abe.jpg',
             },
             {
                 id: 6,
@@ -75,7 +75,7 @@ const wallpapers = [
             },
             {
                 id: 18,
-                img: 'https://i.pinimg.com/564x/a9/cf/8f/a9cf8ffb67d6f717ce5cae1ec44b2575.jpg',
+                img: 'https://i.pinimg.com/736x/2d/e1/bf/2de1bf9d4b1d55d64ce52543fcf59e48.jpg',
             },
             {
                 id: 19,
