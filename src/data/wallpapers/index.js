@@ -7,7 +7,7 @@ const wallpapers = [
         data: [
             {
                 id: 1,
-                img: 'https://i.pinimg.com/564x/33/37/9d/33379d882ffdd994a2750caaf6aa91ed.jpg',
+                img: 'https://i.pinimg.com/736x/33/37/9d/33379d882ffdd994a2750caaf6aa91ed.jpg',
             },
             {
                 id: 2,
@@ -15,7 +15,7 @@ const wallpapers = [
             },
             {
                 id: 3,
-                img: 'https://i.pinimg.com/564x/9c/e7/78/9ce778c70354a5b6ae4310805357d58c.jpg',
+                img: 'https://i.pinimg.com/736x/9c/e7/78/9ce778c70354a5b6ae4310805357d58c.jpg',
             },
             {
                 id: 4,
@@ -23,7 +23,7 @@ const wallpapers = [
             },
             {
                 id: 5,
-                img: 'https://i.pinimg.com/564x/4b/dc/fd/4bdcfd6aa5ad1264701e952148250abe.jpg',
+                img: 'https://i.pinimg.com/736x/4b/dc/fd/4bdcfd6aa5ad1264701e952148250abe.jpg',
             },
             {
                 id: 6,
@@ -90,68 +90,68 @@ const wallpapers = [
 
     {
         name: 'Dr Stone',
-        capa: 'https://i.pinimg.com/564x/8e/fc/6c/8efc6cbe98a6f75969fb8a78c6d1a340.jpg',
+        capa: 'https://i.pinimg.com/736x/8e/fc/6c/8efc6cbe98a6f75969fb8a78c6d1a340.jpg',
         id: 2,
         data: [
             {
                 id: 1,
-                img: '',
+                img: 'https://i.pinimg.com/736x/43/e0/b6/43e0b67f5ba552237bf84a065b937714.jpg',
             },
             {
                 id: 2,
-                img: '',
+                img: 'https://i.pinimg.com/736x/be/01/2d/be012db763cf0c0061dec796189e4cb1.jpg',
             },
             {
                 id: 3,
-                img: '',
+                img: 'https://i.pinimg.com/736x/8b/f3/34/8bf3346c2be84101db750e85466355b2.jpg',
             },
             {
                 id: 4,
-                img: '',
+                img: 'https://i.pinimg.com/736x/88/fd/42/88fd42b383e9170cec483f2e7300f552.jpg',
             },
             {
                 id: 5,
-                img: '',
+                img: 'https://i.pinimg.com/736x/e4/d7/00/e4d700424b836e3659c20fce3969119a.jpg',
             },
             {
                 id: 6,
-                img: '',
+                img: 'https://i.pinimg.com/736x/d9/aa/ae/d9aaae03e9d554b0c8974ac11eeac4b7.jpg',
             },
             {
                 id: 7,
-                img: '',
+                img: 'https://i.pinimg.com/736x/8d/2a/a0/8d2aa012fecf378e4667a4ff213dabf7.jpg',
             },
             {
                 id: 8,
-                img: '',
+                img: 'https://i.pinimg.com/736x/0f/5b/23/0f5b2369cef9c986fb7e0f246cb158ae.jpg',
             },
             {
                 id: 9,
-                img: '',
+                img: 'https://i.pinimg.com/736x/8f/08/5d/8f085dadb460e5d32ff019f301c308e2.jpg',
             },
             {
                 id: 10,
-                img: '',
+                img: 'https://i.pinimg.com/736x/02/5d/8e/025d8ec628e8cb2520a86f9092b92b43.jpg',
             },
             {
                 id: 11,
-                img: '',
+                img: 'https://i.pinimg.com/736x/11/70/65/1170659d032d12f64c28e2f0f434812c.jpg',
             },
             {
                 id: 12,
-                img: '',
+                img: 'https://i.pinimg.com/736x/98/7c/c2/987cc2572846cb070780606dcec7e13d.jpg',
             },
             {
                 id: 13,
-                img: '',
+                img: 'https://i.pinimg.com/736x/aa/b2/7e/aab27e9ee5545c47a713eaf49c36cc6d.jpg',
             },
             {
                 id: 14,
-                img: '',
+                img: 'https://i.pinimg.com/736x/f1/9a/76/f19a7652bc39d651a7293cce9f516b6d.jpg',
             },
             {
                 id: 15,
-                img: '',
+                img: 'https://i.pinimg.com/736x/3f/c9/65/3fc965ea3b47fcef6a7e55020f3e72e1.jpg',
             },
         ]
 
