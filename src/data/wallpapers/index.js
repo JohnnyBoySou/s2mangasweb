@@ -3,7 +3,7 @@ const wallpapers = [
     {
         name: 'Naruto',
         id: 1,
-        capa: '',
+        capa: 'https://i.pinimg.com/736x/16/ec/d4/16ecd447df34950052cc634f8e0e0146.jpg',
         data: [
             {
                 id: 1,
@@ -77,12 +77,20 @@ const wallpapers = [
                 id: 18,
                 img: 'https://i.pinimg.com/564x/a9/cf/8f/a9cf8ffb67d6f717ce5cae1ec44b2575.jpg',
             },
+            {
+                id: 19,
+                img: 'https://i.pinimg.com/736x/16/ec/d4/16ecd447df34950052cc634f8e0e0146.jpg',
+            },
+            {
+                id: 20,
+                img: 'https://i.pinimg.com/736x/e9/d1/c2/e9d1c2e7a4084b7241e0a6a5098ccdc0.jpg',
+            },
         ],
     },
 
     {
         name: 'Dr Stone',
-        capa: '',
+        capa: 'https://i.pinimg.com/564x/8e/fc/6c/8efc6cbe98a6f75969fb8a78c6d1a340.jpg',
         id: 2,
         data: [
             {
