@@ -87,7 +87,6 @@ const wallpapers = [
             },
         ],
     },
-
     {
         name: 'Dr Stone',
         capa: 'https://i.pinimg.com/736x/8e/fc/6c/8efc6cbe98a6f75969fb8a78c6d1a340.jpg',
@@ -156,7 +155,33 @@ const wallpapers = [
         ]
 
     },
-
+    {
+            name: 'My Hero Academia',
+            capa: 'https://i.pinimg.com/736x/9a/2f/57/9a2f5789d18c229611f230f89f88a054.jpg',
+            id: 3,
+            data: [
+                {id: 1, img: 'https://i.pinimg.com/736x/9a/2f/57/9a2f5789d18c229611f230f89f88a054.jpg',},
+                {id: 2, img: 'https://i.pinimg.com/736x/8f/46/d3/8f46d369733a245a55a96b574ddd265d.jpg',},
+                {id: 3, img: 'https://i.pinimg.com/736x/93/ba/76/93ba76b5dfeb49c495d4e7750fdec3c9.jpg',},
+                {id: 4, img: 'https://i.pinimg.com/736x/70/df/dd/70dfddeb1fa4243a89ac42f00518bebc.jpg',},
+                {id: 5, img: 'https://i.pinimg.com/736x/80/41/eb/8041eb348c18463a471f4d124ca8ced2.jpg',},
+                {id: 6, img: 'https://i.pinimg.com/736x/a7/39/29/a73929bed8a88280eb85adea39fdf69a.jpg',},
+                {id: 7, img: 'https://i.pinimg.com/736x/f1/1f/89/f11f895c6e37804b56bdc43ca168886a.jpg',},
+                {id: 8, img: 'https://i.pinimg.com/736x/3d/9a/74/3d9a74e58985f077b926edfa246ef5f1.jpg',},
+                {id: 9, img: 'https://i.pinimg.com/736x/b2/d4/46/b2d44600d6cee0d83775ff4fd5369108.jpg',},
+                {id: 10, img: 'https://i.pinimg.com/736x/ab/48/bb/ab48bb80014809c721024689a8383b32.jpg',},
+                {id: 11, img: 'https://i.pinimg.com/736x/66/47/71/664771e7622481b447da426967193a50.jpg',},
+                {id: 12, img: 'https://i.pinimg.com/736x/08/ff/3a/08ff3a7784cbbd4c27fa076e9fef54c9.jpg',},
+                {id: 13, img: 'https://i.pinimg.com/736x/07/d9/51/07d9519f68a094cfc4ced39f0134d8ac.jpg',},
+                {id: 14, img: 'https://i.pinimg.com/736x/fa/71/36/fa713653cd76b6fb7daf62550ea74440.jpg',},
+                {id: 15, img: 'https://i.pinimg.com/736x/4c/a9/da/4ca9da42ac445cfcd384baadb4ccd6e4.jpg',},
+                {id: 16, img: 'https://i.pinimg.com/736x/c1/28/37/c1283747cc9be0a44082532b33cbddb1.jpg',},
+                {id: 17, img: 'https://i.pinimg.com/736x/b5/8d/e2/b58de237ce6c46f6eaa185f4ff2ea198.jpg',},
+                {id: 18, img: 'https://i.pinimg.com/736x/a7/97/52/a7975211835bb36814c2d9f4a4caaafd.jpg',},
+                {id: 19, img: 'https://i.pinimg.com/736x/fb/76/07/fb7607001412903be84c940ddde57595.jpg',},
+                {id: 20, img: 'https://i.pinimg.com/736x/0a/5d/90/0a5d90685b29db87204475cffd95e868.jpg',},
+            ]
+    }
 ]
 
 export default wallpapers;
