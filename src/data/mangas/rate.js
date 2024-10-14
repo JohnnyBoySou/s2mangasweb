@@ -1,5 +1,47 @@
 const rate = [
     {
+        id: '68112dc1-2b80-4f20-beb8-2f2a8716a430',
+        capa: 'https://mangadex.org/covers/68112dc1-2b80-4f20-beb8-2f2a8716a430/c8fe9e64-04b3-477d-8658-ee94e961af2f.jpg.512.jpg',
+        name: 'Dandadan',
+        score: '9.30',
+        type: 'Mangá',
+    },
+    {
+        id: '8f8b7cb0-7109-46e8-b12c-0448a6453dfa',
+        capa: 'https://mangadex.org/covers/8f8b7cb0-7109-46e8-b12c-0448a6453dfa/0929bd2f-284d-44c8-bc44-9a3da5f1002f.jpg.512.jpg',
+        name: 'Haikyu!!',
+        score: '9.39',
+        type: 'Mangá',
+    },
+    {
+        id: 'db692d58-4b13-4174-ae8c-30c515c0689c',
+        capa: 'https://mangadex.org/covers/db692d58-4b13-4174-ae8c-30c515c0689c/a1686843-1414-45e4-a4b7-425d58356042.jpg.512.jpg',
+        name: 'Hunter x Hunter',
+        score: '9.38',
+        type: 'Mangá',
+    },
+    {
+        id: 'c52b2ce3-7f95-469c-96b0-479524fb7a1a',
+        capa: 'https://mangadex.org/covers/c52b2ce3-7f95-469c-96b0-479524fb7a1a/75ff8127-5b3e-49eb-a375-654ed28675ec.jpg.512.jpg',
+        name: 'Jujutsu Kaisen',
+        score: '9.01',
+        type: 'Mangá',
+    },
+    {
+        id: '94bfc769-f5e5-4f88-838c-4f69e7a663c2',
+        capa: 'https://mangadex.org/covers/94bfc769-f5e5-4f88-838c-4f69e7a663c2/2eee7016-a309-45b1-8f2d-34a31758e58d.jpg.512.jpg',
+        name: 'Kuchi ga Saketemo Kimi Ni Wa',
+        score: '9.07',
+        type: 'Mangá',
+    },
+    {
+        id: '6a1d1cb1-ecd5-40d9-89ff-9d88e40b136b',
+        capa: 'https://mangadex.org/covers/6a1d1cb1-ecd5-40d9-89ff-9d88e40b136b/98c90b96-db95-4c15-a407-eb70a3b6cf96.jpg.512.jpg',
+        name: 'Tokyo Ghoul',
+        score: '8.98',
+        type: 'Mangá',
+    },
+    {
         id: 'd1a9fdeb-f713-407f-960c-8326b586e6fd',
         capa: `https://mangadex.org/covers/d1a9fdeb-f713-407f-960c-8326b586e6fd/05f8dcb4-8ea1-48db-a0b1-3a8fbf695e5a.jpg.512.jpg`,
         name: 'Vagabond',
