@@ -130,69 +130,6 @@ const stories = [
                 rate: '9.',
                 type: 'Mangá',
             },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
-            {
-                id: '',
-                name: '',
-                capa: '',
-                rate: '9.',
-                type: 'Mangá',
-            },
         ]
     },
     {
@@ -206,6 +143,15 @@ const stories = [
         desc: 'romances para aquecer o coração e cair o queixo de tão lindos que são, só casalzão.',
         capa: 'https://i.pinimg.com/736x/b6/fb/91/b6fb913812c457880170b3d739f647c9.jpg',
         label: 'Kaguya-sama: Love is War, Given, Ao Ashi, I Want to Eat Your Pancreas...',
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
     {
         id: 5,
@@ -218,8 +164,15 @@ const stories = [
         desc: 'shounen ta na moda e no hype, e eu to amando isso, só vem mais e mais',
         capa: 'https://i.pinimg.com/736x/53/04/09/53040907621d3e859edbe7dec7a583a4.jpg',
         label: 'Jujutsu Kaisen, Solo Leveling, The Return of the Prodigious Swordmaster...',
-        //   mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
-    },
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]    },
     {
         id: 6,
         video: 'https://v1.pinimg.com/videos/mc/720p/31/5a/87/315a8746f305880e2847b3e46d91ce00.mp4',
@@ -230,7 +183,15 @@ const stories = [
         date: '10 de Mar, 2024',
         desc: 'p&b com arte de fod* e história que te prende',
         capa: 'https://i.pinimg.com/736x/d6/15/fc/d615fcba3b002dab1237ade7d37bb0b9.jpg',
-        mangas_ids: [{ "capa": "https://mangadex.org/covers/d65c0332-3764-4c89-84bd-b1a4e7278ad7/b1eb44d4-2286-4a0a-89d0-0b4311de846c.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "d65c0332-3764-4c89-84bd-b1a4e7278ad7", "name": "Kagurabachi", "rate": "8.77", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/5b93fa0f-0640-49b8-974e-954b9959929b/760a82b6-ff87-4da2-971b-29a11ad535bc.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "5b93fa0f-0640-49b8-974e-954b9959929b", "name": "Girls Last Tour", "rate": "9.42", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/67bd081f-1c40-4ae2-95a2-6af29de4fc01/29dcabe0-9efe-4575-9fcf-36be55363591.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "67bd081f-1c40-4ae2-95a2-6af29de4fc01", "name": "The Horizon", "rate": "9.43", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/6ecc62e4-25ad-4102-b0d8-580a8023d2fb/571d1d00-9ab1-44ce-b6ab-aa72584ee2f9.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "6ecc62e4-25ad-4102-b0d8-580a8023d2fb", "name": "Kimi to Tsuzuru Utakata", "rate": "9.40", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/37f5cce0-8070-4ada-96e5-fa24b1bd4ff9/6bfc8f2a-7510-4746-90d6-b97d01c20796.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "37f5cce0-8070-4ada-96e5-fa24b1bd4ff9", "name": "Kaguya-sama: Love is War", "rate": "9.38", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/736a2bf0-f875-4b52-a7b4-e8c40505b68a/7f07f02e-39ba-4e38-a01d-6f74652013fa.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "736a2bf0-f875-4b52-a7b4-e8c40505b68a", "name": "Mob Psycho 100", "rate": "9.35", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/dd8a907a-3850-4f95-ba03-ba201a8399e3/a9cd0207-1b86-4738-a2b5-3575c32d5315.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "dd8a907a-3850-4f95-ba03-ba201a8399e3", "name": "Fullmetal Alchemist", "rate": "9.35", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/32d76d19-8a05-4db0-9fc2-e0b0648fe9d0/e90bdc47-c8b9-4df7-b2c0-17641b645ee1.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "32d76d19-8a05-4db0-9fc2-e0b0648fe9d0", "name": "Solo Leveling", "rate": "9.32", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/1e84acd4-6e94-4b24-81a4-db236840d578/4fcb26c5-5a5b-4690-958a-9529e05237e6.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "1e84acd4-6e94-4b24-81a4-db236840d578", "name": "I Want to Eat Your Pancreas", "rate": "9.31", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/039d717e-9690-47fd-944d-93161b97fbac/9377af74-48af-4fe7-bbd9-652d8fb35f92.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "039d717e-9690-47fd-944d-93161b97fbac", "name": "Given", "rate": "9.24", "type": "Mangá" }, { "capa": "https://mangadex.org/covers/b73371d4-02dd-4db0-b448-d9afa3d698f1/c4f630af-5509-4132-afcb-133374d95637.jpg.512.jpg", "chapter": 0, "date": "16/8/2024", "id": "b73371d4-02dd-4db0-b448-d9afa3d698f1", "name": "Ao Ashi", "rate": "9.51", "type": "Mangá" }]
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
     {
         id: 7,
@@ -242,7 +203,15 @@ const stories = [
         date: '10 de Mar, 2024',
         desc: 'mulheres fodas que não levam desaforo pra casa, e ainda por cima são lindas e maravilhosas',
         capa: 'https://i.pinimg.com/736x/64/80/41/64804141abf0def24740a116770004ff.jpg',
-        //   mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
     {
         id: 8,
@@ -254,7 +223,15 @@ const stories = [
         date: '10 de Mar, 2024',
         desc: 'errado é o medico que liberou, porque esse mangá é viciante e eu não consigo parar de ler',
         capa: 'https://i.pinimg.com/736x/d5/03/b5/d503b5e9128eb5397904d2598016c61f.jpg',
-        // mangas_ids: [{"id":"moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu","name":"Moto Sekai 1-i no Sub-Chara Ikusei Nikki: Hai Player, Isekai wo Kouryakuchuu!","capa":"https://img.lermanga.org/M/moto-sekai-1-i-no-sub-chara-ikusei-nikki-hai-player-isekai-wo-kouryakuchuu/capa.jpg"},{"id":"monster-pet-evolution","name":"Monster Pet Evolution","capa":"https://img.lermanga.org/M/monster-pet-evolution/capa.jpg"},{"id":"i-log-in-alone","name":"I Log In Alone","capa":"https://img.lermanga.org/I/i-log-in-alone/capa.jpg"},{"id":"mo-shou-jian-sheng","name":"Mo Shou Jian Sheng","capa":"https://img.lermanga.org/M/mo-shou-jian-sheng/capa.jpg"},{"id":"kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui","name":"Kindan Shitei de Breakthrough ~ Yuusha no Musuko ga Maou no Deshi de Nani ga Warui ~","capa":"https://img.lermanga.org/K/kindan-shitei-de-breakthrough-yuusha-no-musuko-ga-maou-no-deshi-de-nani-ga-warui/capa.jpg"},{"id":"the-return-of-the-prodigious-swordmaster","name":"The Return of the Prodigious Swordmaster","capa":"https://img.lermanga.org/T/the-return-of-the-prodigious-swordmaster/capa.jpg"},{"id":"demon-slayer-kimetsu-no-yaiba","name":"Demon Slayer: Kimetsu no Yaiba","capa":"https://img.lermanga.org/K/kimetsu-no-yaiba/capa.jpg"},{"id":"jujutsu-kaisen","name":"Jujutsu Kaisen","capa":"https://img.lermanga.org/J/jujutsu-kaisen/capa.jpg"}]
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
     {
         id: 9,
@@ -266,6 +243,15 @@ const stories = [
         date: '10 de Mar, 2024',
         desc: 'mundos fascinantes e personagens cativantes, só lendo pra saber o que te espera',
         capa: 'https://i.pinimg.com/736x/c4/34/b0/c434b008876047c9c112b3fd38d9f7ab.jpg',
+        mangas_ids: [
+            {
+                id: '',
+                name: '',
+                capa: '',
+                rate: '9.',
+                type: 'Mangá',
+            },
+        ]
     },
 
 ]
