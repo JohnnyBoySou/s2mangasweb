@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { Column, Row, Title, Label,  ButtonOff, Button, ButtonPrimary} from '@themes/global';
 import './gradient.css'
 import Image from 'next/image'
-import { geral } from '@data/shop/avatars';
-import { geralbg } from '@data/shop/capas';
+import { geral } from 'old/data/shop/avatars';
+import { geralbg } from 'old/data/shop/capas';
 import { createPreferences, getPreferences } from '@requests/user/requests';
 import { useRouter } from 'next/navigation'
 import Skeleton from '@components/Loading';
 
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import tags from '@data/tags';
+import tags from 'old/data/tags';
 
 export default function Start (){
 

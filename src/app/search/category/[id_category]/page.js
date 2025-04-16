@@ -4,7 +4,7 @@ import { Column, Row, Title, Label, ButtonOff } from '../../../../themes/global'
 import { GoArrowUp } from "react-icons/go";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import './category.css'
-import tags from '@data/tags'
+import tags from 'old/data/tags'
 import ListMangaWrap from '@components/Cards/listwrap';
 import NavBar from '@components/NavBar/index';
 import Skeleton from '@components/Loading';

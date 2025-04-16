@@ -1,4 +1,4 @@
-import { capas , capas2, comida, geralbg, news} from '@data/shop/capas';
+import { capas , capas2, comida, geralbg, news} from 'old/data/shop/capas';
 
 export default async function handler(req, res) {
   try {

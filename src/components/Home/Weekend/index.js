@@ -5,7 +5,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '@components/Loading';
 import ListManga from '@components/Cards/list';
 import Link from 'next/link';
-import weekend from "@data/weekend";
+import weekend from "old/data/weekend";
 
 function WeekendComponent() {
     const [news, setnews] = useState(weekend);

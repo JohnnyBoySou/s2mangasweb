@@ -5,7 +5,7 @@ import { GoArrowUp } from "react-icons/go";
 import './list.css'
 import NavBar from '@components/NavBar/index';
 import { Load, List } from '@components/S/geral'
-import news from '@data/news';
+import news from 'old/data/news';
 
 export default function News() {
   //API

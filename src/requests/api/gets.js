@@ -2,7 +2,7 @@ import axios from "axios"
 
 const API_URL = "https://s2mangas.com/api/publish"
 const Headers = { 'Content-Type': 'application/json', }
-import weekend from "@data/weekend";
+import weekend from "old/data/weekend";
 
 
 export async function getWeekend(page = 1) {

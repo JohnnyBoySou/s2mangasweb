@@ -9,41 +9,18 @@ import { getPreferences } from "@requests/user/requests";
 import Skeleton from "@components/Loading";
 
 import NavBar from "@components/NavBar";
-
-import NewsComponent from "@components/Home/News";
 import LastedComponent from "@components/Home/Lasted";
 import WeekendComponent from '@components/Home/Weekend/index';
 import RateComponent from '@components/Home/Rate/index';
 import Mangalists from "@components/Mangalist";
-import { Search , Library} from "lucide-react"
-
-
+import { Search , Library } from "lucide-react"
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Feed () {
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState();
   const router = useRouter();
+  const { user, login, logout, loading } = useAuth()
 
-  useEffect(() => {
-    const getUser = () => {
-      try {
-        const response = getPreferences()
-        if(response != undefined){
-          setUser(response)
-          setLoading(false)
-        }else{
-          router.push('/start');
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getUser()
-  }, [loading, router])
-
-  //background: `linear-gradient(184deg, #ED274A -20.91%, #262626 60.92% , #262626 30.92%)`,
   const saudacao = new Date().getHours() < 12 ? 'Bom dia' : new Date().getHours() < 18 ? 'Boa tarde' : 'Boa noite';
-
   const a = false;
 
 

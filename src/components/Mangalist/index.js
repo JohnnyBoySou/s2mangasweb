@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button , ButtonOff, Column, Label, Row, Title} from '../../themes/global';
 import { GoHeart } from "react-icons/go";
 import { IoIosPause, IoIosPlay } from "react-icons/io";
-import stories from '@data/mangalists'
+import stories from 'old/data/mangalists'
 import { CiVolumeHigh } from "react-icons/ci";
 import { useRouter } from 'next/navigation'
 import './style.css'

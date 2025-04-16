@@ -3,8 +3,8 @@ import React from 'react';
 import { Column, Row, Title, Label, B} from '@themes/global';
 import './cards.css'
 import Image from 'next/image';
-import Decks from '@data/cards/decks';
-import Cards from '@data/cards/cards';
+import Decks from 'old/data/cards/decks';
+import Cards from 'old/data/cards/cards';
 import Draggable from '@components/draggable';
 import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/navigation'

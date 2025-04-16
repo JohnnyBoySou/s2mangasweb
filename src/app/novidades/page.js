@@ -1,7 +1,7 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import { Column, Row, Title, Label, ButtonOff} from '../../themes/global';
-import { news } from '@data/update/news';
+import { news } from 'old/data/update/news';
 import './style.css';
 export default function Novidades (){
 

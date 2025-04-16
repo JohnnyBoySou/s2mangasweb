@@ -17,6 +17,7 @@ export const metadata = {
 }
 
 import StyledComponentsRegistry from '../lib/registry'
+import { AuthProvider } from "@/context/auth-context"
 
 
 export default function RootLayout({ children }) {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       <ThemeClient>
       <StyledComponentsRegistry>
       <body  style={{ overflow: 'hidden', }} >
+      <AuthProvider>
       <Row>
         <Header />
         <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>
@@ -35,6 +37,7 @@ export default function RootLayout({ children }) {
          <SpeedInsights />
         {fixed && <Fixed /> }
       </Row>
+      </AuthProvider>
       </body>
       </StyledComponentsRegistry>
 

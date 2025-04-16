@@ -4,7 +4,7 @@ import { Column, Row, Title, Label, ButtonOff, } from '@themes/global';
 import ListMangaNews from '@components/Cards/list_news';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '@components/Loading';
-import news from '@data/news';
+import news from 'old/data/news';
 
 export default function NewsComponent() {
     const [data, setnews] = useState(news);

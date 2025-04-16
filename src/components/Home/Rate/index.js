@@ -5,7 +5,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '@components/Loading';
 import ListManga from '@components/Cards/list';
 import Link from 'next/link';
-import rate from "@data/rate";
+import rate from "old/data/rate";
 
 export default function RateComponent() {
     const [news, setnews] = useState(rate);

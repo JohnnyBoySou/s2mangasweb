@@ -6,7 +6,7 @@ import './list.css'
 import NavBar from '@components/NavBar/index';
 
 import { Load, List } from '@components/S/geral'
-import lasted from '@data/lasted'
+import lasted from 'old/data/lasted'
 
 export default function Lasted({ params }) {
   //API

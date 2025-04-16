@@ -6,7 +6,7 @@ import Skeleton from '@components/Loading';
 import ListManga from '@components/Cards/list';
 import Link from 'next/link';
 
-import lasted from '@data/lasted';
+import lasted from 'old/data/lasted';
 
 export default function LastedComponent() {
     const [news, setnews] = useState(lasted);

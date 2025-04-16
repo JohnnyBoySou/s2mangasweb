@@ -1,4 +1,4 @@
-import { backgrounds } from '@data/shop/collections';
+import { backgrounds } from 'old/data/shop/collections';
 
 export default async function handler(req, res) {
   try {

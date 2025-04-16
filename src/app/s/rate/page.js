@@ -6,7 +6,7 @@ import './list.css'
 import NavBar from '@components/NavBar/index';
 
 import { Load, List } from '@components/S/geral'
-import rate from '@data/rate';
+import rate from 'old/data/rate';
 
 export default function Rate() {
   //API

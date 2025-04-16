@@ -1,4 +1,4 @@
-import news from "@data/news";
+import weekend from "old/data/weekend";
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   )
   try {
-    res.status(200).json({ mangas: news });
+    res.status(200).json({ mangas: weekend });
   } catch (error) {
     console.error('Axios error:', error.message);
     console.error('Status:', error.response ? error.response.status : 'unknown');

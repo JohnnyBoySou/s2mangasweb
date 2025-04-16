@@ -2,7 +2,7 @@
 import React, { useEffect,  useState} from 'react';
 import { Column, Row, Title, Label, } from '@themes/global';
 import './details.css' 
-import stories from '@data/mangalists';
+import stories from 'old/data/mangalists';
 import Image from 'next/image';
 import ListMangalist from '@components/Cards/list_mangalist';
 import NavBar from '@components/NavBar';

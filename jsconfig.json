@@ -1,15 +1,26 @@
 {
     "compilerOptions": {
+      "jsx": "react",
       "baseUrl": "./",
       "paths": {
         "@components/*": ["src/components/*"],
         "@page/*": ["src/app/*"],
-        "@data/*": ["src/data/*"],
+        "@data/*": ["old/data/*"],
         "@hooks/*": ["src/hooks/*"],
         "@themes/*": ["src/themes/*"],
         "@imgs/*": ["src/assets/*"],
         "@requests/*": ["src/requests/*"],
         "@api/*": ["src/requests/api/*"],
+
+        "@/api/*": ["src/api/*"],
+        "@/utils/*": ["src/utils/*"],
+        "@/hooks/*": ["src/hooks/*"],
+        "@/components/*": ["src/components/*"],
+        "@/assets/*": ["src/assets/*"],
+        "@/pages/*": ["src/pages/*"],
+        "@/theme/*": ["src/theme/*"],
+        "@/imgs/*": ["public/imgs/*"],
+        "@/context/*": ["src/context/*"],
       }
     }
   }

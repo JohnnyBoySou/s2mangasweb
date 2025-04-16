@@ -1,4 +1,4 @@
-import { avatars, chibi , art, art2, geral, animev2, novos} from "@data/shop/avatars";
+import { avatars, chibi , art, art2, geral, animev2, novos} from "old/data/shop/avatars";
 
 export default async function handler(req, res) {
   try {

@@ -1,4 +1,4 @@
-import rate from "@data/rate";
+import rate from "old/data/rate";
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(

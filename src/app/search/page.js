@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { Column, Row, Title, Label, ButtonPrimaryLight} from '@themes/global';
 import './search.css'
 import { CiSearch } from "react-icons/ci";
-import tags from '@data/tags'
+import tags from 'old/data/tags'
 import Link from 'next/link';
 import Image from 'next/image';
 import { excludeWords, listWords, saveWord } from '../../requests/search/request';

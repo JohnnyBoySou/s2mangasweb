@@ -6,7 +6,7 @@ import './list.css'
 import NavBar from '@components/NavBar/index';
 import { Load, List } from '@components/S/geral'
 
-import weekend from "@data/weekend";
+import weekend from "old/data/weekend";
 
 export default function Weekend() {
   //DATA API
