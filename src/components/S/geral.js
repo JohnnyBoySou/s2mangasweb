@@ -1,4 +1,4 @@
-import { Column, Row, Title, Label, ButtonOff } from '@themes/global';
+import { Column, Row, Title, Label, ButtonOff } from 'old/themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { FaPlay } from 'react-icons/fa';
 import Skeleton from '@components/Loading';

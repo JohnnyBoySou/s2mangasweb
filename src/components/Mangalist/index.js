@@ -1,7 +1,7 @@
 'use client';
 import React, {  useRef, useState } from 'react'
 import Image from 'next/image'
-import { Button , ButtonOff, Column, Label, Row, Title} from '../../themes/global';
+import { Button , ButtonOff, Column, Label, Row, Title} from '../../../old/themes/global';
 import { GoHeart } from "react-icons/go";
 import { IoIosPause, IoIosPlay } from "react-icons/io";
 import stories from 'old/data/mangalists'

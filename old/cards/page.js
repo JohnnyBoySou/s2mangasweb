@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { Column, Row, Title, Label, B} from '@themes/global';
+import { Column, Row, Title, Label, B} from 'old/themes/global';
 import './cards.css'
 import Image from 'next/image';
 import Decks from 'old/data/cards/decks';

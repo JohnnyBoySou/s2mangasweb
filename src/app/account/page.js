@@ -1,10 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Column, Row, Title, Label, B, ButtonOff} from '../../themes/global';
+import { Column, Row, Title, Label, B, ButtonOff} from '../../../old/themes/global';
 import './account.css'
 import { BsThreeDots } from "react-icons/bs";
 import Image from 'next/image';
-import { excludePreferences, getPreferences , dislikeAllManga} from '../../requests/user/requests';
+import { excludePreferences, getPreferences , dislikeAllManga} from '../../../old/requests/user/requests';
 import Modal from '../../components/Modal';
 import { useRouter } from 'next/navigation'
 import ListAccount from '../../components/Cards/list_account';

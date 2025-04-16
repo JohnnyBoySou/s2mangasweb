@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { GoHome, GoSearch } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
-import { Column, BTIcon, Button, Row, Title, Label } from '../../themes/global';
+import { Column, BTIcon, Button, Row, Title, Label } from '../../../old/themes/global';
 import './header.css'
 import { BsCollection } from "react-icons/bs";
 import ListCollections from '../Collections/listtab';

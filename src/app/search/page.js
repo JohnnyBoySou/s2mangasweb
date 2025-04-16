@@ -1,15 +1,15 @@
 'use client';
 import React, {useState, useEffect} from 'react';
-import { Column, Row, Title, Label, ButtonPrimaryLight} from '@themes/global';
+import { Column, Row, Title, Label, ButtonPrimaryLight} from 'old/themes/global';
 import './search.css'
 import { CiSearch } from "react-icons/ci";
 import tags from 'old/data/tags'
 import Link from 'next/link';
 import Image from 'next/image';
-import { excludeWords, listWords, saveWord } from '../../requests/search/request';
+import { excludeWords, listWords, saveWord } from '../../../old/requests/search/request';
 import ListSearch from '@components/Cards/list_search';
 import NavBar from '../../components/NavBar';
-import {getSearch} from '@api/getSearch';
+import {getSearch} from 'old/requests/api/getSearch';
 
 export default function Search() {
     const [name, setName] = useState(); 

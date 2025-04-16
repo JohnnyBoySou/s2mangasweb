@@ -1,0 +1,77 @@
+{
+    "collection": {
+        "title": "Colección",
+        "create": "Crear colección",
+        "edit": "Editar colección",
+        "delete": "Eliminar colección",
+        "delete_confirm": "¿Está seguro de que desea eliminar esta colección?",
+        "delete_success": "Colección eliminada con éxito.",
+        "delete_error": "Error al eliminar la colección.",
+        "public": "Pública",
+        "public_description": "Haga esta colección pública para que se muestre en su perfil.",
+        "name": "Nombre",
+        "name_placeholder": "Nombre de la colección",
+        "description": "Descripción",
+        "description_placeholder": "Descripción de la colección",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "created": "Colección creada con éxito.",
+        "updated": "Colección actualizada con éxito.",
+        "error": "Error al guardar la colección.",
+        "empty_title": "No hay mangas por aquí...",
+        "empty_label": "Elija el manga y haga clic en agregar a la colección y guarde aquí.",
+        "empty_button": "Agregar mangas a la colección"
+    },
+    "profile": {
+        "title": "Perfil",
+        "empty_collection_title": "No hay colecciones por aquí...",
+        "empty_collection_label": "Cree una colección para organizar sus mangas y hágala pública para que se muestre aquí.",
+        "empty_posts_title": "Nada por aquí...",
+        "empty_posts_label": "Haga clic en el engranaje y en agregar al Flow, elija la página y guarde.",
+        "empty_follow_title": "Nada por aquí...",
+        "empty_follow_label": "¿Qué tal hacer algunos amigos y seguirlos?"
+    },
+    "markers": {
+        "title": "Marcadores",
+        "empty_markers_title": "No hay marcadores por aquí...",
+        "empty_markers_label": "Agregue marcadores para facilitar la organización de sus mangas."
+    },
+    "offline": {
+        "title": "Sin conexión",
+        "label": "Está desconectado, verifique su conexión a internet."
+    },
+    "comments": {
+        "title": "Comentarios",
+        "empty_title": "No hay comentarios por aquí...",
+        "empty_label": "Sea el primero en comentar."
+    },
+    "settings": {
+        "title": "Configuraciones",
+        "language": "Idioma",
+        "theme": "Tema",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "logout": "Cerrar sesión",
+        "logout_confirm": "¿Está seguro de que desea cerrar sesión?",
+        "logout_success": "Sesión cerrada con éxito.",
+        "logout_error": "Error al cerrar sesión."
+    },
+    "home": {
+        "greetings_morning": "Buenos días",
+        "greetings_afternoon": "Buenas tardes",
+        "greetings_evening": "Buenas noches",
+        "greetings_night": "Buenas noches",
+        "card_1": "¡Lo más leído de la semana!",
+        "card_2": "Han llegado nuevos fondos de pantalla...",
+        "card_3": "¡Tu flujo está activado!"
+    },
+    "lists": {
+        "most_viewed": "Tendencias",
+        "most_rate": "Mejor valorados",
+        "most_lasted": "Añadidos recientemente",
+        "collections": "Tus colecciones",
+        "history": "Visto recientemente",
+        "your": "Hecho para",
+        "mangalists": "Mejores mangalistas"
+    }
+}

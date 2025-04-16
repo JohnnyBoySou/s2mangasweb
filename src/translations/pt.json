@@ -1,0 +1,106 @@
+{
+    "collection": {
+        "title": "Coleção",
+        "create": "Criar coleção",
+        "edit": "Editar coleção",
+        "delete": "Deletar coleção",
+        "delete_confirm": "Tem certeza que deseja deletar esta coleção?",
+        "delete_success": "Coleção deletada com sucesso.",
+        "delete_error": "Erro ao deletar coleção.",
+        "public": "Pública",
+        "public_description": "Torne esta coleção pública para que ela seja exibida em seu perfil.",
+        "name": "Nome",
+        "name_placeholder": "Nome da coleção",
+        "description": "Descrição",
+        "description_placeholder": "Descrição da coleção",
+        "save": "Salvar",
+        "cancel": "Cancelar",
+        "created": "Coleção criada com sucesso.",
+        "updated": "Coleção atualizada com sucesso.",
+        "error": "Erro ao salvar coleção.",
+        "empty_title": "Nenhum mangá por aqui...",
+        "empty_label": "Escolha o mangá e clique em adicionar na coleção e salve aqui.",
+        "empty_button": "Adicionar mangás na coleção"
+    },
+    "profile": {
+        "title": "Perfil",
+        "empty_collection_title": "Nenhuma coleção por aqui...",
+        "empty_collection_label": "Crie uma coleção para organizar seus mangás e torne-a pública para que ela seja exibida aqui.",
+        "empty_posts_title": "Nada por aqui...",
+        "empty_posts_label": "Clique na engrenagem e em adicionar ao Flow, escolha a página e salve.",
+        "empty_follow_title": "Nada por aqui...",
+        "empty_follow_label": "Que tal fazer alguns amigos e segui-lós?",
+        "empty_review_title": "Nenhuma avaliação por aqui...",
+        "empty_review_label": "Avalie os mangás que você leu e ajude outros usuários a escolherem o próximo mangá."
+    },
+    "mangalists": {
+        "title": "Mangalists",
+        "empty_mangalists_title": "Nenhum mangá por aqui...",
+        "empty_mangalists_label": "Aparentemente nenhum mangá foi adicionado nessa mangalists até o momento..."
+    },
+    "markers": {
+        "title": "Marcadores",
+        "empty_markers_title": "Nenhum marcador por aqui...",
+        "empty_markers_label": "Adicione marcadores para facilitar a organização de seus mangás."
+    },
+    "offline": {
+        "title": "Sem conexão",
+        "label": "Você está offline, verifique sua conexão com a internet."
+    },
+    "comments": {
+        "title": "Comentários",
+        "empty_title": "Nenhum comentário por aqui...",
+        "empty_label": "Seja o primeiro a comentar."
+    },
+    "settings": {
+        "title": "Configurações",
+        "language": "Idioma",
+        "theme": "Tema",
+        "dark": "Escuro",
+        "light": "Claro",
+        "logout": "Sair",
+        "logout_confirm": "Tem certeza que deseja sair?",
+        "logout_success": "Sessão encerrada com sucesso.",
+        "logout_error": "Erro ao encerrar sessão."
+    },
+    "home": {
+        "greetings_morning": "Bom dia",
+        "greetings_afternoon": "Boa tarde",
+        "greetings_evening": "Boa noite",
+        "greetings_night": "Boa madrugada",
+        "card_1": "Os mais lidos da semana!",
+        "card_2": "Novos wallpapers chegaram...",
+        "card_3": "O seu flow está on!"
+    },
+    "lists": {
+        "most_viewed": "Novos lançamentos",
+        "most_viewed_label": "Coisa nova toda sexta-feira",
+        "most_rate": "Melhores notas",
+        "most_weekend": "Melhores da semana",
+        "most_lasted": "Recém adicionados",
+        "most_feed": "Seu feed",
+        "collections": "Suas coleções",
+        "history": "Recém vistos",
+        "your": "Você pode gostar",
+        "mangalists": "Mangalist's populares",
+        "trend": "Top 10 do momento",
+        "top_collections": "Coleções mais curtidas",
+        "flow": "Flows mais vistos"
+    },
+    "drawer":{
+        "rate": "Avaliar",
+        "settings": "Configurações",
+        "logout": "Sair",
+        "library": "Biblioteca",
+        "collections": "Minhas coleções",
+        "progress":"Em progresso",
+        "likes":"Curtidos",
+        "follows":"Seguindo",
+        "completes":"Completos",
+        "profile":"Ver perfil",
+        "geral": "Geral",
+        "offline": "Baixados",
+        "notifications": "Novidades",
+        "dashboard": "Dashboard"
+    }
+}

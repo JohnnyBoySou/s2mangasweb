@@ -7,10 +7,10 @@
         "@page/*": ["src/app/*"],
         "@data/*": ["old/data/*"],
         "@hooks/*": ["src/hooks/*"],
-        "@themes/*": ["src/themes/*"],
+        "@themes/*": ["old/themes/*"],
         "@imgs/*": ["src/assets/*"],
-        "@requests/*": ["src/requests/*"],
-        "@api/*": ["src/requests/api/*"],
+        "@requests/*": ["old/requests/*"],
+        "@api/*": ["old/requests/api/*"],
 
         "@/api/*": ["src/api/*"],
         "@/utils/*": ["src/utils/*"],
@@ -18,9 +18,10 @@
         "@/components/*": ["src/components/*"],
         "@/assets/*": ["src/assets/*"],
         "@/pages/*": ["src/pages/*"],
-        "@/theme/*": ["src/theme/*"],
+        "@/ui/*": ["src/ui/*"],
         "@/imgs/*": ["public/imgs/*"],
         "@/context/*": ["src/context/*"],
+        "@/translations/*": ["src/translations/*"],
       }
     }
   }

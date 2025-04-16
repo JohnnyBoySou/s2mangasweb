@@ -1,10 +1,10 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, ButtonPrimary, ButtonPrimaryLight} from '../../themes/global'; 
+import { Column, Row, Title, Label, BTColection, BTColectionLarge, ButtonOff, ButtonPrimary, ButtonPrimaryLight} from '../../../old/themes/global'; 
 import './collections.css'
 import Link from 'next/link'; 
 import { IoClose } from "react-icons/io5";
-import { createCollection, excludeAllCollections, getCollections } from '../../requests/collections/request';
+import { createCollection, excludeAllCollections, getCollections } from '../../../old/requests/collections/request';
 import Loader from '../../components/Loader';
 import Image from 'next/image';
 

@@ -1,12 +1,11 @@
 'use client';
 import React, { useState, useEffect} from 'react'
-import { Column, BTIcon, BTColection, Label, Button, Row, Title, ButtonPrimaryLight } from "../../themes/global";
-import { collections } from "../../requests/collections/list";
+import { Column, BTIcon, BTColection, Label, Button, Row, Title, ButtonPrimaryLight } from "../../../old/themes/global";
+import { collections } from "../../../old/requests/collections/list";
 import Link from 'next/link'
-import { getCollections } from '../../requests/collections/request';
+import { getCollections } from '../../../old/requests/collections/request';
 import './style.css';
-import { AiOutlineAppstoreAdd } from "react-icons/ai";
-import { GoPlus } from 'react-icons/go';
+import { Plus } from 'lucide-react';
 
 
 function CollectionItem({ item, open }) {
@@ -84,7 +83,7 @@ function CollectionItemRow({ item, open }) {
     return(
       <Column style={{ backgroundColor: '#303030', padding: 16, borderRadius: 12, alignItems: 'center',}}>
       <Link href={`/collections/`} style={{ textDecoration: 'none' }}>
-        <GoPlus style={{fontSize: 46, color: "#fff",  padding: 10,}} />
+        <Plus size={32} style={{ color: "#fff",  padding: 10,}} />
       </Link>
       
      {open && 

@@ -1,6 +1,6 @@
 'use client';
 import React, {useState,} from 'react';
-import { Column, Row, Title, Label, ButtonOff, } from '../../../themes/global';
+import { Column, Row, Title, Label, ButtonOff, } from '../../../../old/themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import Skeleton from '../../Loading';
 import ListSimilar from '../../Cards/list_similar';

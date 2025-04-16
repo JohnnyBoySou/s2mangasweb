@@ -1,12 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Column, Row, Title, Label, BTIcon, ButtonOff, ButtonPrimaryLight, } from '../../../../themes/global';
+import { Column, Row, Title, Label, BTIcon, ButtonOff, ButtonPrimaryLight, } from '../../../../../old/themes/global';
 import Image from 'next/image';
 import { IoIosArrowDown, IoIosArrowUp, IoIosClose, IoIosSettings, } from "react-icons/io";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import Link from 'next/link'
 import './chapter.css'
-import { getPages } from '@api/getPages';
+import { getPages } from 'old/requests/api/getPages';
 
 export default function ChapterDetails({ params }) {
   const { id, chapter } = params

@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import { Label } from "../../themes/global";
+import { Label } from "../../../old/themes/global";
 
 export default function Headline (){
     

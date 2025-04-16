@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Column, Label, Title, Row, } from "../../themes/global"
+import { Column, Label, Title, Row, } from "../../../old/themes/global"
 import Draggable from "../draggable"
-import { mangas } from "../../requests/mangas"
+import { mangas } from "../../../old/requests/mangas"
 
 
 export default function Similar({handle}) {

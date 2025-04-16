@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Row, Label } from '../../../themes/global';
+import { Column, Row, Label } from '../../../../old/themes/global';
 
 export default function Progress ({porcentage = 30}){
     return(

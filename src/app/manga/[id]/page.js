@@ -1,7 +1,7 @@
 'use client';
 import { AiOutlineArrowRight } from "react-icons/ai";
 import React, { useEffect, useState } from 'react';
-import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection, ButtonPrimaryLight } from '../../../themes/global';
+import { Column, Row, Title, Label, BTFlow, ButtonOff, ButtonPrimary, BTColection, ButtonPrimaryLight } from '../../../../old/themes/global';
 import { FaPlay } from "react-icons/fa";
 import { FaUserAstronaut, FaCalendarDays, FaStar } from "react-icons/fa6"
 import './manga.css'
@@ -10,19 +10,19 @@ import Image from 'next/image';
 import Skeleton from '../../../components/Loading';
 import { IoClose } from "react-icons/io5";
 import Loader from '../../../components/Loader';
-import { addMangaInCollectionByID, getCollections } from '../../../requests/collections/request';
+import { addMangaInCollectionByID, getCollections } from '../../../../old/requests/collections/request';
 import { CiBookmarkPlus, } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
 
 import { useRouter } from 'next/navigation'
 import NavBar from '../../../components/NavBar';
-import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked, verifyFollow, addComplete, removeComplete, verifyComplete } from '../../../requests/user/requests';
+import { addFollow, addMark, dislikeManga, likeManga, removeFollow, verifyLiked, verifyFollow, addComplete, removeComplete, verifyComplete } from '../../../../old/requests/user/requests';
 import SimilarComponent from "../../../components/Home/Similar";
 import CommentsComponent from "../../../components/Comments/main";
 
-import { getManga } from '@api/getManga'
-import { getChapters } from '@api/getChapters'
-import { getCovers } from '@api/getCovers'
+import { getManga } from 'old/requests/api/getManga'
+import { getChapters } from 'old/requests/api/getChapters'
+import { getCovers } from 'old/requests/api/getCovers'
 
 
 export default function DetailsManga({ params }) {

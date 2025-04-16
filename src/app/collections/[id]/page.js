@@ -1,11 +1,11 @@
 'use client';
 import React, { useEffect,  useState} from 'react';
-import { Column, Row, Title, Label, } from '../../../themes/global';
+import { Column, Row, Title, Label, } from '../../../../old/themes/global';
 import './details.css' 
 import { BiShareAlt } from "react-icons/bi"; 
 import { LuPencilLine, LuTrash2 } from "react-icons/lu";
 import ListMangaWrap from '../../../components/Cards/listwrap';
-import { editCollectionByID, getCollectionByID, excludeCollectionByID } from '../../../requests/collections/request';
+import { editCollectionByID, getCollectionByID, excludeCollectionByID } from '../../../../old/requests/collections/request';
 import Toast from '../../../components/Toast';
 import ListCollection from '../../../components/Cards/list_collection';
 import axios from 'axios';

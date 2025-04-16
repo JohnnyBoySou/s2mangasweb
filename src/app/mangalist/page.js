@@ -1,6 +1,6 @@
 'use client'
 import React, {useState, useRef, useEffect, memo } from 'react';
-import { Column, Row, Title, Label, ButtonOff } from '../../themes/global';
+import { Column, Row, Title, Label, ButtonOff } from '../../../old/themes/global';
 import { GoArrowUp } from "react-icons/go";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import './list.css'

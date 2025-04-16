@@ -1,6 +1,6 @@
 'use client';
 import React, {useState} from 'react';
-import { Column, Row, Title, Label, ButtonOff, Button } from '../../themes/global';
+import { Column, Row, Title, Label, ButtonOff, Button } from '../../../old/themes/global';
 import './continue.css'
 import Image from 'next/image';
 import Link from 'next/link';

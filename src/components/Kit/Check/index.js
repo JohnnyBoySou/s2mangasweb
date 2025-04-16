@@ -1,4 +1,4 @@
-import { Column, Row } from '../../../themes/global';
+import { Column, Row } from '../../../../old/themes/global';
 import './style.css';
 
 

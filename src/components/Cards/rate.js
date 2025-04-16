@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Column, Label, Title, Row, } from "../../themes/global"
+import { Column, Label, Title, Row, } from "../../../old/themes/global"
 import Draggable from "../draggable"
-import popular from "../../requests/mangas/popular"
+import popular from "../../../old/requests/mangas/popular"
 
 
 export default function Rate({handle}) {

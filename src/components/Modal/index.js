@@ -1,5 +1,5 @@
 import { IoClose } from "react-icons/io5";
-import { Column, Row, Title } from "../../themes/global";
+import { Column, Row, Title } from "../../../old/themes/global";
 import './modal.css';
 
 export default function Modal({ children, open, setOpen, name = 'titulo' }) {

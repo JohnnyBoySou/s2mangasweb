@@ -1,0 +1,94 @@
+{
+    "collection": {
+        "title": "Collection",
+        "create": "Create collection",
+        "edit": "Edit collection",
+        "delete": "Delete collection",
+        "delete_confirm": "Are you sure you want to delete this collection?",
+        "delete_success": "Collection deleted successfully.",
+        "delete_error": "Error deleting collection.",
+        "public": "Public",
+        "public_description": "Make this collection public so it will be displayed on your profile.",
+        "name": "Name",
+        "name_placeholder": "Collection name",
+        "description": "Description",
+        "description_placeholder": "Collection description",
+        "save": "Save",
+        "cancel": "Cancel",
+        "created": "Collection created successfully.",
+        "updated": "Collection updated successfully.",
+        "error": "Error saving collection.",
+        "empty_title": "No manga here...",
+        "empty_label": "Choose the manga and click add to collection and save here.",
+        "empty_button": "Add manga to collection"
+    },
+    "profile": {
+        "title": "Profile",
+        "empty_collection_title": "No collection here...",
+        "empty_collection_label": "Create a collection to organize your manga and make it public so it will be displayed here.",
+        "empty_posts_title": "Nothing here...",
+        "empty_posts_label": "Click the gear and add to Flow, choose the page and save.",
+        "empty_follow_title": "Nothing here...",
+        "empty_follow_label": "How about making some friends and following them?"
+    },
+    "markers": {
+        "title": "Markers",
+        "empty_markers_title": "No markers here...",
+        "empty_markers_label": "Add markers to make it easier to organize your manga."
+    },
+    "offline": {
+        "title": "No connection",
+        "label": "You are offline, check your internet connection."
+    },
+    "comments": {
+        "title": "Comments",
+        "empty_title": "No comments here...",
+        "empty_label": "Be the first to comment."
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "theme": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "logout": "Logout",
+        "logout_confirm": "Are you sure you want to logout?",
+        "logout_success": "Session ended successfully.",
+        "logout_error": "Error ending session."
+    },
+    "home": {
+        "greetings_morning": "Good morning",
+        "greetings_afternoon": "Good afternoon",
+        "greetings_evening": "Good evening",
+        "greetings_night": "Good night",
+        "card_1": "Most read of the week!",
+        "card_2": "New wallpapers have arrived...",
+        "card_3": "Your flow is on!"
+    },
+    "lists": {
+        "most_viewed": "Trending",
+        "most_viewed_label": "New thing every Friday",
+        "most_rate": "Top rated",
+        "most_lasted": "Recently added",
+        "most_weekend": "Best of the week",
+        "most_feed": "Your Feed",
+        "collections": "Your collections",
+        "history": "Recently viewed",
+        "your": "Made for",
+        "mangalists": "Top mangalists"
+    },
+    "drawer":{
+        "rate": "Rate",
+        "settings": "Settings",
+        "logout": "Logout",
+        "library": "Library",
+        "collections": "My collections",
+        "progress": "In progress",
+        "likes": "Liked",
+        "follows": "Following",
+        "completes": "Completed",
+        "profile": "View profile",
+        "geral": "General",
+        "offline": "Downloaded"
+    }
+}

@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import React, { useState, useEffect, useRef } from 'react'
-import { Column, Row, Title, Label } from "../../themes/global"
+import { Column, Row, Title, Label } from "../../../old/themes/global"
 import { IoMdClose, IoMdCheckmark , IoMdHeartEmpty  } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 import './fixed.css';
 
-import ColorThief from 'colorthief';
 import Progress from '../Kit/Progress';
 
 import gsap from "gsap";

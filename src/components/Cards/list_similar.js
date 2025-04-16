@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react"
-import { Column, Label,  Row, } from "../../themes/global"
+import { Column, Label,  Row, } from "../../../old/themes/global"
 import { useRouter } from 'next/navigation'
 import './list.css'
 import Skeleton from "../Loading"

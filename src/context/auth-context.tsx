@@ -15,8 +15,9 @@ type AuthContextType = {
   login: (email: string, password: string) => Promise<void>
   logout: () => void
 }
+import { loginUser } from '../api/user/index';
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
+export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
@@ -33,23 +34,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     setLoading(true)
-
-    // Exemplo de chamada para o backend (substitua pela sua API real)
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    })
-
-    if (!response.ok) {
+    try {
+      const data = await loginUser({ email, password })
+      console.log(data)
+      setUser(data.user)
+      localStorage.setItem('user', JSON.stringify(data.user))
+    } catch (error) {
+      
+    } finally{
       setLoading(false)
-      throw new Error('Falha no login')
     }
-
-    const data = await response.json()
-    setUser(data.user)
-    localStorage.setItem('user', JSON.stringify(data.user))
-    setLoading(false)
   }
 
   const logout = () => {

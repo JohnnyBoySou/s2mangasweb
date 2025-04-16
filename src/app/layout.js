@@ -1,7 +1,7 @@
 
 import React from "react"
 import ThemeClient from "./page"
-import { Column, Row } from "../themes/global"
+import { Column, Row } from "../../old/themes/global"
 import Header from '../components/Header'
 import Fixed from '../components/Fixed'
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -22,24 +22,24 @@ import { AuthProvider } from "@/context/auth-context"
 
 export default function RootLayout({ children }) {
 
-  const fixed = true  
+  const fixed = true
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
       <ThemeClient>
-      <StyledComponentsRegistry>
-      <body  style={{ overflow: 'hidden', }} >
-      <AuthProvider>
-      <Row>
-        <Header />
-        <Column style={{width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight:12,}}>
-          {children}
-        </Column>
-         <SpeedInsights />
-        {fixed && <Fixed /> }
-      </Row>
-      </AuthProvider>
-      </body>
-      </StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <body style={{ overflow: 'hidden', }} >
+            <AuthProvider>
+              <Row>
+                <Header />
+                <Column style={{ width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight: 12, }}>
+                  {children}
+                </Column>
+                <SpeedInsights />
+                {fixed && <Fixed />}
+              </Row>
+            </AuthProvider>
+          </body>
+        </StyledComponentsRegistry>
 
       </ThemeClient>
     </html>

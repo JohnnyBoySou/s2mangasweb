@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, {memo} from 'react'
-import { Column, Label, Title, Row, } from "../../themes/global"
+import { Column, Label, Title, Row, } from "../../../old/themes/global"
 import { useRouter } from 'next/navigation'
 import './list.css'
 

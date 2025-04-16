@@ -1,11 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Column, Row, Title, Label, ButtonOff } from '../../themes/global';
+import { Column, Row, Title, Label, ButtonOff } from '../../../old/themes/global';
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { LuBell } from "react-icons/lu";
 import Link from 'next/link'
 import './nav.css';
-import { getPreferences } from '../../requests/user/requests';
+import { getPreferences } from '../../../old/requests/user/requests';
 import Image from 'next/image';
 import { usePathname } from "next/navigation";
 

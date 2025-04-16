@@ -1,7 +1,7 @@
 import React from 'react';
-import { Column, Row, Title, Label, ButtonPrimaryLight, } from '../../themes/global';
+import { Column, Row, Title, Label, ButtonPrimaryLight, } from '../../../old/themes/global';
 
-import comments from './../../requests/comments/request';
+import comments from '../../../old/requests/comments/request';
 import Image from 'next/image';
 import './style.css';
 import { GoStarFill, GoStar } from "react-icons/go";
