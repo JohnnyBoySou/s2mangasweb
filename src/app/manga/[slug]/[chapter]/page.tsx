@@ -1,114 +1,198 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { Column, Row, Title, Label, BTIcon, ButtonOff, ButtonPrimaryLight, } from '../../../../../old/themes/global';
-import Image from 'next/image';
-import { IoIosArrowDown, IoIosArrowUp, IoIosClose, IoIosSettings, } from "react-icons/io";
+"use client";
+import React, { useEffect, useState } from "react";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
-import Link from 'next/link'
-import './chapter.css'
-import { getPages } from 'old/requests/api/getPages';
+import Link from "next/link";
+import "./chapter.css";
+import { Column, Row, Title, Label, Image, Button, Skeleton } from "@/ui";
+import { useParams } from "next/navigation";
+import { listPages } from "@/api/manga";
+import { useQuery } from "@tanstack/react-query";
+import { ChapterPagesResponse } from "@/types/manga";
 
 export default function ChapterDetails({ params }) {
-  const { id, chapter } = params
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
-  const [item, setItem] = useState();
-  const [prev, setprev] = useState();
-  const [next, setnext] = useState();
-
-  useEffect(() => {
-    const requestData = async () => {
-      try {
-        getPages(chapter, id).then(res => {
-          setItem(res)
-          setprev(res.prev)
-          setnext(res.next)
-          setError(null)
-          setLoading(false)
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    requestData()
-  }, [id, chapter])
-
-
-  const colors = ["#ED274A", '#6699ff', '#FF620A', '#27AE60', '#3454D1', '#F7F7F7', '#000000',]
-  const ListColor = ({ c }) => {
-    return (
-      <Column className='clr' onClick={() => setFilterColor(c)} style={{ width: 34, border: filterColor === c ? '2px solid #fff' : '´2x solid #00000000', height: 34, borderRadius: 100, backgroundColor: c, }} />
-    )
-  }
-
-  const [filterOption, setFilterOption] = useState(false);
-  const [flowOption, setFlowOption] = useState(false);
-  const [flowDate, setFlowDate] = useState({
-    img: '',
-    name: id,
-    chapter: chapter,
+  const { slug, chapter } = useParams() as { slug: string, chapter: string };
+  const { data, isLoading, isError } = useQuery<ChapterPagesResponse>({
+    queryKey: ["pages" + chapter],
+    queryFn: () => listPages(chapter),
   });
-  const [filterColor, setFilterColor] = useState("#f7f7f7");
-  const [filterOpacity, setFilterOpacity] = useState(0.05);
 
-  const [optionShow, setOptionShow] = useState(false);
-  const [searchChapter, setSearchChapter] = useState();
-  const nextChapter = parseInt(chapter) + 1;
-  const previousChapter = parseInt(chapter) - 1;
-
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />;
 
   return (
-    <Column style={{ background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`, position: 'relative', alignItems: 'center', overflowX: 'hidden', overflowY: 'auto', borderRadius: 12, }} >
-      {!loading ? <>
-        {item?.pages?.map((item, index) =>
-          <Column key={index} style={{ position: 'relative' }}>
-            <Column style={{ backgroundColor: filterColor, position: 'absolute', top: 0, opacity: filterOpacity, zIndex: 99, width: '100%', height: '100%' }} />
-            <img alt="manga page" priority={true} width={500} height={700} className='page fadeInDown'
-              style={{ objectFit: 'contain', backgroundColor: filterColor, width: '100%', height: '100%' }}
-              src={item} />
-          </Column>
-        )}
-
-        <Row style={{ position: 'fixed', alignItems: 'center', justifyContent: 'center', bottom: 70, left: 150, zIndex: 999, backgroundColor: "#303030", padding: 10, borderRadius: 100, }}>
-
-          <Row>
-
-            <Link href={`${prev?.id}`} style={{ textDecoration: 'none', color: "#fff", opacity: prev?.id == undefined ? 0.5 : 1, pointerEvents: prev?.id == undefined ? 'none' : 'auto'  }}>
-              <Row className='btnext'>
-                <GoArrowLeft />
-              </Row>
-            </Link>
-            <Column style={{ width: 10, height: 20, }} />
-            <Link href={`${next?.id}`} style={{ textDecoration: 'none', color: "#fff", opacity: next?.id == undefined ? 0.5 : 1, pointerEvents: next?.id == undefined ? 'none' : 'auto' }}>
-              <Row className='btnext'>
-                <GoArrowRight />
-              </Row>
-            </Link>
-
-          </Row>
-
-        </Row>
-      </>
-        :
-        <Column style={{ alignSelf: 'center', height: '100vh', paddingTop: 100, borderRadius: 12, alignItems: 'center', }}>
-          <Image alt="manga page" width={300} height={450} style={{ objectFit: 'cover', backgroundColor: filterColor, transform: 'rotate(12deg)', borderRadius: 12, }} src="https://i.pinimg.com/564x/1e/9b/bc/1e9bbcd802874129776a08f548b39b65.jpg" />
-          <Title style={{ fontSize: 52, color: '#f7f7f7', marginTop: 50, }}>Gerando páginas..</Title>
-          <Label style={{ width: 400, textAlign: 'center' }}>Aguarde um momento, estamos gerando as páginas do capítulo. Isso leva em torno de 15seg, dependendo da velocidade de sua internet.</Label>
-          <Column className='loader' />
+    <Column
+      style={{
+        background: `linear-gradient(-145deg, #282828 10%, #171717 50%)`,
+        position: "relative",
+        alignItems: "center",
+        overflowX: "hidden",
+        overflowY: "auto",
+        borderRadius: 12,
+      }}
+    >
+      {data?.pages?.map((item: string) => (
+        <Column key={item} style={{ position: "relative" }}>
+          <Image
+            alt="manga page"
+            w={500}
+            h={700}
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+            }}
+            src={item}
+          />
         </Column>
-      }
-
-      {error && <Column style={{ marginTop: 100, marginBottom: 200, flex: 1, }}>
-        <Image alt="manga page" width={300} height={450} style={{ objectFit: 'cover', alignSelf: 'center', backgroundColor: filterColor, transform: 'rotate(12deg)', borderRadius: 12, }} src="https://i.pinimg.com/564x/e9/91/c7/e991c73a6ed49d9ac163fb4025bd666f.jpg" />
-        <Title style={{ fontSize: 52, color: '#f7f7f7', marginTop: 50, }}>Ocorreu um erro</Title>
-        <Label style={{ width: 400, textAlign: 'center', marginBottom: 30, }}>Tivemos um problema em gerar as páginas do capítulo.</Label>
-        <ButtonPrimaryLight>Voltar ao mangá</ButtonPrimaryLight>
-      </Column>}
+      ))}
     </Column>
-  )
+  );
 }
 
+const Loading = () => {
+  return (
+    <Column
+      style={{
+        alignSelf: "center",
+        height: "100vh",
+        paddingTop: 100,
+        borderRadius: 12,
+        alignItems: "center",
+      }}
+    >
+      <Image
+        alt="manga page"
+        w={300}
+        h={450}
+        style={{
+          objectFit: "cover",
+          transform: "rotate(12deg)",
+          borderRadius: 12,
+        }}
+        src="https://i.pinimg.com/564x/1e/9b/bc/1e9bbcd802874129776a08f548b39b65.jpg"
+      />
+      <Title style={{ fontSize: 52, color: "#f7f7f7", marginTop: 50 }}>
+        Gerando páginas..
+      </Title>
+      <Label style={{ width: 400, textAlign: "center" }}>
+        Aguarde um momento, estamos gerando as páginas do capítulo. Isso leva em
+        torno de 15seg, dependendo da velocidade de sua internet.
+      </Label>
+    </Column>
+  );
+};
+
+const Error = () => {
+  return (
+    <Column style={{ marginTop: 100, marginBottom: 200, flex: 1 }}>
+      <Image
+        alt="manga page"
+        w={300}
+        h={450}
+        style={{
+          objectFit: "cover",
+          alignSelf: "center",
+          transform: "rotate(12deg)",
+          borderRadius: 12,
+        }}
+        src="https://i.pinimg.com/564x/e9/91/c7/e991c73a6ed49d9ac163fb4025bd666f.jpg"
+      />
+      <Title style={{ fontSize: 52, color: "#f7f7f7", marginTop: 50 }}>
+        Ocorreu um erro
+      </Title>
+      <Label style={{ width: 400, textAlign: "center", marginBottom: 30 }}>
+        Tivemos um problema em gerar as páginas do capítulo.
+      </Label>
+      <Button label="Voltar ao mangá" />
+    </Column>
+  );
+};
+
 /**
+ * const Navigation = () => {
+  return (
+    <Row
+      style={{
+        position: "fixed",
+        alignItems: "center",
+        justifyContent: "center",
+        bottom: 70,
+        left: 150,
+        zIndex: 999,
+        backgroundColor: "#303030",
+        padding: 10,
+        borderRadius: 100,
+      }}
+    >
+      <Link
+        href={`${prev?.id}`}
+        style={{
+          textDecoration: "none",
+          color: "#fff",
+          opacity: prev?.id == undefined ? 0.5 : 1,
+          pointerEvents: prev?.id == undefined ? "none" : "auto",
+        }}
+      >
+        <Row className="btnext">
+          <GoArrowLeft />
+        </Row>
+      </Link>
+      <Column style={{ width: 10, height: 20 }} />
+      <Link
+        href={`${next?.id}`}
+        style={{
+          textDecoration: "none",
+          color: "#fff",
+          opacity: next?.id == undefined ? 0.5 : 1,
+          pointerEvents: next?.id == undefined ? "none" : "auto",
+        }}
+      >
+        <Row className="btnext">
+          <GoArrowRight />
+        </Row>
+      </Link>
+    </Row>
+  );
+};
+ *   const colors = [
+    "#ED274A",
+    "#6699ff",
+    "#FF620A",
+    "#27AE60",
+    "#3454D1",
+    "#F7F7F7",
+    "#000000",
+  ];
+  const ListColor = ({ c }) => {
+    return (
+      <Column
+        className="clr"
+        onPress={() => setFilterColor(c)}
+        style={{
+          width: 34,
+          border: filterColor === c ? "2px solid #fff" : "´2x solid #00000000",
+          height: 34,
+          borderRadius: 100,
+          backgroundColor: c,
+        }}
+      />
+    );
+  };
+
+  const [filterOption, setFilterOption] = useState(false);
+  const [filterColor, setFilterColor] = useState("#f7f7f7");
+  const [filterOpacity, setFilterOpacity] = useState(0.05);
+ * <Column
+                style={{
+                  backgroundColor: filterColor,
+                  position: "absolute",
+                  top: 0,
+                  opacity: filterOpacity,
+                  zIndex: 99,
+                  width: "100%",
+                  height: "100%",
+                }}
+              /><></></Column>
            <IoIosSettings  onClick={() => setOptionShow(!optionShow)} style={{color: '#fff', fontSize: 32,}}/>
  * 
         <IoIosSettings  onClick={() => setOptionShow(!optionShow)} 

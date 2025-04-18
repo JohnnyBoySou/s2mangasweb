@@ -8,6 +8,8 @@ interface ImageProps {
   r?: number;
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   style?: React.CSSProperties;
+  alt?: string;
+  resize?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 }
 
 const Image: React.FC<ImageProps> = ({
@@ -16,7 +18,8 @@ const Image: React.FC<ImageProps> = ({
   h = 0,
   r = 0,
   align = 'center',
-  style,
+  style, resize = 'cover',
+  alt = '',
 }) => {
   if (!src) return null;
 
@@ -36,8 +39,8 @@ const Image: React.FC<ImageProps> = ({
         src={src}
         width={w}
         height={h}
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        alt=""
+        style={{ width: '100%', height: '100%', objectFit: resize, borderRadius: r }}
+        alt={alt}
       />
     </div>
   );

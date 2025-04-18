@@ -36,7 +36,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true)
     try {
       const data = await loginUser({ email, password })
-      console.log(data)
       setUser(data.user)
       localStorage.setItem('user', JSON.stringify(data.user))
     } catch (error) {

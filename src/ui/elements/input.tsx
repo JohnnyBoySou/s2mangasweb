@@ -27,7 +27,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       padding: '12px 16px',
       fontSize: 18,
       color: '#fff',
-      backgroundColor: 'transparent',
+      backgroundColor: '#404040',
       border: `2px solid ${focus ? '#fff' : '#303030'}`,
       borderRadius: 6,
       outline: 'none',

@@ -23,7 +23,7 @@ interface TextComponentProps extends StyleProps {
 const getStyle = ({
   size = 16,
   align = 'left',
-  color = '#000',
+  color = '#fff',
   mh,
   mv,
   mb,
@@ -51,7 +51,6 @@ const getStyle = ({
     fontSize: size,
     textAlign: align,
     color,
-    lineHeight: line ?? size * 1.4,
     letterSpacing: spacing,
     fontFamily,
     ...marginStyle,
@@ -72,19 +71,19 @@ export const HeadTitle = (props: TextComponentProps) => {
 
 export const Title = (props: TextComponentProps) => {
   return (
-    <h2
-      style={getStyle({ ...props })}
+    <span
+      style={getStyle({ ...props, size: props.size ?? 28, color: props.color ?? '#fff', fontFamily: props.fontFamily ?? 'Bold' })}
       aria-label={props.children?.toString()}
     >
       {props?.children}
-    </h2>
+    </span>
   );
 };
 
 export const Label = (props: TextComponentProps) => {
   return (
     <span
-      style={getStyle({ ...props })}
+      style={getStyle({ ...props, color: props.color ?? '#d1d1d1', size: props.size ?? 12 })}
       aria-label={props.children?.toString()}
     >
       {props.children}

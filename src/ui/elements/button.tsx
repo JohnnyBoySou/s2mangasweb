@@ -26,9 +26,9 @@ const Button: React.FC<ButtonProps> = ({
     flexDirection: 'row' as const,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 18,
+    borderRadius: 100,
     height: 48,
-    padding: '0 16px',
+    padding: '0 20px',
     border: 'none',
     cursor: 'pointer',
     fontFamily: 'Bold',
@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
     ...(variant === 'secondary' && { backgroundColor: '#f0f0f0', color: '#333' }),
     ...(variant === 'destructive' && { backgroundColor: '#ff4d4d', color: '#fff' }),
     ...(variant === 'ghost' && { backgroundColor: '#303030', color: '#f1f1f1' }),
-    ...(variant === 'link' && { backgroundColor: 'transparent', color: '#007bff' }),
+    ...(variant === 'link' && { backgroundColor: 'transparent', color: '#fff', borderBottom: '1px solid #fff', }),
     ...(variant === 'outline' && {
       backgroundColor: 'transparent',
       border: '1px solid #fff',
@@ -58,6 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     letterSpacing: -0.2,
     textAlign: 'center' as const,
     fontFamily: 'Bold',
+    ...(variant === 'ghost' && { fontSize: 14 }),
     ...textStyle,
   };
 
@@ -69,7 +70,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled || loading}
     >
       {loading ? (
-        <span style={{ fontSize: 14 }}>Loading...</span>
+        <span style={{ fontSize: 14 }}>Carregando...</span>
       ) : (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {icon && <div style={{ marginRight: 6 }}>{icon}</div>}

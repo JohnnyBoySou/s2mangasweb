@@ -19,6 +19,7 @@ interface LayoutProps {
   pv?: number;
   gv?: number;
   gh?: number;
+  className?: string;
 }
 
 const getSpacingStyle = (props: LayoutProps): React.CSSProperties => {
@@ -59,6 +60,7 @@ const Column: React.FC<LayoutProps> = (props) => {
     align = 'stretch',
     gv,
     gh,
+    className = "",
   } = props;
 
   return (
@@ -73,6 +75,7 @@ const Column: React.FC<LayoutProps> = (props) => {
         ...getSpacingStyle(props),
         ...style,
       }}
+      className={className}
     >
       {children}
     </div>
@@ -109,7 +112,7 @@ const Row: React.FC<LayoutProps> = (props) => {
 
 const Main: React.FC<{ children: React.ReactNode; style?: React.CSSProperties }> = ({ children, style = {} }) => {
   return (
-    <div style={{ flex: 1, backgroundColor: '#262626', paddingTop: 20, minHeight: '100vh', ...style }}>
+    <div style={{ flex: 1, overflowY: 'visible', overflowX: 'hidden', minHeight: '100vh', background: `radial-gradient(circle, #202020, #171717)`,  ...style }}>
       {children}
     </div>
   );

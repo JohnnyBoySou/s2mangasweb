@@ -7,10 +7,23 @@ import { IoClose } from "react-icons/io5";
 import { createCollection, excludeAllCollections, getCollections } from '../../../old/requests/collections/request';
 import Loader from '../../components/Loader';
 import Image from 'next/image';
-
+import { listCollections } from '@/api/collection';
+import { useQuery } from '@tanstack/react-query';
+import { addCollection } from '../../api/collection/index';
 
 export default function Collections() {
-    function formatarData(data) {  const meses = [  'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ];  const dia = data.getDate();const mes = meses[data.getMonth()];const ano = data.getFullYear();  return `${dia} de ${mes}, ${ano}`;}
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["collections"],
+    queryFn: listCollections,
+  });
+
+  console.log(data)
+
+//  if (isLoading) return <Loading />;
+//  if (isError) return <Error />;
+
+
     const [collections, setCollections] = useState([]);
     const [name, setName] = useState();
     const [icon, setIcon] = useState();
@@ -37,36 +50,11 @@ export default function Collections() {
         '🤲', '🤝', '🙏', '✍️', '💪'
     ];
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const collections = await getCollections();
-            setCollections(collections);
-        };
-        fetchData();
-    }, [loading]);
 
-    const newCollection = {
-        id: Math.floor(Math.random() * 1000),
-        name: name,
-        icon: icon,
-        color: color,
-        mangas_ids: [],
-        date: formatarData(new Date()),
-      };
+   
 
     const [modal, setModal] = useState(false);
-    const handleNew = async () => {
-        setLoading(true)
-        try {
-            const response = await createCollection(newCollection);
-            if(response){
-                setLoading(false)
-                setModal(!modal);
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    
     const excludeAll = () => {
       try {
         const response = excludeAllCollections();
@@ -116,7 +104,28 @@ export default function Collections() {
 
 
 
-            {modal &&
+            
+        </Column>
+    )
+}
+
+
+const AddCollection = (params) => {
+
+    const handleNew = async () => {
+        setLoading(true)
+        try {
+            const response = await createCollection();
+            if(response){
+                setLoading(false)
+                setModal(!modal);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
+    return(
             <Column className='fadeInUp' style={{width: '100%', borderRadius: 12, height: '100%', backgroundColor: "#00000090" , position: 'absolute', top: 0, left: 0, zIndex: 99,}}>
                 <Column style={{width: 600, borderRadius: 12,  padding: 24, backgroundColor: "#262626" , position: 'absolute', top: 100, alignSelf: 'center', zIndex: 99,}}>
                     <Row style={{justifyContent: 'space-between', alignItems: 'center',  }}>
@@ -147,7 +156,5 @@ export default function Collections() {
                     <Column style={{width: 80, height: 10, backgroundColor: '#606060', borderRadius: 100, alignSelf: 'center', marginTop: 20,}}/>
                 </Column>
             </Column>
-            }
-        </Column>
     )
 }

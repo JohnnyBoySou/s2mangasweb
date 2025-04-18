@@ -3,9 +3,7 @@ import React from "react"
 import ThemeClient from "./page"
 import { Column, Row } from "../../old/themes/global"
 import Header from '../components/Header'
-import Fixed from '../components/Fixed'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import NavBar from "../components/NavBar"
 
 export const metadata = {
   title: 'S2Mangás',
@@ -16,31 +14,27 @@ export const metadata = {
   publisher: 'S2Mangas Team',
 }
 
-import StyledComponentsRegistry from '../lib/registry'
 import { AuthProvider } from "@/context/auth-context"
-
-
+import QueryProvider from "@/utils/QueryProvider"
+import SideBar from "@/ui/components/SideBar"
 export default function RootLayout({ children }) {
 
-  const fixed = true
   return (
-    <html lang="pt-BR" suppressHydrationWarning={true}>
+    <html lang="pt-BR">
       <ThemeClient>
-        <StyledComponentsRegistry>
-          <body style={{ overflow: 'hidden', }} >
+        <body style={{ overflow: 'hidden', }} >
+          <QueryProvider>
             <AuthProvider>
               <Row>
-                <Header />
+                <SideBar />
                 <Column style={{ width: '100%', height: '97vh', overflow: 'hidden', backgroundColor: "#262626", borderRadius: 12, marginTop: 12, marginBottom: 0, marginRight: 12, }}>
                   {children}
                 </Column>
                 <SpeedInsights />
-                {fixed && <Fixed />}
               </Row>
             </AuthProvider>
-          </body>
-        </StyledComponentsRegistry>
-
+          </QueryProvider>
+        </body>
       </ThemeClient>
     </html>
   )
@@ -55,5 +49,3 @@ RootLayout.getLayoutProps = () => ({
     crossOrigin: "anonymous"
   }
 });
-
-//<NavBar/>

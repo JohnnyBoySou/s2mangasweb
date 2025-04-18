@@ -1,0 +1,16 @@
+.item-manga{
+    transition: linear .2s;
+    cursor: pointer;
+}
+.item-manga:hover{
+    background-color: #303030;
+}
+
+.item-chapter{
+    transition: linear .2s;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.item-chapter:hover{
+    background-color: #303030;
+}
