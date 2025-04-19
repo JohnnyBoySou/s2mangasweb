@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react"
 import { Column, Row, Label, Title, Button, Skeleton, Image, Main } from '@/ui'
 import './feed.css';
 import { useQueries } from '@tanstack/react-query'
-import { listMangasTop, listMangasNew, listMangasFeed, listMangasWeekend } from '../../api/manga/index';
+import { listMangasTop, listMangasNew, listMangasFeed, listMangasWeekend } from '../../../api/manga/index';
 import ListManga from "@/ui/components/List/manga";
 
 export default function Feed() {

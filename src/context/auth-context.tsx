@@ -6,7 +6,6 @@ type User = {
   id: string
   name: string
   email: string
-  // outros campos que você quiser
 }
 
 type AuthContextType = {
@@ -35,7 +34,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = async (email: string, password: string) => {
     setLoading(true)
     try {
-      const data = await loginUser({ email, password })
+      const data: any = await loginUser({ email, password })
       setUser(data.user)
       localStorage.setItem('user', JSON.stringify(data.user))
     } catch (error) {

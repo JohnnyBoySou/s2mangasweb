@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 interface Props {
     children: React.ReactNode;
-    query: string;
+    query?: string;
     variables?: Record<string, any>;
 }
 

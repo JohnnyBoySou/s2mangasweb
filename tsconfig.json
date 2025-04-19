@@ -42,7 +42,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/(private)/layout.js"  ],
   "exclude": [
     "node_modules"
   ]

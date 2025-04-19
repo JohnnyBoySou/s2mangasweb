@@ -1,0 +1,43 @@
+import { NextResponse, type NextRequest } from 'next/server';
+
+const publicRoutes = [
+    { path: "/signin", whenAuthenticated: "redirect" },
+    { path: "/signup", whenAuthenticated: "redirect" },
+    { path: "/home", whenAuthenticated: "next" },
+    { path: "/start", whenAuthenticated: "next" },
+] as const;
+
+const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = "/signin";
+
+export function middleware(request: NextRequest) {
+    const path = request.nextUrl.pathname;
+    const authHeader = request.headers.get('authorization');
+    const authToken = authHeader?.startsWith("Bearer ") ? authHeader.split(" ")[1] : null;
+    console.log(authToken)
+
+    const publicRoute = publicRoutes.find(route => route.path === path);
+    const isAuthenticated = Boolean(authToken);
+    const isPublicRoute = Boolean(publicRoute);
+    const shouldRedirectIfAuthenticated = publicRoute?.whenAuthenticated === "redirect";
+
+    // 🔒 1. Se não está autenticado e a rota é privada → redirecionar para signin
+    if (!isAuthenticated && !isPublicRoute) {
+        console.log("rota privada sem autenticação");
+        return NextResponse.redirect(new URL(REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE, request.url));
+    }
+
+    // 🔁 2. Se está autenticado e a rota pública exige redirecionamento → ir para /
+    if (isAuthenticated && shouldRedirectIfAuthenticated) {
+        console.log("rota pública com autenticação");
+        return NextResponse.redirect(new URL("/", request.url));
+    }
+
+    // ✅ 3. Deixar passar em todos os outros casos
+    return NextResponse.next();
+}
+
+export const config = {
+    matcher: [
+        '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    ],
+};

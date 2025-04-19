@@ -28,11 +28,7 @@ module.exports = {
   },
   async redirects() {
     return [
-      {
-        source: '/',
-        destination: '/start',
-        permanent: true,
-      },
+     
     ]
   },
   async headers() {
@@ -49,3 +45,25 @@ module.exports = {
     ]
   }
 }
+
+/*
+ {
+        source: '/',
+        destination: '/start',
+        permanent: true,
+      },
+      {
+        source: '/manga/:id',
+        destination: '/manga/:id/chapters',
+        permanent: true,
+      },
+      {
+        source: '/manga/:id/chapters',
+        destination: '/manga/:id/chapters',
+        permanent: true,
+      },
+      {
+        source: '/manga/:id/chapters/:chapterId',
+        destination: '/manga/:id/chapters/:chapterId',
+        permanent: true,
+      }, */

@@ -1,6 +1,5 @@
-import AppWrapper from "@/utils/AppWrapper";
-import React from "react"
 
+import React from "react"
 export const metadata = {
   title: 'S2Mangás',
   description: 'O seu leitor de mangás moderno.',
@@ -9,15 +8,11 @@ export const metadata = {
   creator: 'JohnnyBoy',
   publisher: 'S2Mangas Team',
 }
-
 export default function RootLayout({ children }) {
-
   return (
     <html lang="pt-BR">
       <body style={{ overflow: 'hidden', }} >
-        <AppWrapper>
-          {children}
-        </AppWrapper>
+        {children}
       </body>
     </html>
   )
