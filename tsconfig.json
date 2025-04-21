@@ -24,25 +24,51 @@
     "strictNullChecks": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
-      "@/api/*": ["src/api/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/components/*": ["src/components/*"],
-      "@/assets/*": ["src/assets/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/ui/*": ["src/ui/*"],
-      "@/imgs/*": ["public/imgs/*"],
-      "@/context/*": ["src/context/*"],
-      "@/translations/*": ["src/translations/*"],
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "@/api/*": [
+        "src/api/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/assets/*": [
+        "src/assets/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+      "@/ui/*": [
+        "src/ui/*"
+      ],
+      "@/imgs/*": [
+        "public/imgs/*"
+      ],
+      "@/context/*": [
+        "src/context/*"
+      ],
+      "@/translations/*": [
+        "src/translations/*"
+      ]
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/(private)/layout.js"  ],
+    "**/*.tsx",
+    "src/app/(private)/layout.js",
+    "src/ui/elements/button.test.js",
+    "src/ui/elements/input.test.js"
+  ],
   "exclude": [
     "node_modules"
   ]

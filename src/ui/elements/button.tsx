@@ -28,10 +28,10 @@ const Button: React.FC<ButtonProps> = ({
     justifyContent: 'center',
     borderRadius: 100,
     height: 48,
-    padding: '0 20px',
+    padding: '0 12px',
     border: 'none',
     cursor: 'pointer',
-    fontFamily: 'Bold',
+    fontFamily: 'Circular',
     ...(variant === 'default' && { backgroundColor: '#fff', color: '#000' }),
     ...(variant === 'secondary' && { backgroundColor: '#f0f0f0', color: '#333' }),
     ...(variant === 'destructive' && { backgroundColor: '#ff4d4d', color: '#fff' }),
@@ -56,8 +56,8 @@ const Button: React.FC<ButtonProps> = ({
   const baseTextStyle: React.CSSProperties = {
     fontSize: 16,
     letterSpacing: -0.2,
+    fontWeight: 500,
     textAlign: 'center' as const,
-    fontFamily: 'Bold',
     ...(variant === 'ghost' && { fontSize: 14 }),
     ...textStyle,
   };

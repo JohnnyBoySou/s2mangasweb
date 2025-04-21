@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Main, Column, Row, Title, Button } from "@/ui";
+import { Main, Column, Row, Title, Button, Label } from "@/ui";
 import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import Input from "@/ui/elements/input";
@@ -20,37 +20,37 @@ export default function LoginPage() {
     }
   };
 
+  const handleForgot = () => {
+    
+  }
+
   return (
     <Main style={{ justifyContent: "center", alignItems: "center" }}>
       <Row align="center">
         <Column
-          style={{ background: "#303030", borderRadius: 16, flex: 1 }}
-          gv={16}
+          style={{ borderRadius: 16, flex: 1 }}
+          gv={20}
           ph={16}
           pv={16}
         >
-          <Title>Entrar</Title>
+          <Title>Bem-vindo de volta!</Title>
           <Input
             type="email"
             placeholder="Email"
+            label="Email"
             value={email}
             setValue={setEmail}
           />
           <Input
             type="password"
+            label="Senha"
             placeholder="Senha"
             value={password}
             setValue={setPassword}
             pass={true}
           />
           <Button label="Entrar" onPress={handleLogin} />
-        </Column>
-        <Column style={{ background: "red", flex: 1 }}>
-          <Title>Não tem uma conta?</Title>
-          <Button
-            label="Registrar"
-            onPress={() => router.push("/auth/register")}
-          />
+          <Button variant="ghost" label="Esqueci a senha" onPress={handleForgot} />
         </Column>
       </Row>
     </Main>

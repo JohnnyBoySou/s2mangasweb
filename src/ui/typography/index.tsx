@@ -30,7 +30,7 @@ const getStyle = ({
   mt,
   mr,
   ml,
-  fontFamily = 'Book',
+  fontFamily = 'Circular',
   spacing = 0,
   line,
   style = {},
@@ -72,7 +72,7 @@ export const HeadTitle = (props: TextComponentProps) => {
 export const Title = (props: TextComponentProps) => {
   return (
     <span
-      style={getStyle({ ...props, size: props.size ?? 28, color: props.color ?? '#fff', fontFamily: props.fontFamily ?? 'Bold' })}
+      style={getStyle({ ...props, size: props.size ?? 28, color: props.color ?? '#fff',  })}
       aria-label={props.children?.toString()}
     >
       {props?.children}

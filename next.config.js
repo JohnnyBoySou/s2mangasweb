@@ -1,7 +1,5 @@
 module.exports = {
-  compiler: {
-    styledComponents: true,
-  },
+  
   images: {
     remotePatterns: [
       {
@@ -20,16 +18,7 @@ module.exports = {
         protocol: 'https',
         hostname: 'api.mangadex.org',
       },
-      {
-        protocol: 'https',
-        hostname: 'em-content.zobj.net',
-      },
     ],
-  },
-  async redirects() {
-    return [
-     
-    ]
   },
   async headers() {
     return [
