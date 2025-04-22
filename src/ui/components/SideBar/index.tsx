@@ -61,18 +61,18 @@ export default function SideBar() {
     <Column
       style={{
         height: "100vh",
-        width: openTab ? "400px" : "100px",
+        width: openTab ? "400px" : "70px",
         transition: ".2s linear",
         padding: 12,
       }}
     >
-      <Column style={{ backgroundColor: "#171717", borderRadius: 12 }} gv={12} pv={6} ph={6}>
+      <Column style={{ backgroundColor: "#171717", borderRadius: 12 }} pv={6} ph={6} justify="center" align="center">
         <Image
           src="/icon.png"
           alt="logo s2mangas"
           width={42}
           height={36}
-          style={{ objectFit: "cover", alignSelf: "center" }}
+          style={{ objectFit: "cover", alignSelf: "center", marginTop: 20, marginBottom: 24, }}
         />
         {links?.map((item: ItemLink, index: number) => (
           <Item item={item} key={index} />

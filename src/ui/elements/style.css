@@ -4,3 +4,11 @@
 .button:hover{
     background-color: #303030;
 }
+
+
+.icon-button{
+    transition: linear .2s;
+}
+.icon-button:hover{
+    background-color: #fff;
+}

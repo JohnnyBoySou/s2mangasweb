@@ -34,7 +34,7 @@ const circular = localFont({
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className={circular.className} >
+    <div className={circular.className}>
     <QueryProvider>
       <AuthProvider>
         {children}
@@ -42,6 +42,5 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
       </AuthProvider>
     </QueryProvider>
     </div>
-
   );
 }

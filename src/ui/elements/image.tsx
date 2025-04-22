@@ -39,7 +39,7 @@ const Image: React.FC<ImageProps> = ({
         src={src}
         width={w}
         height={h}
-        style={{ width: '100%', height: '100%', objectFit: resize, borderRadius: r }}
+        style={{ width: '100%', height: '100%', objectFit: resize, borderRadius: r, background: "#303030" }}
         alt={alt}
       />
     </div>

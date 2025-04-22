@@ -1,38 +1,34 @@
 import { fetchWithAuth, fetchWithAuthAndLang } from "../../hooks/api";
 import { getLang,  } from "../../hooks/translations";
-import { Manga, MangaDetails, ChapterResponse, ToggleParams, ChapterPagesResponse } from "@/types/manga";
+import { Manga, MangaDetails, ChapterResponse, ToggleParams, ChapterPagesResponse, PaginatedMangaResponse } from "@/types/manga";
 
-export const listMangasAll = async (page = 1): Promise<Manga[]> => {
-  const res = await fetchWithAuth(`/manga?page=${page}`, { method: "GET" }) as { data: Manga[] };
-  return (res as { data: Manga[] }).data;
+export const listMangasAll = async (page = 1, perPage = 20): Promise<PaginatedMangaResponse> => {
+  const res = await fetchWithAuthAndLang(`/manga?page=${page}`, { method: "GET" }) as { data: Manga[] };
+  return res as PaginatedMangaResponse;
 };
 
-export const listMangasWeekend = async (page = 1): Promise<Manga[]> => {
-  const language = await getLang();
-  const res = await fetchWithAuth(`/manga/weekend?page=${page}&lg=${language}`, { method: "GET" });
-  return (res as { data: Manga[] }).data;
+export const listMangasWeekend = async (page = 1, perPage = 20): Promise<PaginatedMangaResponse> => {
+  const res = await fetchWithAuthAndLang(`/manga/weekend?page=${page}&per_page=${perPage}`, { method: "GET" })  as { data: Manga[] };
+  return res as PaginatedMangaResponse;
 };
 
-export const listMangasTop = async (page = 1): Promise<Manga[]> => {
-  const language = await getLang();
-  const res = await fetchWithAuth(`/manga/top?page=${page}&lg=${language}`, { method: "GET" });
-  return (res as { data: Manga[] }).data;
+export const listMangasTop = async (page = 1, perPage = 20): Promise<PaginatedMangaResponse> => {
+  const res = await fetchWithAuthAndLang(`/manga/top?page=${page}&per_page=${perPage}`, { method: "GET" })  as { data: Manga[] };;
+  return res as PaginatedMangaResponse;
 };
 
-export const listMangasNew = async (page = 1): Promise<Manga[]> => {
-  const language = await getLang();
-  const res = await fetchWithAuth(`/manga/new?page=${page}&lg=${language}`, { method: "GET" });
-  return (res as { data: Manga[] }).data;
+export const listMangasNew = async (page = 1, perPage = 20): Promise<PaginatedMangaResponse> => {
+  const res = await fetchWithAuthAndLang(`/manga/new?page=${page}&per_page=${perPage}`, { method: "GET" })  as { data: Manga[] };;
+  return res as PaginatedMangaResponse;
 };
 
-export const listMangasFeed = async (page = 1): Promise<Manga[]> => {
-  const res = await fetchWithAuth(`/manga/feed?page=${page}`, { method: "GET" });
-  return (res as { data: Manga[] }).data;
+export const listMangasFeed = async (page = 1, perPage = 20): Promise<PaginatedMangaResponse> => {
+  const res = await fetchWithAuthAndLang(`/manga/feed?page=${page}&per_page=${perPage}`, { method: "GET" })  as { data: Manga[] };;
+  return res as PaginatedMangaResponse;
 };
 
 export const singleManga = async (id: string): Promise<MangaDetails> => {
-  const language = await getLang();
-  const res = await fetchWithAuthAndLang(`/manga/${id}&lg=${language}`, { method: "GET" }, true);
+  const res = await fetchWithAuthAndLang(`/manga/${id}`, { method: "GET" }, true);
   return res as MangaDetails;
 };
 
@@ -49,8 +45,8 @@ export const listChapters = async (
   return res as ChapterResponse;
 };
 
-export const searchManga = async (name: string, page: number): Promise<Manga[]> => {
-  const res = await fetchWithAuth(`/manga/search?name=${name}&page=${page}`, { method: "GET" });
+export const searchManga = async (name: string, page: number, perPage: number): Promise<Manga[]> => {
+  const res = await fetchWithAuthAndLang(`/manga/search?name=${name}&page=${page}&per_page=${perPage}`, { method: "GET" });
   return (res as { data: Manga[] }).data;
 };
 

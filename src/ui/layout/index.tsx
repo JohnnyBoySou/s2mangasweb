@@ -22,35 +22,47 @@ interface LayoutProps {
   className?: string;
 }
 
-const getSpacingStyle = (props: LayoutProps): React.CSSProperties => {
-  const {
-    mh, mv, mt, mb, ml, mr,
-    ph, pv, pt, pb, pl, pr,
-  } = props;
-
-  const marginStyle = mh !== undefined || mv !== undefined ? {
-    margin: `${mv ?? 0}px ${mh ?? 0}px`,
-  } : {
-    marginTop: mt,
-    marginBottom: mb,
-    marginLeft: ml,
-    marginRight: mr,
+  const getSpacingStyle = (props: LayoutProps): React.CSSProperties => {
+    const {
+      mh, mv, mt, mb, ml, mr,
+      ph, pv, pt, pb, pl, pr,
+    } = props;
+  
+    const marginStyle: React.CSSProperties = {
+      ...(mt !== undefined && { marginTop: mt }),
+      ...(mb !== undefined && { marginBottom: mb }),
+      ...(ml !== undefined && { marginLeft: ml }),
+      ...(mr !== undefined && { marginRight: mr }),
+      ...(mv !== undefined && {
+        marginTop: mv,
+        marginBottom: mv,
+      }),
+      ...(mh !== undefined && {
+        marginLeft: mh,
+        marginRight: mh,
+      }),
+    };
+  
+    const paddingStyle: React.CSSProperties = {
+      ...(pt !== undefined && { paddingTop: pt }),
+      ...(pb !== undefined && { paddingBottom: pb }),
+      ...(pl !== undefined && { paddingLeft: pl }),
+      ...(pr !== undefined && { paddingRight: pr }),
+      ...(pv !== undefined && {
+        paddingTop: pv,
+        paddingBottom: pv,
+      }),
+      ...(ph !== undefined && {
+        paddingLeft: ph,
+        paddingRight: ph,
+      }),
+    };
+  
+    return {
+      ...marginStyle,
+      ...paddingStyle,
+    };
   };
-
-  const paddingStyle = ph !== undefined || pv !== undefined ? {
-    padding: `${pv ?? 0}px ${ph ?? 0}px`,
-  } : {
-    paddingTop: pt,
-    paddingBottom: pb,
-    paddingLeft: pl,
-    paddingRight: pr,
-  };
-
-  return {
-    ...marginStyle,
-    ...paddingStyle,
-  };
-};
 
 const Column: React.FC<LayoutProps> = (props) => {
   const {

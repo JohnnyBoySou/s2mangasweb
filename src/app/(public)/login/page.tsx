@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth();
+  const [error, seterror] = useState();
   const router = useRouter();
 
   const handleLogin = async () => {
@@ -16,22 +17,22 @@ export default function LoginPage() {
       await login(email, password);
       router.push("/");
     } catch (error) {
+      seterror(error.message)
       console.error("Erro no login:", error);
+      return false;
     }
   };
 
-  const handleForgot = () => {
-    
-  }
+  const handleForgot = () => { return true};
 
   return (
-    <Main style={{ justifyContent: "center", alignItems: "center" }}>
-      <Row align="center">
+    <Main style={{ flex: 1, display: "flex" , justifyContent: "center", alignItems: "center", }}>
+      <Column justify="center" align="center">
         <Column
-          style={{ borderRadius: 16, flex: 1 }}
+          style={{ borderRadius: 16, flex: 1, border: "2px solid #303030" }}
           gv={20}
-          ph={16}
-          pv={16}
+          ph={56}
+          pv={56}
         >
           <Title>Bem-vindo de volta!</Title>
           <Input
@@ -49,10 +50,16 @@ export default function LoginPage() {
             setValue={setPassword}
             pass={true}
           />
+          {error && <Label>{error}</Label>}
+
           <Button label="Entrar" onPress={handleLogin} />
-          <Button variant="ghost" label="Esqueci a senha" onPress={handleForgot} />
+          <Button
+            variant="ghost"
+            label="Esqueci a senha"
+            onPress={handleForgot}
+          />
         </Column>
-      </Row>
+      </Column>
     </Main>
   );
 }

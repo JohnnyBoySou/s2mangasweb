@@ -6,6 +6,14 @@
     background-color: #303030;
 }
 
+.item-manga-list{
+    transition: linear .2s;
+    cursor: pointer;
+}
+.item-manga-list:hover{
+    background-color: #404040;
+}
+
 .item-chapter{
     transition: linear .2s;
     cursor: pointer;

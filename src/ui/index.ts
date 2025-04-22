@@ -21,8 +21,10 @@ import {
 import Button from "./elements/button";
 import Image from "./elements/image";
 import Skeleton from "./elements/skeleton";
+import IconButton from './elements/icon-button';
 
 export {
+    IconButton,
     Button,
     Image,
     Title,

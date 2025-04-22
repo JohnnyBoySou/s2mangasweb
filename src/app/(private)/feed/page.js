@@ -39,8 +39,6 @@ export default function Feed() {
     return <div>Erro ao carregar dados</div>;
   }
 
-  
-
   return (
     <Main>
       <ListManga data={top.data.slice(0, 10)} title='Top 10' />
